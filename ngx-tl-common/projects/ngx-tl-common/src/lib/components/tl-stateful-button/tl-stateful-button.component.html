@@ -1,0 +1,31 @@
+<div 
+  [class]="'tl-pushable ' + this.tlStyle + ' tl-col-dir tl-vert-center tl-hor-center tl-container-flex-block'"
+  [class.tl-round]="this.shape === 'round'"
+  [ngStyle]="{
+    'min-width': this.size + 'px',
+    'height': this.size + 'px',
+    'margin': this.margin + 'px'}"
+  (click)="$event.stopPropagation();this.onClickButton()">
+  
+  <!-- Content, standard mode -->
+  <tl-square-icon
+    *ngIf="this.status == -1"
+    [size]="this.size * 1/2"
+    [icon]="this.icon"
+    [color]="this.color">
+  </tl-square-icon>
+  
+  <!-- Content, loading mode, success and failure -->
+  <tl-spinner
+    *ngIf="this.status >= 0"
+    [size]="this.size * 2/5"
+    [loadingStatus]="this.status">
+  </tl-spinner>
+  
+</div>
+
+<div
+  class="button-label">
+  {{ this.label }}
+</div>
+

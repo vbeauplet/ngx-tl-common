@@ -1,0 +1,24 @@
+<tl-icon-miniature
+  [icon]="this.icon"
+  [size]="'tl-full'"
+  [tlStyle]="this.tlStyle"
+  [height]="this.miniatureHeight"
+  [bgColor]="this.dynamicBgColor">
+  
+  <tl-select
+    #innerSelect
+    [size]="'tl-full'"
+    [proposals]="this.proposals"
+    [initialSelectedProposal]="this.initialSelectedProposal"
+    [selectStyle]="this.selectStyle"
+    [placeholder]="this.placeholder"
+    [synchrone]="this.synchrone"
+    [synchroneFeedback]="this.synchroneFeedback"
+    [areProposalsLoading]="this.areProposalsLoading"
+    (unwrap)="this.unwrap.next()"
+    (selectProposal)="this.selectProposal.next($event);this.refreshBgColor();"
+    (selectProposalConfirmed)="this.selectProposalConfirmed.next($event);this.refreshBgColor();"
+    (reset)="this.reset.next();this.refreshBgColor();">
+  </tl-select>
+  
+</tl-icon-miniature>

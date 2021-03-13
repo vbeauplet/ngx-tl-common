@@ -1,0 +1,25 @@
+<!-- Miniature icon -->
+<div
+  [class]="this.bgColor + '-bg-element miniature-icon tl-col-dir tl-vert-center tl-flex-block'"
+  [ngStyle]="{
+    'width': this.height + 'px',
+    'height': this.height + 'px'}">
+    
+  <tl-square-icon
+    [icon]="this.icon"
+    [size]="3/5*this.height"
+    [color]="this.color">
+  </tl-square-icon>
+
+</div>
+
+<!-- Miniature content -->
+<div
+  class="miniature-content tl-col-dir tl-flex-block">
+  
+  <!--Custom content -->
+  <ng-content></ng-content>
+  
+</div>
+
+

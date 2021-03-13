@@ -1,0 +1,54 @@
+<!-- Display loader if card is loading -->
+<tl-loader
+  class="tl-xbig-margined"
+  *ngIf="this.isLoading">
+</tl-loader>
+
+<!-- Card body with custom content -->
+<div
+  *ngIf="!this.isLoading"
+  [ngStyle]="{
+    'padding': this.padding + 'px',
+    'padding-bottom': (this.title != '')?'20px':this.padding + 'px',
+    'height': (this.fixedHeight != -1)?this.fixedHeight + 'px':'unset'
+  }"
+  class="recipe-card-body tl-full tl-col-dir tl-hor-center tl-no-wrap tl-flex-block">
+  
+  <div
+    *ngIf="this.title != '' || this.activeIcons.length != 0"
+    class="card-header tl-big-bottom-margined tl-full tl-row-dir tl-vert-center tl-hor-space-between tl-flex-block">
+    
+    <!-- Header placeholder -->
+    <div
+      *ngIf="this.activeIcons.length != 0"
+      [ngStyle]="{
+        'width': this.activeIcons.length*50 + 40 + 'px'
+      }">
+    </div>
+    
+    <!-- Header title -->
+    <div
+      *ngIf="this.title != ''"
+      style="text-align:center;flex-grow:1"
+      class="tl-big-margined tl-big-content tl-title">
+      {{ this.title }}
+    </div>
+    
+    <!-- Header action center -->
+    <tl-action-center
+      *ngIf="this.activeIcons.length != 0"
+      [buttons]="this.activeIcons"
+      [buttonSize]="30"
+      [buttonMargin]="0"
+      [tlContainerNature]="true"
+      [tlStyle]="'tl-soft-transparent'"
+      [labelAsPopover]="true"
+      (clickButton)="this.onClickButton($event)">
+    </tl-action-center>
+    
+  </div>
+    
+  <ng-content></ng-content>
+  
+</div>
+ 

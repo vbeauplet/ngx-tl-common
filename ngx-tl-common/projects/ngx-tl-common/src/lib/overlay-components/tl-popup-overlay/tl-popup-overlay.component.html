@@ -1,0 +1,15 @@
+<tl-overlay
+  *ngIf="!this.notInDom"
+  class="popup-overlay"
+  [class.hidden]="this.hidden"
+  [bgColor]="'var(--sharp-transparent-bg-color)'">
+  <ng-content></ng-content>
+  
+  <tl-square-icon
+    style="cursor:pointer"
+    [icon]="'['"
+    [size]="60"
+    (click)="this.doUndisplay()">
+  </tl-square-icon>
+  
+</tl-overlay>

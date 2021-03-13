@@ -1,0 +1,23 @@
+<div 
+  [class]="this.tlStyle + ' tl-pushable tl-col-dir tl-vert-center tl-hor-center tl-container-flex-block'"
+  [class.tl-round]="this.shape === 'round'"
+  [ngStyle]="{
+    'min-width': this.size + 'px',
+    'height': this.size + 'px',
+    'margin': this.margin + 'px'}"
+  (click)="$event.stopPropagation();this.onClickButton()">
+  
+  <!-- Icon -->
+  <tl-square-icon
+    [size]="this.size * 1/2"
+    [icon]="this.icon"
+    [color]="this.color">
+  </tl-square-icon>
+  
+</div>
+
+<div
+  class="button-label">
+  {{ this.label }}
+</div>
+

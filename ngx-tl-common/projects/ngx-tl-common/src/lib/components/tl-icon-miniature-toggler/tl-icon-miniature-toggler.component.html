@@ -1,0 +1,31 @@
+<tl-icon-miniature
+  [icon]="(this.targetState)?this.icon:this.offIcon"
+  [size]="'tl-full'"
+  [tlStyle]="this.tlStyle"
+  [height]="this.miniatureHeight"
+  [bgColor]="this.dynamicBgColor">
+  
+  <div
+    class="miniature-toggler-container tl-full tl-row-dir tl-hor-space-between tl-vert-center tl-no-wrap tl-flex-block">
+    
+    <!-- Label -->
+    <div
+      class="miniature-toggler-label">
+      {{ this.label }}
+    </div>
+    
+    <!-- Toggler -->
+    <tl-toggler
+      #innerToggler
+      [initialState]="this.initialState"
+      [synchrone]="this.synchrone"
+      [synchroneFeedback]="this.synchroneFeedback"
+      (toggleOn)="this.toggleOn.next();this.refreshBgColor();"
+      (toggleOff)="this.toggleOff.next();this.refreshBgColor();"
+      (toggleOnConfirmed)="this.toggleOnConfirmed.next();this.refreshBgColor();"
+      (toggleOffConfirmed)="this.toggleOffConfirmed.next();this.refreshBgColor();">
+    </tl-toggler>
+    
+  </div>
+  
+</tl-icon-miniature>

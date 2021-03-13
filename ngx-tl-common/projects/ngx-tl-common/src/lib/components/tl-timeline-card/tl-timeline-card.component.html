@@ -1,0 +1,29 @@
+<div
+  class="timeline-dot"
+  [ngStyle]="{
+      'margin-left': (this.rowDirection)?'0px':'-15px',
+      'margin-top': (this.rowDirection)?'-15px':'0px',
+      'margin-right': (this.rowDirection)?'0px':'10px',
+      'margin-bottom': (this.rowDirection)?'10px':'0px'
+    }">
+</div>
+
+<div 
+  [class]="this.tlStyle + ' tl-full tl-row-dir tl-padded tl-container-flex-block'"
+  [class.tl-row-dir]="!this.rowDirection"
+  [class.tl-hor-left]="!this.rowDirection"
+  [class.tl-vert-center]="!this.rowDirection"
+  [class.tl-col-dir]="this.rowDirection"
+  [class.tl-hor-center]="this.rowDirection">
+
+  <div
+    class="timeline-date"
+    [ngStyle]="{
+        'width': this.dateWidth
+      }">
+    {{ this.date | tlDateAgo}}
+  </div>
+  
+  <ng-content></ng-content>
+
+</div>

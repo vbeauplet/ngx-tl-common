@@ -1,0 +1,68 @@
+<!-- Container for the submenu, if a submenu is unwrapped -->
+<div
+  *ngIf="this.menuService.unwrappedMenuItem !== null"
+  class="menu-subitem-container">
+  
+  <div
+    *ngFor="let subMenuItem of this.menuService.unwrappedMenuItem.subItems"
+    class="menu-subitem tl-row-dir tl-vert-center tl-hor-left tl-flex-block"
+    (click)="this.menuService.selectMenuItem(subMenuItem)">
+    
+    <tl-square-icon
+      [icon]="subMenuItem.icon"
+      [color]="(this.menuService.selectedMenuItem == subMenuItem)?'tl-outline':'tl-menu'"
+      [size]="25">
+    </tl-square-icon>
+    
+    <div
+      class="menu-subitem-label"
+      [class.tl-menu-content-element]="this.menuService.selectedMenuItem != subMenuItem"
+      [class.tl-outline-content-element]="this.menuService.selectedMenuItem == subMenuItem">
+      {{ subMenuItem.label }}
+    </div>
+    
+  </div>
+  
+</div>
+
+
+<!-- Container for the main menu item -->
+<nav
+  class="menu-item-container">
+  
+  <div
+    *ngFor="let menuItem of this.menuService.menuItems"
+    class="menu-item tl-col-dir tl-hor-center tl-flex-block"
+    (click)="this.menuService.selectMenuItem(menuItem)">
+    
+    <tl-square-icon
+      [icon]="menuItem.icon"
+      [color]="(this.menuService.selectedMenuItem == menuItem)?'tl-outline':'tl-menu'"
+      [size]="this.iconSize">
+    </tl-square-icon>
+    
+    <div
+      class="main-content-element menu-item-label"
+      [class.tl-menu-content-element]="this.menuService.selectedMenuItem != menuItem"
+      [class.tl-outline-content-element]="this.menuService.selectedMenuItem == menuItem">
+      {{ menuItem.label }}
+    </div>
+    
+    <div
+      *ngIf="menuItem.badgeNumber != undefined && menuItem.badgeNumber != 0"
+      class="menu-item-badge tl-round tl-col-dir tl-hor-center tl-vert-center tl-soft-transparent tl-outline-content-element tl-small-content tl-container-flex-block">
+      {{ menuItem.badgeNumber }}
+    </div>
+    
+  </div>
+  
+  <!-- Custom content -->
+  <div
+    style="flex-grow:1;justify-content:flex-end"
+    class="tl-full tl-hor-center tl-col-dir tl-flex-block">
+    
+    <ng-content></ng-content>
+    
+  </div>
+  
+</nav>

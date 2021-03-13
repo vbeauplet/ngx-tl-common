@@ -1,0 +1,18 @@
+<div id="hamburger" 
+  (click)="onClickHamburger()"
+  [ngClass]="{
+      'checked': this.status
+    }">
+  <div 
+    class="hamburger-slice"
+    [class.in-menu]="this.inMenu">
+  </div>
+  <div 
+    class="hamburger-slice"
+    [class.in-menu]="this.inMenu">
+  </div>
+  <div 
+    class="hamburger-slice"
+    [class.in-menu]="this.inMenu">
+  </div>
+</div>

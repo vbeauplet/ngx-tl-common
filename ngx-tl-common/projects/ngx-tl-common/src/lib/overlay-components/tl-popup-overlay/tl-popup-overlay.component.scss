@@ -1,0 +1,8 @@
+.popup-overlay{
+  opacity:1;
+  transition: opacity ease-in-out 300ms;
+}
+
+  .popup-overlay.hidden{
+    opacity:0;
+  }

@@ -1,0 +1,27 @@
+:host{
+  border-radius:0px!important;
+  flex-wrap:nowrap;
+  padding:10px;
+}
+  
+  :host.timeline-top{
+    border-top: solid var(--main-content-color) 2px;
+  }
+  
+  :host.timeline-left{
+    border-left: solid var(--main-content-color) 2px;
+  }
+
+
+.timeline-dot{
+  width:8px;
+  height:8px;
+  border-radius:4px;
+  background-color:var(--main-content-color);
+}
+
+.timeline-date{
+  padding-right:20px;
+  margin-right:20px;
+  border-right: solid var(--soft-content-color) 1px;
+}

@@ -1,0 +1,43 @@
+.stepper-step, .stepper-controls{  
+  flex-grow:1;
+}
+
+.stepper-step-dot{
+  border-radius:50%;
+  
+  margin-bottom:10px;
+  
+  user-select:none;
+  
+  background: linear-gradient(to right, var(--success-content-color) 50%, var(--element-bg-color) 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  
+  transition: background-position 0.7s ease-out;
+}
+
+  .stepper-step-dot.focus{
+    color: var(--outline-content-color)!important;
+  }
+  
+  .stepper-step-dot.seen{
+    color: var(--success-content-color);
+  }
+  
+  .stepper-step-dot.completed{
+    background-position: left bottom
+  }
+
+.stepper-line{
+  content:"";
+  flex-grow:1;
+  border-bottom: solid var(--soft-content-color) 1px;
+}
+
+  .stepper-line.masked{
+    border-bottom: solid transparent 1px;
+  }
+
+.stepper-step-label{
+  text-align:center;
+}

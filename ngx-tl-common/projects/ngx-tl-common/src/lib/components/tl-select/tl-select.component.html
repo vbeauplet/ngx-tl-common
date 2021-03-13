@@ -1,0 +1,84 @@
+<div
+  class="select-front tl-clickable tl-full tl-padded tl-row-dir tl-hor-space-between tl-vert-center tl-flex-block"
+  (click)="this.onClickFront()">
+  
+  <div
+    *ngIf="this.targetSelectedProposal != null"
+    class="proposal-text">
+    {{ this.targetSelectedProposal.name }}
+  </div>
+  
+  <div
+    *ngIf="this.targetSelectedProposal == null"
+    class="proposal-text"
+    style="color:var(--soft-content-color)">
+    {{ this.placeholder }}
+  </div>
+  
+  <div
+    style="width:20px"
+    class="tl-row-dir tl-hor-center tl-vert-center tl-flex-block">
+    
+    <tl-spinner
+      style="margin-right:5px"
+      [size]="15"
+      [loadingStatus]="this.feedbackLoadingStatus">
+    </tl-spinner>
+    
+  </div>
+  
+  <tl-square-icon
+    style="margin-right:5px"
+    [size]="20"
+    [icon]="'k'">
+  </tl-square-icon>
+  
+</div>
+
+<div
+  *ngIf="this.isSelecting"
+  [class]="'select-back tl-big-padded tl-col-dir ' + this.selectStyle + ' tl-container-flex-block'">
+  
+  <!-- 'None' selection; Resets the component if selected -->
+  <div
+    class="proposal tl-clickable tl-full tl-padded tl-row-dir tl-hor-space-between tl-vert-center tl-flex-block"
+    (click)="this.onReset()">
+    <div
+      class="proposal-text"
+      style="color:var(--soft-content-color)">
+      None
+    </div>
+  </div>
+  
+  <!-- Proposals -->
+  <div
+    *ngFor="let proposal of this.proposals"
+    class="proposal tl-clickable tl-full tl-padded tl-no-wrap tl-row-dir tl-hor-space-between tl-vert-center tl-flex-block"
+    [class.selected]="this.checkEquals(proposal, this.selectedProposal)"
+    (click)="this.onSelectProposal(proposal)">
+    
+    <!-- Icon, if any -->
+    <tl-square-icon
+      *ngIf="proposal.icon != undefined"
+      [size]="20"
+      [icon]="proposal.icon"
+      style="margin-right:10px">
+    </tl-square-icon>
+    
+    <!-- Label -->
+    <div
+      class="proposal-text">
+      {{ proposal.name }}
+    </div>
+    
+  </div>
+  
+  <!-- Spinner, in case proposals are loading -->
+  <tl-spinner
+    class="tl-margined"
+    *ngIf="this.areProposalsLoading">
+  </tl-spinner>
+  
+</div>
+  
+  

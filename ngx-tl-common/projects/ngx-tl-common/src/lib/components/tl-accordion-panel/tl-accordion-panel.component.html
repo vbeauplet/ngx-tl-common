@@ -1,0 +1,48 @@
+<!-- Accordion panel header (always visible line) -->
+<div
+  [ngStyle]="{
+      'height': this.headerSize + 'px'
+    }"
+  class="panel-header tl-full tl-hor-space-between tl-vert-center tl-row-dir tl-flex-block"
+  (click)="this.onClickHeader()">
+  
+  <!--Header content -->
+  <div
+    class="panel-header-content">
+    
+    <ng-content
+      select="[panelHeader]">
+    </ng-content>
+      
+  </div>
+  
+  <!-- Unwrap icon -->
+  <tl-square-icon
+    class="panel-expander-icon"
+    [class.panel-expanded]="!this.isWrapped"
+    [icon]="']'"
+    [size]="this.headerSize/2">
+  </tl-square-icon>
+  
+</div>
+
+<!-- Accordion panel hidden part -->
+<div
+  #panel
+  id="{{ this.uniquePanelId }}"
+  class="panel-content tl-full tl-col-dir tl-flex-block"
+  [ngStyle]="{
+      'height': this.contentHeight
+    }">
+    
+    <div
+      class="tl-full tl-col-dir tl-padded tl-flex-block">
+  
+      <ng-content
+        select="[panelContent]">
+      </ng-content>
+      
+    </div>
+  
+</div> 
+  

@@ -1,0 +1,17 @@
+<tl-square-icon
+  [size]="this.iconSize"
+  [icon]="this.icon"
+  [color]="this.color"
+  [ngStyle]="{
+    'margin': this.iconMargin + 'px'
+    }">
+</tl-square-icon>
+  
+<div
+  [class]="'indicator-text ' + this.color + '-content-element'"
+  [ngStyle]="{
+    'text-align': this.textAlign
+    }">
+  {{ this.text }}
+</div>
+

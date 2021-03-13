@@ -1,0 +1,58 @@
+<div
+  class="alert-container tl-hor-center tl-col-dir tl-flex-block">
+
+  <div
+    *ngFor="let alertEntry of this.alerts | keyvalue"
+    [class]="'alert ' + this.tlStyle + ' tl-big tl-padded tl-col-dir tl-hor-center tl-container-flex-block'"
+    [class.transitory]="alertEntry.value.transitory"
+    [class.warning]="alertEntry.key.severity == 2"
+    [class.error]="alertEntry.key.severity == 3">
+    
+    <!-- Close icon if this is not a decision alert -->
+    <tl-square-icon
+      *ngIf="alertEntry.key.proposals.length == 0"
+      class="alert-close-icon"
+      [icon]="'X'"
+      [size]="'20'"
+      (click)="this.undisplayAlert(alertEntry.key, this.ALERT_APPEARANCE_TRANSITION_TIME)">
+    </tl-square-icon>
+  
+    <!-- Custom content, to handle alerts with custom objects -->
+    <ng-container
+      *ngIf="
+        this.customObjectAlertTemplate !== undefined 
+        && alertEntry.key.customObject != null">
+      <ng-container
+        *ngTemplateOutlet="this.customObjectAlertTemplate;context: {
+            $implicit: alertEntry.key
+          }">
+      </ng-container>
+    </ng-container>
+  
+    <!-- General case with a message -->
+    <div
+      *ngIf="alertEntry.key.customObject == null"
+      class="alert-message"
+      [ngStyle]="{
+          'margin-bottom': (alertEntry.key.proposals.length != 0)?'15px':'0px'
+        }">
+      {{ alertEntry.key.message }}
+    </div>
+    
+    <!-- Proposal buttons -->
+    <div
+      class="alert-controls tl-row-dir tl-vert-center tl-flex-block">
+      
+      <tl-button
+        *ngFor="let proposal of alertEntry.key.proposals"
+        [icon]="proposal.icon"
+        [label]="proposal.label"
+        [color]="proposal.color"
+        (clickButton)="this.onClickProposal(alertEntry.key, proposal)">
+      </tl-button>
+      
+    </div>
+    
+  </div>
+
+</div>

@@ -1,0 +1,17 @@
+.proposal:hover, .proposal.selected{
+  background-color: var(--transparent-bg-color);
+}
+
+.proposal-text{
+  flex-grow:1;
+  text-align:center;
+}
+
+.select-back{
+  position:absolute;
+  z-index:10;
+  margin-top:50px;
+  padding-right:40px;
+  padding-left:40px;
+  margin-right:40px;
+}

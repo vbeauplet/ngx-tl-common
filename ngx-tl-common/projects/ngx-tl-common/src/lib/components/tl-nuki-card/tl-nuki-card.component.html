@@ -1,0 +1,53 @@
+<div
+  [class]="'nuki-inner-card tl-full ' + this.tlStyle + ' tl-col-dir tl-container-flex-block'">
+  
+   <!-- Card body -->
+  <div
+    *ngIf="!this.isLoading"
+    class="tl-full tl-col-dir tl-hor-center tl-flex-block">
+    
+    <!-- Rectangle to mask th bottom of the round head container block -->
+    <tl-shape-block
+      class="circle-mask"
+      [size]="'tl-near-full'"
+      [shape]="'square'">
+    </tl-shape-block>
+    
+    <!-- Head container of the nuki card -->
+    <div
+      [class]="'photo-container tl-half tl-round ' + this.tlStyle + ' tl-container-flex-block'">
+      
+      <tl-shape-block
+        [shape]="'round'"
+        [size]="'tl-full'">
+      </tl-shape-block>
+      
+    </div>
+    
+    <!-- Photo within the head of the card -->
+    <tl-shape-block
+      class="nuki-card-photo"
+      [size]="'tl-half'"
+      [shape]="'round'">
+      
+      <tl-active-image
+        [hasOverlay]="false"
+        [imageSrc]="this.imageSrc"
+        [size]="'tl-full'"
+        [shape]="'round'">
+      </tl-active-image>
+      
+    </tl-shape-block>
+    
+    <!-- Content of the card -->
+    <div
+      class="nuki-card-content tl-near-full tl-col-dir tl-hor-center tl-flex-block">
+    
+      <ng-content>
+      </ng-content>
+      
+    </div>
+    
+  </div>
+  
+</div>

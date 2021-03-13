@@ -1,0 +1,24 @@
+<div
+  *ngIf="this.title != ''"
+  class="tl-margined">
+  {{ this.title }}
+</div>
+
+<div
+  [class]="this.tlStyle + ' tl-full tl-col-dir tl-hor-left tl-container-flex-block'"
+  [ngStyle]="{
+      'height': this.height + 'px'
+    }">
+  <div
+    [class]="'inner-bar ' + this.color + '-bg-element'"
+    [ngStyle]="{
+        'width': this.current/this.total*100  + '%'
+      }">
+  </div>
+</div>
+
+<div
+  *ngIf="this.showProgressAsText">
+  {{ this.current }} / {{ this.total }}
+</div>
+  

@@ -1,0 +1,30 @@
+:host{
+  padding-left:15px;
+  padding-right:15px;
+}
+
+.panel-header{
+  cursor:pointer;
+}
+
+.panel-header-content{
+  flex-grow:1;
+}
+
+.panel-expander-icon{
+  transform:rotate(0deg);
+  transition:transform 200ms ease-in-out;
+}
+
+  .panel-expander-icon.panel-expanded{
+    transform:rotate(45deg);
+  }
+
+.panel-content{
+  border-radius:0px!important;
+  box-sizing:border-box;
+  
+  overflow:hidden;
+  
+  transition: height 300ms ease-in-out;
+}

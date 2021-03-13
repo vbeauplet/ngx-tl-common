@@ -1,0 +1,83 @@
+<tl-timeline-card
+  *ngFor="let alert of this.alertService.alerts.slice(0, this.limit)"
+  [size]="'tl-full'"
+  [date]="alert.date"
+  [tlStyle]="this.tlStyle">
+  
+  <div
+    class="tl-row-dir tl-hor-left tl-vert-center tl-no-wrap tl-flex-block">
+    
+    
+    <!-- Alert Icon -->
+    <ng-container
+      *ngIf="alert.proposals.length == 0">
+      
+      <tl-square-icon
+        *ngIf="alert.severity == 1"
+        style="margin-right:20px"
+        [icon]="'_'"
+        [color]="'tl-soft'"
+        [size]="30">
+      </tl-square-icon>
+      
+      <tl-square-icon
+        *ngIf="alert.severity == 2"
+        style="margin-right:20px"
+        [icon]="'c'"
+        [color]="'tl-neutral'"
+        [size]="30">
+      </tl-square-icon>
+      
+      <tl-square-icon
+        *ngIf="alert.severity == 3"
+        style="margin-right:20px"
+        [icon]="'^'"
+        [color]="'tl-failure'"
+        [size]="30">
+      </tl-square-icon>
+      
+    </ng-container>
+    
+    <ng-container
+      *ngIf="alert.proposals.length != 0">
+      
+      <tl-square-icon
+        *ngIf="alert.severity == 1"
+        style="margin-right:20px"
+        [icon]="'a'"
+        [color]="'tl-soft'"
+        [size]="30">
+      </tl-square-icon>
+      
+      <tl-square-icon
+        *ngIf="alert.severity == 2"
+        style="margin-right:20px"
+        [icon]="'a'"
+        [color]="'tl-neutral'"
+        [size]="30">
+      </tl-square-icon>
+      
+      <tl-square-icon
+        *ngIf="alert.severity == 3"
+        style="margin-right:20px"
+        [icon]="'a'"
+        [color]="'tl-failure'"
+        [size]="30">
+      </tl-square-icon>
+      
+    </ng-container>
+    
+    <!-- Alert message -->
+    <div
+      class="tl-col-dir tl-hor-left tl-flex-block">
+      {{ alert.message }}
+      <div
+        class="tl-top-margined"
+        *ngIf="alert.response != ''">
+        Response: {{ alert.response }}
+      </div>
+    </div>
+  
+  </div>
+   
+</tl-timeline-card>

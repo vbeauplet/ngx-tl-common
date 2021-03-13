@@ -1,0 +1,22 @@
+<tl-button
+  *ngFor="let namedIcon of this.buttons"
+  title="{{ namedIcon.label }}"
+  [ngStyle]="{
+      'margin': this.buttonMargin + 'px'
+    }"
+  [tlStyle]="this.buttonStyle"
+  [shape]="this.buttonShape"
+  [size]="this.buttonSize"
+  [icon]="namedIcon.icon"
+  [label]="(namedIcon.label != undefined && !this.labelAsPopover)?namedIcon.label:''"
+  [labelPosition]="(this.direction == 'column')?'right':'bottom'"
+  (clickButton)="this.onClickButton(namedIcon)">
+</tl-button>
+
+<tl-spinner
+  *ngIf="this.loadingStatus != -1"
+  [loadingStatus]="this.loadingStatus"
+  [ngStyle]="{
+      'margin': this.buttonMargin + 'px'
+    }">
+</tl-spinner>

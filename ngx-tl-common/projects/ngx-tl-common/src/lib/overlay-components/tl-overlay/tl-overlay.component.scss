@@ -1,0 +1,19 @@
+:host{
+  z-index:1000;
+  
+  position:fixed;
+  
+  top:0px;
+  bottom:0px;
+  left:0px;
+  right:0px;
+  
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+.overlay-content-container{
+  position:absolute;
+  min-height:100%;
+  width:100%;
+}

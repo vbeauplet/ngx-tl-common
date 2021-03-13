@@ -1,0 +1,13 @@
+.miniature-content{
+  min-width:0px;
+  flex-grow:1;
+}
+
+.user-miniature-pseudo {
+  max-width:90%;
+  font-size:12px;
+  
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+}
