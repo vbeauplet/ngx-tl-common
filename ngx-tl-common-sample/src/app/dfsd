@@ -1,0 +1,21 @@
+&lt;tl-stepper
+  [size]=&quot;&apos;tl-half&apos;&quot;
+  [initialSteps]=&quot;[
+    &#123;
+      name: &apos;init&apos;,
+      label: &apos;INIT&apos;
+    &#125;,
+    &#123;
+      name: &apos;running&apos;,
+      label: &apos;RUNNING&apos;
+    &#125;,
+    &#123;
+      name: &apos;processing&apos;,
+      label: &apos;PROCESSING&apos;
+    &#125;,
+    &#123;
+      name: &apos;ending&apos;,
+      label: &apos;ENDING&apos;
+    &#125;
+  ]&quot;&gt;
+&lt;/tl-stepper&gt;

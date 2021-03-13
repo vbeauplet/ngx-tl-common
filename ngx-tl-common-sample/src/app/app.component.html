@@ -1,0 +1,76 @@
+<tl-search-menu>
+</tl-search-menu>
+
+<tl-toggler>
+</tl-toggler>
+
+<tl-square-icon
+  [icon]="'c'">
+</tl-square-icon>
+
+<tl-stepper
+  [size]="'tl-half'"
+  [initialSteps]="[
+    {
+      name: 'init',
+      label: 'INIT'
+    },
+    {
+      name: 'running',
+      label: 'RUNNING'
+    },
+    {
+      name: 'processing',
+      label: 'PROCESSING'
+    },
+    {
+      name: 'ending',
+      label: 'ENDING'
+    }
+  ]">
+</tl-stepper>
+
+
+<pre>
+  <code
+    class="tl-half"
+    [highlight]="this.code" 
+    [languages]="['html']">
+  </code>
+</pre>
+
+<div
+  class="toto tl-glassmorphic">
+  
+</div>
+
+
+<tl-tree-to
+  [size]="'tl-half'"
+  [data]="this.menuService.menuItems"
+  [searchFieldName]="'label'"
+  [selectionFieldName]="'label'"
+  [nestedItemsFieldName]="'subItems'"
+  [selectionValue]="'tl-toto'"
+  [hasHeaderRow]="false"
+  [columns]="[
+      {
+        fieldName: 'label',
+        title: 'Item',
+        size: 2,
+        editable: false
+      },
+      {
+        fieldName: 'id',
+        title: 'Id',
+        size: 2,
+        editable: false
+      },
+      {
+        fieldName: 'icon',
+        title: 'Icon',
+        size: 1,
+        editable: true
+      }
+    ]">
+</tl-tree-to>

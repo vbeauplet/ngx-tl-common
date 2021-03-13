@@ -1,0 +1,44 @@
+<tl-hamburger
+  class="hamburger tl-big-margined"
+  [status]="!this.menuService.isWrapped"
+  [inMenu]="!this.menuService.isWrapped"
+  (on)="this.menuService.isWrapped=false"
+  (off)="this.menuService.isWrapped=true">
+</tl-hamburger>
+  
+<div
+  class="menu tl-full tl-col-dir tl-hor-center tl-flex-block">
+  
+  <input
+    class="tl-menu-input"
+    placeholder="Search"
+    type="text"/>
+  
+  <tl-tree-to
+    [size]="'tl-half'"
+    [data]="this.menuService.menuItems"
+    [searchFieldName]="'label'"
+    [selectionFieldName]="'label'"
+    [nestedItemsFieldName]="'subItems'"
+    [selectionValue]="'tl-toto'"
+    [hasHeaderRow]="false"
+    [columns]="[
+        {
+          fieldName: 'label',
+          title: 'Item',
+          size: 1,
+          editable: false
+        }
+      ]">
+  </tl-tree-to>
+  
+  <div
+    *ngFor="let menuItem of this.menuService.menuItems"
+    class="menu-item tl-row-dir tl-vert-center tl-hor-left tl-flex-block"
+    (click)="this.menuService.selectMenuItem(menuItem)">
+    
+    {{ menuItem.label }}
+    
+  </div>
+  
+</div>

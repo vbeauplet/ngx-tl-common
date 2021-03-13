@@ -1,0 +1,68 @@
+.tree-node-row{
+  overflow:hidden;
+  
+  display:grid;
+  
+  opacity:1;
+  height:30px;
+  width:100%;
+  
+  transition: height ease-out 200ms,
+              opacity ease-in-out 100ms
+  
+}
+
+  .tree-node-row.detailed{
+    background-color: var(--transparent-bg-color);
+  }
+  
+  .tree-node-row.hidden{
+    opacity:0;
+    height:0px;
+  }
+  
+  .tree-node-row.highlighted{
+    background-color:var(--transparent-bg-color);
+  }
+  
+  .tree-node-row.selected{
+    color:var(--outline-content-color)!important;
+  }
+
+.tree-node-children{
+  overflow:hidden;
+  width:100%;
+}
+  
+  .tree-node-children.hidden{
+    height:0px;
+  }
+
+.tree-node-detail-row{
+  background-color: var(--transparent-bg-color);
+  padding:8px;
+  text-align:center;
+}
+
+.tree-node-row-cell{
+  padding:5px;
+  overflow:hidden;
+}
+
+.tree-node-row-cell-value{
+  flex-grow:1;
+  flex-shrink:1;
+  text-overflow:ellipsis;
+  overflow:hidden;
+  white-space: nowrap;
+}
+
+.tree-node-folding-icon{
+  cursor:pointer;
+  transform:rotate(0deg);
+  transition:transform 200ms ease-in-out;
+}
+
+  .tree-node-folding-icon.unfolded{
+    transform:rotate(90deg);
+  }

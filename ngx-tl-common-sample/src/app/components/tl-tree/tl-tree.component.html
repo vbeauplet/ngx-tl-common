@@ -1,0 +1,56 @@
+<!-- Search field, if any -->
+<input
+  class="tl-input astext tl-full"
+  placeholder="Search"
+  type="text"
+  (keyup)="this.search($event.target.value)"/>
+
+<!-- Header row, if any -->
+<div 
+  *ngIf="this.hasHeaderRow"
+  class="tree-node-row"
+  [ngStyle]="{
+      'grid-template-columns': this.gridTemplateColumns
+    }">
+  <div
+    *ngFor="let column of this.columns; let i = index">
+    <div 
+      class="tree-node-row-cell tl-full tl-hor-left tl-vert-center tl-no-wrap tl-flex-block">
+      
+      <!-- 'Unwrap all' icon for first column -->
+      <tl-square-icon
+        *ngIf="i == 0"
+        title="Wrap/Unwrap all"
+        style="margin-right:5px;cursor:pointer"
+        [color]="(this.unwrapAllFlag)?'tl-outline':'tl-main'"
+        [icon]="'Ã'"
+        [size]="20"
+        (click)="(this.unwrapAllFlag)?this.wrapChildren(true):this.unwrapChildren(true)">
+      </tl-square-icon>
+        
+      <!-- Column label -->
+      <div
+        class="tree-node-row-cell-value"
+        style="font-family:norwester">
+        <b>{{ column.title }}</b>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Item tree rows -->
+<tl-tree-node-to
+  *ngFor="let item of this.data"
+  [parendFolded]="false"
+  [item]="item"
+  [columns] ="this.columns"
+  [gridTemplateColumns]="this.gridTemplateColumns"
+  [nestedItemsFieldName]="this.nestedItemsFieldName"
+  [idFieldName]="this.idFieldName"
+  [searchFieldName]="this.searchFieldName"
+  [selectionFieldName]="this.selectionFieldName"
+  [selectionValue]="this.selectionValue"
+  [detailsRowFieldName]="this.detailsRowFieldName"
+  (changeTreeValue)="this.onChangeTreeValue($event)"
+  style="width:100%">
+</tl-tree-node-to>
