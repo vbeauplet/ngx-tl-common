@@ -1,0 +1,41 @@
+import { Component, OnInit } from '@angular/core';
+import { TlAlertService } from 'ngx-tl-common';
+
+@Component({
+  selector: 'tls-nuki-card-view',
+  host: { 'class' : 'tls-page'},
+  templateUrl: './tl-nuki-card-view.component.html',
+  styleUrls: ['./tl-nuki-card-view.component.css']
+})
+export class TlNukiCardViewComponent implements OnInit {
+
+
+  public htmlCode: string = `
+  <tl-nuki-card
+    [imageSrc]="'/assets/img/herisson.jpg'"
+    [size]="'tl-medium'">
+    
+    <div
+      class="tl-big-bottom-margined tl-title">
+      Hedgehog
+    </div>
+    
+    <div
+      class="tl-big-bottom-margined">
+      A hedgehog is any of the spiny mammals of the subfamily Erinaceinae, 
+      in the eulipotyphlan family Erinaceidae.<br/><br/>
+      There are seventeen species of 
+      hedgehog in five genera found through parts of Europe, Asia, and Africa, 
+      and in New Zealand by introduction.
+    </div>
+    
+  </tl-nuki-card>
+    `;
+
+  constructor(
+      private alertService: TlAlertService
+    ) { }
+
+  
+  ngOnInit(): void {}
+}

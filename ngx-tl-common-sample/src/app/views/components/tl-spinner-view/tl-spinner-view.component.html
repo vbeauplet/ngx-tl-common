@@ -1,0 +1,70 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<div
+  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
+  
+  <tl-spinner
+    [loadingStatus]="this.spinnerLoadingStatus">
+  </tl-spinner>
+  
+  <div 
+    class="tl-near-half-responsive">
+  
+    <pre>
+      <code
+        [highlight]="this.htmlCode"
+        [languages]="['html']">
+     </code>
+    </pre>
+    
+    <pre>
+      <code
+        [highlight]="this.tsCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>size</td>
+        <td>number</td>
+        <td>Size of the spinner, in px</td>
+        <td>20</td>
+</tr>
+<tr>
+        <td>color</td>
+        <td>string</td>
+        <td>Spinner color  <br/>Possible values are "tl-main", "tl-soft", 'tl-failure', "tl-neutral", "tl-success", "tl-outline", ...  <br/>"tl-outline" by default</td>
+        <td>'tl-outline'</td>
+</tr>
+<tr>
+        <td>loadingStatus</td>
+        <td>number</td>
+        <td>Spinner loading status  <br/>0: isLoading, 1:Success, 2: Failure</td>
+        <td>0</td>
+</tr>
+  </tbody>
+</table>
+
+
+

@@ -1,0 +1,84 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<div
+  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
+  
+  <tl-nuki-card
+    [imageSrc]="'/assets/img/herisson.jpg'"
+    [size]="'tl-medium'">
+    
+    <div
+      class="tl-big-bottom-margined tl-title">
+      Hedgehog
+    </div>
+    
+    <div
+      class="tl-big-bottom-margined">
+      A hedgehog is any of the spiny mammals of the subfamily Erinaceinae, 
+      in the eulipotyphlan family Erinaceidae.<br/><br/>
+      There are seventeen species of 
+      hedgehog in five genera found through parts of Europe, Asia, and Africa, 
+      and in New Zealand by introduction.
+    </div>
+    
+  </tl-nuki-card>
+  
+  <div 
+    class="tl-near-half-responsive">
+  
+    <pre>
+      <code
+        [highlight]="this.htmlCode"
+        [languages]="['html']">
+     </code>
+    </pre>
+  
+  </div>
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>imageSrc</td>
+        <td>string</td>
+        <td>Mandatory, image src link for the head of the nuki card</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>size</td>
+        <td>string</td>
+        <td>Size of the card, can be tl-big, tl-medium, tl-small (...). tl-medium by default</td>
+        <td>'tl-medium'</td>
+</tr>
+<tr>
+        <td>tlStyle</td>
+        <td>string</td>
+        <td>tl-style of the card</td>
+        <td>'tl-neumorphic'</td>
+</tr>
+<tr>
+        <td>isLoading</td>
+        <td>boolean</td>
+        <td>Tells if card is loading and shall therefore display a loader as content</td>
+        <td>false</td>
+</tr>
+  </tbody>
+</table>
+
+

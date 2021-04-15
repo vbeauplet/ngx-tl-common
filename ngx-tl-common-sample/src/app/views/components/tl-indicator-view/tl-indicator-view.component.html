@@ -1,0 +1,97 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<div
+  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
+  
+  <tl-indicator
+    [icon]="'P'"
+    [text]="'80%'"
+    [textPosition]="'bottom'"
+    [iconSize]="40"
+    [color]="'tl-outline'">
+  </tl-indicator>
+  
+  <div 
+    class="tl-near-half-responsive">
+  
+    <pre>
+      <code
+        [highlight]="this.htmlCode"
+        [languages]="['html']">
+     </code>
+    </pre>
+  
+  </div>
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>size</td>
+        <td>string</td>
+        <td>Size of the indicator container. 'tl-initial-width ' by default</td>
+        <td>'tl-initial-width '</td>
+</tr>
+<tr>
+        <td>icon</td>
+        <td>string</td>
+        <td>Button literal icon</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>iconSize</td>
+        <td>number</td>
+        <td>Default size of the icon, in px  <br/>30 by default</td>
+        <td>30</td>
+</tr>
+<tr>
+        <td>iconMargin</td>
+        <td>number</td>
+        <td>Margin of the indicator icon, in px  <br/>5 by default</td>
+        <td>5</td>
+</tr>
+<tr>
+        <td>text</td>
+        <td>string</td>
+        <td>Text of the indicator</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>textAlign</td>
+        <td>string</td>
+        <td>Text alignment</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>textPosition</td>
+        <td>string</td>
+        <td>Text position  <br/>May be 'right' of 'bottom'  <br/>Bottom by default</td>
+        <td>'bottom'</td>
+</tr>
+<tr>
+        <td>color</td>
+        <td>string</td>
+        <td>Indicator default color  <br/>Possible values are "tl-main", "tl-soft", 'tl-failure', "tl-neutral", "tl-success", "tl-outline"  <br/>"m
+ain" by default</td>
+        <td>'tl-main'</td>
+</tr>
+  </tbody>
+</table>
+
+

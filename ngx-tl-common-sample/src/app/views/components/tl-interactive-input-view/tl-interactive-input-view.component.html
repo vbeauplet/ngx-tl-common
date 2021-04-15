@@ -1,0 +1,155 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<div
+  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
+  
+  <tl-interactive-input
+    [size]="'tl-near-half-responsive'"
+    [inputLabel]="'Name'"
+    [placeholder]="this.name"
+    (changeValue)="this.onChangeValue($event)">
+  </tl-interactive-input>
+  
+  <div 
+    class="tl-near-half-responsive">
+  
+    <pre>
+      <code
+        [highlight]="this.htmlCode"
+        [languages]="['html']">
+     </code>
+    </pre>
+    
+    <pre>
+      <code
+        [highlight]="this.tsCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Example (inline)
+</div>
+
+<div
+  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
+  
+  <tl-interactive-input
+    [size]="'tl-near-half-responsive'"
+    [placeholder]="this.name"
+    [inline]="true"
+    (changeValue)="this.onChangeValue($event)">
+  </tl-interactive-input>
+  
+  <div 
+    class="tl-near-half-responsive">
+  
+    <pre>
+      <code
+        [highlight]="this.htmlCode2"
+        [languages]="['html']">
+     </code>
+    </pre>
+    
+    <pre>
+      <code
+        [highlight]="this.tsCode2"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>size</td>
+        <td>string</td>
+        <td>Size of the interactive container. 'tl-full' by default</td>
+        <td>'tl-full'</td>
+</tr>
+<tr>
+        <td>inputId</td>
+        <td>string</td>
+        <td>Id of the input, in case custom. if not an uuid is used</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>inputTextAlign</td>
+        <td>string</td>
+        <td>Text align property of the input. 'left' by default</td>
+        <td>'left'</td>
+</tr>
+<tr>
+        <td>inputLabel</td>
+        <td>string</td>
+        <td>Label of the input, if any. May be undocumented for none</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>inputLabelWidth</td>
+        <td>string</td>
+        <td>Optional. Label width (css property). If not set, automatically adapt to content</td>
+        <td>'fit-content'</td>
+</tr>
+<tr>
+        <td>inputType</td>
+        <td>string</td>
+        <td>Input type  <br/>Text by default</td>
+        <td>'text'</td>
+</tr>
+<tr>
+        <td>inline</td>
+        <td>boolean</td>
+        <td>Tells if interactive input shall be inline, which means looking just like a piece of text identified with a pen  <br/>Label cannot be a
+dded if interactive input is inline</td>
+        <td>false</td>
+</tr>
+  </tbody>
+</table>
+
+<div
+  class="tl-big-margined tl-title">
+  Events
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>changeValue</td>
+        <td>string</td>
+        <td>Output event for the component: change value  <br/>New value is the carried payload</td>
+</tr>
+  </tbody>
+</table>
+
+
+

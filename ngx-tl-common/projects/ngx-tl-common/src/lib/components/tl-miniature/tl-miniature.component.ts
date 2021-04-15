@@ -54,7 +54,7 @@ export class TlMiniatureComponent implements OnInit {
    * Can be: tl-soft-transparent, tl-outlined, tl-neumorphic...
    * tl-soft-transparent by default
    */
-  @Input() tlStyle = 'tl-soft-transparent'
+  @Input() tlStyle: string = 'tl-soft-transparent'
   
   /**
    * Tells if the miniature container shall have a standard margin

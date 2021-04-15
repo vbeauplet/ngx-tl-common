@@ -1,0 +1,143 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<div
+  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-up tl-flex-block">
+  
+  <tl-accordion
+    [size]="'tl-near-half-responsive'">
+    
+    <tl-accordion-panel
+      *ngFor="let item of this.list">
+      
+      <ng-container
+        panelHeader>
+        {{ item.name }}
+      </ng-container>
+        
+      <ng-container
+        panelContent>
+        
+        <div
+          class="tl-margined">
+          {{ item.description }}
+        </div>
+        <div
+          class="tl-margined">
+          {{ item.other }}
+        </div>
+        
+      </ng-container>
+      
+    </tl-accordion-panel>    
+  </tl-accordion>
+  
+  <div 
+    class="tl-near-half-responsive">
+  
+    <pre>
+      <code
+        [highlight]="this.htmlCode"
+        [languages]="['html']">
+     </code>
+    </pre>
+    
+    <pre>
+      <code
+        [highlight]="this.tsCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  tl-accordion Inputs
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+            <td>size</td>
+            <td>string</td>
+            <td>Size of the accordion panel  <br/>'Full' by default</td>
+            <td>'tl-full'</td>
+    </tr>
+    <tr>
+            <td>tlStyle</td>
+            <td>string</td>
+            <td>Tl-style of the container</td>
+            <td>'tl-neumorphic'</td>
+    </tr>
+  </tbody>
+</table>
+
+<div
+  class="tl-big-margined tl-title">
+  tl-accordion-panel Inputs
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+            <td>size</td>
+            <td>string</td>
+            <td>Size of the accordion panel  <br/>'Full' by default</td>
+            <td>'tl-full'</td>
+    </tr>
+    <tr>
+            <td>headerSize</td>
+            <td>number</td>
+            <td>Header height, in px</td>
+            <td>50</td>
+    </tr>
+  </tbody>
+</table>
+
+<div
+  class="tl-big-margined tl-title">
+  tl-accordion-panel Events
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+            <td>unwrapPanel</td>
+            <td>any</td>
+            <td>Events which is emitted when panel is being unwrapped</td>
+    </tr>
+    <tr>
+            <td>wrapPanel</td>
+            <td>any</td>
+            <td>Events which is emitted when panel is being wrapped</td>
+    </tr>
+  </tbody>
+</table>
+

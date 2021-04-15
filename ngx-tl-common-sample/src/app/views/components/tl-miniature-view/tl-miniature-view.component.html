@@ -1,0 +1,93 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<div
+  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
+  
+  <tl-miniature
+    [photoUrl]="'/assets/img/herisson.jpg'"
+    [label]="'Hedgehog'"
+    [size]="'tl-medium'"
+    [tlStyle]="'tl-neumorphic'"
+    [borderRadius]="1000">
+    
+    Very cute
+    
+  </tl-miniature>
+  
+  <div 
+    class="tl-near-half-responsive">
+  
+    <pre>
+      <code
+        [highlight]="this.htmlCode"
+        [languages]="['html']">
+     </code>
+    </pre>
+  
+  </div>
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>photoUrl</td>
+        <td>string</td>
+        <td>URL of the minaiture photo.  <br/>Shall be provided</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>label</td>
+        <td>string</td>
+        <td>Label of the miniature  <br/>Shall be provided</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>link</td>
+        <td>string</td>
+        <td>Browse link, if any  <br/>Can be let undocumented if none</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>size</td>
+        <td>string</td>
+        <td>tl-size of the miniature container</td>
+        <td>'tl-near-full'</td>
+</tr>
+<tr>
+        <td>height</td>
+        <td>number</td>
+        <td>Miniature height, in px  <br/>50 by default</td>
+        <td>50</td>
+</tr>
+<tr>
+        <td>borderRadius</td>
+        <td>number</td>
+        <td>Miniature border radius, in px  <br/>10 by default</td>
+        <td>10</td>
+</tr>
+<tr>
+        <td>margined</td>
+        <td>boolean</td>
+        <td>Tells if the miniature container shall have a standard margin</td>
+        <td>true</td>
+</tr>
+  </tbody>
+</table>
+
+

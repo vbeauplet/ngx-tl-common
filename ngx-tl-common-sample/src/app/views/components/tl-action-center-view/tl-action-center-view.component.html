@@ -1,0 +1,150 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<div
+  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
+  
+  <tl-action-center
+    [tlContainerNature]="true"
+    [tlStyle]="'tl-soft-transparent'"
+    [buttons]="[
+      {
+        name: 'play',
+        icon: '{',
+        label: 'Play'
+      },
+      {
+        name: 'pause',
+        icon: '|',
+        label: 'Pause'
+      },
+      {
+        name: 'stop',
+        icon: '~',
+        label: 'Stop'
+      }
+    ]"
+    (clickButton)="this.onClickButton($event)">
+  </tl-action-center>
+  
+  <div 
+    class="tl-near-half-responsive">
+  
+    <pre>
+      <code
+        [highlight]="this.htmlCode"
+        [languages]="['html']">
+     </code>
+    </pre>
+    
+    <pre>
+      <code
+        [highlight]="this.tsCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+            <td>tlContainerNature</td>
+            <td>boolean</td>
+            <td>Tells if eleemnt is a container flex block or a flex-block  <br/>Flase by defualt, which means it is not a container by default</td>
+            <td>false</td>
+    </tr>
+    <tr>
+            <td>tlStyle</td>
+            <td>string</td>
+            <td>Tl Style of the element  <br/>Has effect only if component is a container (see tlContainerNature flag)</td>
+            <td>'tl-neumorphic'</td>
+    </tr>
+    <tr>
+            <td>direction</td>
+            <td>string</td>
+            <td>Direction of the action center, may be 'row' or 'column'</td>
+            <td>'row'</td>
+    </tr>
+    <tr>
+            <td>buttonStyle</td>
+            <td>string</td>
+            <td>Style of the buttons, neumorphic by default</td>
+            <td>'tl-neumorphic-sharp'</td>
+    </tr>
+    <tr>
+            <td>buttonShape</td>
+            <td>string</td>
+            <td>Shape of the buttons, round by default</td>
+            <td>'round'</td>
+    </tr>
+    <tr>
+            <td>buttonSize</td>
+            <td>number</td>
+            <td>Size of the inner buttons, in px</td>
+            <td>50</td>
+    </tr>
+    <tr>
+            <td>buttonMargin</td>
+            <td>number</td>
+            <td>Size of the inner buttons, in px</td>
+            <td>10</td>
+    </tr>
+    <tr>
+            <td>buttons</td>
+            <td>ITlNamedIcon[]</td>
+            <td>Button Definitions</td>
+            <td>[]</td>
+    </tr>
+    <tr>
+            <td>labelAsPopover</td>
+            <td>boolean</td>
+            <td>Tells if provided labels shall be displayed as popovers  <br/>False by default</td>
+            <td>false</td>
+    </tr>
+    <tr>
+            <td>loadingStatus</td>
+            <td>number</td>
+            <td>Loading status of the action center</td>
+            <td>-1</td>
+    </tr>
+  </tbody>
+</table>
+
+<div
+  class="tl-big-margined tl-title">
+  Events
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+            <td>clickButton</td>
+            <td>string</td>
+            <td>Events to be emitted when a button of the action center is clicked  <br/>Carried payload is the name of the button icon</td>
+    </tr>
+  </tbody>
+</table>

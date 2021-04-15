@@ -1,6 +1,8 @@
 <!-- Search field, if any -->
 <input
-  class="tl-input astext tl-full"
+  class="astext tl-full"
+  [class.tl-input]="!this.inMenu"
+  [class.tl-menu-input]="this.inMenu"
   placeholder="Search"
   type="text"
   (keyup)="this.search($event.target.value)"/>
@@ -52,6 +54,8 @@
   [selectionFieldName]="this.selectionFieldName"
   [selectionValue]="this.selectionValue"
   [detailsRowFieldName]="this.detailsRowFieldName"
+  [clickable]="this.clickable"
   (changeTreeValue)="this.onChangeTreeValue($event)"
+  (clickItem)="this.clickItem.next($event)"
   style="width:100%">
 </tl-tree-node>

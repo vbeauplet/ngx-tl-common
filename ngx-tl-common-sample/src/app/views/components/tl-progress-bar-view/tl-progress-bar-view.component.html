@@ -1,0 +1,143 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<div
+  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
+  
+  <tl-progress-bar
+    [total]="10"
+    [current]="this.current"
+    [color]="(this.success)?'tl-success':'tl-failure'">
+  </tl-progress-bar>
+  
+  <div 
+    class="tl-near-half-responsive">
+  
+    <pre>
+      <code
+        [highlight]="this.htmlCode"
+        [languages]="['html']">
+     </code>
+    </pre>
+    
+    <pre>
+      <code
+        [highlight]="this.tsCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>size</td>
+        <td>string</td>
+        <td>Size of the component</td>
+        <td>'tl-small'</td>
+</tr>
+<tr>
+        <td>height</td>
+        <td>number</td>
+        <td>Heigth of the nested progress bar, in px  <br/>30 by default</td>
+        <td>30</td>
+</tr>
+<tr>
+        <td>color</td>
+        <td>string</td>
+        <td>Color of the inner progressing bar, in the tl-common system  <br/>tl-success by default</td>
+        <td>'tl-success'</td>
+</tr>
+<tr>
+        <td>tlStyle</td>
+        <td>string</td>
+        <td>tl-common style og the progress bar  <br/>Neumorphic inset by default</td>
+        <td>'tl-neumorphic-inset-sharp'</td>
+</tr>
+<tr>
+        <td>total</td>
+        <td>number</td>
+        <td>Total numbe of progress states</td>
+        <td>1</td>
+</tr>
+<tr>
+        <td>current</td>
+        <td>number</td>
+        <td>Current progress bar state</td>
+        <td>0</td>
+</tr>
+<tr>
+        <td>title</td>
+        <td>string</td>
+        <td>Title, if any  <br/>Let emtpty if none</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>showProgressAsText</td>
+        <td>boolean</td>
+        <td>Tells if step progress shall also be shown in text mode (as current / total)  <br/>True by default</td>
+        <td>true</td>
+</tr>
+<tr>
+        <td>timeMode</td>
+        <td>boolean</td>
+        <td>Tells if this is a progress bar to display time progression  <br/>In this case, total and current inputs shall be given in ms</td>
+        <td>false</td>
+</tr>
+  </tbody>
+</table>
+
+<div
+  class="tl-big-margined tl-title">
+  Events
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+            <td>clickItem</td>
+            <td>ColorItem</td>
+            <td>Event that is raised when a color item is clicked  <br/>Color item that is clicked is carried by the event</td>
+    </tr>
+    <tr>
+            <td>selectItems</td>
+            <td>ColorItem[]</td>
+            <td>Event that is raised when selection is changed  <br/>List of all selected items is carried by this event</td>
+    </tr>
+    <tr>
+            <td>selectItem</td>
+            <td>ColorItem</td>
+            <td>Event that is raised when an item is selected  <br/>Selected item is carried by this event</td>
+    </tr>
+    <tr>
+            <td>unselectItem</td>
+            <td>ColorItem</td>
+            <td>Event that is raised when an item is unselected  <br/>Unselected item is carried by this event</td>
+    </tr>
+  </tbody>
+</table>
+

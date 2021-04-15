@@ -1,0 +1,163 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<div
+  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
+  
+  <tl-color-picker
+    [size]="'tl-near-half-responsive'"
+    [colorCircleSize]="100"
+    [initialItems]="[
+      {
+        label: 'Greenish',
+        payload: 'greenish',
+        colors: ['green','blue','black', 'grey']
+      },
+      {
+        label: 'Redish',
+        payload: 'redish',
+        colors: ['red']
+      },
+      {
+        label: 'Pink',
+        payload: 'pink',
+        colors: ['pink','purple']
+      }
+    ]"
+    (selectItem)="this.onSelectItem($event)">
+  </tl-color-picker>
+  
+  <div 
+    class="tl-near-half-responsive">
+  
+    <pre>
+      <code
+        [highlight]="this.htmlCode"
+        [languages]="['html']">
+     </code>
+    </pre>
+    
+    <pre>
+      <code
+        [highlight]="this.tsCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+            <td>size</td>
+            <td>string</td>
+            <td>Size of the Color Picker container block. tl-full by default</td>
+            <td>'tl-full'</td>
+    </tr>
+    <tr>
+            <td>colorCircleSize</td>
+            <td>number</td>
+            <td>Size of the color items circles, in px  <br/>50 by default</td>
+            <td>50</td>
+    </tr>
+    <tr>
+            <td>elementMargin</td>
+            <td>number</td>
+            <td>Margin between each color items of the color picker, in px</td>
+            <td>6</td>
+    </tr>
+    <tr>
+            <td>alignment</td>
+            <td>string</td>
+            <td>Alignment of the proposals. May be 'left' or 'center' (default)</td>
+            <td>'center'</td>
+    </tr>
+    <tr>
+            <td>singleSelection</td>
+            <td>boolean</td>
+            <td>Tells if only one color item can be selected  <br/>True by default</td>
+            <td>true</td>
+    </tr>
+    <tr>
+            <td>forceSelectOne</td>
+            <td>boolean</td>
+            <td>Only matters if the color picker runs in single selection mode  <br/>If this option is set to true and single selection too, selcted it
+    em cannot be unselected  <br/>At any time, there will be only one selected item  <br/>False by default</td>
+            <td>true</td>
+    </tr>
+    <tr>
+            <td>initialItems</td>
+            <td>ColorItem[]</td>
+            <td>List of all initial color items among which to select  <br/>Mandatory, empty by default</td>
+            <td>[]</td>
+    </tr>
+    <tr>
+            <td>initialSelectedItems</td>
+            <td>ColorItem[]</td>
+            <td>List of initially selected color items</td>
+            <td>[]</td>
+    </tr>
+    <tr>
+            <td>synchrone</td>
+            <td>boolean</td>
+            <td>Synchronize selected items with initial selected items input  <br/>It means if true anytime table provided as initialSelectedItems chan
+    ges,  <br/>table of component selected item is updated accordingly.  <br/>If false, initialSelectedItems are copied only once at component initiali
+    zation and compoennt lives its life afterward  <br/>False by default</td>
+            <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
+<div
+  class="tl-big-margined tl-title">
+  Events
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+            <td>clickItem</td>
+            <td>ColorItem</td>
+            <td>Event that is raised when a color item is clicked  <br/>Color item that is clicked is carried by the event</td>
+    </tr>
+    <tr>
+            <td>selectItems</td>
+            <td>ColorItem[]</td>
+            <td>Event that is raised when selection is changed  <br/>List of all selected items is carried by this event</td>
+    </tr>
+    <tr>
+            <td>selectItem</td>
+            <td>ColorItem</td>
+            <td>Event that is raised when an item is selected  <br/>Selected item is carried by this event</td>
+    </tr>
+    <tr>
+            <td>unselectItem</td>
+            <td>ColorItem</td>
+            <td>Event that is raised when an item is unselected  <br/>Unselected item is carried by this event</td>
+    </tr>
+  </tbody>
+</table>
+

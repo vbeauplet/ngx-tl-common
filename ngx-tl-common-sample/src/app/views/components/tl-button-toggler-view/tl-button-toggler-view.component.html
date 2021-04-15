@@ -1,0 +1,197 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<div
+  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
+  
+  <tl-button-toggler
+    [icon]="'O'"
+    [label]="'Speak'"
+    [height]="50"
+    [labelPosition]="'right'"
+    [color]="'tl-outline'"
+    (toggleOn)="this.onToggleOn()"
+    (toggleOff)="this.onToggleOff()">
+  </tl-button-toggler>
+  
+  <div 
+    class="tl-near-half-responsive">
+  
+    <pre>
+      <code
+        [highlight]="this.htmlCode"
+        [languages]="['html']">
+     </code>
+    </pre>
+    
+    <pre>
+      <code
+        [highlight]="this.tsCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>shape</td>
+        <td>string</td>
+        <td>Button shape: 'round' or 'square'. Default value is 'round'</td>
+        <td>'round'</td>
+</tr>
+<tr>
+        <td>tlStyle</td>
+        <td>string</td>
+        <td>Button tl-style</td>
+        <td>'tl-neumorphic-sharp'</td>
+</tr>
+<tr>
+        <td>disabled</td>
+        <td>boolean</td>
+        <td>Tells if button shall be disabled</td>
+        <td>false</td>
+</tr>
+<tr>
+        <td>height</td>
+        <td>number</td>
+        <td>Height, in px, of the toggler</td>
+        <td>30</td>
+</tr>
+<tr>
+        <td>size</td>
+        <td>string</td>
+        <td>Size, in px, of the toggler  <br/>tl-initial-width by default</td>
+        <td>'tl-initial-width'</td>
+</tr>
+<tr>
+        <td>icon</td>
+        <td>string</td>
+        <td>Icon of the toggler. None if not documented</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>color</td>
+        <td>string</td>
+        <td>Icon color, 'main' by default</td>
+        <td>'main'</td>
+</tr>
+<tr>
+        <td>margin</td>
+        <td>number</td>
+        <td>Toggler button margin  <br/>10 by default</td>
+        <td>10</td>
+</tr>
+<tr>
+        <td>initialState</td>
+        <td>boolean</td>
+        <td>Initial state of the toggler  <br/>false by default</td>
+        <td>false</td>
+</tr>
+<tr>
+        <td>synchrone</td>
+        <td>boolean</td>
+        <td>Tells if the toggler shall be synchrone,   <br/>which means that an initial state change changes the toggler state</td>
+        <td>false</td>
+</tr>
+<tr>
+        <td>synchroneFeedback</td>
+        <td>boolean</td>
+        <td>Tells if the toggler shall follow the initial state.  <br/>In this case, a 'toggle' event shall therefore be confirmed by the consisten
+t 'initialState' property modification  <br/>  <br/>In other words, if toggler state modification is asked, toggler remains in transitory state unt
+il initial state reaches to current state  <br/>False by default  <br/>/!\ Warning: Component can be either 'synchrone', 'synchroneFeedback' (or no
+ne), but not the 2!</td>
+        <td>false</td>
+</tr>
+<tr>
+        <td>label</td>
+        <td>string</td>
+        <td>Toggler lable, if any  <br/>Let undocumented if none</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>labelPosition</td>
+        <td>string</td>
+        <td>Label position, if any  <br/>May be 'right' of 'bottom'  <br/>Right by default</td>
+        <td>'right'</td>
+</tr>
+<tr>
+        <td>onBgColor</td>
+        <td>string</td>
+        <td>Toggler background color when the target state is on (set to true)  <br/>May be 'success', 'failure', 'neutral', 'outline'...  <br/>Let
+ empty if none</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>offBgColor</td>
+        <td>string</td>
+        <td>Toggler background color when the target state is off (set to false)  <br/>May be 'success', 'failure', 'neutral', 'outline'...  <br/>L
+et empty if none</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>loadingBgColor</td>
+        <td>string</td>
+        <td>Toggler background color when the toggler is loading  <br/>May be 'success', 'failure', 'neutral', 'outline'...  <br/>Let empty if none
+</td>
+        <td>''</td>
+</tr>
+  </tbody>
+</table>
+
+<div
+  class="tl-big-margined tl-title">
+  Events
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>toggleOn</td>
+        <td>any</td>
+        <td>Event that is raised when toggler is toggled on</td>
+</tr>
+<tr>
+        <td>toggleOff</td>
+        <td>any</td>
+        <td>Event that is raised when toggler is toggled off</td>
+</tr>
+<tr>
+        <td>toggleOnConfirmed</td>
+        <td>any</td>
+        <td>Only if synchrone  <br/>Event that is raised when toggler is toggled on and confirmed back by intial value change</td>
+</tr>
+<tr>
+        <td>toggleOffConfirmed</td>
+        <td>any</td>
+        <td>Only if synchrone  <br/>Event that is raised when toggler is toggled off and confirmed back by intial value change</td>
+</tr>
+  </tbody>
+</table>
+
+
+

@@ -1,0 +1,34 @@
+.tls-page {
+  margin:auto;
+  width:90%;
+  overflow:hidden;
+  padding-top:40px;
+  color: var(--main-content-color);
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items:center;
+}
+
+.tls-view-container{
+  padding-left: 30%;
+}
+
+table {
+    border-collapse: collapse;
+}
+th {
+    border: solid var(--soft-content-color) 1px;
+    text-align: center;
+}
+td {
+  border: solid var(--soft-content-color) 1px;
+  padding:3px;
+}
+
+@media all and (max-width: 1300px)  {
+
+  .tls-view-container {
+    padding-left: 0px
+  }
+}

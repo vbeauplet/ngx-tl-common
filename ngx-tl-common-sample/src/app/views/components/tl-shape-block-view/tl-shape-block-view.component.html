@@ -1,0 +1,58 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<div
+  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
+  
+  <tl-shape-block
+    class="tl-outline-bg-element"
+    [size]="'tl-near-half'"
+    [shape]="'square'">
+  </tl-shape-block>
+  
+  <div 
+    class="tl-near-half-responsive">
+  
+    <pre>
+      <code
+        [highlight]="this.htmlCode"
+        [languages]="['html']">
+     </code>
+    </pre>
+  
+  </div>
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>size</td>
+        <td>string</td>
+        <td>Size of the shape-block  <br/>tl-full by default</td>
+        <td>'tl-full'</td>
+</tr>
+<tr>
+        <td>shape</td>
+        <td>string</td>
+        <td>Shape. may be 'square', 'rectangle', 'three-four', 'sixteen-nine', 'round'</td>
+        <td>'square'</td>
+</tr>
+  </tbody>
+</table>
+
+

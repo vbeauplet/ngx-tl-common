@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { TlMenuService } from 'ngx-tl-common';
+import { Component, OnInit, Input } from '@angular/core';
+import { TlMenuService, ITlMenuItem } from 'ngx-tl-common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'tl-search-menu',
@@ -11,11 +12,29 @@ import { TlMenuService } from 'ngx-tl-common';
 })
 export class TlSearchMenuComponent implements OnInit {
 
-  constructor(public menuService: TlMenuService
-  ) { }
+  /**
+   * Title of the application
+   */
+  @Input() title: string = undefined;
 
 
-  ngOnInit(): void {
+
+  constructor(
+      private router: Router,
+      public menuService: TlMenuService
+    ) { }
+
+
+  ngOnInit(): void { }
+  
+  /**
+   * Handles click on a menu item
+   */
+  public onClickItem(item: any){
+    let route = item.route
+    if(route != undefined){
+      this.router.navigate([route]);
+    }
   }
 
 }

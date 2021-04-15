@@ -1,0 +1,247 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<div
+  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
+  
+  <tl-stepper
+    [size]="'tl-near-half-responsive'"
+    [initialSteps]="[
+        {
+          name: 'Init',
+          label: 'Init'
+        },
+        {
+          name: 'Running',
+          label: 'Running'
+        },
+        {
+          name: 'Completed',
+          label: 'Completed'
+        }
+      ]">
+  </tl-stepper>
+  
+  <pre
+    class="tl-near-half-responsive">
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td>
+    initialSteps
+    </td>
+    <td>
+    ITlStep[]
+    </td>
+    <td>
+    Stepper initial steps  <br/>Use of an input property setter because if the stepper is synchrone, it shall react to any change on this input  <br/>If synchrone, any change on initial state shall be applied on component-binded steps
+    </td>
+    <td>
+    []
+    </td>
+    </tr>
+    <tr>
+    <td>
+    initialCurrentStepIndex
+    </td>
+    <td>
+    number
+    </td>
+    <td>
+    Stepper initial current step index  <br/>Use of an input property setter because if the stepper is synchrone, it shall react to any change on this input  <br/>If synchrone, any change on initial current step index shall change component binadable currrent step
+    </td>
+    <td>
+    0
+    </td>
+    </tr>
+    <tr>
+    <td>
+    size
+    </td>
+    <td>
+    string
+    </td>
+    <td>
+    Size of the stepper  <br/>'tl-full' by default
+    </td>
+    <td>
+    'tl-full'
+    </td>
+    </tr>
+    <tr>
+    <td>
+    dotSize
+    </td>
+    <td>
+    number
+    </td>
+    <td>
+    SIze, in px, of the stepper dots
+    </td>
+    <td>
+    50
+    </td>
+    </tr>
+    <tr>
+    <td>
+    tlStyle
+    </td>
+    <td>
+    string
+    </td>
+    <td>
+    tl-tyle of the stepper dots. May be tl-outlined, tl-neumorphic, tl-transparent, tl-glassmorphic...  <br/>tl-neumorphic by default
+    </td>
+    <td>
+    'tl-neumorphic'
+    </td>
+    </tr>
+    <tr>
+    <td>
+    active
+    </td>
+    <td>
+    boolean
+    </td>
+    <td>
+    Tells if stepper shall be active, which means clicking on it can modify process state  <br/>True by default
+    </td>
+    <td>
+    true
+    </td>
+    </tr>
+    <tr>
+    <td>
+    showNextButton
+    </td>
+    <td>
+    boolean
+    </td>
+    <td>
+    Tells a 'next' button shall be displayed  <br/>True by default
+    </td>
+    <td>
+    true
+    </td>
+    </tr>
+    <tr>
+    <td>
+    synchrone
+    </td>
+    <td>
+    boolean
+    </td>
+    <td>
+    If the synchrone flag is set to true, component reacts accordingly to any change of the initial step list  <br/>False by default
+    </td>
+    <td>
+    false
+    </td>
+    </tr>
+    <tr>
+    <td>
+    considerNextOnCurrentStepIncrement
+    </td>
+    <td>
+    boolean
+    </td>
+    <td>
+      <br/>Tells if a 'next step' action shall be triggered in case the current step index input is incremented by 1  <br/>For example, if index is initially set to 2 and goes to 3, 'next' action is triggered: step 2 is now considereed as done and step 3 is set as step under focus  <br/>Only work if component is synchrone (need to react to initial value change)
+    </td>
+    <td>
+    false
+    </td>
+    </tr>
+    <tr>
+    <td>
+    considerResetOnCurrentStepZero
+    </td>
+    <td>
+    boolean
+    </td>
+    <td>
+      <br/>Tells if a 'reset' action shall be triggered in case the current step index input goes to 0  <br/>Only work if component is synchrone (need to react to initial value change)
+    </td>
+    <td>
+    false
+    </td>
+    </tr>
+    <tr>
+    <td>
+    considerAllPreviousStepsAsDone
+    </td>
+    <td>
+    boolean
+    </td>
+    <td>
+    Tells if all previous steps shall be always consider as "done":<br>  <br/>- At component initialization time  <br/>- In case current index changes in a synchrone way  <br/>Only work if component is synchrone (need to react to initial value change)
+    </td>
+    <td>
+    false
+    </td>
+    </tr>
+  </tbody>
+</table>
+
+<div
+  class="tl-big-margined tl-title">
+  Events
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td>
+    changeStep
+    </td>
+    <td>
+    string
+    </td>
+    <td>
+    Event that is raised when current step is changed  <br/>Carried payload is the name of the new current step
+    </td>
+    </tr>
+    <tr>
+    <td>
+    completeStep
+    </td>
+    <td>
+    string
+    </td>
+    <td>
+    Event that is raised when a step is completed  <br/>Carried payload is the name of the completed step
+    </td>
+    </tr>
+
+  </tbody>
+</table>
+

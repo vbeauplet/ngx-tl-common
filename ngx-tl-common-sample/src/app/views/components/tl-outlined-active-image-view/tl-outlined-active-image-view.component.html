@@ -1,0 +1,127 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<div
+  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
+  
+  <tl-outlined-active-image
+    class="tl-margined"
+    [size]="'tl-small'"
+    [tlStyle]="'tl-neumorphic'"
+    [shape]="'round'"
+    [imageSrc]="'/assets/img/herisson.jpg'"
+    [activeIcons]="[
+      {
+        name: 'play',
+        icon: '{',
+        label: 'Play'
+      },
+      {
+        name: 'pause',
+        icon: '|',
+        label: 'Pause'
+      }
+    ]"
+    (clickIcon)="this.onClickIcon($event)">
+  </tl-outlined-active-image>
+  
+  <div 
+    class="tl-near-half-responsive">
+  
+    <pre>
+      <code
+        [highlight]="this.htmlCode"
+        [languages]="['html']">
+     </code>
+    </pre>
+    
+    <pre>
+      <code
+        [highlight]="this.tsCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+            <td>tlStyle</td>
+            <td>string</td>
+            <td>tl-style of the outlined active image  <br/>tl-neumorphic by default</td>
+            <td>'tl-neumorphic'</td>
+    </tr>
+    <tr>
+            <td>hasOverlay</td>
+            <td>boolean</td>
+            <td>Tells if overlay with active icons shall be displayed when use hovers the active image</td>
+            <td>true</td>
+    </tr>
+    <tr>
+            <td>size</td>
+            <td>string</td>
+            <td>Size of the active image</td>
+            <td>'tl-small'</td>
+    </tr>
+    <tr>
+            <td>shape</td>
+            <td>string</td>
+            <td>Shape of the active image. may be 'square' (default), 'round', 'rectangle'</td>
+            <td>'square'</td>
+    </tr>
+    <tr>
+            <td>message</td>
+            <td>string</td>
+            <td>Controls the active image message, if any. Empty string if none</td>
+            <td>''</td>
+    </tr>
+    <tr>
+            <td>activeIcons</td>
+            <td>ITlNamedIcon[]</td>
+            <td>Active icons to diplay in active image overlay  <br/>Note: 'Expand Image' icon (show original image) is displayed by default</td>
+            <td>[]</td>
+    </tr>
+  </tbody>
+</table>
+
+<div
+  class="tl-big-margined tl-title">
+  Events
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+            <td>clickIcon</td>
+            <td>string</td>
+            <td>Event to raise when clicking on an active icon  <br/>Payload is te name of the named icon</td>
+    </tr>
+  </tbody>
+</table>
+
+
+

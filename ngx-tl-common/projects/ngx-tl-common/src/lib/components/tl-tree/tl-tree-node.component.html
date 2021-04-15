@@ -10,9 +10,11 @@
     [class.highlighted]="this.isHighlighted"
     [class.selected]="this.isSelected"
     [class.detailed]="this.isDetailsRowUnfolded"
+    [class.tl-clickable]="this.clickable"
     [ngStyle]="{
         'grid-template-columns': this.gridTemplateColumns
-      }">
+      }"
+    (click)="this.onClickRow()">
     
     <!-- Cells, that provides more infos about the item -->
     <div
@@ -97,9 +99,11 @@
       [selectionValue]="this.selectionValue"
       [detailsRowFieldName]="this.detailsRowFieldName"
       [gridTemplateColumns]="this.gridTemplateColumns"
+      [clickable]="this.clickable"
       [columns] ="this.columns"
       [level]="this.level + 1"
       (changeTreeValue)="this.onChangeChildTreeValue($event)"
+      (clickItem)="this.clickItem.next($event)"
       style="width:100%">
     </tl-tree-node>
   </div>

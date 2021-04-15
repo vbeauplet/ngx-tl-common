@@ -1,0 +1,93 @@
+<div 
+  class="tl-near-full-responsive tl-col-dir tl-hor-left tl-no-wrap tl-flex-block">
+
+  <div
+    class="tl-big-bottom-margined tl-subtitle">
+    Install Package
+  </div>
+  
+  
+  <div 
+    class="tl-xbig">
+  
+    <pre>
+      <code
+        [highlight]="this.consoleCode"
+        [languages]="['console']">
+     </code>
+    </pre>
+  
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined tl-subtitle">
+    Add style
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    Reference global ngx-tl-common styles from your application angular.json
+  </div>
+  
+  <div 
+    class="tl-xbig">
+  
+    <pre>
+      <code
+        [highlight]="this.angularJsonCode">
+     </code>
+    </pre>
+  
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    If you do not want to <a [routerLink]="'/dynamic-theme-service'">set-up the dynamic theme service</a> 
+    or create your <a [routerLink]="'/dynamic-theme-service'">custom static theme</a>, 
+    you shall reference a default static theme from the style array in angular.json:
+  </div>
+  
+  <div 
+    class="tl-xbig">
+  
+    <pre>
+      <code
+        [highlight]="this.angularJson2Code">
+     </code>
+    </pre>
+  
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    More details about available default themes are <a [routerLink]="'/dynamic-theme-service'">here</a>
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined tl-subtitle">
+    Import into root application module
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    In app.module.ts:
+  </div>
+  
+  <div 
+    class="tl-xbig">
+  
+    <pre>
+      <code
+        [highlight]="this.tsCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    And that is all, you are ready to go
+  </div>
+
+</div>

@@ -111,10 +111,22 @@ export class TlTreeNodeComponent implements OnInit {
   @Input() gridTemplateColumns: string = '';
   
   /**
+   * Tells if tree items shall be clickable
+   * If clickable, the clickItem event is emitted everytime an item is clicked
+   */
+  @Input() clickable: boolean = false;
+  
+  /**
    * Event emitted when changing a tree value (of an editable field)
    * Carried payload is an ITreeValue
    */
   @Output() changeTreeValue: EventEmitter<ITreeValue> = new EventEmitter<ITreeValue>();
+  
+  /**
+   * Event emitted when clicking on curretn tree item, only if tree is clickable
+   * Cariied payload is the clicked item
+   */
+  @Output() clickItem: EventEmitter<any> = new EventEmitter<any>();
   
   /**
    * Tells if a specific node has its children unfolded
@@ -316,6 +328,13 @@ export class TlTreeNodeComponent implements OnInit {
     // Emit change tree value event
     this.changeTreeValue.next(treeValue);
   }
+  
+  /** 
+   * Handles click on current tree item
+   */
+  public onClickRow(){
+    this.clickItem.next(this.item);
+  }
 }
 
 /**
@@ -409,11 +428,30 @@ export class TlTreeComponent implements OnInit, OnChanges {
    */
   @Input() selectionValue: string = '';
   
+   
+  /**
+   * Tells if tl-tree is included within menu
+   * Only useful for search input color...
+   */
+  @Input() inMenu: boolean = false;
+  
+  /**
+   * Tells if tree items shall be clickable
+   * If clickable, the clickItem event is emitted everytime an item is clicked
+   */
+  @Input() clickable: boolean = false;
+  
   /**
    * Event emitted when changing a tree value (of an editable field)
    * Carried payload is an ITreeValue
    */
   @Output() changeTreeValue: EventEmitter<ITreeValue> = new EventEmitter<ITreeValue>();
+  
+  /**
+   * Event emitted when clicking on a tree item, only if tree is clickable
+   * Cariied payload is the clicked item
+   */
+  @Output() clickItem: EventEmitter<any> = new EventEmitter<any>();
   
   /**
    * Tells state of the "unwrap all" flag

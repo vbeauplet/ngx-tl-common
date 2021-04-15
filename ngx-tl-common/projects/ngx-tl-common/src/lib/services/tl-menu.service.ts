@@ -65,6 +65,8 @@ export class TlMenuService {
    * Refreshes the selected menu items from currently selected route
    */
   public refreshFromRoute(route:string){
+    console.log('ROUTE IS');
+    console.log(route);
     for(let item of this.menuItems){
       if(item.route === route){
         this.selectedMenuItem = item;

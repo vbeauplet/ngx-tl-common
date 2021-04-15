@@ -1,0 +1,100 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<div
+  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
+  
+  <tl-search-bar
+    [size]="'tl-near-half-responsive'"
+    [placeholder]="'Search'"
+    (searchValue)="this.onSearchValue($event)">
+  </tl-search-bar>
+  
+  <div 
+    class="tl-near-half-responsive">
+  
+    <pre>
+      <code
+        [highlight]="this.htmlCode"
+        [languages]="['html']">
+     </code>
+    </pre>
+    
+    <pre>
+      <code
+        [highlight]="this.tsCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>size</td>
+        <td>string</td>
+        <td>Size of the search bar container  <br/>tl-full (100%) by default</td>
+        <td>'tl-full'</td>
+</tr>
+<tr>
+        <td>tlInputStyle</td>
+        <td>string</td>
+        <td>Tl input style</td>
+        <td>'tl-input-neumorphic'</td>
+</tr>
+<tr>
+        <td>placeholder</td>
+        <td>string</td>
+        <td>Search bar input placeholder</td>
+        <td>'Rechercher'</td>
+</tr>
+<tr>
+        <td>searchBarUniqueId</td>
+        <td>string</td>
+        <td>Unique ID (displayed on the page) of the searchbar. Shall be provided if multiple searchbars are displayed</td>
+        <td>'searchbar'</td>
+</tr>
+  </tbody>
+</table>
+
+<div
+  class="tl-big-margined tl-title">
+  Events
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>searchValue</td>
+        <td>string</td>
+        <td>Output event which is emitted in case a new search has been asked by search-bar  <br/>Payload of the event is the search input content</td>
+</tr>
+  </tbody>
+</table>
+
+
+
