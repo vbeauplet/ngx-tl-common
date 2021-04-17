@@ -1,6 +1,7 @@
 <input
   id="{{ this.searchBarUniqueId }}"
   class="search-bar-input tl-input"
+  [class.astext]="this.tlStyle != 'tl-neumorphic'"
   placeholder="{{ this.placeholder }}"
   type="search"
   (keydown.enter)="$event.stopPropagation();this.onPressEnter($event.target.value)">
@@ -10,6 +11,7 @@
   [size]="50"
   [margin]="0"
   [shape]="'square'"
-  (click)="this.onClickSearchButton()">
+  [tlStyle]="this.tlStyle"
+  (clickButton)="this.onClickSearchButton()">
 </tl-button>
     

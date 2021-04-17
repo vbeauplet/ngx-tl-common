@@ -51,7 +51,7 @@ export class TlMenuService {
   constructor(
     private router: Router) { 
       // Subscribe to any route update
-      router.events.subscribe((router:any) => {
+      router.events.subscribe((router: any) => {
         if(router.url != undefined){
           this.refreshFromRoute(router.url);
         }
@@ -64,9 +64,7 @@ export class TlMenuService {
   /**
    * Refreshes the selected menu items from currently selected route
    */
-  public refreshFromRoute(route:string){
-    console.log('ROUTE IS');
-    console.log(route);
+  public refreshFromRoute(route: string){
     for(let item of this.menuItems){
       if(item.route === route){
         this.selectedMenuItem = item;

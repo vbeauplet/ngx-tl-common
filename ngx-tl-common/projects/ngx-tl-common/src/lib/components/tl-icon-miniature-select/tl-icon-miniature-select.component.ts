@@ -5,7 +5,7 @@ import { TlSelectComponent } from '../tl-select/tl-select.component';
 @Component({
   selector: 'tl-icon-miniature-select',
   templateUrl: './tl-icon-miniature-select.component.html',
-  styleUrls: ['./tl-icon-miniature-select.component.css']
+  styleUrls: ['./tl-icon-miniature-select.component.scss']
 })
 export class TlIconMiniatureSelectComponent extends TlSelectComponent implements OnInit {
   
@@ -75,6 +75,7 @@ export class TlIconMiniatureSelectComponent extends TlSelectComponent implements
   }
 
   ngOnInit(): void {
+    this.position = 'relative';
     (this.initialSelectedProposal != null)?this.dynamicBgColor = 'tl-success':this.dynamicBgColor = 'tl-failure';
   }
   

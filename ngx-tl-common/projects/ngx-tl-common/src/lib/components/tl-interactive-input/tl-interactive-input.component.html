@@ -10,7 +10,7 @@
 <tl-square-icon
   *ngIf="this.inline"
   style="margin-right:5px;cursor: pointer"
-  (clickButton)="(this.sdbLoadingStatus === -1)?this.onClickEditMarkup():this.onClickEditMarkupWhenLoading();"
+  (clickButton)="(this.sdbLoadingStatus === -1)?this.onClickEditMarkup(this.inputId):this.onClickEditMarkupWhenLoading(this.inputId);"
   [color]="(this.inputInFocus)?'tl-outline':'tl-main'"
   [icon]="'&'"
   [size]="18">

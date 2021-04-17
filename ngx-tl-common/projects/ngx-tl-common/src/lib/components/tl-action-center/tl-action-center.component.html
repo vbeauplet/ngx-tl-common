@@ -8,15 +8,15 @@
   [shape]="this.buttonShape"
   [size]="this.buttonSize"
   [icon]="namedIcon.icon"
+  [color]="(namedIcon.color != undefined)?namedIcon.color:'tl-inherit'"
   [label]="(namedIcon.label != undefined && !this.labelAsPopover)?namedIcon.label:''"
   [labelPosition]="(this.direction == 'column')?'right':'bottom'"
+  [disabled]="this.disabled.includes(namedIcon.name)"
   (clickButton)="this.onClickButton(namedIcon)">
 </tl-button>
 
 <tl-spinner
-  *ngIf="this.loadingStatus != -1"
-  [loadingStatus]="this.loadingStatus"
-  [ngStyle]="{
-      'margin': this.buttonMargin + 'px'
-    }">
+  class="ac-spinner"
+  [class.hidden]="this.loadingStatus == -1"
+  [loadingStatus]="this.loadingStatus">
 </tl-spinner>

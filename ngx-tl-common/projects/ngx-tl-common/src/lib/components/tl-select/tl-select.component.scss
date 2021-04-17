@@ -1,0 +1,36 @@
+.proposal:hover, .proposal.selected{
+  background-color: var(--transparent-bg-color);
+}
+
+.proposal-text{
+  flex-grow:1;
+  text-align:center;
+  padding-left:10px;
+  padding-right:10px;
+}
+
+.select-back{
+  position:absolute;
+  z-index:10;
+  box-sizing:border-box;
+  width:100%;
+  top:calc(100% + 5px);
+  left:0px;
+  opacity:1;
+  transition: opacity ease-in-out 200ms,
+    top ease-in-out 200ms;
+}
+
+  .select-back.wrapped{
+    top:30%;
+    opacity:0;
+  }
+  
+.flipper-icon{
+  transform:rotate(-90deg);
+  transition:transform 200ms ease-in-out;
+}
+
+  .flipper-icon.flipped{
+    transform:rotate(90deg);
+  }

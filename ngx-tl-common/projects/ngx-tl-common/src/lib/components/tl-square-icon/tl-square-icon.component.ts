@@ -25,7 +25,7 @@ export class TlSquareIconComponent implements OnInit {
   /**
    * Mandatory: Icon to use, from font package literal
    */
-  @Input() icon: string;
+  @Input() icon: string = 'a';
 
   constructor() { }
 

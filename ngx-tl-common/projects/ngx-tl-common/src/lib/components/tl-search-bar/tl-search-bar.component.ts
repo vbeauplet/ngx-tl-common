@@ -20,14 +20,15 @@ export class TlSearchBarComponent implements OnInit {
   @Input() size: string = 'tl-full';
   
   /**
-   * Tl input style
+   * Tl style of the search bar
+   * May be tl-neumorphic (default), tl-soft-transparent or tl-sharp-transparent. No other style is handled yet
    */
-  @Input() tlInputStyle: string = 'tl-input-neumorphic';
+  @Input() tlStyle: string = 'tl-neumorphic'
   
   /**
    * Search bar input placeholder
    */
-  @Input() placeholder: string = 'Rechercher';
+  @Input() placeholder: string = 'Search';
   
   
   /**

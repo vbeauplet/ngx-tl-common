@@ -1,23 +1,33 @@
+<!-- 'Front' of the select: with placeholder or selected option -->
 <div
-  class="select-front tl-clickable tl-full tl-padded tl-row-dir tl-hor-space-between tl-vert-center tl-flex-block"
-  (click)="this.onClickFront()">
+  [class]="'select-front ' + this.tlStyle + ' tl-clickable tl-full tl-padded tl-row-dir tl-hor-space-between tl-vert-center tl-no-wrap tl-container-flex-block'"
+  (click)="this.onClickFront()"
+  [ngStyle]="{
+      'height':this.height
+    }">
   
   <div
-    *ngIf="this.targetSelectedProposal != null"
-    class="proposal-text">
-    {{ this.targetSelectedProposal.name }}
-  </div>
-  
-  <div
-    *ngIf="this.targetSelectedProposal == null"
-    class="proposal-text"
-    style="color:var(--soft-content-color)">
-    {{ this.placeholder }}
+    class="tl-ellipsis proposal-text"
+    [ngStyle]="{
+        'text-align':this.textAlign
+      }">
+      
+     <span
+        *ngIf="this.targetSelectedProposal != null">
+        {{ this.targetSelectedProposal.name }}
+     </span>
+     
+     <span
+        *ngIf="this.targetSelectedProposal == null"
+        class="tl-soft-content-element">
+        {{ this.placeholder }}
+     </span>
+     
   </div>
   
   <div
     style="width:20px"
-    class="tl-row-dir tl-hor-center tl-vert-center tl-flex-block">
+    class="tl-row-dir tl-hor-center tl-vert-center tl-flex-no-shrink tl-flex-block">
     
     <tl-spinner
       style="margin-right:5px"
@@ -29,15 +39,20 @@
   
   <tl-square-icon
     style="margin-right:5px"
+    class="flipper-icon"
+    [class.flipped]="this.isWrapped"
     [size]="20"
-    [icon]="'k'">
+    [icon]="'{'">
   </tl-square-icon>
   
 </div>
 
+<!-- Selection block with options -->
 <div
   *ngIf="this.isSelecting"
-  [class]="'select-back tl-big-padded tl-col-dir ' + this.selectStyle + ' tl-container-flex-block'">
+  [class]="'select-back tl-big-padded tl-col-dir ' + this.optionPanelStyle + ' tl-container-flex-block'"
+  [class.wrapped]="this.isWrapped"
+  (clickOutside)="this.onClickOutsideOptionPanel()">
   
   <!-- 'None' selection; Resets the component if selected -->
   <div

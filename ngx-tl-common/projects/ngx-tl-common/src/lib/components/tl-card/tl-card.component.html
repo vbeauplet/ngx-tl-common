@@ -9,6 +9,7 @@
   *ngIf="!this.isLoading"
   [ngStyle]="{
     'padding': this.padding + 'px',
+    'padding-top': (this.title != '')?'0px':this.padding + 'px',
     'padding-bottom': (this.title != '')?'20px':this.padding + 'px',
     'height': (this.fixedHeight != -1)?this.fixedHeight + 'px':'unset'
   }"
@@ -16,7 +17,7 @@
   
   <div
     *ngIf="this.title != '' || this.activeIcons.length != 0"
-    class="card-header tl-big-bottom-margined tl-full tl-row-dir tl-vert-center tl-hor-space-between tl-flex-block">
+    class="card-header tl-big-bottom-margined tl-full tl-row-dir tl-vert-center tl-hor-space-between tl-no-wrap tl-flex-block">
     
     <!-- Header placeholder -->
     <div
@@ -30,7 +31,7 @@
     <div
       *ngIf="this.title != ''"
       style="text-align:center;flex-grow:1"
-      class="tl-big-margined tl-big-content tl-title">
+      class="tl-ellipsis tl-big-margined tl-big-content tl-title">
       {{ this.title }}
     </div>
     
@@ -41,7 +42,7 @@
       [buttonSize]="30"
       [buttonMargin]="0"
       [tlContainerNature]="true"
-      [tlStyle]="'tl-soft-transparent'"
+      [tlStyle]="this.actionCenterStyle"
       [labelAsPopover]="true"
       (clickButton)="this.onClickButton($event)">
     </tl-action-center>

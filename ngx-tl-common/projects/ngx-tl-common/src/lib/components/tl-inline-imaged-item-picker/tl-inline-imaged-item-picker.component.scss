@@ -1,0 +1,18 @@
+:host{
+  position:relative;
+}
+
+.proposal-card{
+  position:absolute;
+  z-index:10;
+  opacity:0;
+  top:100%;
+  opacity:1;
+  transition: opacity ease-in-out 300ms,
+    top ease-in-out 300ms;
+}
+
+  .proposal-card.wrapped{
+    top:-50px;
+    opacity:0;
+  }

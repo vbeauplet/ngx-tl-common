@@ -58,6 +58,11 @@ export class TlCardComponent implements OnInit {
   @Input() activeIcons: ITlNamedIcon[] = [];
   
   /**
+   * Style of the action center that contains the active icons
+   */
+  @Input() actionCenterStyle: string = 'tl-soft-transparent';
+  
+  /**
    * Event to raise when clicking on an active icon
    * Payload is te name of the named icon
    */

@@ -1,0 +1,11 @@
+.miniature-overlay{
+  opacity:0;
+}
+
+  .miniature-overlay:hover{
+    opacity:1;
+  }
+  
+.miniature-overlay-icon.not-alone:hover{
+  background-color:rgba(255,255,255,0.3);
+}

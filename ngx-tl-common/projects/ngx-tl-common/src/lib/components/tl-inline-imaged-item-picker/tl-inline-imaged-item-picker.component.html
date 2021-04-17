@@ -1,0 +1,79 @@
+<div
+  *ngFor="let item of this.selectedItems"
+  class="selected-item tl-xsmall-margined tl-small-padded tl-br-infinite tl-row-dir tl-hor-space-between tl-vert-center tl-soft-transparent tl-container-flex-block">
+  
+  <div
+    style="margin-left:5px">
+    {{ item[this.labelPropertyName] }}
+  </div>
+  
+  <tl-square-icon
+    style="margin-left:10px"
+    class="tl-clickable"
+    [icon]="'['"
+    [size]="15"
+    (click)="this.onUnselectItem(item)">
+  </tl-square-icon>
+  
+</div>
+
+<tl-square-icon
+  class="flipper-icon tl-clickable tl-margined"
+  [class.flipped]="!this.isWrapped"
+  [icon]="']'"
+  [size]="25"
+  (click)="(this.isFlipped)?this.unflip():this.flip()">
+</tl-square-icon>
+
+<div
+  *ngIf="this.isFlipped"
+  [class]="'proposal-card ' + this.tlStyle + ' tl-full tl-big-padded tl-col-dir tl-container-flex-block'"
+  [class.wrapped]="this.isWrapped"
+  (clickOutside)="this.onClickOutside()">
+  
+  <tl-search-bar
+    style="margin-bottom:20px"
+    [size]="'tl-full'"
+    [placeholder]="'Search ' + this.itemsNature"
+    [tlStyle]="this.tlStyle"
+    (searchValue)="onSearch($event)">
+  </tl-search-bar>
+  
+  <ng-container
+    *ngIf="!this.proposalsAreLoading">
+    
+    <tl-active-miniature
+      *ngFor="let proposal of this.displayedProposals"
+      style="margin-bottom:10px"
+      [size]="'tl-full'"
+      [photoUrl]="proposal[this.miniatureImageUrlPropertyName]"
+      [label]="proposal[this.labelPropertyName]"
+      [margined]="false"
+      [activeIcons]="[{ name:'add',icon:'Z'}]"
+      (clickIcon)="this.onSelectItem(proposal)">
+      
+      <ng-container
+        *ngIf="this.subtitlePropertyName != ''">
+        <i>{{ proposal[this.subtitlePropertyName] }}</i>
+      </ng-container>
+      
+    </tl-active-miniature>
+    
+    <div
+      *ngIf="this.displayedProposals.length == 0"
+      class="tl-soft-content-element tl-small-content">
+      Search to find appropriate proposals
+    </div>
+    
+  </ng-container>
+  
+  <ng-container
+    *ngIf="this.proposalsAreLoading">
+    
+    <tl-loader></tl-loader>
+    
+  </ng-container>
+  
+</div>
+
+

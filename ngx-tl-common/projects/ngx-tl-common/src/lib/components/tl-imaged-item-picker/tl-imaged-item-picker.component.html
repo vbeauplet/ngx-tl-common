@@ -1,0 +1,113 @@
+<div
+  [class]="'container ' + this.tlStyle + ' tl-full tl-big-padded tl-col-dir tl-container-flex-block'"
+  [ngStyle]="{
+      'height': this.max * 60 + 125 + 'px'
+    }">
+
+  <!-- Selected items side -->
+  <div
+    class="selected-item-side tl-full tl-col-dir tl-no-wrap tl-br-small tl-flex-no-shrink tl-flex-block"
+    [class.on-background]="this.isFlipped"
+    [ngStyle]="{
+        'height': this.max * 60 + 'px'
+      }">
+    
+    <tl-active-miniature
+      *ngFor="let selectedItem of this.selectedItems"
+      style="margin-bottom:10px"
+      [size]="'tl-full'"
+      [photoUrl]="selectedItem[this.miniatureImageUrlPropertyName]"
+      [label]="selectedItem[this.labelPropertyName]"
+      [margined]="false"
+      [activeIcons]="[{ name:'remove',icon:'['}]"
+      (clickIcon)="this.onUnselectItem(selectedItem)">
+      
+      <ng-container
+        *ngIf="this.subtitlePropertyName != ''">
+        <i>{{ selectedItem[this.subtitlePropertyName] }}</i>
+      </ng-container>
+      
+    </tl-active-miniature>
+    
+    <div
+      class="tl-soft-content-element tl-small-content tl-margined">
+      
+      <span
+        *ngIf="this.selectedItems.length == 0">
+        No {{ this.itemsNature.toLowerCase() }} selected yet
+      </span>
+      
+      <span
+        *ngIf="this.selectedItems.length != 0">
+        {{ this.selectedItems.length }} selected {{ this.itemsNature.toLowerCase() }}{{ (this.selectedItems.length > 1)?'s':'' }}
+      </span>
+      
+    </div>
+    
+  </div>
+  
+  <!-- Proposal side -->
+  <div
+    class="proposal-item-side tl-no-br tl-full tl-col-dir tl-flex-no-shrink tl-container-flex-block"
+    [ngStyle]="{
+        'top': (this.isFlipped)?-this.max * 60 - 10 + 'px':'0px',
+        'height': this.max * 60 + 50 + 'px'
+      }">
+    
+    <tl-square-icon
+      class="flipper-icon tl-clickable tl-bottom-margined"
+      [class.flipped]="this.isFlipped"
+      [size]="25"
+      [icon]="']'"
+      (click)="this.isFlipped=!this.isFlipped">
+    </tl-square-icon>
+    
+    <tl-search-bar
+      style="margin-bottom:20px"
+      [size]="'tl-full'"
+      [placeholder]="'Search ' + this.itemsNature"
+      [tlStyle]="this.tlStyle"
+      (searchValue)="onSearch($event)"
+      (click)="this.isFlipped=true">
+    </tl-search-bar>
+    
+    <ng-container
+      *ngIf="!this.proposalsAreLoading">
+      
+      <tl-active-miniature
+        *ngFor="let proposal of this.displayedProposals"
+        style="margin-bottom:10px"
+        [size]="'tl-full'"
+        [photoUrl]="proposal[this.miniatureImageUrlPropertyName]"
+        [label]="proposal[this.labelPropertyName]"
+        [margined]="false"
+        [activeIcons]="[{ name:'add',icon:'Z'}]"
+        (clickIcon)="this.onSelectItem(proposal)">
+        
+        <ng-container
+          *ngIf="this.subtitlePropertyName != ''">
+          <i>{{ proposal[this.subtitlePropertyName] }}</i>
+        </ng-container>
+        
+      </tl-active-miniature>
+      
+      <div
+        *ngIf="this.displayedProposals.length == 0"
+        class="tl-soft-content-element tl-small-content">
+        Search to find appropriate proposals
+      </div>
+      
+    </ng-container>
+    
+    <ng-container
+      *ngIf="this.proposalsAreLoading">
+      
+      <tl-loader></tl-loader>
+      
+    </ng-container>
+    
+  </div>
+
+</div>
+
+

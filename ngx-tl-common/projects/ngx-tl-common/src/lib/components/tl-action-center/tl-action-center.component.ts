@@ -77,6 +77,11 @@ export class TlActionCenterComponent implements OnInit {
   @Input() loadingStatus: number = -1;
   
   /**
+   * List of icon names giving the buttons to be disabled
+   */
+  @Input() disabled: string[] = [];
+  
+  /**
    * Events to be emitted when a button of the action center is clicked
    * Carried payload is the name of the button icon
    */

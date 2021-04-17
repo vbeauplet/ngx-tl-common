@@ -1,0 +1,30 @@
+.container{
+  overflow:hidden;
+}
+
+.selected-item-side{
+  overflow: auto;
+  opacity:1;
+  transition: opacity ease-in-out 300ms;
+}
+
+  .selected-item-side.on-background{
+    opacity:0;
+  }
+
+.proposal-item-side{
+  position: relative;
+  transition: top ease-in-out 300ms;
+  overflow:visible!important;
+  background-color:transparent;
+}
+
+
+.flipper-icon{
+  transform:rotate(0deg);
+  transition:transform 200ms ease-in-out;
+}
+
+  .flipper-icon.flipped{
+    transform:rotate(45deg);
+  }

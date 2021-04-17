@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'tl-miniature',
   host: { 
-      '[class]' : 'this.size + " " + this.tlStyle + " tl-clickable tl-hor-space-between tl-vert-center tl-row-dir tl-container-flex-block"',
+      '[class]' : 'this.size + " " + this.tlStyle + " tl-clickable tl-hor-space-between tl-vert-center tl-row-dir tl-flex-no-shrink tl-container-flex-block"',
       '[class.margined]' : 'this.margined'
     },
   templateUrl: './tl-miniature.component.html',

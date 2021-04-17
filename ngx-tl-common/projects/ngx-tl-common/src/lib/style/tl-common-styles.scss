@@ -1,3 +1,4 @@
+
 // FONT STYLES
 
 @font-face {
@@ -74,6 +75,14 @@
   margin:10px;
 }
 
+.tl-small-margined{
+  margin:5px;
+}
+
+.tl-xsmall-margined{
+  margin:3px;
+}
+
 .tl-xbig-top-margined{
   margin-top:50px;
 }
@@ -106,6 +115,10 @@
   padding:10px;
 }
 
+.tl-small-padded{
+  padding:5px;
+}
+
 // LAYOUT
 
 body {
@@ -121,7 +134,6 @@ body {
 .tl-page {
   margin:auto;
   width:85%;
-  overflow-x:hidden;
   padding-top:40px;
   padding-left: var(--desktop-page-menu-padding-left);
   padding-bottom: var(--desktop-page-menu-padding-bottom);
@@ -156,6 +168,14 @@ a {
   a:hover {
     text-decoration:underline!important;
   }
+  
+// TEXT ELLISPIS
+
+.tl-ellipsis{
+  overflow: hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
 
 // COLORS
 
@@ -193,6 +213,14 @@ a {
 
 .tl-inherit-content-element{
   color: inherit;
+}
+
+.tl-white-content-element{
+  color: white;
+}
+
+.tl-black-content-element{
+  color: black;
 }
 
 .tl-outline-bg-element{
@@ -328,6 +356,10 @@ a {
   box-shadow: 0 4px 8px 0 var(--dark-shadow-color);
 }
 
+.tl-no-style {
+   background: none;
+}
+
 // BLOCK CONFIGURATIONS
 
 .tl-col-dir {
@@ -346,6 +378,10 @@ a {
   
   .tl-col-dir.tl-hor-left {
     align-items:flex-start;
+  }
+  
+  .tl-col-dir.tl-hor-right {
+    align-items:flex-end;
   }
   
   .tl-col-dir.tl-vert-up {
@@ -370,6 +406,10 @@ a {
     justify-content:flex-start;
   }
   
+  .tl-row-dir.tl-hor-right {
+    justify-content:flex-end;
+  }
+  
   .tl-row-dir.tl-vert-up {
     align-items:flex-start;
   }
@@ -381,6 +421,26 @@ a {
   .tl-row-dir.tl-hor-space-evenly {
     justify-content:space-evenly;
   }
+  
+// FLEX CHILDREN
+
+.tl-flex-shrink {
+  flex-shrink:1;
+  min-width:0;
+}
+
+.tl-flex-no-shrink {
+  flex-shrink:0;
+}
+
+.tl-flex-grow {
+  flex-grow:1
+}
+
+.tl-flex-full {
+  flex-shrink:1;
+  flex-grow:1;
+}
 
 // BLOCK SIZES
 
@@ -390,7 +450,7 @@ a {
   border-radius:30px;
 }
 
-.tl-near-full {
+.tl-near-full, .tl-near-full-responsive {
   box-sizing:border-box;
   width:80%;
   border-radius:30px;
@@ -471,6 +531,37 @@ a {
   box-sizing:border-box;
   display:inline-block;
 }
+
+// BORDER RADIUS SIZE OVERRIDES
+
+.tl-br-infinite {
+  border-radius: 1000px!important;
+}
+
+.tl-br-xbig {
+  border-radius: 50px!important;
+}
+
+.tl-br-big {
+  border-radius: 30px!important;
+}
+
+.tl-br-medium {
+  border-radius: 20px!important;
+}
+
+.tl-br-small {
+  border-radius: 10px!important;
+}
+
+.tl-br-xsmall {
+  border-radius: 5px!important;
+}
+
+.tl-no-br {
+  border-radius: 0px!important;
+}
+
 
 // FORMS
 
@@ -563,10 +654,16 @@ a {
   box-shadow: inset 2px 2px 5px var(--sharp-dark-shadow-color), 
               inset -2px -2px 5px var(--sharp-light-shadow-color);
 }
-  
-  
-@media all and (max-width: 1300px)  {
 
+
+@media all and (min-width: 801px)  {
+  
+  // CLIENT-SPECIFIC CONTAINERS 
+  
+  .tl-mobile-only{
+    display:none;
+  }
+  
 }
 
 
@@ -575,65 +672,88 @@ a {
   // LAYOUT
   
   .tl-page{
-    width:90%;
-    padding-left: var(--desktop-page-menu-padding-left);
-    padding-bottom: var(--desktop-page-menu-padding-bottom);
+    width:92%;
+    padding-top:20px;
+    padding-left: var(--mobile-page-menu-padding-left);
+    padding-bottom: var(--mobile-page-menu-padding-bottom);
   }
   
   // SIZES
   
-  .tl-two-third-responsive{
-    width:90%;
+  .tl-near-full-responsive{
     border-radius:30px;
+    width:100%;
+    margin-bottom:20px;
+  }
+  
+  .tl-two-third-responsive{
+    width:100%;
+    border-radius:30px;
+    margin-bottom:20px;
   }
   
   .tl-half-responsive{
-    width:90%;
+    width:100%;
     border-radius:30px;
+    margin-bottom:20px;
   }
   
   .tl-near-half-responsive{
-    width:90%;
+    width:100%;
     border-radius:30px;
+    margin-bottom:20px;
   }
   
   .tl-third-responsive{
     width:90%;
     border-radius:30px;
+    margin-bottom:20px;
   }
   
   .tl-quarter-responsive{
     width:90%;
     border-radius:30px;
+    margin-bottom:20px;
   }
   
   .tl-xbig {
     width:100%;
     border-radius:30px;
+    margin-bottom:20px;
   }
   
   .tl-big {
     width:100%;
     border-radius:30px;
+    margin-bottom:20px;
   }
   
   .tl-anti-big {
     width:100%;
     border-radius:30px;
+    margin-bottom:20px;
   }
   
   .tl-medium {
     width:90%;
     border-radius:30px;
+    margin-bottom:20px;
   }
   
   .tl-small {
     width: 90%;
     border-radius:10px;
+    margin-bottom:20px;
   }
   
   .tl-xxsmall {
     width: 10px;
     border-radius:0px;
+  }
+  
+  // CLIENT-SPECIFIC CONTAINERS 
+  
+  .tl-desktop-only{
+    display:none;
   }
 }

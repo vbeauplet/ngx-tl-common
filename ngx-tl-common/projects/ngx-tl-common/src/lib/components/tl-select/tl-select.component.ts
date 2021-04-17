@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, Output, EventEmitter, HostListener, ElementRef } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter, HostBinding } from '@angular/core';
 
 import { ITlSelectProposal } from '../../interfaces/tl-select-proposal.interface';
 
@@ -8,12 +8,18 @@ import { ITlSelectProposal } from '../../interfaces/tl-select-proposal.interface
 @Component({
   selector: 'tl-select',
   host: { 
-      '[class]' : 'this.size + " tl-col-dir tl-flex-block"'
+      '[class]' : 'this.size + " tl-col-dir tl-flex-shrink tl-flex-block"',
+      '[class.tl-margined]' : 'this.margined'
     },
   templateUrl: './tl-select.component.html',
-  styleUrls: ['./tl-select.component.css']
+  styleUrls: ['./tl-select.component.scss']
 })
 export class TlSelectComponent implements OnInit {
+
+  /**
+   * Host binding needed to control relative position (or not) of the host
+   */
+  @HostBinding('style.position') position = 'initial';
 
   /**
    * Proposals
@@ -25,12 +31,25 @@ export class TlSelectComponent implements OnInit {
    * 'tl-full' by default
    */
   @Input() size: string = 'tl-full';
+  
+  /**
+   * Height CSS property of the "front" of the select component, that contains the placeholder or selected option
+   * 'auto' by default
+   */
+  @Input() height: string = 'auto';
+
+
+  /**
+   * Style of the "front" of the select component, that contains the placeholder or selected option
+   * tl-no-style by default
+   */
+  @Input() tlStyle: string = 'tl-no-style';
 
   /**
    * Style of the 'select choices' pop-up
    * tl-neumorphic by default
    */
-  @Input() selectStyle: string = 'tl-neumorphic';
+  @Input() optionPanelStyle: string = 'tl-neumorphic';
   
   /**
    * Initial selected proposal, if any
@@ -66,6 +85,19 @@ export class TlSelectComponent implements OnInit {
    * False by default
    */
   @Input() areProposalsLoading: boolean = false;
+  
+  /**
+   * Tells if component front shall be used as the positionning root of the option panel
+   * True by default, do not change is tl-select is used as is
+   * If set to false, do not forget to set one of the containing block as position root with position: relative
+   */
+  @Input() isPositionningRoot = true;
+  
+  /**
+   * Text Align of the selected item within front
+   * Center by default
+   */
+  @Input() textAlign: string = 'center';
   
   /**
    * Event that is emitted when component is being unwrapped (selection mode starts)
@@ -110,10 +142,21 @@ export class TlSelectComponent implements OnInit {
    */
   public isSelecting: boolean = false;
   
+  /**
+   * Tells if option panel is wrapped
+   * Not redundant with the 'isSelecting' flag as it helps handling transition:
+   * - In 'wrapped' mode, options panel is upper and transparent
+   */
+  public isWrapped: boolean = true;
+  
 
   constructor() { }
 
   ngOnInit(): void {
+    if(this.isPositionningRoot){
+      this.position = 'relative';
+    }
+    
     // Init from initial values
     this.init()
   }
@@ -177,17 +220,55 @@ export class TlSelectComponent implements OnInit {
   }
   
   /**
+   * Wraps the options panel: handles both wrapping status and selection mode,
+   * sequentially to handle transition
+   */
+  public doWrap(){
+    this.isWrapped = true;
+    setTimeout(() => {
+        this.isSelecting = false;
+      }, 200);
+  }
+  
+  /**
+   * Unwraps the options panel: handles both wrapping status and selection mode,
+   * sequentially to handle transition
+   */
+  public doUnwrap(){
+    this.isSelecting = true;
+    setTimeout(() => {
+        this.isWrapped = false;
+      }, 20);
+  }
+  
+  /**
    * Handles click on front
    */
   public onClickFront(){
     
-    // If component was not in 'selection' mode, emit the 'unwrap' event
+    // If component was not in 'selection' mode, emit the 'unwrap' event and unwrap
     if(!this.isSelecting){
+      
+      // Emit event
       this.unwrap.next();
+      
+      // Unwrap
+      this.doUnwrap();
     }
     
-    // Anyway change selection status
-    this.isSelecting = ! this.isSelecting;
+    // If component is in selection mode, wraps
+    else{
+      this.doWrap();
+    }
+  }
+  
+  /**
+   * Handles click outside of the option panel when it is displayed
+   */
+  public onClickOutsideOptionPanel(){
+    if(!this.isWrapped){
+      this.doWrap();
+    }
   }
   
   /**
@@ -217,7 +298,9 @@ export class TlSelectComponent implements OnInit {
     
     // Emit select event
     this.selectProposal.next(proposal);
-    this.isSelecting = false;
+    
+    // Wrap
+    this.doWrap();
   }
   
   /**
@@ -233,7 +316,7 @@ export class TlSelectComponent implements OnInit {
   /**
    * Checks if 2 select proposals are the same
    */
-  public checkEquals(proposal1: ITlSelectProposal, proposal2: ITlSelectProposal): boolean{
+  protected checkEquals(proposal1: ITlSelectProposal, proposal2: ITlSelectProposal): boolean{
     if(proposal1 == null || proposal2 == null){
       return proposal1 == null && proposal2 == null;
     }

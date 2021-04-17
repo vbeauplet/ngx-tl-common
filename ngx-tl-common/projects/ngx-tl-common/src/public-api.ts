@@ -15,3 +15,6 @@ export * from './lib/interfaces/tl-named-icon.interface';
 export * from './lib/interfaces/tl-select-proposal.interface';
 export * from './lib/interfaces/tl-step.interface';
 export * from './lib/interfaces/tl-theme.interface';
+
+export * from './lib/model/tl-alert.model';
+export * from './lib/model/tl-user.model';

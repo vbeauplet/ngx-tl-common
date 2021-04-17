@@ -7,6 +7,7 @@ import { TlAccordionPanelComponent } from './components/tl-accordion-panel/tl-ac
 import { TlAccordionComponent } from './components/tl-accordion/tl-accordion.component';
 import { TlActionCenterComponent } from './components/tl-action-center/tl-action-center.component';
 import { TlActiveImageComponent } from './components/tl-active-image/tl-active-image.component';
+import { TlActiveMiniatureComponent } from './components/tl-active-miniature/tl-active-miniature.component';
 import { TlAlertTimelineComponent } from './components/tl-alert-timeline/tl-alert-timeline.component';
 import { TlButtonComponent } from './components/tl-button/tl-button.component';
 import { TlButtonTogglerComponent } from './components/tl-button-toggler/tl-button-toggler.component';
@@ -15,7 +16,9 @@ import { TlColorPickerComponent } from './components/tl-color-picker/tl-color-pi
 import { TlHamburgerComponent } from './components/tl-hamburger/tl-hamburger.component';
 import { TlIconMiniatureComponent } from './components/tl-icon-miniature/tl-icon-miniature.component';
 import { TlIconMiniatureTogglerComponent } from './components/tl-icon-miniature-toggler/tl-icon-miniature-toggler.component';
+import { TlImagedItemPickerComponent } from './components/tl-imaged-item-picker/tl-imaged-item-picker.component';
 import { TlIndicatorComponent } from './components/tl-indicator/tl-indicator.component';
+import { TlInlineImagedItemPickerComponent } from './components/tl-inline-imaged-item-picker/tl-inline-imaged-item-picker.component';
 import { TlInteractiveInputComponent } from './components/tl-interactive-input/tl-interactive-input.component';
 import { TlLoaderComponent } from './components/tl-loader/tl-loader.component';
 import { TlMiniatureComponent } from './components/tl-miniature/tl-miniature.component';
@@ -41,6 +44,7 @@ import { TlPopupOverlayComponent } from './overlay-components/tl-popup-overlay/t
 import { TlDateAgoPipe } from './pipes/tl-date-ago.pipe';
 import { TlSelectComponent } from './components/tl-select/tl-select.component';
 import { TlIconMiniatureSelectComponent } from './components/tl-icon-miniature-select/tl-icon-miniature-select.component';
+import { TlClickOutsideDirective } from './directives/tl-click-outside.directive';
  
 
 @NgModule({ 
@@ -49,6 +53,7 @@ import { TlIconMiniatureSelectComponent } from './components/tl-icon-miniature-s
     TlAccordionPanelComponent,
     TlActionCenterComponent,
     TlActiveImageComponent,
+    TlActiveMiniatureComponent,
     TlAlertTimelineComponent,
     TlButtonComponent,
     TlButtonTogglerComponent,
@@ -58,7 +63,9 @@ import { TlIconMiniatureSelectComponent } from './components/tl-icon-miniature-s
     TlIconMiniatureComponent,
     TlIconMiniatureSelectComponent,
     TlIconMiniatureTogglerComponent,
+    TlImagedItemPickerComponent,
     TlIndicatorComponent,
+    TlInlineImagedItemPickerComponent,
     TlInteractiveInputComponent,
     TlLoaderComponent,
     TlMiniatureComponent,
@@ -83,7 +90,8 @@ import { TlIconMiniatureSelectComponent } from './components/tl-icon-miniature-s
     TlMobileMenuComponent,
     TlOverlayComponent,
     TlPopupOverlayComponent,
-    TlDateAgoPipe
+    TlDateAgoPipe,
+    TlClickOutsideDirective
   ],
   imports: [
     HttpClientModule,
@@ -94,6 +102,7 @@ import { TlIconMiniatureSelectComponent } from './components/tl-icon-miniature-s
     TlAccordionPanelComponent,
     TlActionCenterComponent,
     TlActiveImageComponent,
+    TlActiveMiniatureComponent,
     TlAlertTimelineComponent,
     TlButtonComponent,
     TlButtonTogglerComponent,
@@ -103,7 +112,9 @@ import { TlIconMiniatureSelectComponent } from './components/tl-icon-miniature-s
     TlIconMiniatureComponent,
     TlIconMiniatureSelectComponent,
     TlIconMiniatureTogglerComponent,
+    TlImagedItemPickerComponent,
     TlIndicatorComponent,
+    TlInlineImagedItemPickerComponent,
     TlInteractiveInputComponent,
     TlLoaderComponent,
     TlMiniatureComponent,
@@ -128,7 +139,8 @@ import { TlIconMiniatureSelectComponent } from './components/tl-icon-miniature-s
     TlMobileMenuComponent,
     TlOverlayComponent,
     TlPopupOverlayComponent,
-    TlDateAgoPipe
+    TlDateAgoPipe,
+    TlClickOutsideDirective
   ],
   providers: []
 })
