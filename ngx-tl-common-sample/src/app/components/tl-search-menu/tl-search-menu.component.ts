@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TlMenuService, ITlMenuItem } from 'ngx-tl-common';
+import { TlMenuService } from 'ngx-tl-common';
 import { Router } from '@angular/router';
 
 @Component({
@@ -31,9 +31,14 @@ export class TlSearchMenuComponent implements OnInit {
    * Handles click on a menu item
    */
   public onClickItem(item: any){
+    
+    // Go to route
     let route = item.route
     if(route != undefined){
       this.router.navigate([route]);
+      
+      // Wrap menu
+      this.menuService.isWrapped=true;
     }
   }
 

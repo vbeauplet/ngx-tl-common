@@ -41,7 +41,7 @@
 </div>
 
 <!-- Item tree rows -->
-<tl-tree-node-to
+<tl-tree-node
   *ngFor="let item of this.data"
   [parendFolded]="false"
   [item]="item"
@@ -58,4 +58,4 @@
   (changeTreeValue)="this.onChangeTreeValue($event)"
   (clickItem)="this.clickItem.next($event)"
   style="width:100%">
-</tl-tree-node-to>
+</tl-tree-node>

@@ -1,0 +1,138 @@
+<div 
+  class="tl-near-full-responsive tl-col-dir tl-hor-left tl-no-wrap tl-flex-block">
+
+  <div
+    class="tl-big-bottom-margined tl-subtitle">
+    Create Theme objects
+  </div>
+
+  <div
+    class="tl-big-bottom-margined">
+    Dynamic theme service is initilized from a set of Theme objects.<br/>
+    Theme objects are TS structures implementing ITlTheme, providing values for each theme variables.<br>
+    Example:
+  </div>
+  
+  <div 
+    class="tl-xbig">
+  
+    <pre>
+      <code
+        [highlight]="this.themeStructureCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined tl-subtitle">
+    Set up dynamic themes of the application
+  </div>
+
+  <div
+    class="tl-big-bottom-margined">
+    Import tl-theme.service in your root app.component.ts (note: it could be done form any other root component of your application)
+  </div>
+  
+  <div 
+    class="tl-xbig">
+  
+    <pre>
+      <code
+        [highlight]="this.themeServiceImportCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    Register your dynamic app themes. To do that:
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    First create an attribute that gathers your app dynamic themes as an ITlTheme array within the app.component.ts component
+  </div>
+  
+  <div 
+    class="tl-xbig">
+  
+    <pre>
+      <code
+        [highlight]="this.dynamicThemesArrayCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    Then initialize the Theme Service calling its <i>init()</i> method from the ngOnInit() hook of the app.component.ts components<br/>
+    The following parameters shall be provided:
+    <ul>
+      <li>The array of all application themes you just defined</li>
+      <li>The default theme (to apply in case none has been stored in client local storage)</li>
+    </ul>
+  </div>
+  
+  <div 
+    class="tl-xbig">
+  
+    <pre>
+      <code
+        [highlight]="this.dynamicThemesInitCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+  
+    <div
+    class="tl-big-bottom-margined tl-subtitle">
+    Switching theme dynamically
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    You can now switch theme dynamically from client side
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    You can do it calling the dedicated method <i>changeTheme</i> from the singleton ThemeService (import it from any part of the app as done before)<br/>
+    To change theme, only new theme name (from registered ones) is needed
+  </div>
+  
+  <div 
+    class="tl-xbig">
+  
+    <pre>
+      <code
+        [highlight]="this.dynamicThemesChangeCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    Or using the dedicated theme-switcher component
+  </div>
+   
+  <div
+    class="tl-row-dir tl-hor-center tl-full tl-flex-block">
+    
+    <tl-text-stateful-button
+      style="margin:40px"
+      [text]="'Go to Theme Switcher'"
+      [color]="'tl-outline'"
+      [icon]="'Q'">
+    </tl-text-stateful-button>
+  
+  </div>
+</div>

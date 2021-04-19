@@ -1,134 +1,301 @@
-<div
-  class="tl-big-bottom-margined tl-subtitle">
-  Light Theme
-</div>
+<div 
+  class="tl-near-full-responsive tl-col-dir tl-hor-left tl-no-wrap tl-flex-block">
 
-<table>
-  <thead>
-    <tr>
-        <th>CSS Variable Name</th>
-        <th>Color</th>
-        <th>Overview</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <td>--main-bg-color</td>
-        <td>#e2e9ee</td>
-        <td style="background-color:#e2e9ee"></td>
-    </tr>
-    <tr>
-        <td>--main-bg-pattern</td>
-        <td>none</td>
-        <td></td></tr>
-    <tr>
-        <td>--element-bg-pattern</td>
-        <td>#e2e9ee</td>
-        <td style="background-color:#e2e9ee"></td></tr>
-    <tr>
-        <td>--secondary-bg-pattern</td>
-        <td>#2F7045</td>
-        <td style="background-color:#2F7045"></td>
-    </tr>
-    <tr>
-        <td>--menu-bg-color</td>
-        <td>#31383f</td>
-        <td style="background-color:#31383f"></td>
-    </tr>
-    <tr>
-        <td>--transparent-bg-color</td>
-        <td>rgba(255,255,255,0.4)</td>
-        <td style="background-color:rgba(255,255,255,0.4)"></td>
-    </tr>
-    <tr>
-        <td>--sharp-transparent-bg-color</td>
-        <td>rgba(255,255,255,0.7)</td>
-        <td style="background-color:rgba(255,255,255,0.7)"></td>
-    </tr>
-    <tr>
-        <td>--main-content-color</td>
-        <td>#212529</td>
-        <td style="background-color:#212529"></td>
-    </tr>
-    <tr>
-        <td>--secondary-content-color</td>
-        <td>white</td>
-        <td style="background-color:white"></td>
-    </tr>
-    <tr>
-        <td>--menu-content-color</td>
-        <td>#F2E9EB</td>
-        <td style="background-color:#F2E9EB"></td>
-    </tr>
-    <tr>
-        <td>--outline-content-colo</td>
-        <td>#e2e9ee</td>
-        <td style="background-color:#FFA101"></td>
-    </tr>
-    <tr>
-        <td>--success-content-color</td>
-        <td>green</td>
-        <td style="background-color:green"></td>
-    </tr>
-    <tr>
-        <td>--failure-content-color</td>
-        <td>red</td>
-        <td style="background-color:red"></td>
-    </tr>
-    <tr>
-        <td>--neutral-content-color</td>
-        <td>orange</td>
-        <td style="background-color:orange"></td>
-    </tr>
-    <tr>
-        <td>--soft-content-color</td>
-        <td>#80A1AF</td>
-        <td style="background-color:#80A1AF"></td>
-    </tr>
-    <tr>
-        <td>--light-shadow-color</td>
-        <td>#ffffff</td>
-        <td style="background-color:#ffffff"></td>
-    </tr>
-    <tr>
-        <td>--dark-shadow-color</td>
-        <td>#b5babe</td>
-        <td style="background-color:#b5babe"></td>
-    </tr>
-    <tr>
-        <td>--sharp-light-shadow-color</td>
-        <td>#ffffff</td>
-        <td style="background-color:#ffffff"></td>
-    </tr>
-    <tr>
-        <td>--sharp-dark-shadow-color</td>
-        <td>#b3b8bc</td>
-        <td style="background-color:#b3b8bc"></td>
-    </tr>
-    <tr>
-        <td>--light-dome-color</td>
-        <td>#f2f9ff</td>
-        <td style="background-color:#f2f9ff"></td>
-    </tr>
-    <tr>
-        <td>--dark-dome-color</td>
-        <td>#cbd2d6</td>
-        <td style="background-color:#cbd2d6"></td>
-    </tr>
-    <tr>
-        <td>--title-font</td>
-        <td>norwester</td>
-        <td style="font-family:norwester">aabbcc</td>
-    </tr>
-    <tr>
-        <td>--subtitle-font</td>
-        <td>norwester</td>
-        <td style="font-family:norwester">aabbcc</td>
-    </tr>
-    <tr>
-        <td>--main-font</td>
-        <td>helvetical</td>
-        <td style="font-family: helvetica">aabbcc</td>
-    </tr>
-  </tbody>
-</table>
+  <div
+    class="tl-big-bottom-margined">
+    If you want to choose a default static theme, select it pointing the appropriate theme file in you angular.json file. For example:
+  </div>
+  
+  <div 
+    class="tl-xbig">
+  
+    <pre>
+      <code
+        [highlight]="this.angularJsonCode">
+     </code>
+    </pre>
+  
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined tl-subtitle">
+    Light Theme
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    (use <i>tl-common-light-theme.scss</i>)
+  </div>
+  
+  <table
+    class="tl-big-bottom-margined">
+    <thead>
+      <tr>
+          <th>CSS Variable Name</th>
+          <th>Color</th>
+          <th>Overview</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td>--main-bg-color</td>
+          <td>#e2e9ee</td>
+          <td style="background-color:#e2e9ee"></td>
+      </tr>
+      <tr>
+          <td>--main-bg-pattern</td>
+          <td>none</td>
+          <td></td></tr>
+      <tr>
+          <td>--element-bg-colo</td>
+          <td>#e2e9ee</td>
+          <td style="background-color:#e2e9ee"></td></tr>
+      <tr>
+          <td>--secondary-bg-color</td>
+          <td>#2F7045</td>
+          <td style="background-color:#2F7045"></td>
+      </tr>
+      <tr>
+          <td>--menu-bg-color</td>
+          <td>#31383f</td>
+          <td style="background-color:#31383f"></td>
+      </tr>
+      <tr>
+          <td>--transparent-bg-color</td>
+          <td>rgba(255,255,255,0.4)</td>
+          <td style="background-color:rgba(255,255,255,0.4)"></td>
+      </tr>
+      <tr>
+          <td>--sharp-transparent-bg-color</td>
+          <td>rgba(255,255,255,0.7)</td>
+          <td style="background-color:rgba(255,255,255,0.7)"></td>
+      </tr>
+      <tr>
+          <td>--main-content-color</td>
+          <td>#212529</td>
+          <td style="background-color:#212529"></td>
+      </tr>
+      <tr>
+          <td>--secondary-content-color</td>
+          <td>white</td>
+          <td style="background-color:white"></td>
+      </tr>
+      <tr>
+          <td>--menu-content-color</td>
+          <td>#F2E9EB</td>
+          <td style="background-color:#F2E9EB"></td>
+      </tr>
+      <tr>
+          <td>--outline-content-colo</td>
+          <td>#e2e9ee</td>
+          <td style="background-color:#FFA101"></td>
+      </tr>
+      <tr>
+          <td>--success-content-color</td>
+          <td>green</td>
+          <td style="background-color:green"></td>
+      </tr>
+      <tr>
+          <td>--failure-content-color</td>
+          <td>red</td>
+          <td style="background-color:red"></td>
+      </tr>
+      <tr>
+          <td>--neutral-content-color</td>
+          <td>orange</td>
+          <td style="background-color:orange"></td>
+      </tr>
+      <tr>
+          <td>--soft-content-color</td>
+          <td>#80A1AF</td>
+          <td style="background-color:#80A1AF"></td>
+      </tr>
+      <tr>
+          <td>--light-shadow-color</td>
+          <td>#ffffff</td>
+          <td style="background-color:#ffffff"></td>
+      </tr>
+      <tr>
+          <td>--dark-shadow-color</td>
+          <td>#b5babe</td>
+          <td style="background-color:#b5babe"></td>
+      </tr>
+      <tr>
+          <td>--sharp-light-shadow-color</td>
+          <td>#ffffff</td>
+          <td style="background-color:#ffffff"></td>
+      </tr>
+      <tr>
+          <td>--sharp-dark-shadow-color</td>
+          <td>#b3b8bc</td>
+          <td style="background-color:#b3b8bc"></td>
+      </tr>
+      <tr>
+          <td>--light-dome-color</td>
+          <td>#f2f9ff</td>
+          <td style="background-color:#f2f9ff"></td>
+      </tr>
+      <tr>
+          <td>--dark-dome-color</td>
+          <td>#cbd2d6</td>
+          <td style="background-color:#cbd2d6"></td>
+      </tr>
+      <tr>
+          <td>--title-font</td>
+          <td>norwester</td>
+          <td style="font-family:norwester">aabbcc</td>
+      </tr>
+      <tr>
+          <td>--subtitle-font</td>
+          <td>norwester</td>
+          <td style="font-family:norwester">aabbcc</td>
+      </tr>
+      <tr>
+          <td>--main-font</td>
+          <td>helvetical</td>
+          <td style="font-family: helvetica">aabbcc</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div
+    class="tl-big-bottom-margined tl-subtitle">
+    Dark Theme
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    (use <i>tl-common-dark-theme.scss</i>)
+  </div>
+  
+  <table>
+    <thead>
+      <tr>
+          <th>CSS Variable Name</th>
+          <th>Color</th>
+          <th>Overview</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td>--main-bg-color</td>
+          <td>#31383f</td>
+          <td style="background-color:#31383f"></td>
+      </tr>
+      <tr>
+          <td>--main-bg-pattern</td>
+          <td>none</td>
+          <td></td></tr>
+      <tr>
+          <td>--element-bg-color</td>
+          <td>#31383f</td>
+          <td style="background-color:#31383f"></td></tr>
+      <tr>
+          <td>--secondary-bg-color</td>
+          <td>#8CBDB9</td>
+          <td style="background-color:#8CBDB9"></td>
+      </tr>
+      <tr>
+          <td>--menu-bg-color</td>
+          <td>#31383f</td>
+          <td style="background-color:#31383f"></td>
+      </tr>
+      <tr>
+          <td>--transparent-bg-color</td>
+          <td>rgba(0,0,0,0.3)</td>
+          <td style="background-color:rgba(0,0,0,0.3)"></td>
+      </tr>
+      <tr>
+          <td>--sharp-transparent-bg-color</td>
+          <td>rgba(0,0,0,0.0.6)</td>
+          <td style="background-color:rgba(0,0,0,0.0.6)"></td>
+      </tr>
+      <tr>
+          <td>--main-content-color</td>
+          <td>#F2E9EB</td>
+          <td style="background-color:#F2E9EB"></td>
+      </tr>
+      <tr>
+          <td>--secondary-content-color</td>
+          <td>#212529</td>
+          <td style="background-color:#212529"></td>
+      </tr>
+      <tr>
+          <td>--menu-content-color</td>
+          <td>#F2E9EB</td>
+          <td style="background-color:#F2E9EB"></td>
+      </tr>
+      <tr>
+          <td>--outline-content-color</td>
+          <td>#e2e9ee</td>
+          <td style="background-color:#FFA101"></td>
+      </tr>
+      <tr>
+          <td>--success-content-color</td>
+          <td>green</td>
+          <td style="background-color:green"></td>
+      </tr>
+      <tr>
+          <td>--failure-content-color</td>
+          <td>red</td>
+          <td style="background-color:red"></td>
+      </tr>
+      <tr>
+          <td>--neutral-content-color</td>
+          <td>orange</td>
+          <td style="background-color:orange"></td>
+      </tr>
+      <tr>
+          <td>--soft-content-color</td>
+          <td>#80A1AF</td>
+          <td style="background-color:#80A1AF"></td>
+      </tr>
+      <tr>
+          <td>--light-shadow-color</td>
+          <td>#3C444D</td>
+          <td style="background-color:#3C444D"></td>
+      </tr>
+      <tr>
+          <td>--dark-shadow-color</td>
+          <td>#262C31</td>
+          <td style="background-color:#262C31"></td>
+      </tr>
+      <tr>
+          <td>--sharp-light-shadow-color</td>
+          <td>#3E474F</td>
+          <td style="background-color:#3E474F"></td>
+      </tr>
+      <tr>
+          <td>--sharp-dark-shadow-color</td>
+          <td>#24292F</td>
+          <td style="background-color:#24292F"></td>
+      </tr>
+      <tr>
+          <td>--light-dome-color</td>
+          <td>#343C43</td>
+          <td style="background-color:#343C43"></td>
+      </tr>
+      <tr>
+          <td>--dark-dome-color</td>
+          <td>#2C3239</td>
+          <td style="background-color:#2C3239"></td>
+      </tr>
+      <tr>
+          <td>--title-font</td>
+          <td>norwester</td>
+          <td style="font-family:norwester">aabbcc</td>
+      </tr>
+      <tr>
+          <td>--subtitle-font</td>
+          <td>norwester</td>
+          <td style="font-family:norwester">aabbcc</td>
+      </tr>
+      <tr>
+          <td>--main-font</td>
+          <td>helvetical</td>
+          <td style="font-family: helvetica">aabbcc</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

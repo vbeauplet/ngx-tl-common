@@ -8,8 +8,7 @@ import { ITlSelectProposal } from '../../interfaces/tl-select-proposal.interface
 @Component({
   selector: 'tl-select',
   host: { 
-      '[class]' : 'this.size + " tl-col-dir tl-flex-shrink tl-flex-block"',
-      '[class.tl-margined]' : 'this.margined'
+      '[class]' : 'this.size + " tl-col-dir tl-flex-shrink tl-flex-block"'
     },
   templateUrl: './tl-select.component.html',
   styleUrls: ['./tl-select.component.scss']
@@ -316,7 +315,7 @@ export class TlSelectComponent implements OnInit {
   /**
    * Checks if 2 select proposals are the same
    */
-  protected checkEquals(proposal1: ITlSelectProposal, proposal2: ITlSelectProposal): boolean{
+  public checkEquals(proposal1: ITlSelectProposal, proposal2: ITlSelectProposal): boolean{
     if(proposal1 == null || proposal2 == null){
       return proposal1 == null && proposal2 == null;
     }

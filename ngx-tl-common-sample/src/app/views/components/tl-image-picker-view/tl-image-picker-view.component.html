@@ -1,0 +1,136 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<div
+  class="tl-full tl-row-dir tl-hor-space-between tl-vert-up tl-flex-block">
+  
+  <tl-imaged-item-picker
+    [tlStyle]="'tl-neumorphic'"
+    [size]="'tl-near-half-responsive'"
+    [proposals]="this.users"
+    [initialSelectedItems]="this.selectedUsers"
+    [miniatureImageUrlPropertyName]="'avatarUrl'"
+    [proposalsAreLoading]="this.isSearching"
+    [itemsNature]="'User'"
+    (search)="this.search($event)">
+  </tl-imaged-item-picker>
+  
+  <div 
+    class="tl-near-half-responsive">
+  
+    <pre>
+      <code
+        [highlight]="this.htmlCode"
+        [languages]="['html']">
+     </code>
+    </pre>
+    
+    <pre>
+      <code
+        [highlight]="this.tsCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>icon</td>
+        <td>string</td>
+        <td>Button literal icon</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>shape</td>
+        <td>string</td>
+        <td>Button shape: 'round' or 'square'. Default value is 'round'</td>
+        <td>'round'</td>
+</tr>
+<tr>
+        <td>tlStyle</td>
+        <td>string</td>
+        <td>Style of the pushable button  <br/>tl-neumorphic-sharp by default</td>
+        <td>'tl-neumorphic-sharp'</td>
+</tr>
+<tr>
+        <td>label</td>
+        <td>string</td>
+        <td>Label of the icon, if any  <br/>Can be let undocumented if none</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>size</td>
+        <td>number</td>
+        <td>Default size of the icon button, in px  <br/>50 by default</td>
+        <td>50</td>
+</tr>
+<tr>
+        <td>margin</td>
+        <td>number</td>
+        <td>Margin of the button, in px</td>
+        <td>10</td>
+</tr>
+<tr>
+        <td>labelPosition</td>
+        <td>string</td>
+        <td>Label position, if any  <br/>May be 'right' of 'bottom'  <br/>Bottom by default</td>
+        <td>'bottom'</td>
+</tr>
+<tr>
+        <td>color</td>
+        <td>string</td>
+        <td>Icon color when status is -1 (for stateful buttons, always otherwise)  <br/>Possible values are "tl-main", "tl-soft", 'tl-failure', "tl
+-neutral", "tl-success", "tl-outline", ...  <br/>"main" by default</td>
+        <td>'tl-main'</td>
+</tr>
+<tr>
+        <td>disabled</td>
+        <td>boolean</td>
+        <td>Tells if the button is disabled (cannot be clicked)  <br/>False by default</td>
+        <td>false</td>
+</tr>
+  </tbody>
+</table>
+
+<div
+  class="tl-big-margined tl-title">
+  Events
+</div>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>clickButton</td>
+        <td>any</td>
+        <td>Click button event</td>
+</tr>
+  </tbody>
+</table>
+
+
+

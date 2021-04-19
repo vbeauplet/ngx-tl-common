@@ -1,7 +1,6 @@
 .tls-page {
   margin:auto;
   width:90%;
-  overflow:hidden;
   padding-top:40px;
   color: var(--main-content-color);
   display:flex;

@@ -55,6 +55,12 @@ export class TlTreeNodeComponent implements OnInit {
   @Input() nestedItemsFieldName: string = 'children';
   
   /**
+   * To use only if node data is stored under one specific field (example: all gathered in a 'data' field)
+   * Let null if data is store as primitive properties of the node
+   */
+  @Input() nestedDataFieldName: string = null;
+  
+  /**
    * Name of the field that uniquely identifies an item among others
    */
   @Input() idFieldName: string = '';
@@ -105,10 +111,22 @@ export class TlTreeNodeComponent implements OnInit {
   @Input() gridTemplateColumns: string = '';
   
   /**
+   * Tells if tree items shall be clickable
+   * If clickable, the clickItem event is emitted everytime an item is clicked
+   */
+  @Input() clickable: boolean = false;
+  
+  /**
    * Event emitted when changing a tree value (of an editable field)
    * Carried payload is an ITreeValue
    */
   @Output() changeTreeValue: EventEmitter<ITreeValue> = new EventEmitter<ITreeValue>();
+  
+  /**
+   * Event emitted when clicking on curretn tree item, only if tree is clickable
+   * Cariied payload is the clicked item
+   */
+  @Output() clickItem: EventEmitter<any> = new EventEmitter<any>();
   
   /**
    * Tells if a specific node has its children unfolded
@@ -132,6 +150,11 @@ export class TlTreeNodeComponent implements OnInit {
    * Tells if current row is selected
    */
   public isSelected: boolean = false;
+  
+  /**
+   * Tells if current row is a parent node of a selected row
+   */
+  public isParentNodeOfSelected: boolean = false;
 
   /**
    * Tells if a specific node is unfolded
@@ -160,10 +183,15 @@ export class TlTreeNodeComponent implements OnInit {
   }
 
   /**
-   * Get the value corresponding to a custom property
+   * Gets the value corresponding to a custom property
    */
-  public getPropertyValue(propertyName: string): string {
-    return  this.item[propertyName];
+  public getPropertyValue(propertyName: string): string {    
+    if(this.nestedDataFieldName == null){
+      return  this.item[propertyName];
+    }
+    else{
+      return this.item[this.nestedDataFieldName][propertyName];
+    }
   }
   
   /**
@@ -175,6 +203,18 @@ export class TlTreeNodeComponent implements OnInit {
       child.isUnfolded = true;
       if(recursive){
         child.unwrapChildren(true);
+      }
+    });
+  }
+  
+  /**
+   * Unwraps selected children nodes
+   */
+  public unwrapSelectedChildren() {
+    this.childrenTreeNodes.forEach((child: TlTreeNodeComponent) => {
+      if(child.isParentNodeOfSelected){
+        child.isUnfolded = true;
+        child.unwrapSelectedChildren();
       }
     });
   }
@@ -263,27 +303,47 @@ export class TlTreeNodeComponent implements OnInit {
   
   /**
    * Recursively checks if current row and children are selected or not
+   * Additionaly sets if current row is a parent of a selected row
+   * Returns true if current row is selected or parent of a selected row
    */
-  public checkSelected() {
+  public checkSelected(): boolean {
+    
     // Check selection value is not empty
     if(this.selectionValue == null || this.selectionValue == ''){
       return false;
     }
     
+    // Init result
+    let result: boolean = false;
+    
+    // Retrieve selection value
     let selectionProperty: string = this.getPropertyValue(this.selectionFieldName);
     
     // Browse through children and recursively check if selected
     this.childrenTreeNodes.forEach((child: TlTreeNodeComponent) => {
-       child.checkSelected();
+        if(child.checkSelected()){
+          result = true;
+        }
       });
+      
+    // Current result tells you if node is a parent of a selected row
+    if(result){
+      this.isParentNodeOfSelected = true;
+    } 
+    else{
+      this.isParentNodeOfSelected = false;
+    }
       
     // Check if current node is selected
     if(selectionProperty.toLowerCase() == this.selectionValue.toLowerCase()){
       this.isSelected = true;
+      result = true;
     }
     else{
       this.isSelected = false;
     }
+    
+    return result;
   }
   
   /**
@@ -304,6 +364,13 @@ export class TlTreeNodeComponent implements OnInit {
   public onChangeChildTreeValue(treeValue: ITreeValue){
     // Emit change tree value event
     this.changeTreeValue.next(treeValue);
+  }
+  
+  /** 
+   * Handles click on current tree item
+   */
+  public onClickRow(){
+    this.clickItem.next(this.item);
   }
 }
 
@@ -366,6 +433,12 @@ export class TlTreeComponent implements OnInit, OnChanges {
    * If no nested object are stored under this node, it means there is no children
    */
   @Input() nestedItemsFieldName: string = 'children';
+  
+  /**
+   * To use only if node data is stored under one specific field (example: all gathered in a 'data' field)
+   * Let null if data is store as primitive properties of the node
+   */
+  @Input() nestedDataFieldName: string = null;
 
   /**
    * Tells if tree shall have a header row
@@ -392,11 +465,30 @@ export class TlTreeComponent implements OnInit, OnChanges {
    */
   @Input() selectionValue: string = '';
   
+   
+  /**
+   * Tells if tl-tree is included within menu
+   * Only useful for search input color...
+   */
+  @Input() inMenu: boolean = false;
+  
+  /**
+   * Tells if tree items shall be clickable
+   * If clickable, the clickItem event is emitted everytime an item is clicked
+   */
+  @Input() clickable: boolean = false;
+  
   /**
    * Event emitted when changing a tree value (of an editable field)
    * Carried payload is an ITreeValue
    */
   @Output() changeTreeValue: EventEmitter<ITreeValue> = new EventEmitter<ITreeValue>();
+  
+  /**
+   * Event emitted when clicking on a tree item, only if tree is clickable
+   * Cariied payload is the clicked item
+   */
+  @Output() clickItem: EventEmitter<any> = new EventEmitter<any>();
   
   /**
    * Tells state of the "unwrap all" flag
@@ -416,16 +508,22 @@ export class TlTreeComponent implements OnInit, OnChanges {
    
     // Compute selected at init time
     setTimeout(() => {
-       this.checkSelected();
-      }, 1000);
+        let hasSelection = this.checkSelected();
+        if(hasSelection){
+          this.unwrapSelectedChildren();
+        }
+      }, 20);
   }
   
   ngOnChanges() {
     
     // Compute selected at any change
     setTimeout(() => {
-       this.checkSelected();
-      }, 1000);
+       let hasSelection = this.checkSelected();
+       if(hasSelection){
+          this.unwrapSelectedChildren();
+        }
+      }, 20);
   }
 
   /**
@@ -457,6 +555,18 @@ export class TlTreeComponent implements OnInit, OnChanges {
       child.isUnfolded = true;
       if(recursive){
         child.unwrapChildren(true);
+      }
+    });
+  }
+  
+  /**
+   * Unwraps selected children nodes
+   */
+  public unwrapSelectedChildren() {
+    this.childrenTreeNodes.forEach((child: TlTreeNodeComponent) => {
+      if(child.isParentNodeOfSelected){
+        child.isUnfolded = true;
+        child.unwrapSelectedChildren();
       }
     });
   }
@@ -496,9 +606,12 @@ export class TlTreeComponent implements OnInit, OnChanges {
   
   /**
    * Checks for selected rows within tree
+   * Returns true if there is a selected row within tree
    */
-  public checkSelected(){
-     
+  public checkSelected(): boolean{
+    
+    let result: boolean = false; 
+    
     // Check selection value validity
     if(this.selectionValue == undefined || this.selectionValue == null){
       return;
@@ -506,8 +619,12 @@ export class TlTreeComponent implements OnInit, OnChanges {
     
     // Browse recusively through child nodes to check their selection status
     this.childrenTreeNodes.forEach((child: TlTreeNodeComponent) => {
-      child.checkSelected();
+      if(child.checkSelected()){
+        result = true; 
+      }
     });
+    
+    return result;
   }
   
   /**

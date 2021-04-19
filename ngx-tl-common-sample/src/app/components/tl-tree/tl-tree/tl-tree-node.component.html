@@ -87,7 +87,7 @@
   <div 
     class="tree-node-children"
     [class.hidden]="this.parendFolded || this.isFiltered">
-    <tl-tree-node-to
+    <tl-tree-node
       *ngFor="let child of this.getChildren()"
       [parendFolded]="!this.isUnfolded"
       [item]="child"
@@ -105,6 +105,6 @@
       (changeTreeValue)="this.onChangeChildTreeValue($event)"
       (clickItem)="this.clickItem.next($event)"
       style="width:100%">
-    </tl-tree-node-to>
+    </tl-tree-node>
   </div>
 </div>

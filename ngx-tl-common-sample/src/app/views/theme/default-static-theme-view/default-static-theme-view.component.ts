@@ -8,6 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DefaultStaticThemeViewComponent implements OnInit {
 
+ public angularJsonCode: string = `
+"styles": [
+  "src/styles.css",
+  "./node_modules/ngx-tl-common/lib/style/tl-common-styles.scss",
+  "./node_modules/ngx-tl-common/lib/style/themes/tl-common-light-theme.scss"
+],
+    `;
+
   constructor() { }
 
   ngOnInit(): void {

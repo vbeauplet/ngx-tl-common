@@ -65,19 +65,46 @@ export class AppComponent {
               },
               {
                 id: 'static-theme',
-                label: 'Default Static Themes',
+                label: 'Use a default Static Theme',
                 icon: 'a',
                 route: '/theme/default-themes'
               },
               {
                 id: 'build-static-theme',
                 label: 'Build your own Static Theme',
-                icon: 'a'
+                icon: 'a',
+                route: '/theme/own-static-theme'
               },
               {
                 id: 'dynamic-theme',
                 label: 'Set-up Dynamic Theme Service',
-                icon: 'a'
+                icon: 'a',
+                route: '/theme/dynamic-theme'
+              }
+            ]
+        },
+        {
+          id: 'menu',
+          label: 'Menu Module',
+          icon: 'a',
+          subItems: [
+              {
+                id: 'init-menu-service',
+                label: 'Set-up Menu Service',
+                icon: 'a',
+                route: '/menu/menu-service'
+              },
+              {
+                id: 'default-menu-components',
+                label: 'Use a default Menu Component',
+                icon: 'a',
+                route: '/theme/default-menu-components'
+              },
+              {
+                id: 'build-menu-component',
+                label: 'Build your own Menu Component',
+                icon: 'a',
+                route: '/menu/own-menu-component'
               }
             ]
         },
@@ -117,6 +144,18 @@ export class AppComponent {
                 icon: 'a'
               },
               {
+                id: 'tl-color-picker',
+                label: 'tl-color-picker',
+                route: '/components/tl-color-picker',
+                icon: 'a'
+              },
+              {
+                id: 'tl-icon-miniature-select',
+                label: 'tl-icon-miniature-select',
+                route: '/components/tl-icon-miniature-select',
+                icon: 'a'
+              },
+              {
                 id: 'tl-button-toggler',
                 label: 'tl-button-toggler',
                 route: '/components/tl-button-toggler',
@@ -135,9 +174,21 @@ export class AppComponent {
                 icon: 'a'
               },
               {
+                id: 'tl-imaged-item-picker-select',
+                label: 'tl-imaged-item-picker',
+                route: '/components/tl-imaged-item-picker',
+                icon: 'a'
+              },
+              {
                 id: 'tl-indicator',
                 label: 'tl-indicator',
                 route: '/components/tl-indicator',
+                icon: 'a'
+              },
+              {
+                id: 'tl-inline-imaged-item-picker-select',
+                label: 'tl-inline-imaged-item-picker',
+                route: '/components/tl-inline-imaged-item-picker',
                 icon: 'a'
               },
               {
@@ -183,6 +234,12 @@ export class AppComponent {
                 icon: 'a'
               },
               {
+                id: 'tl-select',
+                label: 'tl-select',
+                route: '/components/tl-select',
+                icon: 'a'
+              },
+              {
                 id: 'tl-shape-block',
                 label: 'tl-shape-block',
                 route: '/components/tl-shape-block',
@@ -204,12 +261,6 @@ export class AppComponent {
                 id: 'tl-toggler',
                 label: 'tl-toggler',
                 route: '/components/tl-toggler',
-                icon: 'a'
-              },
-              {
-                id: 'tl-color-picker',
-                label: 'tl-color-picker',
-                route: '/components/tl-color-picker',
                 icon: 'a'
               }
             ]

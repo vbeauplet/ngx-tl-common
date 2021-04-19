@@ -8,6 +8,7 @@ import { TlActionCenterViewComponent } from './views/components/tl-action-center
 import { TlActiveImageViewComponent } from './views/components/tl-active-image-view/tl-active-image-view.component';
 import { TlButtonViewComponent } from './views/components/tl-button-view/tl-button-view.component';
 import { TlButtonTogglerViewComponent } from './views/components/tl-button-toggler-view/tl-button-toggler-view.component';
+import { TlIconMiniatureSelectViewComponent } from './views/components/tl-icon-miniature-select-view/tl-icon-miniature-select-view.component';
 import { TlProgressBarViewComponent } from './views/components/tl-progress-bar-view/tl-progress-bar-view.component';
 import { TlIconMiniatureViewComponent } from './views/components/tl-icon-miniature-view/tl-icon-miniature-view.component';
 import { TlIconMiniatureTogglerViewComponent } from './views/components/tl-icon-miniature-toggler-view/tl-icon-miniature-toggler-view.component';
@@ -24,6 +25,12 @@ import { HomeViewComponent } from './views/home-view/home-view.component';
 import { GettingStartedViewComponent } from './views/getting-started-view/getting-started-view.component';
 import { ThemeVariablesViewComponent } from './views/theme/theme-variables-view/theme-variables-view.component';
 import { DefaultStaticThemeViewComponent } from './views/theme/default-static-theme-view/default-static-theme-view.component';
+import { OwnStaticThemeViewComponent } from './views/theme/own-static-theme-view/own-static-theme-view.component';
+import { DynamicThemeViewComponent } from './views/theme/dynamic-theme-view/dynamic-theme-view.component';
+import { InitMenuServiceViewComponent } from './views/menu/init-menu-service-view/init-menu-service-view.component';
+import { TlImagePickerViewComponent } from './views/components/tl-image-picker-view/tl-image-picker-view.component';
+import { TlInlineImagePickerViewComponent } from './views/components/tl-inline-image-picker-view/tl-inline-image-picker-view.component';
+import { TlSelectViewComponent } from './views/components/tl-select-view/tl-select-view.component';
 
 
 const routes: Routes = [
@@ -31,14 +38,20 @@ const routes: Routes = [
   { path: 'getting-started', component: GettingStartedViewComponent },
   { path: 'theme/theme-variables', component: ThemeVariablesViewComponent },
   { path: 'theme/default-themes', component: DefaultStaticThemeViewComponent },
+  { path: 'theme/own-static-theme', component: OwnStaticThemeViewComponent },
+  { path: 'theme/dynamic-theme', component: DynamicThemeViewComponent },
+  { path: 'menu/menu-service', component: InitMenuServiceViewComponent },
   { path: 'components/tl-accordion', component: TlAccordionViewComponent },
   { path: 'components/tl-action-center', component: TlActionCenterViewComponent },
   { path: 'components/tl-active-image', component: TlActiveImageViewComponent },
   { path: 'components/tl-button', component: TlButtonViewComponent },
   { path: 'components/tl-button-toggler', component: TlButtonTogglerViewComponent },
+  { path: 'components/tl-icon-miniature-select', component: TlIconMiniatureSelectViewComponent },
   { path: 'components/tl-icon-miniature', component: TlIconMiniatureViewComponent },
   { path: 'components/tl-icon-miniature-toggler', component: TlIconMiniatureTogglerViewComponent },
+  { path: 'components/tl-imaged-item-picker', component: TlImagePickerViewComponent },
   { path: 'components/tl-indicator', component: TlIndicatorViewComponent },
+  { path: 'components/tl-inline-imaged-item-picker', component: TlInlineImagePickerViewComponent },
   { path: 'components/tl-interactive-input', component: TlInteractiveInputViewComponent },
   { path: 'components/tl-loader', component: TlLoaderViewComponent },
   { path: 'components/tl-miniature', component: TlMiniatureViewComponent },
@@ -46,6 +59,7 @@ const routes: Routes = [
   { path: 'components/tl-outlined-active-image', component: TlOutlinedActiveImageViewComponent },
   { path: 'components/tl-progress-bar', component: TlProgressBarViewComponent },
   { path: 'components/tl-search-bar', component: TlSearchBarViewComponent },
+  { path: 'components/tl-select', component: TlSelectViewComponent },
   { path: 'components/tl-shape-block', component: TlShapeBlockViewComponent },
   { path: 'components/tl-spinner', component: TlSpinnerViewComponent },
   { path: 'components/tl-toggler', component: TlTogglerViewComponent },

@@ -31,6 +31,13 @@ import { HomeViewComponent } from './views/home-view/home-view.component';
 import { GettingStartedViewComponent } from './views/getting-started-view/getting-started-view.component';
 import { ThemeVariablesViewComponent } from './views/theme/theme-variables-view/theme-variables-view.component';
 import { DefaultStaticThemeViewComponent } from './views/theme/default-static-theme-view/default-static-theme-view.component';
+import { OwnStaticThemeViewComponent } from './views/theme/own-static-theme-view/own-static-theme-view.component';
+import { DynamicThemeViewComponent } from './views/theme/dynamic-theme-view/dynamic-theme-view.component';
+import { InitMenuServiceViewComponent } from './views/menu/init-menu-service-view/init-menu-service-view.component';
+import { TlInlineImagePickerViewComponent } from './views/components/tl-inline-image-picker-view/tl-inline-image-picker-view.component';
+import { TlImagePickerViewComponent } from './views/components/tl-image-picker-view/tl-image-picker-view.component';
+import { TlSelectViewComponent } from './views/components/tl-select-view/tl-select-view.component';
+import { TlIconMiniatureSelectViewComponent } from './views/components/tl-icon-miniature-select-view/tl-icon-miniature-select-view.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +68,14 @@ import { DefaultStaticThemeViewComponent } from './views/theme/default-static-th
     HomeViewComponent,
     GettingStartedViewComponent,
     ThemeVariablesViewComponent,
-    DefaultStaticThemeViewComponent
+    DefaultStaticThemeViewComponent,
+    OwnStaticThemeViewComponent,
+    DynamicThemeViewComponent,
+    InitMenuServiceViewComponent,
+    TlInlineImagePickerViewComponent,
+    TlImagePickerViewComponent,
+    TlSelectViewComponent,
+    TlIconMiniatureSelectViewComponent
   ],
   imports: [
     BrowserModule,
