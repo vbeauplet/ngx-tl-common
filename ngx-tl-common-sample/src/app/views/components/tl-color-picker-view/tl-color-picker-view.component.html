@@ -54,7 +54,8 @@
   Inputs
 </div>
 
-<table>
+<table
+  class="tl-near-full-responsive">
   <thead>
     <tr>
         <th>Name</th>
@@ -65,7 +66,7 @@
   </thead>
   <tbody>
     <tr>
-            <td>size</td>
+            <td><a (click)="this.showSizesPopup=true">size</a></td>
             <td>string</td>
             <td>Size of the Color Picker container block. tl-full by default</td>
             <td>'tl-full'</td>
@@ -129,7 +130,8 @@
   Events
 </div>
 
-<table>
+<table
+  class="tl-near-full-responsive">
   <thead>
     <tr>
         <th>Name</th>
@@ -160,4 +162,13 @@
     </tr>
   </tbody>
 </table>
+
+<tl-popup-overlay
+  [display]="showSizesPopup"
+  (close)="this.showSizesPopup=false">
+
+  <tls-sizes>
+  </tls-sizes>
+  
+</tl-popup-overlay>
 

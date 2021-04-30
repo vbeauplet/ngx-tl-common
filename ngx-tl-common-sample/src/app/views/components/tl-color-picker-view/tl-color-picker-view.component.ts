@@ -9,6 +9,8 @@ import { TlAlertService } from 'ngx-tl-common';
 })
 export class TlColorPickerViewComponent implements OnInit {
 
+  public showSizesPopup: boolean = false;
+
   public htmlCode: string = `
   <tl-color-picker
     [initialItems]="[

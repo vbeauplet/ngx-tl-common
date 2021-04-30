@@ -38,6 +38,7 @@ import { TlInlineImagePickerViewComponent } from './views/components/tl-inline-i
 import { TlImagePickerViewComponent } from './views/components/tl-image-picker-view/tl-image-picker-view.component';
 import { TlSelectViewComponent } from './views/components/tl-select-view/tl-select-view.component';
 import { TlIconMiniatureSelectViewComponent } from './views/components/tl-icon-miniature-select-view/tl-icon-miniature-select-view.component';
+import { TlSizesComponent } from './components/glossary/tl-sizes/tl-sizes.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { TlIconMiniatureSelectViewComponent } from './views/components/tl-icon-m
     TlInlineImagePickerViewComponent,
     TlImagePickerViewComponent,
     TlSelectViewComponent,
-    TlIconMiniatureSelectViewComponent
+    TlIconMiniatureSelectViewComponent,
+    TlSizesComponent
   ],
   imports: [
     BrowserModule,

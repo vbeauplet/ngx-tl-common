@@ -25,6 +25,7 @@ export class TlImagePickerViewComponent implements OnInit {
   [proposals]="this.users"
   [initialSelectedItems]="this.selectedUsers"
   [miniatureImageUrlPropertyName]="'avatarUrl'"
+  [uniqueIdPropertyName]="'userId'"
   [proposalsAreLoading]="this.isSearching"
   [itemsNature]="'User'"
   [alignment]="'left'"

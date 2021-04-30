@@ -11,6 +11,7 @@ export class TlButtonTogglerViewComponent implements OnInit {
 
   public htmlCode: string = `
   <tl-button-toggler
+    [tlStyle]="'tl-neumorphic tl-dome'"
     [icon]="'O'"
     [label]="'Speak'"
     [height]="50"
