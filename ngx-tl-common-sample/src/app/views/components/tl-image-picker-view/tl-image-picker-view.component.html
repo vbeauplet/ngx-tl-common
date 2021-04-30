@@ -12,6 +12,7 @@
     [proposals]="this.users"
     [initialSelectedItems]="this.selectedUsers"
     [miniatureImageUrlPropertyName]="'avatarUrl'"
+    [uniqueIdPropertyName]="'userId'"
     [proposalsAreLoading]="this.isSearching"
     [itemsNature]="'User'"
     (search)="this.search($event)">

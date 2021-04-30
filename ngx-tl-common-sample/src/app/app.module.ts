@@ -38,6 +38,7 @@ import { TlInlineImagePickerViewComponent } from './views/components/tl-inline-i
 import { TlImagePickerViewComponent } from './views/components/tl-image-picker-view/tl-image-picker-view.component';
 import { TlSelectViewComponent } from './views/components/tl-select-view/tl-select-view.component';
 import { TlIconMiniatureSelectViewComponent } from './views/components/tl-icon-miniature-select-view/tl-icon-miniature-select-view.component';
+import { TlSizesComponent } from './components/glossary/tl-sizes/tl-sizes.component';import { TlSizesComponent } from './components/glossary/tl-sizes/tl-sizes.component';
 import { ComponentSampleComponent } from './components/component-sample/component-sample.component';
 import { DefaultCompanionMenuViewComponent } from './views/menu/default-companion-menu-view/default-companion-menu-view.component';
 
@@ -78,6 +79,7 @@ import { DefaultCompanionMenuViewComponent } from './views/menu/default-companio
     TlImagePickerViewComponent,
     TlSelectViewComponent,
     TlIconMiniatureSelectViewComponent,
+    TlSizesComponent,
     ComponentSampleComponent,
     DefaultCompanionMenuViewComponent
   ],

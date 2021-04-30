@@ -7,15 +7,16 @@
   class="tl-full tl-row-dir tl-hor-space-between tl-vert-up tl-flex-block">
   
   <tl-inline-imaged-item-picker
-    [tlStyle]="'tl-sharp-transparent'"
+    [tlStyle]="'tl-neumorphic'"
     [size]="'tl-near-half-responsive'"
     [proposals]="this.users"
     [initialSelectedItems]="this.selectedUsers"
     [miniatureImageUrlPropertyName]="'avatarUrl'"
+    [uniqueIdPropertyName]="'userId'"
     [proposalsAreLoading]="this.isSearching"
     [itemsNature]="'User'"
     [alignment]="'left'"
-    [enableLocalSearch]="true">
+    (search)="this.search($event)">
   </tl-inline-imaged-item-picker>
   
   <div 
