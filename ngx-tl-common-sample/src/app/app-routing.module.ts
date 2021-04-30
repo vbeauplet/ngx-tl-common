@@ -31,6 +31,7 @@ import { InitMenuServiceViewComponent } from './views/menu/init-menu-service-vie
 import { TlImagePickerViewComponent } from './views/components/tl-image-picker-view/tl-image-picker-view.component';
 import { TlInlineImagePickerViewComponent } from './views/components/tl-inline-image-picker-view/tl-inline-image-picker-view.component';
 import { TlSelectViewComponent } from './views/components/tl-select-view/tl-select-view.component';
+import { DefaultCompanionMenuViewComponent } from './views/menu/default-companion-menu-view/default-companion-menu-view.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: 'theme/own-static-theme', component: OwnStaticThemeViewComponent },
   { path: 'theme/dynamic-theme', component: DynamicThemeViewComponent },
   { path: 'menu/menu-service', component: InitMenuServiceViewComponent },
+  { path: 'menu/default-menu-components', component: DefaultCompanionMenuViewComponent },
   { path: 'components/tl-accordion', component: TlAccordionViewComponent },
   { path: 'components/tl-action-center', component: TlActionCenterViewComponent },
   { path: 'components/tl-active-image', component: TlActiveImageViewComponent },

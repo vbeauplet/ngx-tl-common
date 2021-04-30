@@ -3,6 +3,18 @@
   Example
 </div>
 
+<tls-component-sample>
+
+  <tl-button
+    [tlStyle]="this.componentPreferenceService.tlStyle"
+    [icon]="'O'"
+    [label]="'Speak'"
+    [labelPosition]="'right'"
+    (clickButton)="this.onClickButton()">
+  </tl-button>
+  
+</tls-component-sample>
+
 <div
   class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
   

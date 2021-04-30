@@ -98,7 +98,7 @@ export class AppComponent {
                 id: 'default-menu-components',
                 label: 'Use a default Menu Component',
                 icon: 'a',
-                route: '/theme/default-menu-components'
+                route: '/menu/default-menu-components'
               },
               {
                 id: 'build-menu-component',

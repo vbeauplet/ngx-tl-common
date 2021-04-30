@@ -1,6 +1,33 @@
 <div 
   class="tl-near-full-responsive tl-col-dir tl-hor-left tl-no-wrap tl-flex-block">
 
+
+  <div
+    class="tl-big-bottom-margined tl-subtitle">
+    Why TlMenuService is a good service to handle menu within you app ?
+  </div>
+
+  <div
+    class="tl-big-bottom-margined">
+    
+    It handles automatically selected menu item from current route<br/><br/>
+  
+    It handles wrapping status in case companion component is a wrap-capable menu<br/><br/>
+    
+    It provides a global selection event for menu items<br/><br/>
+    
+    It natively binds your menu component with ITlMenuItem objects that provide both
+     <ul>
+      <li>Menu Path, for routing purposes</li>
+      <li>Menu Label, for display purposes</li>
+      <li>Menu Badges, to handle notification numbers for each menu item</li>
+    </ul> 
+    
+  </div>
+  
+   
+  
+
   <div
     class="tl-big-bottom-margined tl-subtitle">
     Create Menu Tree
@@ -64,6 +91,18 @@
   
   <div
     class="tl-big-bottom-margined tl-subtitle">
-    Display menu with a default companion component
+    Display menu
   </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    Display menu shall now be handled by a companion component which uses this initialized TlMenuService<br/><br/>
+    Depending on your needs, you can either:
+    <ul>
+      <li>Use a ngx-tl-common default menu companion component</li>
+      <li>Or build-up your own one which is using the TmMenuService capabilities</li>
+    </ul>
+  </div>
+  
+</div>
   

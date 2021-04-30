@@ -1,0 +1,96 @@
+<div
+  class="tl-big-bottom-margined tl-full tl-row-dir tl-hor-left tl-vert-center tl-flex-block">
+  
+  <tl-select
+    class="tl-margined"
+    [placeholder]="'Custom Style'"
+    [size]="'tl-medium'"
+    [textAlign]="'left'"
+    [tlStyle]="'tl-outlined'"
+    [optionPanelStyle]="'tl-sharp-transparent'"
+    [height]="'50px'"
+    [proposals]="[
+        {
+          name: 'tl-neumorphic',
+          icon: 'k'
+        },
+        {
+          name: 'tl-neumorphic tl-dome',
+          icon: 'k'
+        },
+        {
+          name: 'tl-transparent',
+          icon: 'x'
+        },
+        {
+          name: 'tl-sharp-transparent',
+          icon: 'y'
+        },
+        {
+          name: 'tl-outlined',
+          icon: 'y'
+        },
+        {
+          name: 'tl-shadowed',
+          icon: 'y'
+        },
+        {
+          name: 'tl-neumorphic-inset-sharp',
+          icon: 'y'
+        },
+        {
+          name: 'tl-dome',
+          icon: 'k'
+        }
+      ]"
+    (selectProposal)="this.selectStyle($event)">
+  </tl-select>
+  
+  <tl-select
+    class="tl-margined"
+    [placeholder]="'Custom Style'"
+    [size]="'tl-medium'"
+    [textAlign]="'left'"
+    [tlStyle]="'tl-outlined'"
+    [optionPanelStyle]="'tl-sharp-transparent'"
+    [height]="'50px'"
+    [proposals]="[
+        {
+          name: 'tl-neumorphic',
+          icon: 'k'
+        },
+        {
+          name: 'tl-neumorphic tl-dome',
+          icon: 'k'
+        },
+        {
+          name: 'tl-transparent',
+          icon: 'x'
+        },
+        {
+          name: 'tl-sharp-transparent',
+          icon: 'y'
+        },
+        {
+          name: 'tl-outlined',
+          icon: 'y'
+        },
+        {
+          name: 'tl-shadowed',
+          icon: 'y'
+        },
+        {
+          name: 'tl-neumorphic-inset-sharp',
+          icon: 'y'
+        },
+        {
+          name: 'tl-dome',
+          icon: 'k'
+        }
+      ]"
+    (selectProposal)="this.selectStyle($event)">
+  </tl-select>
+  
+</div>
+  
+<ng-content></ng-content>

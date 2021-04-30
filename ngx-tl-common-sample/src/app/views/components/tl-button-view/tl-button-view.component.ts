@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TlAlertService } from 'ngx-tl-common';
+import { ComponentPreferencesService } from 'src/app/services/component-preferences.service';
 
 @Component({
   selector: 'tls-button-view',
@@ -11,6 +12,7 @@ export class TlButtonViewComponent implements OnInit {
 
   public htmlCode: string = `
   <tl-button
+    [tlStyle]="` + this.componentPreferenceService.tlStyle + `"
     [icon]="O"
     [label]="'Speak'"
     [labelPosition]="Right"
@@ -28,7 +30,8 @@ export class TlButtonViewComponent implements OnInit {
     `;
 
   constructor(
-      private alertService: TlAlertService
+      private alertService: TlAlertService,
+      public componentPreferenceService: ComponentPreferencesService
     ) { }
 
   ngOnInit(): void {

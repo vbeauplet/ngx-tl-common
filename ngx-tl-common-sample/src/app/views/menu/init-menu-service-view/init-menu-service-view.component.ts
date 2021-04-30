@@ -54,7 +54,7 @@ export class InitMenuServiceViewComponent implements OnInit {
   ];
   `;
   
-     public menuServiceImportCode: string = `
+  public menuServiceImportCode: string = `
   import { TlThemeService } from 'ngx-tl-common';
 
   constructor(
@@ -63,7 +63,7 @@ export class InitMenuServiceViewComponent implements OnInit {
       ...) {}
     `;
     
-        public dynamicMenuInitCode: string = `
+  public dynamicMenuInitCode: string = `
   ngOnInit() {
     // Initialize app themes
     this.themeService.init(appThemes, theme1);
