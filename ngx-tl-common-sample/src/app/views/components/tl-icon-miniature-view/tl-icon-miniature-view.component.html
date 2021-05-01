@@ -3,29 +3,29 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
-  
+<tls-component-sample>
+
   <tl-icon-miniature
     [icon]="'G'"
-    [size]="'tl-near-half-responsive'"
-    [tlStyle]="'tl-neumorphic'"
+    [tlStyle]="this.componentPreferenceService.style.tlStyle"
+    [size]="this.componentPreferenceService.style.size"
     [bgColor]="'tl-success'"
     [borderRadius]="25">
     All good
   </tl-icon-miniature>
   
-  <div 
-    class="tl-near-half-responsive">
-  
-    <pre>
-      <code
-        [highlight]="this.htmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-  
-  </div>
+</tls-component-sample>
+
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+
 </div>
 
 <div

@@ -3,15 +3,14 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-col-dir tl-hor-center tl-flex-block">
-  
+<tls-component-sample>
+
   <tl-select
     class="tl-big-margined"
     [placeholder]="'TC Link'"
-    [size]="'tl-small'"
+    [tlStyle]="this.componentPreferenceService.style.tlStyle"
+    [size]="this.componentPreferenceService.style.size"
     [textAlign]="'left'"
-    [tlStyle]="'tl-neumorphic-inset-sharp'"
     [optionPanelStyle]="'tl-sharp-transparent'"
     [height]="'50px'"
     [proposals]="[
@@ -30,17 +29,18 @@
       ]">
   </tl-select>
   
-  <div 
-    class="tl-near-full-responsive">
+</tls-component-sample>
   
-    <pre>
-      <code
-        [highlight]="this.htmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-  
-  </div>
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+
 </div>
 
 <div

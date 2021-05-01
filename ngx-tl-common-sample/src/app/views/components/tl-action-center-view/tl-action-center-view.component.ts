@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TlAlertService } from 'ngx-tl-common';
+import { ComponentPreferencesService } from 'src/app/services/component-preferences.service';
 
 @Component({
   selector: 'tls-action-center-view',
@@ -15,30 +16,7 @@ export class TlActionCenterViewComponent implements OnInit {
   public actionCenterLoadingStatus = -1;
   
   
-  public htmlCode: string = `
-  <tl-action-center
-    [tlContainerNature]="true"
-    [tlStyle]="'tl-soft-transparent'"
-    [buttons]="[
-      {
-        name: 'play',
-        icon: '{',
-        label: 'Play'
-      },
-      {
-        name: 'pause',
-        icon: '|',
-        label: 'Pause'
-      },
-      {
-        name: 'stop',
-        icon: '~',
-        label: 'Stop'
-      }
-    ]"
-    (clickButton)="this.onClickButton($event)">
-  </tl-action-center>
-    `;
+  public htmlCode: string;
     
   public tsCode: string = `
   /**
@@ -59,11 +37,54 @@ export class TlActionCenterViewComponent implements OnInit {
     `;
 
   constructor(
-      private alertService: TlAlertService
+      private alertService: TlAlertService,
+      public componentPreferenceService: ComponentPreferencesService
     ) { }
 
   ngOnInit(): void {
+    // Refresh configurable HTML code
+    this.refreshHtmlCode();
+    
+    // Subscribe to any change on component sample style
+    this.componentPreferenceService.styleSubject.subscribe(() => {
+        this.refreshHtmlCode();
+      });
   }
+  
+  /**
+   * Refreshes HTML Code
+   */
+  public refreshHtmlCode(){
+    this.htmlCode = `
+  <tl-action-center
+    [tlContainerNature]="true"
+    [tlStyle]="'` + this.componentPreferenceService.style.tlStyle + `'"
+    [buttonStyle]="'` + this.componentPreferenceService.style.subTlStyle + `'"
+    [buttonShape]="'` + this.componentPreferenceService.style.shape + `'"
+    [buttons]="[
+      {
+        name: 'play',
+        icon: '{',
+        label: 'Play',
+        color: 'tl-success'
+      },
+      {
+        name: 'pause',
+        icon: '|',
+        label: 'Pause'
+      },
+      {
+        name: 'stop',
+        icon: '~',
+        label: 'Stop',
+        color: 'tl-failure'
+      }
+    ]"
+    (clickButton)="this.onClickButton($event)">
+  </tl-action-center>
+    `;
+  }
+  
   
   /**
    * Handles click on a button of the action center

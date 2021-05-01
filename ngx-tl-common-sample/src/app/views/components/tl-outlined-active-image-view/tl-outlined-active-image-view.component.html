@@ -3,13 +3,12 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
-  
+<tls-component-sample>
+
   <tl-outlined-active-image
     class="tl-margined"
-    [size]="'tl-small'"
-    [tlStyle]="'tl-neumorphic'"
+    [tlStyle]="this.componentPreferenceService.style.tlStyle"
+    [size]="this.componentPreferenceService.style.size"
     [shape]="'round'"
     [imageSrc]="'/assets/img/herisson.jpg'"
     [activeIcons]="[
@@ -27,24 +26,25 @@
     (clickIcon)="this.onClickIcon($event)">
   </tl-outlined-active-image>
   
-  <div 
-    class="tl-near-half-responsive">
+</tls-component-sample>
+
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
   
-    <pre>
-      <code
-        [highlight]="this.htmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-    
-    <pre>
-      <code
-        [highlight]="this.tsCode"
-        [languages]="['typescript']">
-     </code>
-    </pre>
-  
-  </div>
+  <pre>
+    <code
+      [highlight]="this.tsCode"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
 </div>
 
 <div

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TlAlertService } from 'ngx-tl-common';
+import { ComponentPreferencesService } from 'src/app/services/component-preferences.service';
 
 @Component({
   selector: 'tls-active-image-view',
@@ -9,27 +10,7 @@ import { TlAlertService } from 'ngx-tl-common';
 })
 export class TlActiveImageViewComponent implements OnInit {
 
-  public htmlCode: string = `
-  <tl-active-image
-    class="tl-margined"
-    [size]="'tl-small'"
-    [shape]="'round'"
-    [imageSrc]="'/assets/img/herisson.jpg'"
-    [activeIcons]="[
-      {
-        name: 'play',
-        icon: '{',
-        label: 'Play'
-      },
-      {
-        name: 'pause',
-        icon: '|',
-        label: 'Pause'
-      },
-    ]"
-    (clickIcon)="this.onClickIcon($event)">
-  </tl-active-image>
-    `;
+  public htmlCode: string;
     
   public tsCode: string = `
   /**
@@ -41,11 +22,47 @@ export class TlActiveImageViewComponent implements OnInit {
     `;
 
   constructor(
-      private alertService: TlAlertService
+      private alertService: TlAlertService,
+      public componentPreferenceService: ComponentPreferencesService
     ) { }
 
   ngOnInit(): void {
+    // Refresh configurable HTML code
+    this.refreshHtmlCode();
+    
+    // Subscribe to any change on component sample style
+    this.componentPreferenceService.styleSubject.subscribe(() => {
+        this.refreshHtmlCode();
+      });
   }
+  
+  /**
+   * Refreshes HTML Code
+   */
+  public refreshHtmlCode(){
+    this.htmlCode = `
+  <tl-active-image
+    class="tl-margined"
+    [shape]="'` + this.componentPreferenceService.style.shape + `'"
+    [size]="'` + this.componentPreferenceService.style.size + `'"
+    [imageSrc]="'/assets/img/herisson.jpg'"
+    [activeIcons]="[
+      {
+        name: 'play',
+        icon: '{',
+        label: 'Play'
+      },
+      {
+        name: 'pause',
+        icon: '|',
+        label: 'Pause'
+      }
+    ]"
+    (clickIcon)="this.onClickIcon($event)">
+  </tl-active-image>
+    `;
+  }
+  
   
   /**
    * Handles click on an active icon of the active image

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TlAlertService } from 'ngx-tl-common';
+import { ComponentPreferencesService } from 'src/app/services/component-preferences.service';
 
 @Component({
   selector: 'tls-icon-miniature-view',
@@ -19,23 +20,36 @@ export class TlIconMiniatureViewComponent implements OnInit {
    */
   public success: boolean = true;
 
-  public htmlCode: string = `
-  <tl-icon-miniature
-    [icon]="'G'"
-    [size]="'tl-near-half-responsive'"
-    [tlStyle]="'tl-neumorphic'"
-    [bgColor]="'tl-success'"
-    [borderRadius]="25">
-    
-    All good
-    
-  </tl-icon-miniature>
-    `;
+  public htmlCode: string;;
 
   constructor(
-      private alertService: TlAlertService
+      private alertService: TlAlertService,
+      public componentPreferenceService: ComponentPreferencesService
     ) { }
 
+  ngOnInit(): void {
+    // Refresh configurable HTML code
+    this.refreshHtmlCode();
+    
+    // Subscribe to any change on component sample style
+    this.componentPreferenceService.styleSubject.subscribe(() => {
+        this.refreshHtmlCode();
+      });
+  }
   
-  ngOnInit(): void {}
+  /**
+   * Refreshes HTML Code
+   */
+  public refreshHtmlCode(){
+    this.htmlCode = `
+  <tl-icon-miniature
+    [icon]="'G'"
+    [tlStyle]="'` + this.componentPreferenceService.style.tlStyle + `'"
+    [size]="'` + this.componentPreferenceService.style.size + `'"
+    [bgColor]="'tl-success'"
+    [borderRadius]="25">
+    All good
+  </tl-icon-miniature>
+    `;
+  }
 }

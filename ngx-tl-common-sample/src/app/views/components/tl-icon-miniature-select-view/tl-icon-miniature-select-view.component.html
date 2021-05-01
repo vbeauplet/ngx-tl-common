@@ -3,16 +3,15 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-between tl-vert-up tl-flex-block">
-  
+<tls-component-sample>
+
   <tl-icon-miniature-select
     class="tl-big-bottom-margined"
+    [tlStyle]="this.componentPreferenceService.style.tlStyle"
+    [size]="this.componentPreferenceService.style.size"
     [miniatureHeight]="60"
     [placeholder]="'TC Link'"
-    [size]="'tl-near-half-responsive'"
     [icon]="'$'"
-    [tlStyle]="'tl-neumorphic'"
     [proposals]="[
         {
           name: 'Proposal 1',
@@ -30,17 +29,18 @@
     [synchroneFeedback]="true">
   </tl-icon-miniature-select>
   
-  <div 
-    class="tl-near-half-responsive">
-  
-    <pre>
-      <code
-        [highlight]="this.htmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-  
-  </div>
+</tls-component-sample>
+
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+
 </div>
 
 <div

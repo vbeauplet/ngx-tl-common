@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TlAlertService } from 'ngx-tl-common';
+import { ComponentPreferencesService } from 'src/app/services/component-preferences.service';
 
 @Component({
   selector: 'tls-search-bar-view',
@@ -10,13 +11,7 @@ import { TlAlertService } from 'ngx-tl-common';
 export class TlSearchBarViewComponent implements OnInit {
 
 
-  public htmlCode: string = `
-  <tl-search-bar
-    [size]="'tl-near-half-responsive'"
-    [placeholder]="'Search'"
-    (searchValue)="this.onSearchValue($event)">
-  </tl-search-bar>
-    `;
+  public htmlCode: string;
     
   public tsCode: string = `
   /**
@@ -28,10 +23,32 @@ export class TlSearchBarViewComponent implements OnInit {
     `;
 
   constructor(
-      private alertService: TlAlertService
+      private alertService: TlAlertService,
+      public componentPreferenceService: ComponentPreferencesService
     ) { }
 
   ngOnInit(): void {
+    // Refresh configurable HTML code
+    this.refreshHtmlCode();
+    
+    // Subscribe to any change on component sample style
+    this.componentPreferenceService.styleSubject.subscribe(() => {
+        this.refreshHtmlCode();
+      });
+  }
+  
+  /**
+   * Refreshes HTML Code
+   */
+  public refreshHtmlCode(){
+    this.htmlCode = `
+  <tl-search-bar
+    [tlStyle]="'` + this.componentPreferenceService.style.tlStyle + `'"
+    [size]="'` + this.componentPreferenceService.style.size + `'"
+    [placeholder]="'Search'"
+    (searchValue)="this.onSearchValue($event)">
+  </tl-search-bar>
+    `;
   }
   
   /**

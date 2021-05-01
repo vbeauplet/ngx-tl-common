@@ -3,28 +3,31 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
-  
+<tls-component-sample
+  [hasTlStyle]="false"
+  [hasColor]="true">
+
   <tl-indicator
+    [size]="this.componentPreferenceService.style.size"
+    [color]="this.componentPreferenceService.style.color"
     [icon]="'P'"
     [text]="'80%'"
     [textPosition]="'bottom'"
-    [iconSize]="40"
-    [color]="'tl-outline'">
+    [iconSize]="40">
   </tl-indicator>
   
-  <div 
-    class="tl-near-half-responsive">
-  
-    <pre>
-      <code
-        [highlight]="this.htmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-  
-  </div>
+</tls-component-sample>
+
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+
 </div>
 
 <div

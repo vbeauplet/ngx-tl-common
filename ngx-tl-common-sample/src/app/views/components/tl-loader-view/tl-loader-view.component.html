@@ -3,23 +3,25 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
-  
+<tls-component-sample
+  [hasTlStyle]="false"
+  [hasSize]="false">
+
   <tl-loader>
   </tl-loader>
-  
-  <div 
-    class="tl-near-half-responsive">
-  
-    <pre>
-      <code
-        [highlight]="this.htmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-  
-  </div>
+
+</tls-component-sample>
+
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+
 </div>
 
 

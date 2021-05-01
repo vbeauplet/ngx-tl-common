@@ -3,31 +3,33 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
-  
+<tls-component-sample
+  [hasTlStyle]="false"
+  [hasSize]="false">
+
   <tl-spinner
     [loadingStatus]="this.spinnerLoadingStatus">
   </tl-spinner>
+
+</tls-component-sample>
   
-  <div 
-    class="tl-near-half-responsive">
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
   
-    <pre>
-      <code
-        [highlight]="this.htmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-    
-    <pre>
-      <code
-        [highlight]="this.tsCode"
-        [languages]="['typescript']">
-     </code>
-    </pre>
-  
-  </div>
+  <pre>
+    <code
+      [highlight]="this.tsCode"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
 </div>
 
 <div

@@ -1,19 +1,30 @@
 <div
-  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
-  
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<tls-component-sample
+  [hasTlStyle]="false"
+  [hasColor]="true">
+
   <tl-toggler
-    [size]="'tl-small'"
+    [size]="this.componentPreferenceService.style.size"
     [label]="'Toggle on/off'"
-    [onBgColor]="'tl-outline'">
+    [onBgColor]="this.componentPreferenceService.style.color">
   </tl-toggler>
   
+</tls-component-sample>
+  
+<div 
+  class="tl-near-full-responsive">
+  
   <pre>
-    <code 
-      class="tl-big"
+    <code
       [highlight]="this.htmlCode"
       [languages]="['html']">
    </code>
   </pre>
+  
 </div>
 
 

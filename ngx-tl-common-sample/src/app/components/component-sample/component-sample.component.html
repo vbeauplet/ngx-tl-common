@@ -2,8 +2,10 @@
   class="tl-big-bottom-margined tl-full tl-row-dir tl-hor-left tl-vert-center tl-flex-block">
   
   <tl-select
+    *ngIf="this.hasTlStyle"
     class="tl-margined"
     [placeholder]="'Custom Style'"
+    [initialSelectedProposal]="{name: this.componentPreferenceService.style.tlStyle}"
     [size]="'tl-medium'"
     [textAlign]="'left'"
     [tlStyle]="'tl-outlined'"
@@ -11,44 +13,44 @@
     [height]="'50px'"
     [proposals]="[
         {
-          name: 'tl-neumorphic',
-          icon: 'k'
+          name: 'tl-neumorphic'
         },
         {
-          name: 'tl-neumorphic tl-dome',
-          icon: 'k'
+          name: 'tl-neumorphic tl-dome'
         },
         {
-          name: 'tl-transparent',
-          icon: 'x'
+          name: 'tl-glassmorphic'
         },
         {
-          name: 'tl-sharp-transparent',
-          icon: 'y'
+          name: 'tl-soft-transparent'
         },
         {
-          name: 'tl-outlined',
-          icon: 'y'
+          name: 'tl-transparent'
         },
         {
-          name: 'tl-shadowed',
-          icon: 'y'
+          name: 'tl-sharp-transparent'
         },
         {
-          name: 'tl-neumorphic-inset-sharp',
-          icon: 'y'
+          name: 'tl-outlined'
         },
         {
-          name: 'tl-dome',
-          icon: 'k'
+          name: 'tl-shadowed'
+        },
+        {
+          name: 'tl-neumorphic-inset-sharp'
+        },
+        {
+          name: 'tl-dome'
         }
       ]"
-    (selectProposal)="this.selectStyle($event)">
+    (selectProposal)="this.componentPreferenceService.onSelectStyle($event)">
   </tl-select>
   
   <tl-select
+    *ngIf="this.hasSubTlStyle"
     class="tl-margined"
     [placeholder]="'Custom Style'"
+    [initialSelectedProposal]="{name: this.componentPreferenceService.style.subTlStyle}"
     [size]="'tl-medium'"
     [textAlign]="'left'"
     [tlStyle]="'tl-outlined'"
@@ -56,39 +58,190 @@
     [height]="'50px'"
     [proposals]="[
         {
-          name: 'tl-neumorphic',
-          icon: 'k'
+          name: 'tl-neumorphic'
         },
         {
-          name: 'tl-neumorphic tl-dome',
-          icon: 'k'
+          name: 'tl-neumorphic tl-dome'
         },
         {
-          name: 'tl-transparent',
-          icon: 'x'
+          name: 'tl-glassmorphic'
         },
         {
-          name: 'tl-sharp-transparent',
-          icon: 'y'
+          name: 'tl-soft-transparent'
         },
         {
-          name: 'tl-outlined',
-          icon: 'y'
+          name: 'tl-transparent'
         },
         {
-          name: 'tl-shadowed',
-          icon: 'y'
+          name: 'tl-sharp-transparent'
         },
         {
-          name: 'tl-neumorphic-inset-sharp',
-          icon: 'y'
+          name: 'tl-outlined'
         },
         {
-          name: 'tl-dome',
-          icon: 'k'
+          name: 'tl-shadowed'
+        },
+        {
+          name: 'tl-neumorphic-inset-sharp'
+        },
+        {
+          name: 'tl-dome'
         }
       ]"
-    (selectProposal)="this.selectStyle($event)">
+    (selectProposal)="this.componentPreferenceService.onSelectSubStyle($event)">
+  </tl-select>
+  
+  <tl-select
+    *ngIf="this.hasSize"
+    class="tl-margined"
+    [placeholder]="'Custom Size'"
+    [initialSelectedProposal]="{name: this.componentPreferenceService.style.size}"
+    [size]="'tl-medium'"
+    [textAlign]="'left'"
+    [tlStyle]="'tl-outlined'"
+    [optionPanelStyle]="'tl-sharp-transparent'"
+    [height]="'50px'"
+    [proposals]="[
+        {
+          name: 'tl-xbig'
+        },
+        {
+          name: 'tl-big'
+        },
+        {
+          name: 'tl-medium'
+        },
+        {
+          name: 'tl-small'
+        },
+        {
+          name: 'tl-xxsmall'
+        },
+        {
+          name: 'tl-initial-width'
+        },
+        {
+          name: 'tl-full'
+        },
+        {
+          name: 'tl-near-full'
+        },
+        {
+          name: 'tl-near-full-responsive'
+        },
+        {
+          name: 'tl-half'
+        },
+        {
+          name: 'tl-half-responsive'
+        },
+        {
+          name: 'tl-near-half'
+        },
+        {
+          name: 'tl-near-half-responsive'
+        },
+        {
+          name: 'tl-third'
+        },
+        {
+          name: 'tl-third-responsive'
+        },
+        {
+          name: 'tl-quarter'
+        },
+        {
+          name: 'tl-quarter-responsive'
+        }
+      ]"
+    (selectProposal)="this.componentPreferenceService.onSelectSize($event)">
+  </tl-select>
+  
+  <tl-select
+    *ngIf="this.hasShape"
+    class="tl-margined"
+    [placeholder]="'Custom Size'"
+    [initialSelectedProposal]="{name: this.componentPreferenceService.style.shape}"
+    [size]="'tl-medium'"
+    [textAlign]="'left'"
+    [tlStyle]="'tl-outlined'"
+    [optionPanelStyle]="'tl-sharp-transparent'"
+    [height]="'50px'"
+    [proposals]="[
+        {
+          name: 'square'
+        },
+        {
+          name: 'round'
+        }
+      ]"
+    (selectProposal)="this.componentPreferenceService.onSelectShape($event)">
+  </tl-select>
+  
+  <tl-select
+    *ngIf="this.hasSubShape"
+    class="tl-margined"
+    [placeholder]="'Custom Size'"
+    [initialSelectedProposal]="{name: this.componentPreferenceService.style.subShape}"
+    [size]="'tl-medium'"
+    [textAlign]="'left'"
+    [tlStyle]="'tl-outlined'"
+    [optionPanelStyle]="'tl-sharp-transparent'"
+    [height]="'50px'"
+    [proposals]="[
+        {
+          name: 'square'
+        },
+        {
+          name: 'round'
+        }
+      ]"
+    (selectProposal)="this.componentPreferenceService.onSelectSubShape($event)">
+  </tl-select>
+  
+  <tl-select
+    *ngIf="this.hasColor"
+    class="tl-margined"
+    [placeholder]="'Custom Size'"
+    [initialSelectedProposal]="{name: this.componentPreferenceService.style.color}"
+    [size]="'tl-medium'"
+    [textAlign]="'left'"
+    [tlStyle]="'tl-outlined'"
+    [optionPanelStyle]="'tl-sharp-transparent'"
+    [height]="'50px'"
+    [proposals]="[
+        {
+          name: 'tl-outline'
+        },
+        {
+          name: 'tl-main'
+        },
+        {
+          name: 'tl-secondary'
+        },
+        {
+          name: 'tl-success'
+        },
+        {
+          name: 'tl-failure'
+        },
+        {
+          name: 'tl-neutral'
+        },
+        {
+          name: 'tl-inherit'
+        },
+        {
+          name: 'tl-black'
+        },
+        {
+          name: 'tl-white'
+        },
+        {
+          name: 'tl-none'
+        }
+      ]"
+    (selectProposal)="this.componentPreferenceService.onSelectColor($event)">
   </tl-select>
   
 </div>

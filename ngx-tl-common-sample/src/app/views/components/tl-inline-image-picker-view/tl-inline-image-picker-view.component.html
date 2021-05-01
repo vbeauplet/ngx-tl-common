@@ -3,12 +3,12 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-between tl-vert-up tl-flex-block">
-  
+<tls-component-sample>
+
+
   <tl-inline-imaged-item-picker
-    [tlStyle]="'tl-neumorphic'"
-    [size]="'tl-near-half-responsive'"
+    [tlStyle]="this.componentPreferenceService.style.tlStyle"
+    [size]="this.componentPreferenceService.style.size"
     [proposals]="this.users"
     [initialSelectedItems]="this.selectedUsers"
     [miniatureImageUrlPropertyName]="'avatarUrl'"
@@ -19,24 +19,25 @@
     (search)="this.search($event)">
   </tl-inline-imaged-item-picker>
   
-  <div 
-    class="tl-near-half-responsive">
+</tls-component-sample>
   
-    <pre>
-      <code
-        [highlight]="this.htmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-    
-    <pre>
-      <code
-        [highlight]="this.tsCode"
-        [languages]="['typescript']">
-     </code>
-    </pre>
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
   
-  </div>
+  <pre>
+    <code
+      [highlight]="this.tsCode"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
 </div>
 
 <div

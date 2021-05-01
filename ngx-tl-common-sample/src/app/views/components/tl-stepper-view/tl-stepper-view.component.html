@@ -3,11 +3,11 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
-  
+<tls-component-sample>
+
   <tl-stepper
-    [size]="'tl-near-half-responsive'"
+    [tlStyle]="this.componentPreferenceService.style.tlStyle"
+    [size]="this.componentPreferenceService.style.size"
     [initialSteps]="[
         {
           name: 'Init',
@@ -24,6 +24,12 @@
       ]">
   </tl-stepper>
   
+</tls-component-sample>
+  
+  
+<div 
+  class="tl-near-full-responsive">  
+  
   <pre
     class="tl-near-half-responsive">
     <code
@@ -31,6 +37,7 @@
       [languages]="['html']">
    </code>
   </pre>
+  
 </div>
 
 <div

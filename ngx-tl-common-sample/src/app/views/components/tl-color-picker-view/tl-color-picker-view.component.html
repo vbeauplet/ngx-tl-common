@@ -3,11 +3,11 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
-  
+<tls-component-sample
+  [hasTlStyle]="false">
+
   <tl-color-picker
-    [size]="'tl-near-half-responsive'"
+    [size]="this.componentPreferenceService.style.size"
     [colorCircleSize]="100"
     [initialItems]="[
       {
@@ -29,24 +29,25 @@
     (selectItem)="this.onSelectItem($event)">
   </tl-color-picker>
   
-  <div 
-    class="tl-near-half-responsive">
+</tls-component-sample>
   
-    <pre>
-      <code
-        [highlight]="this.htmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-    
-    <pre>
-      <code
-        [highlight]="this.tsCode"
-        [languages]="['typescript']">
-     </code>
-    </pre>
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
   
-  </div>
+  <pre>
+    <code
+      [highlight]="this.tsCode"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
 </div>
 
 <div

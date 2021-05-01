@@ -3,33 +3,34 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
-  
+<tls-component-sample>
+
   <tl-search-bar
-    [size]="'tl-near-half-responsive'"
+    [tlStyle]="this.componentPreferenceService.style.tlStyle"
+    [size]="this.componentPreferenceService.style.size"
     [placeholder]="'Search'"
     (searchValue)="this.onSearchValue($event)">
   </tl-search-bar>
   
-  <div 
-    class="tl-near-half-responsive">
+</tls-component-sample>
   
-    <pre>
-      <code
-        [highlight]="this.htmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-    
-    <pre>
-      <code
-        [highlight]="this.tsCode"
-        [languages]="['typescript']">
-     </code>
-    </pre>
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
   
-  </div>
+  <pre>
+    <code
+      [highlight]="this.tsCode"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
 </div>
 
 <div

@@ -10,15 +10,7 @@ import { ComponentPreferencesService } from 'src/app/services/component-preferen
 })
 export class TlButtonViewComponent implements OnInit {
 
-  public htmlCode: string = `
-  <tl-button
-    [tlStyle]="` + this.componentPreferenceService.tlStyle + `"
-    [icon]="O"
-    [label]="'Speak'"
-    [labelPosition]="Right"
-    (clickButton)="this.onClickButton()">
-  </tl-button>
-    `;
+  public htmlCode: string;
     
   public tsCode: string = `
   /**
@@ -35,6 +27,29 @@ export class TlButtonViewComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    // Refresh configurable HTML code
+    this.refreshHtmlCode();
+    
+    // Subscribe to any change on component sample style
+    this.componentPreferenceService.styleSubject.subscribe(() => {
+        this.refreshHtmlCode();
+      });
+  }
+  
+  /**
+   * Refreshes HTML Code
+   */
+  public refreshHtmlCode(){
+    this.htmlCode = `
+  <tl-button
+    [tlStyle]="'` + this.componentPreferenceService.style.tlStyle + `'"
+    [shape]="'` + this.componentPreferenceService.style.shape + `'"
+    [icon]="O"
+    [label]="'Speak'"
+    [labelPosition]="Right"
+    (clickButton)="this.onClickButton()">
+  </tl-button>
+    `;
   }
   
   /**

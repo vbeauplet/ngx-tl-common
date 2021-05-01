@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TlAlertService } from 'ngx-tl-common';
+import { ComponentPreferencesService } from 'src/app/services/component-preferences.service';
 
 @Component({
   selector: 'tls-shape-block-view',
@@ -10,18 +11,33 @@ import { TlAlertService } from 'ngx-tl-common';
 export class TlShapeBlockViewComponent implements OnInit {
 
 
-  public htmlCode: string = `
-  <tl-shape-block
-    class="tl-outline-bg-element"
-    [size]="'tl-near-half'"
-    [shape]="'square'">
-  </tl-shape-block>
-    `;
+  public htmlCode: string;;
 
   constructor(
-      private alertService: TlAlertService
+      private alertService: TlAlertService,
+      public componentPreferenceService: ComponentPreferencesService
     ) { }
 
+  ngOnInit(): void {
+    // Refresh configurable HTML code
+    this.refreshHtmlCode();
+    
+    // Subscribe to any change on component sample style
+    this.componentPreferenceService.styleSubject.subscribe(() => {
+        this.refreshHtmlCode();
+      });
+  }
   
-  ngOnInit(): void {}
+  /**
+   * Refreshes HTML Code
+   */
+  public refreshHtmlCode(){
+    this.htmlCode = `
+  <tl-shape-block
+    class="tl-outline-bg-element"
+    [size]="'` + this.componentPreferenceService.style.size + `'"
+    [shape]="'` + this.componentPreferenceService.style.shape + `'">
+  </tl-shape-block>
+    `;
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TlAlertService } from 'ngx-tl-common';
+import { ComponentPreferencesService } from 'src/app/services/component-preferences.service';
 
 @Component({
   selector: 'tls-icon-miniature-select-view',
@@ -9,38 +10,54 @@ import { TlAlertService } from 'ngx-tl-common';
 })
 export class TlIconMiniatureSelectViewComponent implements OnInit {
 
-  public htmlCode: string = `
-<tl-icon-miniature-select
-  class="tl-big-bottom-margined"
-  [miniatureHeight]="60"
-  [placeholder]="'TC Link'"
-  [size]="'tl-medium'"
-  [icon]="'$'"
-  [tlStyle]="'tl-neumorphic'"
-  [proposals]="[
-      {
-        name: 'Proposal 1',
-        icon: 'k'
-      },
-      {
-        name: 'Proposal 2',
-        icon: 'x'
-      },
-      {
-        name: 'Proposal 3',
-        icon: 'y'
-      }
-    ]"
-  [synchroneFeedback]="true">
-</tl-icon-miniature-select>
-    `;
+  public htmlCode: string;;
 
   constructor(
-      private alertService: TlAlertService
+      private alertService: TlAlertService,
+      public componentPreferenceService: ComponentPreferencesService
     ) { }
 
   ngOnInit(): void {
+    // Refresh configurable HTML code
+    this.refreshHtmlCode();
+    
+    // Subscribe to any change on component sample style
+    this.componentPreferenceService.styleSubject.subscribe(() => {
+        this.refreshHtmlCode();
+      });
   }
+  
+  /**
+   * Refreshes HTML Code
+   */
+  public refreshHtmlCode(){
+    this.htmlCode = `
+  <tl-icon-miniature-select
+    class="tl-big-bottom-margined"
+    [tlStyle]="'` + this.componentPreferenceService.style.tlStyle + `'"
+    [size]="'` + this.componentPreferenceService.style.size + `'"
+    [miniatureHeight]="60"
+    [placeholder]="'TC Link'"
+    [icon]="'$'"
+    [proposals]="[
+        {
+          name: 'Proposal 1',
+          icon: 'k'
+        },
+        {
+          name: 'Proposal 2',
+          icon: 'x'
+        },
+        {
+          name: 'Proposal 3',
+          icon: 'y'
+        }
+      ]"
+    [synchroneFeedback]="true">
+  </tl-icon-miniature-select>
+    `;
+  }
+  
 
 
 }

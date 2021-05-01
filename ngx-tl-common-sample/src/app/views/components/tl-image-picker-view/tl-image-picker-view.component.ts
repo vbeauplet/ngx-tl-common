@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TlAlertService, TlUser } from 'ngx-tl-common';
+import { ComponentPreferencesService } from 'src/app/services/component-preferences.service';
 
 @Component({
   selector: 'tls-image-picker-view',
@@ -17,21 +18,7 @@ export class TlImagePickerViewComponent implements OnInit {
   
   public isSearching: boolean = false;
 
-  public htmlCode: string = `
-<tl-imaged-item-picker
-  class="tl-big-margined"
-  [tlStyle]="'tl-neumorphic'"
-  [size]="'tl-full'"
-  [proposals]="this.users"
-  [initialSelectedItems]="this.selectedUsers"
-  [miniatureImageUrlPropertyName]="'avatarUrl'"
-  [uniqueIdPropertyName]="'userId'"
-  [proposalsAreLoading]="this.isSearching"
-  [itemsNature]="'User'"
-  [alignment]="'left'"
-  (search)="this.search($event)">
-</tl-imaged-item-picker>
-    `;
+  public htmlCode: string;
     
   public tsCode: string = `
 public baseUsers: TlUser[] = [];
@@ -113,12 +100,21 @@ public search(value: string){
 }
     `;
 
-  constructor(
-      private alertService: TlAlertService
+ constructor(
+      private alertService: TlAlertService,
+      public componentPreferenceService: ComponentPreferencesService
     ) { }
 
   ngOnInit(): void {
+    // Refresh configurable HTML code
+    this.refreshHtmlCode();
     
+    // Subscribe to any change on component sample style
+    this.componentPreferenceService.styleSubject.subscribe(() => {
+        this.refreshHtmlCode();
+      });
+
+    // Handle users
     let user1 = new TlUser();
     user1.userId = 'valentin';
     user1.name = 'Valentin';
@@ -177,6 +173,27 @@ public search(value: string){
     this.selectedUsers.push(user6);
     this.selectedUsers.push(user9);
   }
+  
+  /**
+   * Refreshes HTML Code
+   */
+  public refreshHtmlCode(){
+    
+    this.htmlCode = `
+  <tl-imaged-item-picker
+    [tlStyle]="'` + this.componentPreferenceService.style.tlStyle + `'"
+    [size]="'` + this.componentPreferenceService.style.size + `'"
+    [proposals]="this.users"
+    [initialSelectedItems]="this.selectedUsers"
+    [miniatureImageUrlPropertyName]="'avatarUrl'"
+    [uniqueIdPropertyName]="'userId'"
+    [proposalsAreLoading]="this.isSearching"
+    [itemsNature]="'User'"
+    (search)="this.search($event)">
+  </tl-imaged-item-picker>
+    `;
+  }
+    
   
   /**
    * Handles click on the button

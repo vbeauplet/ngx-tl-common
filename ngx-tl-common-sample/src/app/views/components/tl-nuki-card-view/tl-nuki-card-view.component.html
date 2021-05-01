@@ -3,12 +3,12 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
-  
+<tls-component-sample>
+
   <tl-nuki-card
     [imageSrc]="'/assets/img/herisson.jpg'"
-    [size]="'tl-medium'">
+    [tlStyle]="this.componentPreferenceService.style.tlStyle"
+    [size]="this.componentPreferenceService.style.size">
     
     <div
       class="tl-big-bottom-margined tl-title">
@@ -26,17 +26,18 @@
     
   </tl-nuki-card>
   
-  <div 
-    class="tl-near-half-responsive">
+</tls-component-sample>
   
-    <pre>
-      <code
-        [highlight]="this.htmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-  
-  </div>
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+
 </div>
 
 <div

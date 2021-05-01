@@ -3,39 +3,39 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
-  
+<tls-component-sample>
+
   <tl-icon-miniature-toggler
     [icon]="'G'"
     [offIcon]="'G'"
+    [tlStyle]="this.componentPreferenceService.style.tlStyle"
+    [size]="this.componentPreferenceService.style.size"
     [label]="this.label"
     [initialState]="this.state"
-    [size]="'tl-near-half-responsive'"
-    [tlStyle]="'tl-neumorphic'"
     [onBgColor]="'tl-success'"
     [offBgColor]="'tl-failure'"
     [borderRadius]="25">
   </tl-icon-miniature-toggler>
   
-  <div 
-    class="tl-near-half-responsive">
+</tls-component-sample>
   
-    <pre>
-      <code
-        [highlight]="this.htmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-    
-    <pre>
-      <code
-        [highlight]="this.tsCode"
-        [languages]="['typescript']">
-     </code>
-    </pre>
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
   
-  </div>
+  <pre>
+    <code
+      [highlight]="this.tsCode"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
 </div>
 
 <div

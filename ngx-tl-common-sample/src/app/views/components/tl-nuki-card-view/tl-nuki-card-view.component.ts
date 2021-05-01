@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TlAlertService } from 'ngx-tl-common';
+import { ComponentPreferencesService } from 'src/app/services/component-preferences.service';
 
 @Component({
   selector: 'tls-nuki-card-view',
@@ -10,10 +11,32 @@ import { TlAlertService } from 'ngx-tl-common';
 export class TlNukiCardViewComponent implements OnInit {
 
 
-  public htmlCode: string = `
+  public htmlCode: string;
+
+  constructor(
+      private alertService: TlAlertService,
+      public componentPreferenceService: ComponentPreferencesService
+    ) { }
+
+  ngOnInit(): void {
+    // Refresh configurable HTML code
+    this.refreshHtmlCode();
+    
+    // Subscribe to any change on component sample style
+    this.componentPreferenceService.styleSubject.subscribe(() => {
+        this.refreshHtmlCode();
+      });
+  }
+  
+  /**
+   * Refreshes HTML Code
+   */
+  public refreshHtmlCode(){
+    this.htmlCode = `
   <tl-nuki-card
     [imageSrc]="'/assets/img/herisson.jpg'"
-    [size]="'tl-medium'">
+    [tlStyle]="'` + this.componentPreferenceService.style.tlStyle + `'"
+    [size]="'` + this.componentPreferenceService.style.size + `'">
     
     <div
       class="tl-big-bottom-margined tl-title">
@@ -31,11 +54,5 @@ export class TlNukiCardViewComponent implements OnInit {
     
   </tl-nuki-card>
     `;
-
-  constructor(
-      private alertService: TlAlertService
-    ) { }
-
-  
-  ngOnInit(): void {}
+  }
 }

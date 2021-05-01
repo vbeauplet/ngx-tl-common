@@ -3,11 +3,11 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-up tl-flex-block">
-  
+<tls-component-sample>
+
   <tl-accordion
-    [size]="'tl-near-half-responsive'">
+    [tlStyle]="this.componentPreferenceService.style.tlStyle"
+    [size]="this.componentPreferenceService.style.size">
     
     <tl-accordion-panel
       *ngFor="let item of this.list">
@@ -34,24 +34,25 @@
     </tl-accordion-panel>    
   </tl-accordion>
   
-  <div 
-    class="tl-near-half-responsive">
+</tls-component-sample>
   
-    <pre>
-      <code
-        [highlight]="this.htmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-    
-    <pre>
-      <code
-        [highlight]="this.tsCode"
-        [languages]="['typescript']">
-     </code>
-    </pre>
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
   
-  </div>
+  <pre>
+    <code
+      [highlight]="this.tsCode"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
 </div>
 
 <div
@@ -59,7 +60,8 @@
   tl-accordion Inputs
 </div>
 
-<table>
+<table
+  class="tl-near-full-responsive">
   <thead>
     <tr>
         <th>Name</th>
@@ -89,7 +91,8 @@
   tl-accordion-panel Inputs
 </div>
 
-<table>
+<table
+  class="tl-near-full-responsive">
   <thead>
     <tr>
         <th>Name</th>
@@ -119,7 +122,8 @@
   tl-accordion-panel Events
 </div>
 
-<table>
+<table
+  class="tl-near-full-responsive">
   <thead>
     <tr>
         <th>Name</th>

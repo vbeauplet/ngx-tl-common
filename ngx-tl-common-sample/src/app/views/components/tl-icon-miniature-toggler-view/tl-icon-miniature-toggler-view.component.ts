@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TlAlertService } from 'ngx-tl-common';
+import { ComponentPreferencesService } from 'src/app/services/component-preferences.service';
 
 @Component({
   selector: 'tls-icon-miniature-toggler-view',
@@ -19,19 +20,7 @@ export class TlIconMiniatureTogglerViewComponent implements OnInit {
    */
   public state: boolean = true;
 
-  public htmlCode: string = `
-  <tl-icon-miniature-toggler
-    [icon]="'G'"
-    [offIcon]="'G'"
-    [label]="this.label"
-    [initialState]="this.state"
-    [size]="'tl-near-half-responsive'"
-    [tlStyle]="'tl-neumorphic'"
-    [onBgColor]="'tl-success'"
-    [offBgColor]="'tl-failure'"
-    [borderRadius]="25">
-  </tl-icon-miniature-toggler>
-    `;
+  public htmlCode: string;
     
   public tsCode: string = `
   /**
@@ -62,10 +51,37 @@ export class TlIconMiniatureTogglerViewComponent implements OnInit {
     `;
 
   constructor(
-      private alertService: TlAlertService
+      private alertService: TlAlertService,
+      public componentPreferenceService: ComponentPreferencesService
     ) { }
 
   ngOnInit(): void {
+    // Refresh configurable HTML code
+    this.refreshHtmlCode();
+    
+    // Subscribe to any change on component sample style
+    this.componentPreferenceService.styleSubject.subscribe(() => {
+        this.refreshHtmlCode();
+      });
+  }
+  
+  /**
+   * Refreshes HTML Code
+   */
+  public refreshHtmlCode(){
+    this.htmlCode = `
+  <tl-icon-miniature-toggler
+    [icon]="'G'"
+    [offIcon]="'G'"
+    [tlStyle]="'` + this.componentPreferenceService.style.tlStyle + `'"
+    [size]="'` + this.componentPreferenceService.style.size + `'"
+    [label]="this.label"
+    [initialState]="this.state"
+    [onBgColor]="'tl-success'"
+    [offBgColor]="'tl-failure'"
+    [borderRadius]="25">
+  </tl-icon-miniature-toggler>
+    `;
   }
   
   /**

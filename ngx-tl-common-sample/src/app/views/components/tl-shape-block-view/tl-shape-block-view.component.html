@@ -3,26 +3,28 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
-  
+<tls-component-sample
+  [hasShape]="true"
+  [hasTlStyle]="false">
+
   <tl-shape-block
     class="tl-outline-bg-element"
-    [size]="'tl-near-half'"
-    [shape]="'square'">
+    [size]="this.componentPreferenceService.style.size"
+    [shape]="this.componentPreferenceService.style.shape">
   </tl-shape-block>
   
-  <div 
-    class="tl-near-half-responsive">
-  
-    <pre>
-      <code
-        [highlight]="this.htmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-  
-  </div>
+</tls-component-sample>
+
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+
 </div>
 
 <div

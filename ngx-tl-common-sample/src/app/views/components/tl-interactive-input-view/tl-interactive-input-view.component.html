@@ -3,34 +3,35 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
+<tls-component-sample
+  [hasTlStyle]="false">
   
   <tl-interactive-input
-    [size]="'tl-near-half-responsive'"
+    [size]="this.componentPreferenceService.style.size"
     [inputLabel]="'Name'"
     [placeholder]="this.name"
     (changeValue)="this.onChangeValue($event)">
   </tl-interactive-input>
   
-  <div 
-    class="tl-near-half-responsive">
+</tls-component-sample>
+
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
   
-    <pre>
-      <code
-        [highlight]="this.htmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-    
-    <pre>
-      <code
-        [highlight]="this.tsCode"
-        [languages]="['typescript']">
-     </code>
-    </pre>
-  
-  </div>
+  <pre>
+    <code
+      [highlight]="this.tsCode"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
 </div>
 
 <div
@@ -38,34 +39,36 @@
   Example (inline)
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
+
+<tls-component-sample
+  [hasTlStyle]="false">
   
   <tl-interactive-input
-    [size]="'tl-near-half-responsive'"
-    [placeholder]="this.name"
+    [size]="this.componentPreferenceService.style.size"
     [inline]="true"
+    [placeholder]="this.name"
     (changeValue)="this.onChangeValue($event)">
   </tl-interactive-input>
   
-  <div 
-    class="tl-near-half-responsive">
+</tls-component-sample>
+
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode2"
+      [languages]="['html']">
+   </code>
+  </pre>
   
-    <pre>
-      <code
-        [highlight]="this.htmlCode2"
-        [languages]="['html']">
-     </code>
-    </pre>
-    
-    <pre>
-      <code
-        [highlight]="this.tsCode2"
-        [languages]="['typescript']">
-     </code>
-    </pre>
-  
-  </div>
+  <pre>
+    <code
+      [highlight]="this.tsCode2"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
 </div>
 
 <div

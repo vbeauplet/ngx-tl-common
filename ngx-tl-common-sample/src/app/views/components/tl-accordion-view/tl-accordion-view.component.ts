@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TlAlertService } from 'ngx-tl-common';
+import { ComponentPreferencesService } from 'src/app/services/component-preferences.service';
 
 @Component({
   selector: 'tls-accordion-view',
@@ -9,35 +10,7 @@ import { TlAlertService } from 'ngx-tl-common';
 })
 export class TlAccordionViewComponent implements OnInit {
 
-  public htmlCode: string = `
-  <tl-accordion
-    [size]="'tl-near-half-responsive'">
-    
-    <tl-accordion-panel
-      *ngFor="let item of this.list">
-      
-      <ng-container
-        panelHeader>
-        {{ item.name }}
-      </ng-container>
-        
-      <ng-container
-        panelContent>
-        
-        <div
-          class="tl-margined">
-          {{ item.description }}
-        </div>
-        <div
-          class="tl-margined">
-          {{ item.other }}
-        </div>
-        
-      </ng-container>
-      
-    </tl-accordion-panel>    
-  </tl-accordion>
-    `;
+  public htmlCode: string;
     
   public tsCode: string = `
   public list: any = [
@@ -89,10 +62,54 @@ export class TlAccordionViewComponent implements OnInit {
     ];
 
   constructor(
-      private alertService: TlAlertService
+      private alertService: TlAlertService,
+      public componentPreferenceService: ComponentPreferencesService
     ) { }
 
   ngOnInit(): void {
+    // Refresh configurable HTML code
+    this.refreshHtmlCode();
+    
+    // Subscribe to any change on component sample style
+    this.componentPreferenceService.styleSubject.subscribe(() => {
+        this.refreshHtmlCode();
+      });
+  }
+  
+  /**
+   * Refreshes HTML Code
+   */
+  public refreshHtmlCode(){
+    this.htmlCode = `
+  <tl-accordion
+    [tlStyle]="'` + this.componentPreferenceService.style.tlStyle + `'"
+    [size]="'` + this.componentPreferenceService.style.size + `'">
+    
+    <tl-accordion-panel
+      *ngFor="let item of this.list">
+      
+      <ng-container
+        panelHeader>
+        {{ item.name }}
+      </ng-container>
+        
+      <ng-container
+        panelContent>
+        
+        <div
+          class="tl-margined">
+          {{ item.description }}
+        </div>
+        <div
+          class="tl-margined">
+          {{ item.other }}
+        </div>
+        
+      </ng-container>
+      
+    </tl-accordion-panel>    
+  </tl-accordion>
+    `;
   }
   
   /**

@@ -3,13 +3,14 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
-  
+<tls-component-sample
+  [hasShape]="true"
+  [hasTlStyle]="false">
+
   <tl-active-image
     class="tl-margined"
-    [size]="'tl-small'"
-    [shape]="'round'"
+    [shape]="this.componentPreferenceService.style.shape"
+    [size]="this.componentPreferenceService.style.size"
     [imageSrc]="'/assets/img/herisson.jpg'"
     [activeIcons]="[
       {
@@ -26,24 +27,26 @@
     (clickIcon)="this.onClickIcon($event)">
   </tl-active-image>
   
-  <div 
-    class="tl-near-half-responsive">
+</tls-component-sample>
   
-    <pre>
-      <code
-        [highlight]="this.htmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-    
-    <pre>
-      <code
-        [highlight]="this.tsCode"
-        [languages]="['typescript']">
-     </code>
-    </pre>
+
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
   
-  </div>
+  <pre>
+    <code
+      [highlight]="this.tsCode"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
 </div>
 
 <div
@@ -51,7 +54,8 @@
   Inputs
 </div>
 
-<table>
+<table
+  class="tl-near-full-responsive">
   <thead>
     <tr>
         <th>Name</th>
@@ -99,7 +103,8 @@
   Events
 </div>
 
-<table>
+<table
+  class="tl-near-full-responsive">
   <thead>
     <tr>
         <th>Name</th>

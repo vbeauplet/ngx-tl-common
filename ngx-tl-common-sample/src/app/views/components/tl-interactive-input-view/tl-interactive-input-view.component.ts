@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TlAlertService } from 'ngx-tl-common';
+import { ComponentPreferencesService } from 'src/app/services/component-preferences.service';
 
 @Component({
   selector: 'tls-interactive-input-view',
@@ -14,14 +15,7 @@ export class TlInteractiveInputViewComponent implements OnInit {
    */
   public name: string = 'Valentin';
 
-  public htmlCode: string = `
-  <tl-interactive-input
-    [size]="'tl-near-half-responsive'"
-    [inputLabel]="'Name'"
-    [placeholder]="this.name"
-    (changeValue)="this.onChangeValue($event)">
-  </tl-interactive-input>
-    `;
+  public htmlCode: string;
     
   public tsCode: string = `
   /**
@@ -37,14 +31,7 @@ export class TlInteractiveInputViewComponent implements OnInit {
   }
     `;
     
-  public htmlCode2: string = `
-  <tl-interactive-input
-    [size]="'tl-near-half-responsive'"
-    [placeholder]="this.name"
-    [inline]="true"
-    (changeValue)="this.onChangeValue($event)">
-  </tl-interactive-input>
-    `;
+  public htmlCode2: string;
     
   public tsCode2: string = `
   /**
@@ -61,10 +48,41 @@ export class TlInteractiveInputViewComponent implements OnInit {
     `;
 
   constructor(
-      private alertService: TlAlertService
+      private alertService: TlAlertService,
+      public componentPreferenceService: ComponentPreferencesService
     ) { }
 
   ngOnInit(): void {
+    // Refresh configurable HTML code
+    this.refreshHtmlCode();
+    
+    // Subscribe to any change on component sample style
+    this.componentPreferenceService.styleSubject.subscribe(() => {
+        this.refreshHtmlCode();
+      });
+  }
+  
+  /**
+   * Refreshes HTML Code
+   */
+  public refreshHtmlCode(){
+    this.htmlCode = `
+  <tl-interactive-input
+    [size]="'` + this.componentPreferenceService.style.size + `'"
+    [inputLabel]="'Name'"
+    [placeholder]="this.name"
+    (changeValue)="this.onChangeValue($event)">
+  </tl-interactive-input>
+    `;
+    
+    this.htmlCode2 = `
+  <tl-interactive-input
+    [size]="'` + this.componentPreferenceService.style.size + `'"
+    [inline]="true"
+    [placeholder]="this.name"
+    (changeValue)="this.onChangeValue($event)">
+  </tl-interactive-input>
+    `;
   }
   
   /**

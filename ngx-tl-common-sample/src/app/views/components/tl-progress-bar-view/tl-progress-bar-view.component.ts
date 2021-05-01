@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TlAlertService } from 'ngx-tl-common';
+import { ComponentPreferencesService } from 'src/app/services/component-preferences.service';
 
 @Component({
   selector: 'tls-progress-bar-view',
@@ -19,13 +20,7 @@ export class TlProgressBarViewComponent implements OnInit {
    */
   public success: boolean = true;
 
-  public htmlCode: string = `
-  <tl-progress-bar
-    [total]="10"
-    [current]="this.current"
-    [color]="(this.success)?'tl-success':'tl-failure'">
-  </tl-progress-bar>
-    `;
+  public htmlCode: string;
     
   public tsCode: string = `
   /**
@@ -60,10 +55,20 @@ export class TlProgressBarViewComponent implements OnInit {
     `;
 
   constructor(
-      private alertService: TlAlertService
+      private alertService: TlAlertService,
+      public componentPreferenceService: ComponentPreferencesService
     ) { }
 
   ngOnInit(): void {
+    // Refresh configurable HTML code
+    this.refreshHtmlCode();
+    
+    // Subscribe to any change on component sample style
+    this.componentPreferenceService.styleSubject.subscribe(() => {
+        this.refreshHtmlCode();
+      });
+    
+    // Handle component
     setTimeout(() => {
       this.current = 1;
     }, 1000);
@@ -81,6 +86,21 @@ export class TlProgressBarViewComponent implements OnInit {
     setTimeout(() => {
       this.current = 10;
     }, 10000);
+  }
+  
+  /**
+   * Refreshes HTML Code
+   */
+  public refreshHtmlCode(){
+    this.htmlCode = `
+  <tl-progress-bar
+    [total]="10"
+    [current]="this.current"
+    [tlStyle]="'` + this.componentPreferenceService.style.tlStyle + `'"
+    [size]="'` + this.componentPreferenceService.style.size + `'"
+    [color]="(this.success)?'tl-success':'tl-failure'">
+  </tl-progress-bar>
+    `;
   }
   
   /**

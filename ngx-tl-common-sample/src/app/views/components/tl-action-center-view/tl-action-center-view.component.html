@@ -3,17 +3,22 @@
   Example
 </div>
 
-<div
-  class="tl-full tl-row-dir tl-hor-space-evenly tl-vert-center tl-flex-block">
-  
+<tls-component-sample
+  [hasShape]="true"
+  [hasSize]="false"
+  [hasSubTlStyle]="true">
+
   <tl-action-center
     [tlContainerNature]="true"
-    [tlStyle]="'tl-soft-transparent'"
+    [tlStyle]="this.componentPreferenceService.style.tlStyle"
+    [buttonStyle]="this.componentPreferenceService.style.subTlStyle"
+    [buttonShape]="this.componentPreferenceService.style.shape"
     [buttons]="[
       {
         name: 'play',
         icon: '{',
-        label: 'Play'
+        label: 'Play',
+        color: 'tl-success'
       },
       {
         name: 'pause',
@@ -23,30 +28,32 @@
       {
         name: 'stop',
         icon: '~',
-        label: 'Stop'
+        label: 'Stop',
+        color: 'tl-failure'
       }
     ]"
     (clickButton)="this.onClickButton($event)">
   </tl-action-center>
   
-  <div 
-    class="tl-near-half-responsive">
+</tls-component-sample>
+ 
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
   
-    <pre>
-      <code
-        [highlight]="this.htmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-    
-    <pre>
-      <code
-        [highlight]="this.tsCode"
-        [languages]="['typescript']">
-     </code>
-    </pre>
-  
-  </div>
+  <pre>
+    <code
+      [highlight]="this.tsCode"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
 </div>
 
 <div
@@ -54,7 +61,8 @@
   Inputs
 </div>
 
-<table>
+<table
+  class="tl-near-full-responsive">
   <thead>
     <tr>
         <th>Name</th>
@@ -132,7 +140,8 @@
   Events
 </div>
 
-<table>
+<table
+  class="tl-near-full-responsive">
   <thead>
     <tr>
         <th>Name</th>
