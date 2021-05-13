@@ -2,7 +2,8 @@
   *ngIf="!this.notInDom"
   class="popup-overlay"
   [class.hidden]="this.hidden"
-  [bgColor]="'var(--sharp-transparent-bg-color)'">
+  [tlStyle]="this.tlStyle">
+  
   <ng-content></ng-content>
   
   <tl-square-icon

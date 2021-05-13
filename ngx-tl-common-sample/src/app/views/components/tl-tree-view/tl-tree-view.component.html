@@ -1,0 +1,190 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<tls-component-sample
+  [hasTlStyle]="false">
+
+  <tl-tree
+    [data]="this.sampleTreeData"
+    [size]="this.componentPreferenceService.style.size"
+    [hasHeaderRow]="true"
+    [idFieldName]="'id'"
+    [searchFieldName]="'name'"
+    [nestedItemsFieldName]="'nestedParameters'"
+    [columns]="[
+        {
+          fieldName: 'name',
+          title: 'Name',
+          size: 2,
+          editable: false
+        },
+        {
+          fieldName: 'description',
+          title: 'Description',
+          size: 2,
+          editable: false
+        },
+        {
+          fieldName: 'value',
+          title: 'Value',
+          size: 1,
+          editable: true
+        }
+      ]"
+    (changeTreeValue)="this.onChangeTreeValue($event)">
+  </tl-tree>
+  
+</tls-component-sample>
+  
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+  
+  <pre>
+    <code
+      [highlight]="this.tsCode"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>data</td>
+        <td>any[]</td>
+        <td>Children tree node components  <br/>Tree data: list of high level items which tree is to be displayed  <br/>Provided nodes shall have a
+ 'name' property</td>
+        <td>[]</td>
+</tr>
+<tr>
+        <td>size</td>
+        <td>string</td>
+        <td>Size of the stepper  <br/>'tl-full' by default</td>
+        <td>'tl-full'</td>
+</tr>
+<tr>
+        <td>idFieldName</td>
+        <td>string</td>
+        <td>Name of the field that uniquely identifies an item among others  <br/>'name' by default  <br/>Not useful if this is a non-editable tree
+</td>
+        <td>'name'</td>
+</tr>
+<tr>
+        <td>searchFieldName</td>
+        <td>string</td>
+        <td>Name of the field that is used for search filter  <br/>Not useful if no tree searchbar  <br/>'name' by default</td>
+        <td>'name'</td>
+</tr>
+<tr>
+        <td>selectionFieldName</td>
+        <td>string</td>
+        <td>Field which is used to know if a node row is selected  <br/>Value related to this field is is the one compared to the selection value
+<br/>Do not document if selection is not needed</td>
+        <td>'name'</td>
+</tr>
+<tr>
+        <td>nestedItemsFieldName</td>
+        <td>string</td>
+        <td>Name of the attribute of the object that stores the children objects.  <br/>If no nested object are stored under this node, it means th
+ere is no children</td>
+        <td>'children'</td>
+</tr>
+<tr>
+        <td>nestedDataFieldName</td>
+        <td>string</td>
+        <td>To use only if node data is stored under one specific field (example: all gathered in a 'data' field)  <br/>Let null if data is store a
+s primitive properties of the node</td>
+        <td>null</td>
+</tr>
+<tr>
+        <td>hasHeaderRow</td>
+        <td>boolean</td>
+        <td>Tells if tree shall have a header row</td>
+        <td>false</td>
+</tr>
+<tr>
+        <td>columns</td>
+        <td>IColSpec[]</td>
+        <td>List of all columns describing properties to be displayed within for each node item</td>
+        <td>[]</td>
+</tr>
+<tr>
+        <td>detailsRowFieldName</td>
+        <td>string</td>
+        <td>Tells if a 'details' row shall be accessible via a dedicated button (=='' or !='')  <br/>and additionnaly gives the item property which
+ provides the details to display  <br/>Empty string if none  <br/>None by default</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>selectionValue</td>
+        <td>string</td>
+        <td>Value to match for a row to appear as selected  <br/>Let empty if no row are selected  <br/>Selected rows appear outlined</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>inMenu</td>
+        <td>boolean</td>
+        <td>Tells if tl-tree is included within menu  <br/>Only useful for search input color...</td>
+        <td>false</td>
+</tr>
+<tr>
+        <td>clickable</td>
+        <td>boolean</td>
+        <td>Tells if tree items shall be clickable  <br/>If clickable, the clickItem event is emitted everytime an item is clicked</td>
+        <td>false</td>
+</tr>
+  </tbody>
+</table>
+
+<div
+  class="tl-big-margined tl-title">
+  Events
+</div>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>changeTreeValue</td>
+        <td>ITreeValue</td>
+        <td>Event emitted when changing a tree value (of an editable field)  <br/>Carried payload is an ITreeValue</td>
+</tr>
+<tr>
+        <td>clickItem</td>
+        <td>any</td>
+        <td>Event emitted when clicking on a tree item, only if tree is clickable  <br/>Cariied payload is the clicked item</td>
+</tr>
+  </tbody>
+</table>
+

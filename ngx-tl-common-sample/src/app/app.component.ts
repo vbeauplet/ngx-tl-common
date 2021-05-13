@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TlMenuService, TlAlertService } from 'ngx-tl-common';
+import { TlMenuService, TlAlertService, ITlTheme, TlThemeService } from 'ngx-tl-common';
 
 @Component({
   selector: 'app-root',
@@ -40,11 +40,105 @@ export class AppComponent {
 </tl-tree-to>`;
   
   
+  private themes: ITlTheme[] = [
+    {
+      name: 'light',
+      label: 'Light',
+      
+      mainBgColor: '#e2e9ee',
+      mainBgPattern: 'none',
+      elementBgColor: '#e2e9ee',
+      secondaryBgColor: '#2F7045',
+      menuBgColor: '#31383f',
+      transparentBgColor: 'rgba(255,255,255,0.4)',
+      sharpTransparentBgColor: 'rgba(255,255,255,0.7)',
+      
+      mainContentColor: '#212529',
+      secondaryContentColor: 'white',
+      menuContentColor: '#F2E9EB',
+      outlineContentColor: '#FFA101',
+      successContentColor: 'green',
+      failureContentColor: 'red',
+      neutralContentColor: 'orange',
+      softContentColor: '#5b7480',
+      
+      lightShadowColor: '#ffffff',
+      darkShadowColor: '#b5babe',
+      sharpLightShadowColor: '#ffffff',
+      sharpDarkShadowColor: '#b3b8bc',
+      
+      lightDomeColor: '#f2f9ff',
+      darkDomeColor: '#cbd2d6'
+    },
+    {
+      name: 'food',
+      label: 'Food',
+      
+      mainBgColor: '#192F01',
+      mainBgPattern: 'none',
+      elementBgColor: '#192F01',
+      secondaryBgColor: '#DED369',
+      menuBgColor: '#31383f',
+      transparentBgColor: 'rgba(0,0,0,0.3)',
+      sharpTransparentBgColor: 'rgba(0,0,0,0.7)',
+      
+      mainContentColor: '#F8EFEA',
+      menuContentColor: '#F8EFEA',
+      secondaryContentColor: '#212529',
+      outlineContentColor: '#E0475B',
+      successContentColor: 'green',
+      failureContentColor: 'red',
+      neutralContentColor: 'orange',
+      softContentColor: '#5b7480',
+      
+      lightShadowColor: '#1E3701',
+      darkShadowColor: '#152701',
+      sharpLightShadowColor: '#1E3701',
+      sharpDarkShadowColor: '#152701',
+      
+      lightDomeColor: '#1b3201',
+      darkDomeColor: '#172a01'
+    },
+    {
+      name: 'dark',
+      label: 'Dark',
+      
+      mainBgColor: '#31383f',
+      mainBgPattern: 'none',
+      elementBgColor: '#31383f',
+      secondaryBgColor: '#8CBDB9',
+      menuBgColor: '#31383f',
+      transparentBgColor: 'rgba(0,0,0,0.3)',
+      sharpTransparentBgColor: 'rgba(0,0,0,0.7)',
+      
+      mainContentColor: '#F2E9EB',
+      menuContentColor: '#F2E9EB',
+      secondaryContentColor: '#212529',
+      outlineContentColor: '#FFA101',
+      successContentColor: 'green',
+      failureContentColor: 'red',
+      neutralContentColor: 'orange',
+      softContentColor: '#5b7480',
+      
+      lightShadowColor: '#3C444D',
+      darkShadowColor: '#262C31',
+      sharpLightShadowColor: '#3E474F',
+      sharpDarkShadowColor: '#24292F',
+      
+      lightDomeColor: '#343C43',
+      darkDomeColor: '#2C3239'
+    }
+  ];
+  
   constructor(
+    public themeService: TlThemeService,
     public menuService: TlMenuService,
     public alertService: TlAlertService
   ){
-      
+    // Init theme service
+    this.themeService.init(this.themes, 'dark');
+    
+    // Init menu service
     this.menuService.init([
         {
           id: 'getting-started',
@@ -80,6 +174,12 @@ export class AppComponent {
                 label: 'Set-up Dynamic Theme Service',
                 icon: 'a',
                 route: '/theme/dynamic-theme'
+              },
+              {
+                id: 'tl-theme-switcher',
+                label: 'Theme-switcher companion component',
+                icon: 'a',
+                route: '/theme/tl-theme-switcher'
               }
             ]
         },
@@ -109,10 +209,29 @@ export class AppComponent {
             ]
         },
         {
-          id: 'css',
-          label: 'CSS Structures',
+          id: 'alert',
+          label: 'Alert Module',
           icon: 'a',
-          subItems: []
+          subItems: [
+              {
+                id: 'alert-service',
+                label: 'Alert Service',
+                icon: 'a',
+                route: '/alert/alert-service'
+              },
+              {
+                id: 'tl-alert',
+                label: 'tl-alert companion component',
+                icon: 'a',
+                route: '/alert/tl-alert'
+              },
+              {
+                id: 'tl-alert-timeline',
+                label: 'tl-alert-timeline companion component',
+                icon: 'a',
+                route: '/menu/own-menu-component'
+              }
+            ]
         },
         {
           id: 'components',
@@ -138,9 +257,21 @@ export class AppComponent {
                 icon: 'a'
               },
               {
+                id: 'tl-active-miniature',
+                label: 'tl-active-miniature',
+                route: '/components/tl-active-miniature',
+                icon: 'a'
+              },
+              {
                 id: 'tl-button',
                 label: 'tl-button',
                 route: '/components/tl-button',
+                icon: 'a'
+              },
+              {
+                id: 'tl-card',
+                label: 'tl-card',
+                route: '/components/tl-card',
                 icon: 'a'
               },
               {
@@ -222,6 +353,12 @@ export class AppComponent {
                 icon: 'a'
               },
               {
+                id: 'tl-popup-overlay',
+                label: 'tl-popup-overlay',
+                route: '/components/tl-popup-overlay',
+                icon: 'a'
+              },
+              {
                 id: 'tl-progress-bar',
                 label: 'tl-progress-bar',
                 route: '/components/tl-progress-bar',
@@ -252,15 +389,45 @@ export class AppComponent {
                 icon: 'a'
               },
               {
+                id: 'tl-square-icon',
+                label: 'tl-square-icon',
+                route: '/components/tl-square-icon',
+                icon: 'a'
+              },
+              {
+                id: 'tl-stateful-button',
+                label: 'tl-stateful-button',
+                route: '/components/tl-stateful-button',
+                icon: 'a'
+              },
+              {
                 id: 'tl-stepper',
                 label: 'tl-stepper',
                 route: '/components/tl-stepper',
                 icon: 'a'
               },
               {
+                id: 'tl-string-picker',
+                label: 'tl-string-picker',
+                route: '/components/tl-string-picker',
+                icon: 'a'
+              },
+              {
+                id: 'tl-text-stateful-button',
+                label: 'tl-text-stateful-button',
+                route: '/components/tl-text-stateful-button',
+                icon: 'a'
+              },
+              {
                 id: 'tl-toggler',
                 label: 'tl-toggler',
                 route: '/components/tl-toggler',
+                icon: 'a'
+              },
+              {
+                id: 'tl-tree',
+                label: 'tl-tree',
+                route: '/components/tl-tree',
                 icon: 'a'
               }
             ]

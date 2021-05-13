@@ -5,8 +5,6 @@ import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxTlCommonModule } from 'ngx-tl-common';
-import { TlSearchMenuComponent } from './components/tl-search-menu/tl-search-menu.component';
-import { TlTreeComponent, TlTreeNodeComponent } from './components/tl-tree/tl-tree.component';
 import { TlTogglerViewComponent } from './views/components/tl-toggler-view/tl-toggler-view.component';
 import { TlStepperViewComponent } from './views/components/tl-stepper-view/tl-stepper-view.component';
 import { TlColorPickerViewComponent } from './views/components/tl-color-picker-view/tl-color-picker-view.component';
@@ -41,13 +39,21 @@ import { TlIconMiniatureSelectViewComponent } from './views/components/tl-icon-m
 import { TlSizesComponent } from './components/glossary/tl-sizes/tl-sizes.component';
 import { ComponentSampleComponent } from './components/component-sample/component-sample.component';
 import { DefaultCompanionMenuViewComponent } from './views/menu/default-companion-menu-view/default-companion-menu-view.component';
+import { TlThemeSwitcherViewComponent } from './views/theme/tl-theme-switcher-view/tl-theme-switcher-view.component';
+import { TlStatefulButtonViewComponent } from './views/components/tl-stateful-button-view/tl-stateful-button-view.component';
+import { TlTextStatefulButtonViewComponent } from './views/components/tl-text-stateful-button-view/tl-text-stateful-button-view.component';
+import { TlSquareIconViewComponent } from './views/components/tl-square-icon-view/tl-square-icon-view.component';
+import { TlStringPickerViewComponent } from './views/components/tl-string-picker-view/tl-string-picker-view.component';
+import { TlCardViewComponent } from './views/components/tl-card-view/tl-card-view.component';
+import { TlActiveMiniatureViewComponent } from './views/components/tl-active-miniature-view/tl-active-miniature-view.component';
+import { UseAlertServiceViewComponent } from './views/alert/use-alert-service-view/use-alert-service-view.component';
+import { TlAlertViewComponent } from './views/alert/tl-alert-view/tl-alert-view.component';
+import { TlPopupOverlayViewComponent } from './views/components/tl-popup-overlay-view/tl-popup-overlay-view.component';
+import { TlTreeViewComponent } from './views/components/tl-tree-view/tl-tree-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TlSearchMenuComponent,
-    TlTreeComponent,
-    TlTreeNodeComponent,
     TlTogglerViewComponent,
     TlStepperViewComponent,
     TlColorPickerViewComponent,
@@ -81,7 +87,18 @@ import { DefaultCompanionMenuViewComponent } from './views/menu/default-companio
     TlIconMiniatureSelectViewComponent,
     TlSizesComponent,
     ComponentSampleComponent,
-    DefaultCompanionMenuViewComponent
+    DefaultCompanionMenuViewComponent,
+    TlThemeSwitcherViewComponent,
+    TlStatefulButtonViewComponent,
+    TlTextStatefulButtonViewComponent,
+    TlSquareIconViewComponent,
+    TlStringPickerViewComponent,
+    TlCardViewComponent,
+    TlActiveMiniatureViewComponent,
+    UseAlertServiceViewComponent,
+    TlAlertViewComponent,
+    TlPopupOverlayViewComponent,
+    TlTreeViewComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,137 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<tls-component-sample>
+
+  <tl-active-miniature
+    [photoUrl]="'/assets/img/herisson.jpg'"
+    [label]="'Hedgehog'"
+    [tlStyle]="this.componentPreferenceService.style.tlStyle"
+    [size]="this.componentPreferenceService.style.size"
+    [borderRadius]="1000"
+    [activeIcons]="[
+      {
+        name: 'play',
+        icon: '{',
+        label: 'Play'
+      }
+    ]"
+    (clickIcon)="this.onClickIcon($event)">
+    
+    Very cute
+    
+  </tl-active-miniature>
+  
+</tls-component-sample>
+ 
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+  
+  <pre>
+    <code
+      [highlight]="this.tsCode"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>photoUrl</td>
+        <td>string</td>
+        <td>URL of the minaiture photo.  <br/>Shall be provided</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>label</td>
+        <td>string</td>
+        <td>Label of the miniature  <br/>Shall be provided</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>link</td>
+        <td>string</td>
+        <td>Browse link, if any  <br/>Can be let undocumented if none</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>size</td>
+        <td>string</td>
+        <td>tl-size of the miniature container</td>
+        <td>'tl-near-full'</td>
+</tr>
+<tr>
+        <td>height</td>
+        <td>number</td>
+        <td>Miniature height, in px  <br/>50 by default</td>
+        <td>50</td>
+</tr>
+<tr>
+        <td>borderRadius</td>
+        <td>number</td>
+        <td>Miniature border radius, in px  <br/>10 by default</td>
+        <td>10</td>
+</tr>
+<tr>
+        <td>margined</td>
+        <td>boolean</td>
+        <td>Tells if the miniature container shall have a standard margin</td>
+        <td>true</td>
+</tr>
+<tr>
+        <td>activeIcons</td>
+        <td>ITlNamedIcon[]</td>
+        <td>Active icons to diplay in active image overlay  <br/>Display of the active icon changes whether there is only one (all miniature is a button) or multiple icons (seprated buttons)</td>
+        <td>[]</td>
+</tr>
+  </tbody>
+</table>
+
+<div
+  class="tl-big-margined tl-title">
+  Events
+</div>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+            <td>clickIcon</td>
+            <td>string</td>
+            <td>Event to raise when clicking on an active icon  <br/>Payload is te name of the named icon</td>
+    </tr>
+  </tbody>
+</table>
+

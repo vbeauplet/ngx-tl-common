@@ -1,0 +1,198 @@
+<div 
+  class="tl-near-full-responsive tl-col-dir tl-hor-left tl-no-wrap tl-flex-block">
+
+
+  <div
+    class="tl-big-bottom-margined tl-subtitle">
+    Introduction
+  </div>
+
+  <div
+    class="tl-big-bottom-margined">
+    
+    tl-alert service aims to propose simple services to:
+    <ul>
+      <li>Raise info, warnings or errors to user</li>
+      <li>Ask user for a decision or confirmation</li>
+    </ul>
+    
+    It offers the following features:
+    <ul>
+      <li>Alert stack storing and initialization</li>
+      <li>Event emission at new alert declaration or decision taking time</li>
+      <li>Alert number count which can be reset at any time toshow how many alerts are read/unread</li>
+      <li>Automatic alert timestamping</li>
+    </ul>
+    
+    tl-alert service shall come with a companion component (default one <a [routerLink]="'/alert/tl-alert'">here</a>) so that raised alerts/decisions are displayed on app to user
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined tl-subtitle">
+    Use the alert service within your application
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    
+    Wherever you want to use a feature of the alert service within your app, just import the tl-alert.service service from your own component or service:a
+    
+  </div>
+  
+  <div 
+    class="tl-xbig">
+  
+    <pre>
+      <code
+        [highlight]="this.alertServiceImportCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    
+    You are now ready to use the alert service API to raise infos/decision to user.<br/><br>
+    
+    <b>Raise an info</b><br/><br/>
+    You can raise an info to user using the <i>raiseInfo</i> method:
+    
+    <div 
+      class="tl-xbig">
+    
+      <pre>
+        <code
+          [highlight]="this.raiseInfoSignature"
+          [languages]="['typescript']">
+       </code>
+      </pre>
+    
+    </div>
+    
+    Which mean from the **.component.ts or **.service.ts perspective, it can be used this way:
+    
+    <div 
+      class="tl-xbig">
+    
+      <pre>
+        <code
+          [highlight]="this.raiseInfoCode"
+          [languages]="['typescript']">
+       </code>
+      </pre>
+    
+    </div>
+    
+    <b>Raise a warning</b><br/><br/>
+    You can raise an info to user using the <i>raiseWarning</i> method:
+    
+    <div 
+      class="tl-xbig">
+    
+      <pre>
+        <code
+          [highlight]="this.raiseWarningSignature"
+          [languages]="['typescript']">
+       </code>
+      </pre>
+    
+    </div>
+    
+    <b>Raise an error</b><br/><br/>
+    You can raise an info to user using the <i>raiseError</i> method:
+    
+    <div 
+      class="tl-xbig">
+    
+      <pre>
+        <code
+          [highlight]="this.raiseErrorSignature"
+          [languages]="['typescript']">
+       </code>
+      </pre>
+    
+    </div>
+    
+    <b>Raise a confirmation alert</b><br/><br/>
+    A confirmation alert aims to raise a boolean decision to user ("confirm" or "decline")<br>
+    You can raise an a confirmation popup using the <i>raiseConfirmationAlert</i> method:
+    
+    <div 
+      class="tl-xbig">
+    
+      <pre>
+        <code
+          [highlight]="this.raiseConfirmationAlertSignature"
+          [languages]="['typescript']">
+       </code>
+      </pre>
+    
+    </div>
+    
+    Note 1: Severity can be 1 (info), 2 (warning), 3 (error)<br/>
+    Note 2: A promise providing user answer is returned so that you can react to user acceptance ("accept" payload) or denial ("decline" payload). For example:
+    
+    
+    <div 
+      class="tl-xbig">
+    
+      <pre>
+        <code
+          [highlight]="this.raiseConfirmationAlertCode"
+          [languages]="['typescript']">
+       </code>
+      </pre>
+    
+    </div>
+    
+    <b>Raise a decision alert</b><br/><br/>
+    A decision alert aims to raise a popup that let user choose between multiple proposals, expressed as IAlertProposal which interface is defined as follow:
+    
+    <div 
+      class="tl-xbig">
+    
+      <pre>
+        <code
+          [highlight]="this.alertProposalCode"
+          [languages]="['typescript']">
+       </code>
+      </pre>
+    
+    </div>
+    
+    You can raise an a decision popup using the <i>raiseDecisionAlert</i> method:
+    
+    <div 
+      class="tl-xbig">
+    
+      <pre>
+        <code
+          [highlight]="this.raiseDecisionAlertSignature"
+          [languages]="['typescript']">
+       </code>
+      </pre>
+    
+    </div>
+    
+    The service returns a promise in the same way a confirmation alert does, in order to easily retrieve user selection amon proposals
+    
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined tl-subtitle">
+    Handle alert number
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    Alert service proposes an <i>alertNumber</i> attribute (set to 0 at service construction time) which can be used anywhere in your app<br>
+    This property is incremented everytime an alert is raised<br/>
+    Use the <i>resetAlertNumber</i> method to reset the aletNumber to 0
+  </div>
+  
+</div>
+  
+  
+  

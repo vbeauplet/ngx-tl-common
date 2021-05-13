@@ -126,8 +126,8 @@ export class TlAlertService {
     return this.waitResponse(alert.id);
   }
   
-    /**
-   * Raises a decision alert, with multiple custom proposals
+  /**
+   * Raises a decision alert from a provided custom object, with multiple custom proposals
    * Returns a promise which carries user response as potential payload
    */
   public raiseCustomObjectAlert(customObject: any, proposals: ITlAlertProposal[], severity: number, id?:string): Promise<string>{

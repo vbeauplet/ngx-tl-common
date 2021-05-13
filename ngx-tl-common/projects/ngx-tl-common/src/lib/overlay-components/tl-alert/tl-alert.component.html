@@ -3,14 +3,14 @@
 
   <div
     *ngFor="let alertEntry of this.alerts | keyvalue"
-    [class]="'alert ' + this.tlStyle + ' tl-big tl-padded tl-col-dir tl-hor-center tl-container-flex-block'"
+    [class]="'alert ' + this.tlStyle + ' ' + this.size + ' ' + this.borderRadius + ' tl-padded tl-col-dir tl-hor-center tl-container-flex-block'"
     [class.transitory]="alertEntry.value.transitory"
     [class.warning]="alertEntry.key.severity == 2"
     [class.error]="alertEntry.key.severity == 3">
     
     <!-- Close icon if this is not a decision alert -->
     <tl-square-icon
-      *ngIf="alertEntry.key.proposals.length == 0"
+      *ngIf="this.canClose && alertEntry.key.proposals.length == 0"
       class="alert-close-icon"
       [icon]="'X'"
       [size]="'20'"
@@ -45,6 +45,7 @@
       
       <tl-button
         *ngFor="let proposal of alertEntry.key.proposals"
+        [tlStyle]="this.buttonStyle"
         [icon]="proposal.icon"
         [label]="proposal.label"
         [color]="proposal.color"

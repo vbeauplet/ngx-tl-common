@@ -1,0 +1,7 @@
+<tl-color-picker
+  [size]="'tl-full'"
+  [colorCircleSize]="100"
+  [initialItems]="this.themeColorItems"
+  [initialSelectedItems]="[this.initialSelectedThemeColorItem]"
+  (selectItem)="this.onSelectTheme($event.payload)">
+</tl-color-picker>

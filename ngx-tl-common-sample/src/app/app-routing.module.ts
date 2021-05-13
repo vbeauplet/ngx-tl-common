@@ -32,6 +32,17 @@ import { TlImagePickerViewComponent } from './views/components/tl-image-picker-v
 import { TlInlineImagePickerViewComponent } from './views/components/tl-inline-image-picker-view/tl-inline-image-picker-view.component';
 import { TlSelectViewComponent } from './views/components/tl-select-view/tl-select-view.component';
 import { DefaultCompanionMenuViewComponent } from './views/menu/default-companion-menu-view/default-companion-menu-view.component';
+import { TlThemeSwitcherViewComponent } from './views/theme/tl-theme-switcher-view/tl-theme-switcher-view.component';
+import { TlStatefulButtonViewComponent } from './views/components/tl-stateful-button-view/tl-stateful-button-view.component';
+import { TlTextStatefulButtonViewComponent } from './views/components/tl-text-stateful-button-view/tl-text-stateful-button-view.component';
+import { TlStringPickerViewComponent } from './views/components/tl-string-picker-view/tl-string-picker-view.component';
+import { TlSquareIconViewComponent } from './views/components/tl-square-icon-view/tl-square-icon-view.component';
+import { TlCardViewComponent } from './views/components/tl-card-view/tl-card-view.component';
+import { TlActiveMiniatureViewComponent } from './views/components/tl-active-miniature-view/tl-active-miniature-view.component';
+import { UseAlertServiceViewComponent } from './views/alert/use-alert-service-view/use-alert-service-view.component';
+import { TlAlertViewComponent } from './views/alert/tl-alert-view/tl-alert-view.component';
+import { TlPopupOverlayViewComponent } from './views/components/tl-popup-overlay-view/tl-popup-overlay-view.component';
+import { TlTreeViewComponent } from './views/components/tl-tree-view/tl-tree-view.component';
 
 
 const routes: Routes = [
@@ -41,13 +52,18 @@ const routes: Routes = [
   { path: 'theme/default-themes', component: DefaultStaticThemeViewComponent },
   { path: 'theme/own-static-theme', component: OwnStaticThemeViewComponent },
   { path: 'theme/dynamic-theme', component: DynamicThemeViewComponent },
+  { path: 'theme/tl-theme-switcher', component: TlThemeSwitcherViewComponent },
   { path: 'menu/menu-service', component: InitMenuServiceViewComponent },
   { path: 'menu/default-menu-components', component: DefaultCompanionMenuViewComponent },
+  { path: 'alert/alert-service', component: UseAlertServiceViewComponent },
+  { path: 'alert/tl-alert', component: TlAlertViewComponent },
   { path: 'components/tl-accordion', component: TlAccordionViewComponent },
   { path: 'components/tl-action-center', component: TlActionCenterViewComponent },
   { path: 'components/tl-active-image', component: TlActiveImageViewComponent },
+  { path: 'components/tl-active-miniature', component: TlActiveMiniatureViewComponent },
   { path: 'components/tl-button', component: TlButtonViewComponent },
   { path: 'components/tl-button-toggler', component: TlButtonTogglerViewComponent },
+  { path: 'components/tl-card', component: TlCardViewComponent },
   { path: 'components/tl-icon-miniature-select', component: TlIconMiniatureSelectViewComponent },
   { path: 'components/tl-icon-miniature', component: TlIconMiniatureViewComponent },
   { path: 'components/tl-icon-miniature-toggler', component: TlIconMiniatureTogglerViewComponent },
@@ -59,14 +75,20 @@ const routes: Routes = [
   { path: 'components/tl-miniature', component: TlMiniatureViewComponent },
   { path: 'components/tl-nuki-card', component: TlNukiCardViewComponent },
   { path: 'components/tl-outlined-active-image', component: TlOutlinedActiveImageViewComponent },
+  { path: 'components/tl-popup-overlay', component: TlPopupOverlayViewComponent },
   { path: 'components/tl-progress-bar', component: TlProgressBarViewComponent },
   { path: 'components/tl-search-bar', component: TlSearchBarViewComponent },
   { path: 'components/tl-select', component: TlSelectViewComponent },
   { path: 'components/tl-shape-block', component: TlShapeBlockViewComponent },
   { path: 'components/tl-spinner', component: TlSpinnerViewComponent },
+  { path: 'components/tl-square-icon', component: TlSquareIconViewComponent },
+  { path: 'components/tl-stateful-button', component: TlStatefulButtonViewComponent },
   { path: 'components/tl-toggler', component: TlTogglerViewComponent },
   { path: 'components/tl-stepper', component: TlStepperViewComponent },
+  { path: 'components/tl-string-picker', component: TlStringPickerViewComponent },
+  { path: 'components/tl-text-stateful-button', component: TlTextStatefulButtonViewComponent },
   { path: 'components/tl-color-picker', component: TlColorPickerViewComponent },
+  { path: 'components/tl-tree', component: TlTreeViewComponent },
   { path: '**', redirectTo: '' }
 ];
 

@@ -1,0 +1,109 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<tls-component-sample
+  [hasSubTlStyle]="true">
+
+  <a
+    (click)="this.displayPopup = true">
+    Display pop-up
+  </a>
+
+  <tl-popup-overlay
+    [display]="this.displayPopup"
+    [tlStyle]="this.componentPreferenceService.style.tlStyle"
+    (close)="this.displayPopup = false">
+    
+    <!-- Popup to display -->
+    <tl-card
+      [tlStyle]="this.componentPreferenceService.style.subTlStyle"
+      [size]="this.componentPreferenceService.style.size"
+      [padding]="20">
+      
+      <div
+        class="tl-big-bottom-margined">
+        A hedgehog is any of the spiny mammals of the subfamily Erinaceinae, 
+        in the eulipotyphlan family Erinaceidae.<br/><br/>
+        There are seventeen species of 
+        hedgehog in five genera found through parts of Europe, Asia, and Africa, 
+        and in New Zealand by introduction.
+      </div>
+      
+    </tl-card>
+  
+  </tl-popup-overlay>
+  
+</tls-component-sample>
+  
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+  
+  <pre>
+    <code
+      [highlight]="this.tsCode"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>display</td>
+        <td>boolean</td>
+        <td>Controls the display status of the overlay popup<br/>False (not displayed) by default</td>
+        <td>false</td>
+</tr>
+<tr>
+        <td>tlStyle</td>
+        <td>string</td>
+        <td>Style of the overlay, in the tl-style system  <br/>Note: only the iner style of the block will be seen, external-shadow-priented style
+won't matters'  <br/>tl-sharp-transparent by default</td>
+        <td>'tl-sharp-transparent'</td>
+</tr>
+  </tbody>
+</table>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>close</td>
+        <td>any</td>
+        <td>Event which is emitted in case the popu is closed (triggers at the end of the closing transition)</td>
+</tr>
+  </tbody>
+</table>
+
+
