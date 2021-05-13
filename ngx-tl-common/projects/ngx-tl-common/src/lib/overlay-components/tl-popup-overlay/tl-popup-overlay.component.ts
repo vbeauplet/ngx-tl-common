@@ -26,6 +26,13 @@ export class TlPopupOverlayComponent implements OnInit {
   }
   
   /**
+   * Style of the overlay, in the tl-style system
+   * Note: only the iner style of the block will be seen, external-shadow-priented style won't matters'
+   * tl-sharp-transparent by default
+   */
+  @Input() tlStyle: string = 'tl-sharp-transparent';
+  
+  /**
    * Event which is emitted in case the popu is closed (end of the closing transition)
    */
   @Output() close: EventEmitter<any> = new EventEmitter<any>();

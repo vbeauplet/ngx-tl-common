@@ -1,0 +1,68 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<tls-component-sample
+  [hasTlStyle]="false"
+  [hasSize]="false">
+
+  <tl-square-icon
+    [icon]="'G'"
+    [size]="50"
+    [color]="'tl-outline'">
+  </tl-square-icon>
+
+</tls-component-sample>
+  
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>size</td>
+        <td>number</td>
+        <td>Size of the square icon, in px</td>
+        <td>40</td>
+</tr>
+<tr>
+        <td>color</td>
+        <td>string</td>
+        <td>Color of the icon  <br/>Shall fit app color theme for content. Possible values are "tl-main", "tl-soft", 'tl-failure', "tl-neutral", "t
+l-success", "tl-outline"...  <br/>"tl-inherit" by default</td>
+        <td>'tl-inherit'</td>
+</tr>
+<tr>
+        <td>icon</td>
+        <td>string</td>
+        <td>Mandatory: Icon to use, from font package literal</td>
+        <td>'a'</td>
+</tr>
+  </tbody>
+</table>
+
+

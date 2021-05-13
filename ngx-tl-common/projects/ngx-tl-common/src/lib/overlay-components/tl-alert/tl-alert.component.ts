@@ -22,10 +22,31 @@ interface ITlAlertDisplayStatus{
 export class TlAlertComponent implements OnInit {
 
   /**
-   * Style of the alerts
-   * From tl style system
+   * Style of the alerts, from tl-style system
+   * Tl-neumorphic-popover by default
    */
-  @Input() tlStyle: string = "tl-neumorphic-popover";
+  @Input() tlStyle: string = 'tl-neumorphic-popover';
+
+  /**
+   * Style of the decision buttons, from the tl-style system
+   * tl-neumorphic by default
+   */
+  @Input() buttonStyle: string = 'tl-neumorphic';
+
+  /**
+   * Tells if a close button shall be visible for non-decisive popups
+   */
+  @Input() canClose: boolean = true;
+  
+  /**
+   * Size of the alerts
+   */
+  @Input() size: string = 'tl-big';
+  
+  /**
+   * Border radius of the alerts, in the tl-border-radius system
+   */
+  @Input() borderRadius: string = 'tl-big-br';
 
   /**
    * Tells if non-decisive alerts (without decision) shall be hidden

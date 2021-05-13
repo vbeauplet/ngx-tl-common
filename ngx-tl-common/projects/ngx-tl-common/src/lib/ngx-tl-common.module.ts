@@ -33,6 +33,7 @@ import { TlStatefulButtonComponent } from './components/tl-stateful-button/tl-st
 import { TlStepperComponent } from './components/tl-stepper/tl-stepper.component';
 import { TlStringPickerComponent } from './components/tl-string-picker/tl-string-picker.component';
 import { TlTextStatefulButtonComponent } from './components/tl-text-stateful-button/tl-text-stateful-button.component';
+import { TlThemeSwitcherComponent } from './components/tl-theme-switcher/tl-theme-switcher.component';
 import { TlTimelineCardComponent } from './components/tl-timeline-card/tl-timeline-card.component';
 import { TlTogglerComponent } from './components/tl-toggler/tl-toggler.component';
 import { TlTreeComponent, TlTreeNodeComponent } from './components/tl-tree/tl-tree.component';
@@ -41,6 +42,7 @@ import { TlAlertComponent } from './overlay-components/tl-alert/tl-alert.compone
 import { TlMobileMenuComponent } from './overlay-components/tl-mobile-menu/tl-mobile-menu.component';
 import { TlOverlayComponent } from './overlay-components/tl-overlay/tl-overlay.component';
 import { TlPopupOverlayComponent } from './overlay-components/tl-popup-overlay/tl-popup-overlay.component';
+import { TlSearchMenuComponent } from './overlay-components/tl-search-menu/tl-search-menu.component';
 import { TlDateAgoPipe } from './pipes/tl-date-ago.pipe';
 import { TlSelectComponent } from './components/tl-select/tl-select.component';
 import { TlIconMiniatureSelectComponent } from './components/tl-icon-miniature-select/tl-icon-miniature-select.component';
@@ -81,6 +83,7 @@ import { TlClickOutsideDirective } from './directives/tl-click-outside.directive
     TlStepperComponent,
     TlStringPickerComponent,
     TlTextStatefulButtonComponent,
+    TlThemeSwitcherComponent,
     TlTimelineCardComponent,
     TlTogglerComponent,
     TlTreeComponent,
@@ -90,6 +93,7 @@ import { TlClickOutsideDirective } from './directives/tl-click-outside.directive
     TlMobileMenuComponent,
     TlOverlayComponent,
     TlPopupOverlayComponent,
+    TlSearchMenuComponent,
     TlDateAgoPipe,
     TlClickOutsideDirective
   ],
@@ -130,6 +134,7 @@ import { TlClickOutsideDirective } from './directives/tl-click-outside.directive
     TlStepperComponent,
     TlStringPickerComponent,
     TlTextStatefulButtonComponent,
+    TlThemeSwitcherComponent,
     TlTimelineCardComponent,
     TlTogglerComponent,
     TlTreeComponent,
@@ -139,6 +144,7 @@ import { TlClickOutsideDirective } from './directives/tl-click-outside.directive
     TlMobileMenuComponent,
     TlOverlayComponent,
     TlPopupOverlayComponent,
+    TlSearchMenuComponent,
     TlDateAgoPipe,
     TlClickOutsideDirective
   ],

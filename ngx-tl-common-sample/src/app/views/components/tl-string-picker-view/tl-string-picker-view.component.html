@@ -1,0 +1,170 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<tls-component-sample
+  [hasTlStyle]="false">
+
+  <tl-string-picker
+    [size]="this.componentPreferenceService.style.size"
+    [initialItems]="['healthy', 'fat', 'pizza', 'breakfast', 'ice cream']"
+    [initialSelectedItems]="['fat']"
+    [singleSelection]="false"
+    [editable]="true">
+  </tl-string-picker>
+  
+</tls-component-sample>
+  
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>size</td>
+        <td>string</td>
+        <td>Size of the String Picker container block.   <br/>Shall fit tl-size system  <br/>tl-full by default</td>
+        <td>'tl-full'</td>
+</tr>
+<tr>
+        <td>fontSize</td>
+        <td>number</td>
+        <td>Font size, in px  <br/>10 by default</td>
+        <td>16</td>
+</tr>
+<tr>
+        <td>elementMargin</td>
+        <td>number</td>
+        <td>Margin between each string picker lines, in px</td>
+        <td>6</td>
+</tr>
+<tr>
+        <td>alignment</td>
+        <td>string</td>
+        <td>Alignment of the proposals. May be 'left' or 'center' (default)</td>
+        <td>'center'</td>
+</tr>
+<tr>
+        <td>singleSelection</td>
+        <td>boolean</td>
+        <td>Tells if only one string can be selected  <br/>False by default</td>
+        <td>false</td>
+</tr>
+<tr>
+        <td>forceSelectOne</td>
+        <td>boolean</td>
+        <td>Only matters if the string picker runs in single selection mode  <br/>If this option is set to true and single selection too, selcted i
+tem cannot be unselected  <br/>At any time, there will be only one selected item  <br/>True by default (but single selection is set to false by def
+ault)</td>
+        <td>true</td>
+</tr>
+<tr>
+        <td>initialItems</td>
+        <td>string[]</td>
+        <td>List of all initial items among which to select  <br/>Mandatory, empty by default</td>
+        <td>[]</td>
+</tr>
+<tr>
+        <td>initialSelectedItems</td>
+        <td>string[]</td>
+        <td>List of initially selected items</td>
+        <td>[]</td>
+</tr>
+<tr>
+        <td>synchrone</td>
+        <td>boolean</td>
+        <td>Synchronize selected items with initial selected items input  <br/>It means if true anytime table provided as initialSelectedItems chan
+ges,  <br/>table of component selected item is updated accordingly.  <br/>If false, initialSelectedItems are copied only once at component initiali
+zation and compoennt lives its life afterward  <br/>False by default</td>
+        <td>false</td>
+</tr>
+<tr>
+        <td>editable</td>
+        <td>boolean</td>
+        <td>Tells if list of proposed items is editable, which means items can be created via an input field</td>
+        <td>false</td>
+</tr>
+<tr>
+        <td>inputId</td>
+        <td>string</td>
+        <td>ID of the item creation input.   <br/>Shall be documented if 2 or more editable string-pickers are on the same page</td>
+        <td>'create-item-input-id'</td>
+</tr>
+<tr>
+        <td>displaySpinner</td>
+        <td>boolean</td>
+        <td>Display spinner flag</td>
+        <td>true</td>
+</tr>
+  </tbody>
+</table>
+
+<div
+  class="tl-big-margined tl-title">
+  Events
+</div>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>clickItem</td>
+        <td>string</td>
+        <td>Event that is raised when an item is clicked  <br/>String that is clicked is carried by the event</td>
+</tr>
+<tr>
+        <td>selectItems</td>
+        <td>string[]</td>
+        <td>Event that is raised when selection is changed  <br/>List of all selected items is carried by this event</td>
+</tr>
+<tr>
+        <td>selectItem</td>
+        <td>string</td>
+        <td>Event that is raised when an item is selected  <br/>Selected item is carried by this event</td>
+</tr>
+<tr>
+        <td>unselectItem</td>
+        <td>string</td>
+        <td>Event that is raised when an item is unselected  <br/>Unselected item is carried by this event</td>
+</tr>
+<tr>
+        <td>createItem</td>
+        <td>string</td>
+        <td>Event that is raised when an item is created</td>
+</tr>
+  </tbody>
+</table>
+
+
+

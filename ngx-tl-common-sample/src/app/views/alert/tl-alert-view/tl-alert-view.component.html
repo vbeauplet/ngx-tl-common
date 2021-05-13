@@ -1,0 +1,151 @@
+<div 
+  class="tl-near-full-responsive tl-col-dir tl-hor-left tl-no-wrap tl-flex-block">
+
+  <div
+    class="tl-big-bottom-margined tl-subtitle">
+    Use tl-alert companion component
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    To display alert popup, just add component in your app root template (app.component.html) or layout component template (**mylayout**.component.html). For example, here is the HTML declaration within the app.component.html of current application:
+  </div>
+  
+  <div 
+    class="tl-xbig">
+  
+    <pre>
+      <code
+        [highlight]="this.alertHtmlCode"
+        [languages]="['html']">
+     </code>
+    </pre>
+  
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    You can tweak the alert component using the following inputs:
+  </div>
+  
+  <table
+    class="tl-near-full-responsive tl-big-bottom-margined">
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+              <td>tlStyle</td>
+              <td>string</td>
+              <td>Style of the alerts, from tl-style system  <br/>Tl-neumorphic-popover by default</td>
+              <td>'tl-neumorphic-popover'</td>
+      </tr>
+      <tr>
+              <td>buttonStyle</td>
+              <td>string</td>
+              <td>Style of the decision buttons, from the tl-style system  <br/>tl-neumorphic by default</td>
+              <td>'tl-neumorphic'</td>
+      </tr>
+      <tr>
+              <td>canClose</td>
+              <td>boolean</td>
+              <td>Tells if a close button shall be visible for non-decisive popups</td>
+              <td>true</td>
+      </tr>
+      <tr>
+              <td>size</td>
+              <td>string</td>
+              <td>Size of the alerts</td>
+              <td>'tl-big'</td>
+      </tr>
+      <tr>
+              <td>borderRadius</td>
+              <td>string</td>
+              <td>Border radius of the alerts, in the tl-border-radius system</td>
+              <td>'tl-big-br'</td>
+      </tr>
+      <tr>
+              <td>hideNonDecisivePopups</td>
+              <td>boolean</td>
+              <td>Tells if non-decisive alerts (without decision) shall be hidden  <br/>False by default</td>
+              <td>false</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div
+    class="tl-big-bottom-margined tl-subtitle">
+    Example: Info/warning/error alert
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    Click <a (click)="onClickRaiseInfo()">here</a> to raise a sample info. Code implementation to display this alert is as follow:
+  </div>
+  
+  <div 
+    class="tl-xbig">
+  
+    <pre>
+      <code
+        [highlight]="this.raiseInfoCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+  
+    <div
+    class="tl-big-bottom-margined tl-subtitle">
+    Example: Confrmation alert
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    Click <a (click)="onClickRaiseConfirmation()">here</a> to raise a sample confirmation popup. Code implementation to display this alert is as follow:
+  </div>
+  
+  <div 
+    class="tl-xbig">
+  
+    <pre>
+      <code
+        [highlight]="this.raiseConfirmationCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+  
+    <div
+    class="tl-big-bottom-margined tl-subtitle">
+    Example: Decision alert
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    Click <a (click)="onClickRaiseDecision()">here</a> to raise a sample user decision. Code implementation to display this alert is as follow:
+  </div>
+  
+  <div 
+    class="tl-xbig">
+  
+    <pre>
+      <code
+        [highlight]="this.raiseDecisionCode"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+  
+</div>
+  
+  
+  
+  
