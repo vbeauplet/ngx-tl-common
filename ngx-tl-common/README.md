@@ -1,27 +1,42 @@
-# NgxTlCommon
+# Get Started
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
+## Install Package
 
-## Development server
+Install library within your angular project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+    npm install ngx-tl-common
 
-## Code scaffolding
+## Add style
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Reference global ngx-tl-common styles from your application angular.json
 
-## Build
+    "styles": [
+      "src/styles.css",
+      "./node_modules/ngx-tl-common/lib/style/tl-common-styles.scss"
+    ],
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+If you do not want to set-up the dynamic theme service or create your custom static theme, you shall reference a default static theme from the style array in angular.json:
 
-## Running unit tests
+    "styles": [
+      "src/styles.css",
+      "./node_modules/ngx-tl-common/lib/style/tl-common-styles.scss",
+      "./node_modules/ngx-tl-common/lib/style/themes/tl-common-light-theme.scss"
+    ],
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Import into root application module
 
-## Running end-to-end tests
+In app.module.ts:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+    import { NgxTlCommonModule } from 'ngx-tl-common';
+    ...
+      imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgxTlCommonModule
+      ],
 
-## Further help
+And that is all, you are ready to go
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# Discover
+
+Discover more on ngx-tl-common from the decicated sample applcation: [Ngx-tl-common Help Center](https://ngx-tl-common.web.app)
