@@ -43,6 +43,7 @@ import { UseAlertServiceViewComponent } from './views/alert/use-alert-service-vi
 import { TlAlertViewComponent } from './views/alert/tl-alert-view/tl-alert-view.component';
 import { TlPopupOverlayViewComponent } from './views/components/tl-popup-overlay-view/tl-popup-overlay-view.component';
 import { TlTreeViewComponent } from './views/components/tl-tree-view/tl-tree-view.component';
+import { TlImageCardViewComponent } from './views/components/tl-image-card-view/tl-image-card-view.component';
 
 
 const routes: Routes = [
@@ -67,6 +68,7 @@ const routes: Routes = [
   { path: 'components/tl-icon-miniature-select', component: TlIconMiniatureSelectViewComponent },
   { path: 'components/tl-icon-miniature', component: TlIconMiniatureViewComponent },
   { path: 'components/tl-icon-miniature-toggler', component: TlIconMiniatureTogglerViewComponent },
+  { path: 'components/tl-image-card', component: TlImageCardViewComponent },
   { path: 'components/tl-imaged-item-picker', component: TlImagePickerViewComponent },
   { path: 'components/tl-indicator', component: TlIndicatorViewComponent },
   { path: 'components/tl-inline-imaged-item-picker', component: TlInlineImagePickerViewComponent },

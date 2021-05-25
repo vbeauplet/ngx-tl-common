@@ -71,33 +71,33 @@ export class AppComponent {
       darkDomeColor: '#cbd2d6'
     },
     {
-      name: 'food',
-      label: 'Food',
+      name: 'watercolor',
+      label: 'Pattern',
       
-      mainBgColor: '#192F01',
-      mainBgPattern: 'none',
-      elementBgColor: '#192F01',
-      secondaryBgColor: '#DED369',
+      mainBgColor: '#e2e9ee',
+      mainBgPattern: 'url("./assets/img/watercolor_pattern.png")',
+      elementBgColor: '#e2e9ee',
+      secondaryBgColor: '#2F7045',
       menuBgColor: '#31383f',
-      transparentBgColor: 'rgba(0,0,0,0.3)',
-      sharpTransparentBgColor: 'rgba(0,0,0,0.7)',
+      transparentBgColor: 'rgba(255,255,255,0.4)',
+      sharpTransparentBgColor: 'rgba(255,255,255,0.55)',
       
-      mainContentColor: '#F8EFEA',
-      menuContentColor: '#F8EFEA',
-      secondaryContentColor: '#212529',
+      mainContentColor: '#212529',
+      secondaryContentColor: 'white',
+      menuContentColor: '#F2E9EB',
       outlineContentColor: '#E0475B',
       successContentColor: 'green',
       failureContentColor: 'red',
       neutralContentColor: 'orange',
       softContentColor: '#5b7480',
       
-      lightShadowColor: '#1E3701',
-      darkShadowColor: '#152701',
-      sharpLightShadowColor: '#1E3701',
-      sharpDarkShadowColor: '#152701',
+      lightShadowColor: '#ffffff',
+      darkShadowColor: '#b5babe',
+      sharpLightShadowColor: '#ffffff',
+      sharpDarkShadowColor: '#b3b8bc',
       
-      lightDomeColor: '#1b3201',
-      darkDomeColor: '#172a01'
+      lightDomeColor: '#f2f9ff',
+      darkDomeColor: '#cbd2d6'
     },
     {
       name: 'dark',
@@ -302,6 +302,12 @@ export class AppComponent {
                 id: 'tl-icon-miniature-toggler',
                 label: 'tl-icon-miniature-toggler',
                 route: '/components/tl-icon-miniature-toggler',
+                icon: 'a'
+              },
+              {
+                id: 'tl-image-card',
+                label: 'tl-image-card',
+                route: '/components/tl-image-card',
                 icon: 'a'
               },
               {

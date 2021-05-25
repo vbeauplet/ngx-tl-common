@@ -1,0 +1,156 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<tls-component-sample
+  [hasShape]="true">
+
+  <tl-image-card
+    [imageSrc]="'/assets/img/herisson.jpg'"
+    [imageShape]="this.componentPreferenceService.style.shape"
+    [tlStyle]="this.componentPreferenceService.style.tlStyle"
+    [size]="this.componentPreferenceService.style.size"
+    [title]="'Hedgehog'">
+    
+    <div
+      class="tl-big-bottom-margined">
+      A hedgehog is any of the spiny mammals of the subfamily Erinaceinae, 
+      in the eulipotyphlan family Erinaceidae.<br/><br/>
+      There are seventeen species of 
+      hedgehog in five genera found through parts of Europe, Asia, and Africa, 
+      and in New Zealand by introduction.
+    </div>
+    
+  </tl-image-card>
+  
+</tls-component-sample>
+  
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>size</td>
+        <td>string</td>
+        <td>Size of the card, can be tl-big, tl-medium, tl-small.. Medium by default</td>
+        <td>'tl-medium'</td>
+</tr>
+<tr>
+        <td>tlStyle</td>
+        <td>string</td>
+        <td>Tl Style of the card</td>
+        <td>'tl-neumorphic'</td>
+</tr>
+<tr>
+        <td>fixedHeight</td>
+        <td>number</td>
+        <td>Fixed height, in px. If not provided, height is auto</td>
+        <td>-1</td>
+</tr>
+<tr>
+        <td>isLoading</td>
+        <td>boolean</td>
+        <td>Tells if card is loading and shall therefore display a loader as content</td>
+        <td>false</td>
+</tr>
+<tr>
+        <td>margined</td>
+        <td>boolean</td>
+        <td>Tells if card is margined, true by default</td>
+        <td>true</td>
+</tr>
+<tr>
+        <td>title</td>
+        <td>string</td>
+        <td>Title of the card, if any  <br/>Empty string if one (default)</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>actionCenterStyle</td>
+        <td>string</td>
+        <td>Style of the action center that contains the active icons</td>
+        <td>'tl-soft-transparent'</td>
+</tr>
+<tr>
+        <td>imageSrc</td>
+        <td>string</td>
+        <td>URL of the image or photo to display at the top of the card</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>imageShape</td>
+        <td>string</td>
+        <td>Shape of the photo or image</td>
+        <td>'square'</td>
+</tr>
+<tr>
+        <td>imagePadding</td>
+        <td>number</td>
+        <td>Image padding, in px</td>
+        <td>0</td>
+</tr>
+<tr>
+        <td>imageIcons</td>
+        <td>ITlNamedIcon[]</td>
+        <td>Active icons to propose to the user in card image or phot  <br/>If none no 'action center' will be displayed</td>
+        <td>[]</td>
+</tr>
+<tr>
+        <td>bodyPadding</td>
+        <td>number</td>
+        <td>Body padding, in px  <br/>20px by default</td>
+        <td>20</td>
+</tr>
+  </tbody>
+</table>
+
+
+<div
+  class="tl-big-margined tl-title">
+  Events
+</div>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>clickButton</td>
+        <td>string</td>
+        <td>Event to raise when clicking on an active icon  <br/>Payload is te name of the named icon</td>
+</tr>
+  </tbody>
+</table>
+

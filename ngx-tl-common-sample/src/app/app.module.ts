@@ -50,6 +50,8 @@ import { UseAlertServiceViewComponent } from './views/alert/use-alert-service-vi
 import { TlAlertViewComponent } from './views/alert/tl-alert-view/tl-alert-view.component';
 import { TlPopupOverlayViewComponent } from './views/components/tl-popup-overlay-view/tl-popup-overlay-view.component';
 import { TlTreeViewComponent } from './views/components/tl-tree-view/tl-tree-view.component';
+import { TlImageCardComponent } from './components/tl-image-card/tl-image-card.component';
+import { TlImageCardViewComponent } from './views/components/tl-image-card-view/tl-image-card-view.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +100,9 @@ import { TlTreeViewComponent } from './views/components/tl-tree-view/tl-tree-vie
     UseAlertServiceViewComponent,
     TlAlertViewComponent,
     TlPopupOverlayViewComponent,
-    TlTreeViewComponent
+    TlTreeViewComponent,
+    TlImageCardComponent,
+    TlImageCardViewComponent
   ],
   imports: [
     BrowserModule,

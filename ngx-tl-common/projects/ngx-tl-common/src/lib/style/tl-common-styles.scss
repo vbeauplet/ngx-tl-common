@@ -399,6 +399,15 @@ a {
   .tl-outlined.tl-pushable:active{
     background-color: var(--transparent-bg-color);
   }
+  
+.tl-no-bg-outlined {
+  border: solid var(--soft-content-color) 1px;
+  background: none;
+}
+
+  .tl-no-bg-outlined.tl-pushable:active{
+    background-color: var(--transparent-bg-color);
+  }
 
 .tl-shadowed{
   box-shadow: 0 4px 8px 0 var(--dark-shadow-color);

@@ -4,7 +4,7 @@ import { ComponentPreferencesService } from 'src/app/services/component-preferen
 @Component({
   selector: 'tls-component-sample',
   host: { 
-      'class' : 'tl-full tl-padded tl-big-bottom-margined tl-col-dir tl-outlined tl-container-flex-block'
+      'class' : 'tl-full tl-padded tl-big-bottom-margined tl-col-dir tl-no-bg-outlined tl-container-flex-block'
     },
   templateUrl: './component-sample.component.html',
   styleUrls: ['./component-sample.component.css']
