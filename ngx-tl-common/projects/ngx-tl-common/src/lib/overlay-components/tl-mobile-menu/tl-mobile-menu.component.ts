@@ -30,6 +30,15 @@ export class TlMobileMenuComponent implements OnInit {
     public menuService: TlMenuService
   ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+    // Set configuration variables related to the choice of a search menu
+    document.documentElement.style.setProperty('--desktop-page-menu-padding-top', '30px');
+    document.documentElement.style.setProperty('--mobile-page-menu-padding-top', '30px');
+    document.documentElement.style.setProperty('--desktop-page-menu-padding-left', '100px');
+    document.documentElement.style.setProperty('--mobile-page-menu-padding-left', '0px');
+    document.documentElement.style.setProperty('--desktop-page-menu-padding-bottom', '0px');
+    document.documentElement.style.setProperty('--mobile-page-menu-padding-bottom', '100px');
+  }
 
 }

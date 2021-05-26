@@ -6,6 +6,7 @@
   --menu-bg-color:#31383f;
   --transparent-bg-color: rgba(0,0,0,0.3);
   --sharp-transparent-bg-color: rgba(0,0,0,0.0.6);
+  --glass-bg-color: rgba(0,0,0,0.4);
   
   --main-content-color: #F2E9EB;
   --secondary-content-color: #212529;
@@ -23,15 +24,14 @@
   
   --light-dome-color: #343C43;
   --dark-dome-color: #2C3239;
-  
-  // Configuration, but not part of the theme yet
 
   --title-font: norwester;
   --subtitle-font: norwester;
   --main-font: helvetica;
   
-  --desktop-page-menu-padding-left:50px;
-  --mobile-page-menu-padding-left:0px;
-  --desktop-page-menu-padding-bottom:0px;
-  --mobile-page-menu-padding-bottom:50px;
+  // Yet only useful with dynamic theming
+  
+  --primary-style: tl-neumorphic;
+  --secondary-style: tl-glassmorphic;
+  --prefered-shape: round;
 }

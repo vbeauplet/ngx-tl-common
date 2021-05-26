@@ -8,7 +8,7 @@ import { TlMenuService } from '../../services/tl-menu.service';
       '[class.wrapped]' : 'this.menuService.isWrapped'
     },
   templateUrl: './tl-search-menu.component.html',
-  styleUrls: ['./tl-search-menu.component.css']
+  styleUrls: ['./tl-search-menu.component.scss']
 })
 export class TlSearchMenuComponent implements OnInit {
 
@@ -25,7 +25,25 @@ export class TlSearchMenuComponent implements OnInit {
     ) { }
 
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    
+    // Set configuration variables related to the choice of a search menu
+    document.documentElement.style.setProperty('--desktop-page-menu-padding-top', '40px');
+    document.documentElement.style.setProperty('--mobile-page-menu-padding-top', '60px');
+    document.documentElement.style.setProperty('--desktop-page-menu-padding-left', '30%');
+    document.documentElement.style.setProperty('--mobile-page-menu-padding-left', '0px');
+    document.documentElement.style.setProperty('--desktop-page-menu-padding-bottom', '30px');
+    document.documentElement.style.setProperty('--mobile-page-menu-padding-bottom', '30px');
+  }
+  
+  /**
+   * Handles click on the title
+   */
+  public onClickTitle(){
+    
+    // Go to root route
+    this.router.navigate(['/']);
+  }
   
   /**
    * Handles click on a menu item

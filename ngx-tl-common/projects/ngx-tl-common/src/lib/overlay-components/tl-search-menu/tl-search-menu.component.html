@@ -11,7 +11,8 @@
   
   <div
     *ngIf="this.title != undefined"
-    class="tl-title tl-big-margined">
+    class="tl-title tl-big-margined tl-clickable"
+    (click)="this.onClickTitle()">
     {{ this.title }}
   </div>
   

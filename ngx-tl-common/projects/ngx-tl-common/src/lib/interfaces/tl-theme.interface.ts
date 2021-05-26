@@ -9,6 +9,7 @@ export interface ITlTheme {
   menuBgColor: string,
   transparentBgColor: string,
   sharpTransparentBgColor: string,
+  glassBgColor: string;
   
   mainContentColor: string,
   secondaryContentColor: string,
@@ -25,5 +26,13 @@ export interface ITlTheme {
   sharpDarkShadowColor: string,
   
   lightDomeColor: string,
-  darkDomeColor: string
+  darkDomeColor: string,
+  
+  titleFont: string,
+  subtitleFont: string,
+  mainFont: string,
+  
+  primaryStyle: string,
+  secondaryStyle: string,
+  preferedShape: string
 }

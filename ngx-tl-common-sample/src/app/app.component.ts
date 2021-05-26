@@ -41,38 +41,12 @@ export class AppComponent {
   
   
   private themes: ITlTheme[] = [
+    this.themeService.lightTheme,
+    this.themeService.darkTheme,
+    this.themeService.freshTheme,
     {
-      name: 'light',
-      label: 'Light',
-      
-      mainBgColor: '#e2e9ee',
-      mainBgPattern: 'none',
-      elementBgColor: '#e2e9ee',
-      secondaryBgColor: '#2F7045',
-      menuBgColor: '#31383f',
-      transparentBgColor: 'rgba(255,255,255,0.4)',
-      sharpTransparentBgColor: 'rgba(255,255,255,0.7)',
-      
-      mainContentColor: '#212529',
-      secondaryContentColor: 'white',
-      menuContentColor: '#F2E9EB',
-      outlineContentColor: '#FFA101',
-      successContentColor: 'green',
-      failureContentColor: 'red',
-      neutralContentColor: 'orange',
-      softContentColor: '#5b7480',
-      
-      lightShadowColor: '#ffffff',
-      darkShadowColor: '#b5babe',
-      sharpLightShadowColor: '#ffffff',
-      sharpDarkShadowColor: '#b3b8bc',
-      
-      lightDomeColor: '#f2f9ff',
-      darkDomeColor: '#cbd2d6'
-    },
-    {
-      name: 'watercolor',
-      label: 'Pattern',
+      name: 'fresh2',
+      label: 'Fresh2',
       
       mainBgColor: '#e2e9ee',
       mainBgPattern: 'url("./assets/img/watercolor_pattern.png")',
@@ -80,7 +54,8 @@ export class AppComponent {
       secondaryBgColor: '#2F7045',
       menuBgColor: '#31383f',
       transparentBgColor: 'rgba(255,255,255,0.4)',
-      sharpTransparentBgColor: 'rgba(255,255,255,0.55)',
+      sharpTransparentBgColor: 'rgba(255,255,255,0.7)',
+      glassBgColor: 'rgba(255,255,255,0.5)',
       
       mainContentColor: '#212529',
       secondaryContentColor: 'white',
@@ -97,36 +72,15 @@ export class AppComponent {
       sharpDarkShadowColor: '#b3b8bc',
       
       lightDomeColor: '#f2f9ff',
-      darkDomeColor: '#cbd2d6'
-    },
-    {
-      name: 'dark',
-      label: 'Dark',
+      darkDomeColor: '#cbd2d6',
       
-      mainBgColor: '#31383f',
-      mainBgPattern: 'none',
-      elementBgColor: '#31383f',
-      secondaryBgColor: '#8CBDB9',
-      menuBgColor: '#31383f',
-      transparentBgColor: 'rgba(0,0,0,0.3)',
-      sharpTransparentBgColor: 'rgba(0,0,0,0.7)',
+      titleFont: 'pacifico',
+      subtitleFont: 'pacifico',
+      mainFont: 'helvetica',
       
-      mainContentColor: '#F2E9EB',
-      menuContentColor: '#F2E9EB',
-      secondaryContentColor: '#212529',
-      outlineContentColor: '#FFA101',
-      successContentColor: 'green',
-      failureContentColor: 'red',
-      neutralContentColor: 'orange',
-      softContentColor: '#5b7480',
-      
-      lightShadowColor: '#3C444D',
-      darkShadowColor: '#262C31',
-      sharpLightShadowColor: '#3E474F',
-      sharpDarkShadowColor: '#24292F',
-      
-      lightDomeColor: '#343C43',
-      darkDomeColor: '#2C3239'
+      primaryStyle: 'tl-neumorphic',
+      secondaryStyle: 'tl-glassmorphic',
+      preferedShape: 'tl-round'
     }
   ];
   
@@ -136,7 +90,7 @@ export class AppComponent {
     public alertService: TlAlertService
   ){
     // Init theme service
-    this.themeService.init(this.themes, 'dark');
+    this.themeService.init(this.themes, 'light');
     
     // Init menu service
     this.menuService.init([
@@ -439,50 +393,13 @@ export class AppComponent {
             ]
         },
         {
-          id: 'services',
-          label: 'Services',
+          id: 'css',
+          label: 'CSS Styles',
           icon: 'a',
           subItems: [
               {
-                id: 'tl-menu-service',
-                label: 'TlMenuService',
-                icon: 'a'
-              },
-              {
-                id: 'tl-theme-service',
-                label: 'TlThemeService',
-                icon: 'a'
-              },
-              {
-                id: 'tl-alert-service',
-                label: 'TlAlertService',
-                icon: 'a'
-              }
-            ]
-        },
-        {
-          id: 'glossary',
-          label: 'Glossary',
-          icon: 'a',
-          subItems: [
-              {
-                id: 'structure-classes',
-                label: 'CSS Structures',
-                icon: 'a'
-              },
-              {
-                id: 'color-system',
-                label: 'Color System',
-                icon: 'a'
-              },
-              {
-                id: 'size-system',
-                label: 'Size System',
-                icon: 'a'
-              },
-              {
-                id: 'style-system',
-                label: 'Style System',
+                id: 'css-layout',
+                label: 'CSS Layout',
                 icon: 'a'
               }
             ]

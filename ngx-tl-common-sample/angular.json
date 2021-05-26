@@ -21,7 +21,12 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/ngx-tl-common/lib/assets/img",
+                "output": "./assets/img"
+              }
             ],
             "styles": [
               "src/styles.css",

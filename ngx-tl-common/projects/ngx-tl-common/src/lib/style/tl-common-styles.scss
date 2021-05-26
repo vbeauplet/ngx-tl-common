@@ -1,4 +1,12 @@
-
+:root{
+  // Configuration parameters related to chosen menu. Shall be overriden in the ngOnInit() of the chosen menu
+  --desktop-page-menu-padding-top:0px;
+  --mobile-page-menu-padding-top:0px;
+  --desktop-page-menu-padding-left:0px;
+  --mobile-page-menu-padding-left:0px;
+  --desktop-page-menu-padding-bottom:0px;
+  --mobile-page-menu-padding-bottom:0px;
+}
 // FONT STYLES
 
 @font-face {
@@ -132,19 +140,72 @@ body {
 }
 
 .tl-page {
-  margin:auto;
-  width:85%;
-  padding-top:40px;
+  box-sizing: border-box;
+  
+  padding-top: var(--desktop-page-menu-padding-top);
   padding-left: var(--desktop-page-menu-padding-left);
   padding-bottom: var(--desktop-page-menu-padding-bottom);
+  
   color: var(--main-content-color);
+  
   display:flex;
   flex-direction:column;
   justify-content: center;
   align-items:center;
 }
 
-.tl-page .tl-secondary-content{
+.tl-padded-page {
+  box-sizing: border-box;
+  
+  margin:auto;
+  width:85%;
+  
+  padding-top: var(--desktop-page-menu-padding-top);
+  padding-left: var(--desktop-page-menu-padding-left);
+  padding-bottom: var(--desktop-page-menu-padding-bottom);
+  
+  color: var(--main-content-color);
+  
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items:center;
+}
+
+.tl-left-aligned-page {
+  box-sizing: border-box;
+  
+  padding-top: var(--desktop-page-menu-padding-top);
+  padding-left: var(--desktop-page-menu-padding-left);
+  padding-bottom: var(--desktop-page-menu-padding-bottom);
+  
+  color: var(--main-content-color);
+  
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.tl-left-aligned-padded-page {
+  box-sizing: border-box;
+  
+  margin:auto;
+  width:85%;
+  
+  padding-top: var(--desktop-page-menu-padding-top);
+  padding-left: var(--desktop-page-menu-padding-left);
+  padding-bottom: var(--desktop-page-menu-padding-bottom);
+  
+  color: var(--main-content-color);
+  
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.tl-secondary-block{
     background-color:var(--secondary-bg-color);
     padding-top:70px;
     padding-left:25%;
@@ -350,7 +411,7 @@ a {
   }
 
 .tl-glassmorphic{
-  background: var(--sharp-transparent-bg-color);
+  background: var(--glass-bg-color);
   box-shadow: 0 8px 32px 0 var(--dark-shadow-color);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -361,7 +422,7 @@ a {
   }
   
 .tl-glassmorphic-outlined{
-  background: var(--sharp-transparent-bg-color);
+  background: var(--glass-bg-color);
   box-shadow: 0 8px 32px 0 var(--dark-shadow-color);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -732,11 +793,14 @@ a {
   
   // LAYOUT
   
-  .tl-page{
-    width:92%;
-    padding-top:20px;
+  .tl-page, .tl-padded-page, .tl-left-aligned-page, .tl-left-aligned-padded-page{
+    padding-top:var(--mobile-page-menu-padding-top);
     padding-left: var(--mobile-page-menu-padding-left);
     padding-bottom: var(--mobile-page-menu-padding-bottom);
+  }
+  
+  .tl-padded-page, .tl-left-aligned-padded-page{
+    width:92%;
   }
   
   // SIZES

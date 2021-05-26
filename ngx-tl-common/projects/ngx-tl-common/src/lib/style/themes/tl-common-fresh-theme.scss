@@ -1,6 +1,6 @@
 :root {
   --main-bg-color: #e2e9ee;
-  --main-bg-pattern: none;
+  --main-bg-pattern: url("../../assets/img/watercolor_pattern.png");
   --element-bg-color: #e2e9ee;
   --secondary-bg-color: #2F7045;
   --menu-bg-color:#31383f;
@@ -11,7 +11,7 @@
   --main-content-color: #212529;
   --secondary-content-color: white;
   --menu-content-color: #F2E9EB;
-  --outline-content-color: #FFA101;
+  --outline-content-color: #E0475B;
   --success-content-color: green;
   --failure-content-color: red;
   --neutral-content-color: orange;
@@ -25,8 +25,8 @@
   --light-dome-color: #f2f9ff;
   --dark-dome-color: #cbd2d6;
 
-  --title-font: norwester;
-  --subtitle-font: norwester;
+  --title-font: pacifico;
+  --subtitle-font: pacifico;
   --main-font: helvetica;
   
   // Yet only useful with dynamic theming
