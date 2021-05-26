@@ -39,4 +39,4 @@ And that is all, you are ready to go
 
 # Discover
 
-Discover more on ngx-tl-common from the decicated sample applcation: [Ngx-tl-common Help Center](https://ngx-tl-common.web.app)
+Discover more on ngx-tl-common from the decicated sample application: [Ngx-tl-common Help Center](https://ngx-tl-common.web.app)
