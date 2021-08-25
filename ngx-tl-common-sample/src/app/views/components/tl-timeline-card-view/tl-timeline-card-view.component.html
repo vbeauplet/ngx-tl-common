@@ -1,0 +1,85 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<tls-component-sample>
+
+  <tl-timeline-card
+    [tlStyle]="this.componentPreferenceService.style.tlStyle"
+    [size]="this.componentPreferenceService.style.size"
+    [date]="this.date">
+    
+    A hedgehog is any of the spiny mammals of the subfamily Erinaceinae, 
+    in the eulipotyphlan family Erinaceidae.<br/><br/>
+    There are seventeen species of 
+    hedgehog in five genera found through parts of Europe, Asia, and Africa, 
+    and in New Zealand by introduction.
+    
+  </tl-timeline-card>
+  
+</tls-component-sample>
+  
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>size</td>
+        <td>string</td>
+        <td>Size of the card, can be tl-big, tl-medium, tl-small  <br/>tl-medium by default</td>
+        <td>'tl-medium'</td>
+</tr>
+<tr>
+        <td>tlStyle</td>
+        <td>string</td>
+        <td>Style of the card  <br/>Shall fit the tl-style system</td>
+        <td>'tl-neumorphic'</td>
+</tr>
+<tr>
+        <td>rowDirection</td>
+        <td>boolean</td>
+        <td>Override this input if timeline (chain of timeline cards) direction is horizontal  <br/>Set to true if direction of the timeline is hor
+izontal  <br/>False by default (vertical)</td>
+        <td>false</td>
+</tr>
+<tr>
+        <td>date</td>
+        <td>number</td>
+        <td>Date, ( standard > in ms since 1970) corresponding to the timeline card  <br/>If none (0) date is not shown</td>
+        <td>0</td>
+</tr>
+<tr>
+        <td>dateWidth</td>
+        <td>string</td>
+        <td>CSS width property of the date div  <br/>Inherit by default, may be set if wanted</td>
+        <td>'unset'</td>
+</tr>
+  </tbody>
+</table>
+
+

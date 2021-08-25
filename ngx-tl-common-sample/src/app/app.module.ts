@@ -52,6 +52,9 @@ import { TlPopupOverlayViewComponent } from './views/components/tl-popup-overlay
 import { TlTreeViewComponent } from './views/components/tl-tree-view/tl-tree-view.component';
 import { TlImageCardComponent } from './components/tl-image-card/tl-image-card.component';
 import { TlImageCardViewComponent } from './views/components/tl-image-card-view/tl-image-card-view.component';
+import { BuildOwnMenuViewComponent } from './views/menu/build-own-menu-view/build-own-menu-view.component';
+import { TlTimelineCardViewComponent } from './views/components/tl-timeline-card-view/tl-timeline-card-view.component';
+import { CssViewComponent } from './views/css/css-view/css-view.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +105,10 @@ import { TlImageCardViewComponent } from './views/components/tl-image-card-view/
     TlPopupOverlayViewComponent,
     TlTreeViewComponent,
     TlImageCardComponent,
-    TlImageCardViewComponent
+    TlImageCardViewComponent,
+    BuildOwnMenuViewComponent,
+    TlTimelineCardViewComponent,
+    CssViewComponent
   ],
   imports: [
     BrowserModule,

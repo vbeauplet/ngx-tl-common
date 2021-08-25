@@ -71,6 +71,22 @@
   
   <div
     class="tl-big-bottom-margined">
+    Note: you can either:
+    <ul>
+    <li>Create your themes manually (with ITlTheme objects as defined below)</li>
+    <li>Use one/multiple predefined dynamic themes provided by the theme service. Prefedefined dynamic themes are designed to meet the default static themes. 3 are available for now:
+      <ul>
+      <li>Light Theme (add this.themeService.lightTheme within your <i>appThemes</i> array)
+      <li>Dark Theme (add this.themeService.darkTheme within your <i>appThemes</i> array)
+      <li>Fresh Theme (add this.themeService.freshTheme within your <i>appThemes</i> array)
+      </ul>
+    </li>
+    </ul>
+    These 3 predefined themes are the ones being registered within the frame of this app. You can try them using the <a routerLink="/theme/tl-theme-switcher">tl-theme-switcher</a> companion component
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
     Then initialize the Theme Service calling its <i>init()</i> method from the ngOnInit() hook of the app.component.ts components<br/>
     The following parameters shall be provided:
     <ul>

@@ -6,82 +6,12 @@ import { TlMenuService, TlAlertService, ITlTheme, TlThemeService } from 'ngx-tl-
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'ngx-tl-common-sample';
-  
-  public code = `<tl-tree-to
-  [size]="'tl-half'"
-  [data]="this.menuService.menuItems"
-  [searchFieldName]="'label'"
-  [selectionFieldName]="'label'"
-  [nestedItemsFieldName]="'subItems'"
-  [selectionValue]="'tl-toto'"
-  [hasHeaderRow]="false"
-  [columns]="[
-      {
-        fieldName: 'label',
-        title: 'Item',
-        size: 2,
-        editable: false
-      },
-      {
-        fieldName: 'id',
-        title: 'Id',
-        size: 2,
-        editable: false
-      },
-      {
-        fieldName: 'icon',
-        title: 'Icon',
-        size: 1,
-        editable: true
-      }
-    ]">
-</tl-tree-to>`;
-  
+export class AppComponent {  
   
   private themes: ITlTheme[] = [
     this.themeService.lightTheme,
     this.themeService.darkTheme,
-    this.themeService.freshTheme,
-    {
-      name: 'fresh2',
-      label: 'Fresh2',
-      
-      mainBgColor: '#e2e9ee',
-      mainBgPattern: 'url("./assets/img/watercolor_pattern.png")',
-      elementBgColor: '#e2e9ee',
-      secondaryBgColor: '#2F7045',
-      menuBgColor: '#31383f',
-      transparentBgColor: 'rgba(255,255,255,0.4)',
-      sharpTransparentBgColor: 'rgba(255,255,255,0.7)',
-      glassBgColor: 'rgba(255,255,255,0.5)',
-      
-      mainContentColor: '#212529',
-      secondaryContentColor: 'white',
-      menuContentColor: '#F2E9EB',
-      outlineContentColor: '#E0475B',
-      successContentColor: 'green',
-      failureContentColor: 'red',
-      neutralContentColor: 'orange',
-      softContentColor: '#5b7480',
-      
-      lightShadowColor: '#ffffff',
-      darkShadowColor: '#b5babe',
-      sharpLightShadowColor: '#ffffff',
-      sharpDarkShadowColor: '#b3b8bc',
-      
-      lightDomeColor: '#f2f9ff',
-      darkDomeColor: '#cbd2d6',
-      
-      titleFont: 'pacifico',
-      subtitleFont: 'pacifico',
-      mainFont: 'helvetica',
-      
-      primaryStyle: 'tl-neumorphic',
-      secondaryStyle: 'tl-glassmorphic',
-      preferedShape: 'tl-round'
-    }
+    this.themeService.freshTheme
   ];
   
   constructor(
@@ -183,7 +113,7 @@ export class AppComponent {
                 id: 'tl-alert-timeline',
                 label: 'tl-alert-timeline companion component',
                 icon: 'a',
-                route: '/menu/own-menu-component'
+                route: '/alert/tl-alert-timeline'
               }
             ]
         },
@@ -379,6 +309,12 @@ export class AppComponent {
                 icon: 'a'
               },
               {
+                id: 'tl-timeline-card',
+                label: 'tl-timeline-card',
+                route: '/components/tl-timeline-card',
+                icon: 'a'
+              },
+              {
                 id: 'tl-toggler',
                 label: 'tl-toggler',
                 route: '/components/tl-toggler',
@@ -394,15 +330,19 @@ export class AppComponent {
         },
         {
           id: 'css',
-          label: 'CSS Styles',
+          label: 'CSS Layout and Classes',
           icon: 'a',
-          subItems: [
-              {
-                id: 'css-layout',
-                label: 'CSS Layout',
-                icon: 'a'
-              }
-            ]
+          route: '/css',
+        },
+        {
+          id: 'contribute',
+          label: 'Contribute',
+          icon: 'a',
+        },
+        {
+          id: 'credit',
+          label: 'Credit',
+          icon: 'a',
         }
       ]);
   }

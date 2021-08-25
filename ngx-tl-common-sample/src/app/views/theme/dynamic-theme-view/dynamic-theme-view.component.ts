@@ -10,33 +10,42 @@ export class DynamicThemeViewComponent implements OnInit {
 
   public themeStructureCode: string = `
 public sampleTheme: ITlTheme = {
-    name: 'light',
-    label: 'Light',
-    
-    mainBgColor: '#e2e9ee',
-    mainBgPattern: 'none',
-    elementBgColor: '#e2e9ee',
-    secondaryBgColor: '#2F7045',
-    menuBgColor: '#31383f',
-    transparentBgColor: 'rgba(255,255,255,0.4)',
-    sharpTransparentBgColor: 'rgba(255,255,255,0.7)',
-    
-    mainContentColor: '#212529',
-    secondaryContentColor: 'white',
-    menuContentColor: '#F2E9EB',
-    outlineContentColor: '#FFA101',
-    successContentColor: 'green',
-    failureContentColor: 'red',
-    neutralContentColor: 'orange',
-    softContentColor: '#80A1AF',
-    
-    lightShadowColor: '#ffffff',
-    darkShadowColor: '#b5babe',
-    sharpLightShadowColor: '#ffffff',
-    sharpDarkShadowColor: '#b3b8bc',
-    
-    lightDomeColor: '#f2f9ff',
-    darkDomeColor: '#cbd2d6'
+      name: 'light',
+      label: 'Light',
+      
+      mainBgColor: '#e2e9ee',
+      mainBgPattern: 'none',
+      elementBgColor: '#e2e9ee',
+      secondaryBgColor: '#2F7045',
+      menuBgColor: '#31383f',
+      transparentBgColor: 'rgba(255,255,255,0.4)',
+      sharpTransparentBgColor: 'rgba(255,255,255,0.7)',
+      glassBgColor: 'rgba(255,255,255,0.5)',
+      
+      mainContentColor: '#212529',
+      secondaryContentColor: 'white',
+      menuContentColor: '#F2E9EB',
+      outlineContentColor: '#FFA101',
+      successContentColor: 'green',
+      failureContentColor: 'red',
+      neutralContentColor: 'orange',
+      softContentColor: '#5b7480',
+      
+      lightShadowColor: '#ffffff',
+      darkShadowColor: '#b5babe',
+      sharpLightShadowColor: '#ffffff',
+      sharpDarkShadowColor: '#b3b8bc',
+      
+      lightDomeColor: '#f2f9ff',
+      darkDomeColor: '#cbd2d6',
+      
+      titleFont: 'norwester',
+      subtitleFont: 'norwester',
+      mainFont: 'helvetica',
+      
+      primaryStyle: 'tl-neumorphic',
+      secondaryStyle: 'tl-glassmorphic',
+      preferedShape: 'tl-round'
   };
     `;
     

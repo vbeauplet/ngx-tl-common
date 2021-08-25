@@ -1,0 +1,128 @@
+<div 
+  class="tl-near-full-responsive tl-col-dir tl-hor-left tl-no-wrap tl-flex-block">
+
+
+  <div
+    class="tl-big-bottom-margined tl-subtitle">
+    A tl-menu-service API to build a companion components
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    tl-menu-service offers the following attributes to ease building up a menu component:
+    
+  </div>
+  
+  <table
+    class="tl-near-full-responsive tl-big-bottom-margined">
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td>size</td>
+          <td>Bindable list of menu items, provided at <a routerLink="/menu/menu-service">tl-menu-service initialisation</a></td>
+      </tr>
+      <tr>
+          <td>selectedMenuItem</td>
+          <td>Stores the currently selected menu item. May be refreshed automatically from route from your component using the <i>refreshFromRoute()</i> public method</td>
+      </tr>
+      <tr>
+          <td>isWrapped</td>
+          <td>If needed, a flag you can set to help you store your menu wrapping status (wrapped/unwrapped, visible/hidden, ...)</td>
+      </tr>
+      <tr>
+          <td>unwrappedMenuItem</td>
+          <td>If needed, helps you store a menu item with children that is being unwrapped (tells that sub-items shall be visible)</td>
+      </tr>
+      <tr>
+          <td>isInitialized</td>
+          <td>Tells if service is initialized. Unless overriden by you component, it is automatically set to true after calling the <i>init(...)</i> method</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div
+    class="tl-big-bottom-margined">
+    tl-menu-service offers the following methods to affect your own menu component:
+    
+  </div>
+  
+  <table
+    class="tl-near-full-responsive tl-big-bottom-margined">
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td>init(menuItems: ITlMenuItem[])</td>
+          <td>See <a routerLink="/menu/menu-service">tl-menu-service initialisation</a></td>
+      </tr>
+      <tr>
+          <td>selectMenuItem(menuItem: ITlMenuItem)</td>
+          <td>Natively handles selection of a menu item, shall be used (potentially overriden) from you component hen user selects a menu item. Emit the selection output of the service, potentially drives to provided route or, if none, automatically sets the menu item as unwrapped (set the unwrappedMenuItem attribute)</td>
+      </tr>
+      <tr>
+          <td>incrementBadgeNumber(itemId: string)</td>
+          <td>Increments badge number of a menu item from its id</td>
+      </tr>
+      <tr>
+          <td>setBadgeNumber(itemId: string, badgeNumber: number)</td>
+          <td>Set badge number of a menu item from its id</td>
+      </tr>
+    </tbody>
+  </table>
+  
+    <div
+    class="tl-big-bottom-margined">
+    tl-menu-service offers the following events:
+    
+  </div>
+  
+  <table
+    class="tl-near-full-responsive tl-xbig-bottom-margined">
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td>selectedMenuItemSubject: Subject(ITlMenuItem) </td>
+          <td>Event which is raised when a menu item is selected by user. Automatically emitted when calling the <i>selectMenuItem</i> method</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div
+    class="tl-big-bottom-margined tl-subtitle">
+    Configure ngx-tl-common page layout with a custom menu component
+  </div>
+  
+  <div
+    class="tl-big-bottom-margined">
+    If you use the tl-page layout class for your high-level app components (view), it shall be configured so that dimensions of you own menu fits with the page display<br/><br/>
+    To do that, specific CSS configuration variables shall be set within the <i>ngOnInit()</i> of the companion component<br/><br/>
+    For example, here is the ngOnInit() method of the predefined search menu component which is used for this app: 
+  </div>
+  
+  <div 
+    class="tl-xbig">
+  
+    <pre>
+      <code
+        [highlight]="this.initMenuConfigurationVariables"
+        [languages]="['typescript']">
+     </code>
+    </pre>
+  
+  </div>
+  
+</div>

@@ -357,7 +357,15 @@ a {
 
 
 // CONTAINER TL STYLES
-  
+
+.tl-primary-style{
+  @extend .tl-neumorphic;
+}
+
+.tl-secondary-style{
+  @extend .tl-glassmorphic;
+}
+
 .tl-neumorphic {
   box-shadow:  8px 8px 11px var(--dark-shadow-color), 
                 -8px -8px 11px var(--light-shadow-color);
