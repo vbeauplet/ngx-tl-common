@@ -321,6 +321,7 @@ a {
 .tl-container-flex-block {
   background: var(--element-bg-color);
   display:flex;
+  flex-wrap: wrap;
   flex-direction:column;
   justify-content: flex-start;
   align-items:center;
@@ -643,6 +644,12 @@ a {
 .tl-small {
   box-sizing:border-box;
   width: 200px;
+  border-radius:10px;
+}
+
+.tl-xsmall {
+  box-sizing:border-box;
+  width: 20px;
   border-radius:10px;
 }
 
