@@ -8,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter, QueryList, ContentChild
 @Component({
   selector: 'tl-tab',
   host: { 
-      'class' : 'tl-full tl-col-dir tl-hor-left tl-flex-block"',
+      '[class]' : '"tl-full tl-col-dir tl-hor-" + this.alignment + " tl-flex-block"',
     },
   templateUrl: './tl-tab.component.html',
   styleUrls: ['./tl-tab-panel.component.scss']
@@ -31,6 +31,11 @@ export class TlTabComponent implements OnInit {
    * Let empty if none
    */
   @Input() icon: string = '';
+  
+  /**
+   * Alignment of the root div of the tab content (div are on columns by default)
+   */
+  @Input() alignment: string = 'left';
 
   /**
    * Display flag of the tab
@@ -77,6 +82,12 @@ export class TlTabPanelComponent implements OnInit {
    * Fixed height, in px. If not provided, height is auto
    */
   @Input() fixedHeight: number = -1;
+  
+  /**
+   * Padding, in the tl-padding system
+   * May be regular, small, big, xbig...
+   */
+  @Input() padding: string = 'regular';
   
   /**
    * Selected tab

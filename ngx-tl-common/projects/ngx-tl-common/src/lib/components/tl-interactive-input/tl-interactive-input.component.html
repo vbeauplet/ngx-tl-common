@@ -1,6 +1,6 @@
 <div 
   *ngIf="!this.inline && this.inputLabel !== ''"
-  class="interactive-input-label"
+  [class]="this.inputLabelSize + '-content interactive-input-label'"
   [ngStyle]="{
       'width': this.inputLabelWidth
     }">
@@ -10,7 +10,7 @@
 <tl-square-icon
   *ngIf="this.inline"
   style="margin-right:5px;cursor: pointer"
-  (clickButton)="(this.sdbLoadingStatus === -1)?this.onClickEditMarkup():this.onClickEditMarkupWhenLoading();"
+  (click)="(this.sdbLoadingStatus === -1)?this.onClickEditMarkup():this.onClickEditMarkupWhenLoading();"
   [color]="(this.inputInFocus)?'tl-outline':'tl-main'"
   [icon]="'&'"
   [size]="18">
@@ -21,7 +21,7 @@
   id="{{ this.inputId }}" 
   class="medium tl-input interactive-input-input"
   [class.data-placeholded]="this.placeholder != null && this.placeholder !== ''"
-  [class.astext]="!this.inline && !this.inputInFocus"
+  [class.astext]="(!this.inline && !this.inputInFocus) || this.tlStyle != 'tl-neumorphic'"
   [class.astext-inline]="this.inline"
   placeholder="{{ this.getPlaceholder() }}" 
   (focus)="this.onFocusInput()"
@@ -36,6 +36,7 @@
   class="interactive-input-button"
   (clickButton)="(this.sdbLoadingStatus === -1)?this.onClickEditMarkup():this.onClickEditMarkupWhenLoading();"
   [icon]="(this.inputInFocus)?'{':'&'"
+  [tlStyle]="this.tlStyle"
   [size]="40"
   [shape]="'square'"
   [margin]="0"

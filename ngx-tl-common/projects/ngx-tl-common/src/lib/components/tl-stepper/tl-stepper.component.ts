@@ -78,6 +78,12 @@ export class TlStepperComponent implements OnInit {
   @Input() tlStyle: string = 'tl-neumorphic';
   
   /**
+   * Space percentage distance between lines and dots
+   * Expressed between 0 and 1. 0 (0%) by default
+   */
+  @Input() lineDotDistance: number = 0;
+  
+  /**
    * Tells if stepper shall be active, which means clicking on it can modify process state
    * True by default
    */
@@ -183,6 +189,9 @@ export class TlStepperComponent implements OnInit {
    * Go to next step, completing current one
    */
   public next(){
+    
+    console.log('here1');
+    
     // Check it is possible
     if(this.steps.length > this.currentStepIndex + 1){
       

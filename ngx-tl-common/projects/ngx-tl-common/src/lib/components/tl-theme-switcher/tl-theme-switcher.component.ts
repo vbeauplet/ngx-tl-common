@@ -28,10 +28,15 @@ export class TlThemeSwitcherComponent implements OnInit {
   @Input() tlContainerNature: boolean = true;
   
   /**
+   * Theme color circle size
+   */
+  @Input() colorCircleSize: number = 100;
+  
+  /**
    * Container tl-style
    * Only matters if theme swither has a container nature
    */
-  @Input() tlStyle: string = 'tl-soft-transparent';
+  @Input() tlStyle: string = '';
   
   /**
    * Event which is emitted wheme theme is changed with theme switcher component

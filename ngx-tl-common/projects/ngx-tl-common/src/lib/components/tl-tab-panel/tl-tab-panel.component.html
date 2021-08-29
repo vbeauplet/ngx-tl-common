@@ -1,6 +1,6 @@
 <!-- Tabs panel header -->
 <div
-  class="tl-no-br tl-full tl-row-dir tl-hor-left tl-vert-center tl-no-wrap tl-flex-block tab-header"
+  class="tl-no-br tl-full tl-row-dir tl-hor-left tl-vert-stretch tl-no-wrap tl-flex-block tab-header"
   [class.neumorphic]="this.tlStyle == 'tl-neumorphic'">
   
   <!-- Tab title block -->
@@ -92,7 +92,7 @@
 
 <!-- Tabs content as tl-tab components -->
 <div
-  class="tl-full tab-content"
+  [class]="'tl-full tl-' + this.padding + '-padded tab-content'"
   [class.first]="this.isFirstTabSelected"
   [class.outlined]="this.tlStyle == 'tl-outlined'"
   [class.soft-transparent]="this.tlStyle == 'tl-soft-transparent'"
