@@ -1,0 +1,33 @@
+:host{
+  flex-direction:row-reverse;
+}
+
+.rater-icon{
+  cursor:pointer;
+}
+
+  .rater-icon:hover{
+    color:var(--outline-content-color)!important;
+  }
+  
+  .rater-icon:hover ~ .rater-icon {
+    color:var(--outline-content-color);
+  }
+  
+  .rater-icon.focus{
+    color:var(--success-content-color);
+  }
+  
+  .rater-icon.locked{
+    pointer-events: none;
+    opacity:0.8;
+    cursor:not-allowed;
+  }
+  
+  .rater-icon.unset{
+    color:var(--soft-content-color);
+  }
+  
+.explicit-rate{
+  width:35px;
+}

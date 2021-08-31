@@ -49,6 +49,7 @@ import { TlDateAgoPipe } from './pipes/tl-date-ago.pipe';
 import { TlSelectComponent } from './components/tl-select/tl-select.component';
 import { TlIconMiniatureSelectComponent } from './components/tl-icon-miniature-select/tl-icon-miniature-select.component';
 import { TlClickOutsideDirective } from './directives/tl-click-outside.directive';
+import { TlRaterComponent } from './components/tl-rater/tl-rater.component';
  
 
 @NgModule({ 
@@ -76,6 +77,7 @@ import { TlClickOutsideDirective } from './directives/tl-click-outside.directive
     TlNukiCardComponent,
     TlOutlinedActiveImageComponent,
     TlProgressBarComponent,
+    TlRaterComponent,
     TlSearchBarComponent,
     TlSelectComponent,
     TlShapeBlockComponent,
@@ -129,6 +131,7 @@ import { TlClickOutsideDirective } from './directives/tl-click-outside.directive
     TlNukiCardComponent,
     TlOutlinedActiveImageComponent,
     TlProgressBarComponent,
+    TlRaterComponent,
     TlSearchBarComponent,
     TlSelectComponent,
     TlShapeBlockComponent,
