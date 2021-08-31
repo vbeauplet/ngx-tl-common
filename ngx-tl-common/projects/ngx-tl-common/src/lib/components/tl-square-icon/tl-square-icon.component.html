@@ -1,4 +1,14 @@
+<ion-icon
+  *ngIf="this.icon.length != 1"
+  [class]="this.color + '-content-element'"
+  [name]="this.icon"
+  [ngStyle]="{
+      'font-size': this.size + 'px'
+    }">
+</ion-icon>
+
 <div
+  *ngIf="this.icon.length == 1"
   [class]="'square-icon-container ' + this.color + '-content-element'"
   [ngStyle]="{
       'width': this.size + 'px',

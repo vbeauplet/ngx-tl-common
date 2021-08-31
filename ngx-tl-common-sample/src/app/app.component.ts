@@ -303,6 +303,12 @@ export class AppComponent {
                 icon: 'a'
               },
               {
+                id: 'tl-tab-panel',
+                label: 'tl-tab-panel',
+                route: '/components/tl-tab-panel',
+                icon: 'a'
+              },
+              {
                 id: 'tl-text-stateful-button',
                 label: 'tl-text-stateful-button',
                 route: '/components/tl-text-stateful-button',

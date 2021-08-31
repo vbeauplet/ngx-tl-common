@@ -4,11 +4,14 @@
 </div>
 
 <tls-component-sample
-  [hasTlStyle]="false"
+  [hasTlStyle]="true"
+  [hasSubTlStyle]="true"
   [hasColor]="true">
 
   <tl-toggler
     [size]="this.componentPreferenceService.style.size"
+    [containerStyle]="this.componentPreferenceService.style.tlStyle"
+    [buttonStyle]="this.componentPreferenceService.style.subTlStyle"
     [label]="'Toggle on/off'"
     [onBgColor]="this.componentPreferenceService.style.color">
   </tl-toggler>

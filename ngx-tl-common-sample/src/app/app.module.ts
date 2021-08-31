@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -55,6 +55,7 @@ import { TlImageCardViewComponent } from './views/components/tl-image-card-view/
 import { BuildOwnMenuViewComponent } from './views/menu/build-own-menu-view/build-own-menu-view.component';
 import { TlTimelineCardViewComponent } from './views/components/tl-timeline-card-view/tl-timeline-card-view.component';
 import { CssViewComponent } from './views/css/css-view/css-view.component';
+import { TlTabPanelViewComponent } from './views/components/tl-tab-panel-view/tl-tab-panel-view.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +109,8 @@ import { CssViewComponent } from './views/css/css-view/css-view.component';
     TlImageCardViewComponent,
     BuildOwnMenuViewComponent,
     TlTimelineCardViewComponent,
-    CssViewComponent
+    CssViewComponent,
+    TlTabPanelViewComponent
   ],
   imports: [
     BrowserModule,
@@ -124,6 +126,7 @@ import { CssViewComponent } from './views/css/css-view/css-view.component';
       }
     }
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
