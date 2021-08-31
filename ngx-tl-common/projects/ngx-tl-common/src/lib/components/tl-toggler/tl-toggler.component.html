@@ -35,7 +35,8 @@
     [margin]="0"
     [status]="this.togglerLoadingStatus"
     [ngStyle]="{
-      'margin-left' : (this.targetState) ? (0.8 * this.height) + (1 - this.buttonContainerRatio) / 2 * this.height  + 'px': (1 - this.buttonContainerRatio) / 2 * this.height + 'px'
+      'margin-left' : (this.targetState) ? (0.8 * this.height) + (1 - this.buttonContainerRatio) / 2 * this.height  + 'px': (1 - this.buttonContainerRatio) / 2 * this.height + 'px',
+      'margin-top' : (this.buttonContainerRatio > 1) ? (1 - this.buttonContainerRatio) / 2 * this.height + 'px': '0px'
     }"
     (clickButton)="this.onClickToggler()">
   </tl-stateful-button>

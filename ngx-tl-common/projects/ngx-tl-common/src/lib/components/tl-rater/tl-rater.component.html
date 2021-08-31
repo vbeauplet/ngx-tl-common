@@ -1,0 +1,56 @@
+<tl-spinner
+  *ngIf="this.loadingStatus != -2"
+  [ngStyle]="{
+      'padding-left': this.iconHeight/2 + 'px',
+      'padding-right': this.iconHeight/2 + 'px'
+    }"
+  class="loading-spinner"
+  [loadingStatus]="this.loadingStatus"
+  [size]="16">
+</tl-spinner>
+
+<div
+  *ngIf="this.showRateExplicitely"
+  [ngStyle]="{
+      'padding-left': this.iconHeight/2 + 'px',
+      'padding-right': this.iconHeight/2 + 'px'
+    }"
+  class="explicit-rate">
+  
+  <ng-container
+    *ngIf="this.rate != -1">
+    {{ this.rate | number:'1.0-2' }}
+  </ng-container>
+  
+  <ng-container
+    *ngIf="this.rate == -1">
+    ?
+  </ng-container>
+  
+</div>
+
+<tl-square-icon
+  *ngFor="let iterator of this.iterable; let i = index"
+  class="rater-icon"
+  [class.focus]="(10 - i) <= this.roundedRate"
+  [class.locked]="this.locked"
+  [class.unset]="this.rate == -1"
+  [ngStyle]="{
+      'padding': this.iconHeight/4 + 'px'
+    }"
+  [icon]="this.icon"
+  [size]="this.iconHeight"
+  (click)="onClickIcon(i)">
+</tl-square-icon>
+
+<div
+  *ngIf="this.label != ''"
+  [ngStyle]="{
+      'padding-left': this.iconHeight/2 + 'px',
+      'padding-right': this.iconHeight/2 + 'px'
+    }"
+  class="label">
+  {{ this.label }}
+</div>
+
+
