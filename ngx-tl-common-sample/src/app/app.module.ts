@@ -56,6 +56,7 @@ import { BuildOwnMenuViewComponent } from './views/menu/build-own-menu-view/buil
 import { TlTimelineCardViewComponent } from './views/components/tl-timeline-card-view/tl-timeline-card-view.component';
 import { CssViewComponent } from './views/css/css-view/css-view.component';
 import { TlTabPanelViewComponent } from './views/components/tl-tab-panel-view/tl-tab-panel-view.component';
+import { TlRaterViewComponent } from './views/components/tl-rater-view/tl-rater-view.component';
 
 @NgModule({
   declarations: [
@@ -110,7 +111,8 @@ import { TlTabPanelViewComponent } from './views/components/tl-tab-panel-view/tl
     BuildOwnMenuViewComponent,
     TlTimelineCardViewComponent,
     CssViewComponent,
-    TlTabPanelViewComponent
+    TlTabPanelViewComponent,
+    TlRaterViewComponent
   ],
   imports: [
     BrowserModule,

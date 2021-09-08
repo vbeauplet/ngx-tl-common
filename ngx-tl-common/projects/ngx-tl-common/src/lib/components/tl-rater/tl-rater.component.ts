@@ -86,7 +86,7 @@ export class TlRaterComponent implements OnInit, OnChanges {
   public onClickIcon(i :number){
     
     // Set rate
-    this.rate = 10 - i;
+    this.rate = this.iconNumber - i;
     this.roundedRate = Math.round(this.rate);
     
     // Emit the setRate event

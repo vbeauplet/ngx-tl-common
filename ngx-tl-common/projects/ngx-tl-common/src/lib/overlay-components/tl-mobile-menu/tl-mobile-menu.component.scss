@@ -1,3 +1,5 @@
+@import "../../style/tl-common-styles.scss";
+
 :host{
   z-index:1000;
   
@@ -23,6 +25,10 @@
     background-color:var(--menu-bg-color);
     box-shadow: 0 0px 8px 0 var(--menu-bg-color);
     color:white!important;
+  }
+  
+  :host.glassmorphic{  
+    @extend .tl-glassmorphic;
   }
 
 .menu-item-container{

@@ -255,6 +255,12 @@ export class AppComponent {
                 icon: 'a'
               },
               {
+                id: 'tl-rater',
+                label: 'tl-rater',
+                route: '/components/tl-rater',
+                icon: 'a'
+              },
+              {
                 id: 'tl-search-bar',
                 label: 'tl-search-bar',
                 route: '/components/tl-search-bar',

@@ -1,0 +1,112 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<tls-component-sample
+  [hasTlStyle]="false"
+  [hasSize]="false">
+
+  <tl-rater
+    [icon]="'nutrition'"
+    [iconNumber]="5"
+    [iconHeight]="50"
+    (setRate)="onSetRate($event)">
+  </tl-rater>
+  
+</tls-component-sample>
+
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+  
+  <pre>
+    <code
+      [highlight]="this.tsCode"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>icon</td>
+        <td>string</td>
+        <td>Icon to use for the rater</td>
+        <td>'7'</td>
+</tr>
+<tr>
+        <td>iconHeight</td>
+        <td>number</td>
+        <td>Icon size, in px</td>
+        <td>24</td>
+</tr>
+<tr>
+        <td>iconNumber</td>
+        <td>number</td>
+        <td>Number of icons to be displayed</td>
+        <td>10</td>
+</tr>
+<tr>
+        <td>label</td>
+        <td>string</td>
+        <td>Label, if any. Empty string if none</td>
+        <td>''</td>
+</tr>
+<tr>
+        <td>locked</td>
+        <td>boolean</td>
+        <td>Tells if the rater is locked, which mean user cannot change the rate by itself</td>
+        <td>false</td>
+</tr>
+<tr>
+        <td>showRateExplicitely</td>
+        <td>boolean</td>
+        <td>Flag to tell if rate shall be shown explicitely</td>
+        <td>false</td>
+</tr>
+  </tbody>
+</table>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td>setRate</td>
+        <td>number</td>
+        <td>Rate event, carrying note given by user</td>
+</tr>
+  </tbody>
+</table>
+
+
+
