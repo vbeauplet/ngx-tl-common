@@ -1,4 +1,6 @@
 :host.disabled{
   opacity:0.4;
-  cursor:initial!important;
+  cursor:default!important;
+  pointer-events: none;
+  user-select:none!important;
 }

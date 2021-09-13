@@ -32,7 +32,7 @@
 <tl-square-icon
   *ngFor="let iterator of this.iterable; let i = index"
   class="rater-icon"
-  [class.focus]="(10 - i) <= this.roundedRate"
+  [class.focus]="(this.iconNumber - i) <= this.roundedRate"
   [class.locked]="this.locked"
   [class.unset]="this.rate == -1"
   [ngStyle]="{
