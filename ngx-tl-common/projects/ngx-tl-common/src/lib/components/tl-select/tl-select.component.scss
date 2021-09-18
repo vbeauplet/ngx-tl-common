@@ -1,5 +1,10 @@
-.proposal:hover, .proposal.selected{
-  background-color: var(--transparent-bg-color);
+.proposal:hover {
+  background-color: var(--sharp-transparent-bg-color);
+}
+
+.proposal.selected{
+  background-color: var(--sharp-transparent-bg-color);
+  color:var(--outline-content-color);
 }
 
 .proposal-text{
@@ -17,6 +22,8 @@
   top:calc(100% + 5px);
   left:0px;
   opacity:1;
+  padding-top:20px;
+  padding-bottom:20px;
   transition: opacity ease-in-out 200ms,
     top ease-in-out 200ms;
 }
@@ -27,10 +34,10 @@
   }
   
 .flipper-icon{
-  transform:rotate(-90deg);
+  transform:rotate(90deg);
   transition:transform 200ms ease-in-out;
 }
 
   .flipper-icon.flipped{
-    transform:rotate(90deg);
+    transform:rotate(0deg);
   }

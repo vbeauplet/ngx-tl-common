@@ -42,7 +42,7 @@ export class TlActionCenterComponent implements OnInit {
   /**
    * Style of the buttons, neumorphic by default
    */
-  @Input() buttonStyle: string = 'tl-neumorphic-sharp';
+  @Input() buttonStyle: string = 'tl-neumorphic-dome';
   
   /**
    * Shape of the buttons, round by default

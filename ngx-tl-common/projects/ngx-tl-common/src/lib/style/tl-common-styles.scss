@@ -20,11 +20,6 @@
 }
 
 @font-face {
-  font-family: 'reey';
-  src: url('../assets/fonts/reey.otf');
-}
-
-@font-face {
   font-family: 'norwester';
   src: url('../assets/fonts/norwester.otf');
 }
@@ -32,6 +27,28 @@
 .tl-icon {
   font-family: entypo;
 }
+
+.tl-icon-tl-chevron-forward {
+  mask-image: url('../assets/svg/tl-chevron-forward.svg');
+  -webkit-mask-image: url('../assets/svg/tl-chevron-forward.svg');
+}
+
+.tl-icon-tl-chevron-down-circle-outline {
+  mask-image: url('../assets/svg/tl-chevron-down-circle-outline.svg');
+  -webkit-mask-image: url('../assets/svg/tl-chevron-down-circle-outline.svg');
+}
+
+.tl-icon-tl-close {
+  mask-image: url('../assets/svg/tl-close.svg');
+  -webkit-mask-image: url('../assets/svg/tl-close.svg');
+}
+
+
+.tl-icon-tl-checkmark {
+  mask-image: url('../assets/svg/tl-checkmark.svg');
+  -webkit-mask-image: url('../assets/svg/tl-checkmark.svg');
+}
+
 
 // FONT SIZE
 
@@ -294,6 +311,34 @@ a {
 
 .tl-black-content-element{
   color: black;
+}
+
+.tl-main-bg-bg-element{
+  background-color: var(--main-bg-color)!important;
+}
+
+.tl-menu-bg-bg-element{
+  background-color: var(--menu-bg-color)!important;
+}
+
+.tl-inherit-bg-bg-element{
+  background-color: inherit;
+}
+
+.tl-main-bg-element{
+  background-color: var(--main-content-color)!important;
+}
+
+.tl-secondary-bg-element{
+  background-color: var(--secondary-content-color)!important;
+}
+
+.tl-menu-bg-element{
+  background-color: var(--menu-content-color)!important;
+}
+
+.tl-inherit-bg-element{
+  background-color: currentColor;
 }
 
 .tl-outline-bg-element{

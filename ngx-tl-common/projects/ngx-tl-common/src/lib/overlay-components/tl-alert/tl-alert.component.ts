@@ -31,7 +31,7 @@ export class TlAlertComponent implements OnInit {
    * Style of the decision buttons, from the tl-style system
    * tl-neumorphic by default
    */
-  @Input() buttonStyle: string = 'tl-neumorphic';
+  @Input() buttonStyle: string = 'tl-neumorphic-dome';
 
   /**
    * Tells if a close button shall be visible for non-decisive popups

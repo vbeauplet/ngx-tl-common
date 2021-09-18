@@ -29,21 +29,6 @@ export class TlSquareIconComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  /**
-   * Computes the font size
-   */
-  public getFontSize(): number {
-    return this.size * 5/3;
-  }
-  
-  /**
-   * Computes the line height
-   */
-  public getLineHeight(): number {
-    return this.size * 1/6;
-  }
+  ngOnInit(): void { }
 
 }
