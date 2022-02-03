@@ -30,7 +30,6 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/font/tlicons.css",
               "./node_modules/ngx-tl-common/lib/style/tl-common-styles.scss",
               "./node_modules/ngx-tl-common/lib/style/themes/tl-common-light-theme.scss",
               "./node_modules/highlight.js/styles/atelier-cave-dark.css"

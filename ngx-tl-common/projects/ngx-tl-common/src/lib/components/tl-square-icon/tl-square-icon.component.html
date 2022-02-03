@@ -36,11 +36,23 @@
 </div>
 
 <!-- Case using ion-icon web component -->
-<ion-icon
+<div
   *ngIf="this.icon.startsWith('ion-')"
-  [class]="this.color + '-content-element'"
-  [name]="this.icon.substring(4)"
+  class="square-icon-container"
   [ngStyle]="{
-      'font-size': this.size + 'px'
+      'width': this.size + 'px',
+      'height': this.size + 'px'
     }">
-</ion-icon>
+    
+  <ion-icon
+    [class]="this.color + '-content-element'"
+    [name]="this.icon.substring(4)"
+    [ngStyle]="{
+        'width': this.size * 0.8 + 'px',
+        'height': this.size * 0.8 + 'px',
+        'overflow': 'hidden',
+        'font-size': this.size * 0.8 + 'px'
+      }">
+  </ion-icon>
+  
+</div>
