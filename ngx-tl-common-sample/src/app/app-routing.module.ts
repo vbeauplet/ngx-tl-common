@@ -47,6 +47,8 @@ import { TlImageCardViewComponent } from './views/components/tl-image-card-view/
 import { BuildOwnMenuViewComponent } from './views/menu/build-own-menu-view/build-own-menu-view.component';
 import { TlTimelineCardViewComponent } from './views/components/tl-timeline-card-view/tl-timeline-card-view.component';
 import { CssViewComponent } from './views/css/css-view/css-view.component';
+import { TlTabPanelViewComponent } from './views/components/tl-tab-panel-view/tl-tab-panel-view.component';
+import { TlRaterViewComponent } from './views/components/tl-rater-view/tl-rater-view.component';
 
 
 const routes: Routes = [
@@ -83,6 +85,7 @@ const routes: Routes = [
   { path: 'components/tl-outlined-active-image', component: TlOutlinedActiveImageViewComponent },
   { path: 'components/tl-popup-overlay', component: TlPopupOverlayViewComponent },
   { path: 'components/tl-progress-bar', component: TlProgressBarViewComponent },
+  { path: 'components/tl-rater', component: TlRaterViewComponent },
   { path: 'components/tl-search-bar', component: TlSearchBarViewComponent },
   { path: 'components/tl-select', component: TlSelectViewComponent },
   { path: 'components/tl-shape-block', component: TlShapeBlockViewComponent },
@@ -92,6 +95,7 @@ const routes: Routes = [
   { path: 'components/tl-toggler', component: TlTogglerViewComponent },
   { path: 'components/tl-stepper', component: TlStepperViewComponent },
   { path: 'components/tl-string-picker', component: TlStringPickerViewComponent },
+  { path: 'components/tl-tab-panel', component: TlTabPanelViewComponent },
   { path: 'components/tl-text-stateful-button', component: TlTextStatefulButtonViewComponent },
   { path: 'components/tl-timeline-card', component: TlTimelineCardViewComponent },
   { path: 'components/tl-color-picker', component: TlColorPickerViewComponent },

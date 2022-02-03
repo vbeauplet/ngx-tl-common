@@ -21,6 +21,11 @@ export class TlInteractiveInputComponent implements OnInit {
    * Size of the interactive container. 'tl-full' by default
    */
   @Input() size: string = 'tl-full';
+  
+  /**
+   * Component style, in the tl-style system
+   */
+  @Input() tlStyle: string = 'tl-neumorphic';
 
   /**
    * Placeholder input. Mandatory, shall be documented. Usually taken from modeld node value
@@ -53,6 +58,12 @@ export class TlInteractiveInputComponent implements OnInit {
    * Optional. Label width (css property). If not set, automatically adapt to content
    */
   @Input() inputLabelWidth: string = 'fit-content';
+  
+  /**
+   * Label content size
+   * Tl-big by default
+   */
+  @Input() inputLabelSize: string = 'tl-big';
   
   /**
    * Input type

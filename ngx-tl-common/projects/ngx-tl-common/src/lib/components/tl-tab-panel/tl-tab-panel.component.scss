@@ -1,0 +1,165 @@
+@import '../../style/tl-common-styles.scss';
+
+.tab-header {
+  overflow:auto;
+  scrollbar-width:thin;
+}
+
+  .tab-header.neumorphic {
+    overflow:visible;
+  }
+
+.tab-title-block {
+  overflow:visible;
+  position:relative;
+  border-radius: 5px 5px 0px 0px;
+  padding-top:7px;
+  padding-bottom:7px;
+  padding-left:11px;
+  padding-right:11px;
+}
+
+  .tab-title-block:not(.shrinkable) {
+    @extend .tl-flex-no-shrink;
+  }
+
+  .tab-title-block.shrinkable {
+    @extend .tl-flex-shrink;
+  }
+
+  .tab-title-block.outlined.selected {
+    padding-top:6px;
+    padding-bottom:8px;
+    padding-left:10px;
+    padding-right:10px;
+    border-top: solid var(--soft-content-color) 1px;
+    border-left: solid var(--soft-content-color) 1px;
+    border-right: solid var(--soft-content-color) 1px;
+  }
+  
+  .tab-title-block.outlined:not(.selected) {
+    border-bottom: solid var(--soft-content-color) 1px;
+  }
+  
+  .tab-title-block.soft-transparent.selected {
+    background-color: var(--transparent-bg-color);
+  }
+  
+  .tab-controls.transparent{
+    background-color: transparent!important;
+  }
+  
+  .tab-title-block.transparent:not(.selected) {
+    background-color: var(--transparent-bg-color);
+  }
+  
+  .tab-title-block.sharp-transparent.selected {
+    background-color: var(--sharp-transparent-bg-color);
+  }
+  
+  .tab-title-block.sharp-transparent:not(.selected) {
+    background-color: var(--transparent-bg-color);
+  }
+  
+  .tab-title-block.neumorphic {
+    padding-bottom:10px;
+  }
+  
+  .tab-title-block.neumorphic.selected {
+    @extend .tl-neumorphic;
+  }
+  
+  .tab-title-block.neumorphic.selected .patch{
+    z-index:2;
+    position:absolute;
+    background-color:var(--element-bg-color);
+    width:calc(100% + 15px);
+    height:20px;
+    top:100%;
+    left:0px;
+  }
+  
+  .tab-title-block.neumorphic:not(.selected) {
+    background-color: transparent;
+  }
+  
+  .tab-title-block.glassmorphic.selected {
+    background-color: var(--glass-bg-color);
+  }
+  
+
+
+.tab-button{
+  cursor:pointer;
+  margin-top:3px;
+}
+
+.close-tab{
+  margin-left: 8px;
+}
+
+  .close-tab:hover{
+    color: var(--outline-content-color);
+  }
+  
+  .add-tab:hover{
+    color: var(--outline-content-color);
+  }
+
+
+
+
+
+  .tab-content.outlined {
+    border-radius: 0px 0px 0px 0px;
+    border-bottom: solid var(--soft-content-color) 1px;
+    border-left: solid var(--soft-content-color) 1px;
+    border-right: solid var(--soft-content-color) 1px;
+  }
+  
+  .tab-content.soft-transparent {
+    border-radius: 5px;
+    background-color: var(--transparent-bg-color);
+  }
+  
+  .tab-content.soft-transparent.first {
+    border-radius: 0px 5px 5px 5px;
+    background-color: var(--transparent-bg-color);
+  }
+  
+  .tab-content.sharp-transparent {
+    border-radius: 5px;
+    background-color: var(--sharp-transparent-bg-color);
+  }
+  
+  .tab-content.sharp-transparent.first {
+    border-radius: 0px 5px 5px 5px;
+    background-color: var(--sharp-transparent-bg-color);
+  }
+  
+  .tab-content.neumorphic{
+    padding-top:20px;
+    padding-bottom:20px;
+    border-radius: 5px;
+    @extend .tl-neumorphic;
+    @extend .tl-container-flex-block;
+  }
+  
+  .tab-content.sharp-transparent.first {
+    border-radius: 0px 5px 5px 5px;
+  }
+  
+  .tab-content.glassmorphic {
+    border-radius: 5px;
+    background-color: var(--glass-bg-color);
+  }
+  
+  .tab-content.glassmorphic.first {
+    border-radius: 0px 5px 5px 5px;
+    background-color: var(--glass-bg-color);
+  }
+  
+  
+  
+
+

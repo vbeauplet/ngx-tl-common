@@ -10,7 +10,8 @@
     
     <div
       [ngStyle]="{
-          'height': this.dotSize/2 + 'px'
+          'height': this.dotSize/2 + 'px',
+          'width': 'calc(' + (1 - lineDotDistance)*100/2 + '% - ' + this.dotSize/2 + 'px)'
         }"
       class="left stepper-line"
       [class.masked]="this.steps.indexOf(step) == 0">
@@ -18,7 +19,8 @@
     
     <div
       [ngStyle]="{
-        'height': this.dotSize/2 + 'px'
+        'height': this.dotSize/2 + 'px',
+        'width': 'calc(' + (1 - lineDotDistance)*100/2 + '% - ' + this.dotSize/2 + 'px)'
       }"
       class="right stepper-line"
       [class.masked]="this.steps.indexOf(step) == this.steps.length - 1">
@@ -65,9 +67,10 @@
   *ngIf="this.showNextButton"
   class="stepper-controls tl-col-dir tl-flex-block">
   <tl-button
+    [tlStyle]="this.tlStyle"
     [icon]="'É'"
     [size]="this.dotSize"
     [margin]="0"
-    (click)="this.next()">
+    (clickButton)="this.next()">
   </tl-button>
 </div>

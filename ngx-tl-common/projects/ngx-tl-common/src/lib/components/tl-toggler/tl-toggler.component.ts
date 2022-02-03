@@ -25,6 +25,21 @@ export class TlTogglerComponent implements OnInit, OnChanges {
    * tl-initial-width by default
    */
   @Input() size: string = 'tl-initial-width';
+  
+  /**
+   * Style of the container, in the tl style system
+   */
+  @Input() containerStyle: string = 'tl-neumorphic-inset-sharp';
+  
+  /**
+   * Style of the mouving part, in the tl style system
+   */
+  @Input() buttonStyle: string = 'tl-neumorphic-dome';
+  
+  /**
+   * Ratio between container height and button height
+   */
+  @Input() buttonContainerRatio: number = 1;
 
   /**
    * Icon of the toggler. None if not documented

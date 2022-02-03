@@ -2,10 +2,17 @@
   display:flex;
   justify-content:center;
   align-items:center;
+  overflow:hidden;
+  user-select:none;
 }
 
 .square-icon-icon{
   display:block;
-  
   user-select:none;
+}
+
+.svg-icon{
+  mask-position:center;
+  mask-repeat: no-repeat;
+  mask-size: 80%;
 }

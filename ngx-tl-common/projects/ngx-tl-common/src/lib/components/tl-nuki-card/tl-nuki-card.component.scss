@@ -1,24 +1,55 @@
-.nuki-inner-card{
-  overflow: visible;
-  margin-top: 25%!important;
+.head-container{
+  overflow:visible;
+  position:relative;
 }
 
-.circle-mask{
-  background-color: var(--element-bg-color);
-  z-index:50;
+  .head-shape{
+    height:100%;
+    border-radius:50%;
+    z-index:1;
+  }
+  
+  .head-photo{
+    position:absolute;
+    width:90%;
+    height:90%;
+    top:5%;
+    left:5%;
+    z-index:3;
+  }
+  
+  .head-patch{
+    background-color:var(--element-bg-color);
+    position:absolute;
+    width:120%;
+    height:60%;
+    top:50%;
+    left:-10%;
+    z-index:2;
+  }
+  
+  
+  .head-shape.tl-sharp-transparent, .head-shape.tl-soft-transparent, .head-shape.tl-glassmorphic, .head-shape.tl-no-bg-outlined, .head-shape.tl-neumorphic-inset-sharp{
+    display:none;
+  }
+  
+  .head-shape.tl-sharp-transparent  ~  .head-patch, .head-shape.tl-soft-transparent  ~  .head-patch, .head-shape.tl-glassmorphic  ~  .head-patch, .head-shape.tl-no-bg-outlined  ~  .head-patch, .head-shape.tl-neumorphic-inset-sharp  ~  .head-patch{
+    display:none;
+  } 
+  
+  .head-shape.tl-outlined  ~  .head-patch{
+    top:calc(50% + 1px);
+  }
+
+
+
+
+.card{
+  position:relative;
+  margin-top:-25%;
+  padding-top:25%;
 }
 
-.photo-container{
-  margin-top:-105%;
-  z-index:30;
-}
-
-.nuki-card-photo{
-  margin-top:-50%;
-  padding:10px;
-  z-index:70;
-}
-
-.nuki-card-content{
-  z-index:60;
-}
+  .card-content{
+    z-index:3;
+  }

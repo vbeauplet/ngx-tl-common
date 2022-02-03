@@ -4,11 +4,14 @@
 </div>
 
 <tls-component-sample
-  [hasTlStyle]="false"
+  [hasTlStyle]="true"
+  [hasSubTlStyle]="true"
   [hasColor]="true">
 
   <tl-toggler
     [size]="this.componentPreferenceService.style.size"
+    [containerStyle]="this.componentPreferenceService.style.tlStyle"
+    [buttonStyle]="this.componentPreferenceService.style.subTlStyle"
     [label]="'Toggle on/off'"
     [onBgColor]="this.componentPreferenceService.style.color">
   </tl-toggler>
@@ -71,6 +74,51 @@
             </td>
             <td>
                     'tl-initial-width'
+            </td>
+    </tr>
+    
+    <tr>
+            <td>
+                    containerStyle
+            </td>
+            <td>
+                    string
+            </td>
+            <td>
+                    Style of the container, expressed in the tl-style system
+            </td>
+            <td>
+                    'tl-neumorphic-inset-sharp'
+            </td>
+    </tr>
+    
+    <tr>
+            <td>
+                    buttonStyle
+            </td>
+            <td>
+                    string
+            </td>
+            <td>
+                    Style of the moving part (button), expressed in the tl-style system
+            </td>
+            <td>
+                    'tl-neumorphic-dome'
+            </td>
+    </tr>
+    
+    <tr>
+            <td>
+                    buttonContainerRatio
+            </td>
+            <td>
+                    number
+            </td>
+            <td>
+                    Ratio between the moving button height and the container height
+            </td>
+            <td>
+                    1
             </td>
     </tr>
     

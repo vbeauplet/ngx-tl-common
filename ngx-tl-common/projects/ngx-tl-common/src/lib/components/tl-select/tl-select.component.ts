@@ -308,7 +308,7 @@ export class TlSelectComponent implements OnInit {
   public onReset(){
     this.selectedProposal = null;
     this.targetSelectedProposal = null;
-    this.isSelecting = false;
+    this.doWrap();
     this.reset.next();
   }
   

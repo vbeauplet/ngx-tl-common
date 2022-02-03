@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'tl-nuki-card',
   host: { 
-      '[class]' : 'this.size + " tl-margined tl-flex-block"'
+      '[class]' : 'this.size + " tl-col-dir tl-hor-center tl-no-wrap tl-flex-block"'
     },
   templateUrl: './tl-nuki-card.component.html',
   styleUrls: ['./tl-nuki-card.component.scss']

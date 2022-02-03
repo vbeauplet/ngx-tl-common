@@ -255,6 +255,12 @@ export class AppComponent {
                 icon: 'a'
               },
               {
+                id: 'tl-rater',
+                label: 'tl-rater',
+                route: '/components/tl-rater',
+                icon: 'a'
+              },
+              {
                 id: 'tl-search-bar',
                 label: 'tl-search-bar',
                 route: '/components/tl-search-bar',
@@ -300,6 +306,12 @@ export class AppComponent {
                 id: 'tl-string-picker',
                 label: 'tl-string-picker',
                 route: '/components/tl-string-picker',
+                icon: 'a'
+              },
+              {
+                id: 'tl-tab-panel',
+                label: 'tl-tab-panel',
+                route: '/components/tl-tab-panel',
                 icon: 'a'
               },
               {

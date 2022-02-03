@@ -1,0 +1,173 @@
+<div
+  class="tl-big-margined tl-title">
+  Example
+</div>
+
+<tls-component-sample
+  [hasShape]="false"
+  [hasSize]="true"
+  [hasSubTlStyle]="false">
+
+  <tl-tab-panel
+    [size]="this.componentPreferenceService.style.size"
+    [tlStyle]="this.componentPreferenceService.style.tlStyle"
+    [selectedTab]="'Open'"
+    [hasCloseTabButtons]="true"
+    [hasAddTabButton]="true"
+    [shrinkableTabs]="true"
+    (addTab)="this.addTab()">
+
+    <tl-tab
+      *ngFor="let device of this.data"
+      [title]="device.name"
+      [imageUrl]="(device.image != undefined)?device.image:''"
+      [icon]="(device.icon != undefined)?device.icon:''">
+
+      {{ device.description }}
+
+    </tl-tab>
+
+  </tl-tab-panel>
+  
+  <ion-icon name="heart"></ion-icon>
+  
+</tls-component-sample>
+ 
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+  
+  <pre>
+    <code
+      [highlight]="this.tsCode"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+            <td>title</td>
+            <td>string</td>
+            <td>Title of the tab</td>
+            <td>''</td>
+    </tr>
+    <tr>
+            <td>imageUrl</td>
+            <td>string</td>
+            <td>Tab favicon URL  <br/>Let empty if none</td>
+            <td>''</td>
+    </tr>
+    <tr>
+            <td>icon</td>
+            <td>string</td>
+            <td>Tab icon  <br/>Let empty if none</td>
+            <td>''</td>
+    </tr>
+    <tr>
+            <td>alignment</td>
+            <td>string</td>
+            <td>Alignment of the root div of the tab content (div are on columns by default)</td>
+            <td>'left'</td>
+    </tr>
+    <tr>
+            <td>size</td>
+            <td>string</td>
+            <td>Children tabs  <br/>Size of the card, can be tl-big, tl-medium, tl-small.. Medium by default</td>
+            <td>'tl-medium'</td>
+    </tr>
+    <tr>
+            <td>tlStyle</td>
+            <td>string</td>
+            <td>Tl Style of the card</td>
+            <td>'tl-neumorphic'</td>
+    </tr>
+    <tr>
+            <td>fixedHeight</td>
+            <td>number</td>
+            <td>Fixed height, in px. If not provided, height is auto</td>
+            <td>-1</td>
+    </tr>
+    <tr>
+            <td>padding</td>
+            <td>string</td>
+            <td>Padding, in the tl-padding system  <br/>May be regular, small, big, xbig...</td>
+            <td>'regular'</td>
+    </tr>
+    <tr>
+            <td>selectedTab</td>
+            <td>string</td>
+            <td>Selected tab</td>
+            <td>''</td>
+    </tr>
+    <tr>
+            <td>hasCloseTabButtons</td>
+            <td>boolean</td>
+            <td>Tells if ""close tab"" buttons shall be proposed</td>
+            <td>true</td>
+    </tr>
+    <tr>
+            <td>hasAddTabButton</td>
+            <td>boolean</td>
+            <td>Tells if ""add tab"" buttons shall be proposed</td>
+            <td>true</td>
+    </tr>
+    <tr>
+            <td>shrinkableTabs</td>
+            <td>boolean</td>
+            <td>Tells if tabs shall be srinked (title ellipsed) in case too many tabs for the width  <br/>If false, horizontal scroll is possible  <br/
+    >True by default  <br/>Warning: cannot be set to false if style is neumorphic</td>
+            <td>true</td>
+    </tr>
+  </tbody>
+</table>
+
+<div
+  class="tl-big-margined tl-title">
+  Events
+</div>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+            <td>closeTab</td>
+            <td>string</td>
+            <td>Event which is emitted when user click on a close button of a particular tab  <br/>Carried payload is the tab title</td>
+    </tr>
+    <tr>
+            <td>addTab</td>
+            <td>any</td>
+            <td>Event which is emitted when user click on the "add tab" button</td>
+    </tr>
+  </tbody>
+</table>

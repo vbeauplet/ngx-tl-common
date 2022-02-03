@@ -49,6 +49,11 @@
   overflow:hidden;
 }
 
+  .tree-node-row-cell.folding-cell:hover{
+    cursor:pointer;
+    color:var(--outline-content-color);
+  }
+
 .tree-node-row-cell-value{
   flex-grow:1;
   flex-shrink:1;

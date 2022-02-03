@@ -1,13 +1,58 @@
+<!-- Case icon from entypo font -->
 <div
+  *ngIf="this.icon.length == 1"
   [class]="'square-icon-container ' + this.color + '-content-element'"
   [ngStyle]="{
       'width': this.size + 'px',
       'height': this.size + 'px',
-      'font-size': this.getFontSize() + 'px',
+      'font-size': this.size * 5/3 + 'px',
       'line-height': this.size + 'px'
     }">
   <span
     class="square-icon-icon tl-icon">
     {{ icon }}
   </span>
+</div>
+
+<!-- Case icon from custom svg assets ('/assets/svg/*.svg') -->
+<div
+  *ngIf="!this.icon.startsWith('tl-') && !this.icon.startsWith('ion-') && this.icon.length != 1"
+  [class]="'svg-icon ' + this.color + '-bg-element'"
+  [ngStyle]="{
+      'width': this.size + 'px',
+      'height': this.size + 'px',
+      '-webkit-mask-image': 'url(/assets/svg/' + this.icon + '.svg)'
+    }">
+</div>
+
+<!-- Case icon from tl-* svg system -->
+<div
+  *ngIf="this.icon.startsWith('tl-')"
+  [class]="'svg-icon tl-icon-' + this.icon + ' ' + this.color + '-bg-element'"
+  [ngStyle]="{
+      'width': this.size + 'px',
+      'height': this.size + 'px'
+    }">
+</div>
+
+<!-- Case using ion-icon web component -->
+<div
+  *ngIf="this.icon.startsWith('ion-')"
+  class="square-icon-container"
+  [ngStyle]="{
+      'width': this.size + 'px',
+      'height': this.size + 'px'
+    }">
+    
+  <ion-icon
+    [class]="this.color + '-content-element'"
+    [name]="this.icon.substring(4)"
+    [ngStyle]="{
+        'width': this.size * 0.8 + 'px',
+        'height': this.size * 0.8 + 'px',
+        'overflow': 'hidden',
+        'font-size': this.size * 0.8 + 'px'
+      }">
+  </ion-icon>
+  
 </div>

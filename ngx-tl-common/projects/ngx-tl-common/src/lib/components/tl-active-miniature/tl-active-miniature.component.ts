@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ITlNamedIcon } from '../../interfaces/tl-named-icon.interface';
-import { TlMiniatureComponent } from '../tl-miniature/tl-miniature.component';
 
 @Component({
   selector: 'tl-active-miniature',
@@ -11,7 +10,54 @@ import { TlMiniatureComponent } from '../tl-miniature/tl-miniature.component';
   templateUrl: './tl-active-miniature.component.html',
   styleUrls: ['./tl-active-miniature.component.scss']
 })
-export class TlActiveMiniatureComponent extends TlMiniatureComponent implements OnInit {
+export class TlActiveMiniatureComponent implements OnInit {
+
+  /**
+   * URL of the minaiture photo.
+   * Shall be provided
+   */
+  @Input() photoUrl: string = '';
+  
+  /**
+   * Label of the miniature
+   * Shall be provided
+   */
+  @Input() label: string = '';
+  
+  /**
+   * Browse link, if any
+   * Can be let undocumented if none
+   */
+  @Input() link: string = '';
+  
+  /**
+   * tl-size of the miniature container
+   */
+  @Input() size: string = 'tl-near-full';
+  
+  /**
+   * Miniature height, in px
+   * 50 by default
+   */
+  @Input() height: number = 50;
+  
+  /**
+   * Miniature border radius, in px
+   * 10 by default
+   */
+  @Input() borderRadius: number = 10;
+  
+  /**
+   * Style of the miniature
+   * Can be: tl-soft-transparent, tl-outlined, tl-neumorphic...
+   * tl-soft-transparent by default
+   */
+  @Input() tlStyle: string = 'tl-soft-transparent'
+  
+  /**
+   * Tells if the miniature container shall have a standard margin
+   */
+  @Input() margined: boolean = true;
 
   /**
    * Active icons to diplay in the miniature overlay, if any
@@ -26,7 +72,6 @@ export class TlActiveMiniatureComponent extends TlMiniatureComponent implements 
   @Output() clickIcon: EventEmitter<string> = new EventEmitter<string>()
 
   constructor() {
-    super()
   }
 
   ngOnInit(): void {

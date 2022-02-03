@@ -30,7 +30,7 @@ export class TlButtonComponent implements OnInit {
    * Style of the pushable button
    * tl-neumorphic-sharp by default
    */
-  @Input() tlStyle: string = 'tl-neumorphic-sharp'
+  @Input() tlStyle: string = 'tl-neumorphic-dome'
   
   /**
    * Label of the icon, if any

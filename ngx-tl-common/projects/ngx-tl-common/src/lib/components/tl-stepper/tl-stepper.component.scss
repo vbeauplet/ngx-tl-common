@@ -1,3 +1,5 @@
+@import '../../style/tl-common-styles.scss';
+
 .stepper-step, .stepper-controls{  
   flex-grow:1;
 }
@@ -16,6 +18,32 @@
   transition: background-position 0.7s ease-out;
 }
 
+  .stepper-step-dot.tl-soft-transparent{
+    background: linear-gradient(to right, var(--success-content-color) 50%, var(--transparent-bg-color) 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+  }
+  
+  .stepper-step-dot.tl-sharp-transparent{
+    background: linear-gradient(to right, var(--success-content-color) 50%, var(--sharp-transparent-bg-color) 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+  }
+  
+  .stepper-step-dot.tl-glassmorphic{
+    @extend .tl-glassmorphic;
+    background: linear-gradient(to right, var(--success-content-color) 50%, var(--glass-bg-color) 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+  }
+  
+  .stepper-step-dot.tl-glassmorphic-outlined{
+    @extend .tl-glassmorphic-outlined;
+    background: linear-gradient(to right, var(--success-content-color) 50%, var(--glass-bg-color) 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+  }
+
   .stepper-step-dot.focus{
     color: var(--outline-content-color)!important;
   }
@@ -30,7 +58,6 @@
 
 .stepper-line{
   content:"";
-  flex-grow:1;
   border-bottom: solid var(--soft-content-color) 1px;
 }
 

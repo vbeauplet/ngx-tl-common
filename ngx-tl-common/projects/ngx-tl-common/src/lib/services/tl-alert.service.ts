@@ -94,13 +94,13 @@ export class TlAlertService {
     alert.proposals = [
         {
           name: 'accept',
-          icon: 'W',
+          icon: 'tl-checkmark',
           color: 'tl-success',
           label: ''
         },
         {
           name: 'decline',
-          icon: 'X',
+          icon: 'tl-close',
           color: 'tl-failure',
           label: ''
         }

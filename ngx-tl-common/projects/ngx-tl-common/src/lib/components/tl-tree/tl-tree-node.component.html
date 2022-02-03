@@ -20,9 +20,11 @@
     <div
       *ngFor="let column of this.columns; let i = index"
       class="tree-node-row-cell tl-full tl-hor-left tl-vert-center tl-no-wrap tl-flex-block"
+      [class.folding-cell]="i == 0 && this.hasChildren()"
       [ngStyle]="{
           'padding-left': (i == 0)?(this.level*25+5) + 'px':'5px'
-        }">
+        }"
+      (click)="(i == 0 && this.hasChildren()) && $event.stopPropagation();(i == 0 && this.hasChildren()) && this.isUnfolded = !this.isUnfolded;">
       
         <!-- Fold/Unfold indicator and button, in case this is the first column and it has unfiltered children -->        
         <tl-square-icon
@@ -30,16 +32,15 @@
           class="tree-node-folding-icon"
           style="margin-right:5px"
           title="Click to wrap/unwrap, Double-click to wrap/unwrap recursively"
-          [icon]="'{'"
+          [icon]="'tl-chevron-forward'"
           [class.unfolded]="this.isUnfolded"
-          [size]="20"
-          (click)="this.isUnfolded = !this.isUnfolded">
+          [size]="16">
         </tl-square-icon> 
         
         <!-- Placeholder if first column and no children -->
         <div
           *ngIf="i == 0 && !this.hasChildren()"
-          style="width:20px;height:20px;margin-right:5px;">
+          style="width:16px;height:16px;margin-right:5px;">
         </div> 
       
         <!-- Anyway, display property value -->

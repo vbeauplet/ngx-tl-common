@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -32,6 +32,8 @@ import { TlSquareIconComponent } from './components/tl-square-icon/tl-square-ico
 import { TlStatefulButtonComponent } from './components/tl-stateful-button/tl-stateful-button.component';
 import { TlStepperComponent } from './components/tl-stepper/tl-stepper.component';
 import { TlStringPickerComponent } from './components/tl-string-picker/tl-string-picker.component';
+import { TlTabPanelComponent } from './components/tl-tab-panel/tl-tab-panel.component';
+import { TlTabComponent } from './components/tl-tab-panel/tl-tab-panel.component';
 import { TlTextStatefulButtonComponent } from './components/tl-text-stateful-button/tl-text-stateful-button.component';
 import { TlThemeSwitcherComponent } from './components/tl-theme-switcher/tl-theme-switcher.component';
 import { TlTimelineCardComponent } from './components/tl-timeline-card/tl-timeline-card.component';
@@ -47,6 +49,8 @@ import { TlDateAgoPipe } from './pipes/tl-date-ago.pipe';
 import { TlSelectComponent } from './components/tl-select/tl-select.component';
 import { TlIconMiniatureSelectComponent } from './components/tl-icon-miniature-select/tl-icon-miniature-select.component';
 import { TlClickOutsideDirective } from './directives/tl-click-outside.directive';
+import { TlRaterComponent } from './components/tl-rater/tl-rater.component';
+import { TlImageCardComponent } from './components/tl-image-card/tl-image-card.component';
  
 
 @NgModule({ 
@@ -65,6 +69,7 @@ import { TlClickOutsideDirective } from './directives/tl-click-outside.directive
     TlIconMiniatureComponent,
     TlIconMiniatureSelectComponent,
     TlIconMiniatureTogglerComponent,
+    TlImageCardComponent,
     TlImagedItemPickerComponent,
     TlIndicatorComponent,
     TlInlineImagedItemPickerComponent,
@@ -74,6 +79,7 @@ import { TlClickOutsideDirective } from './directives/tl-click-outside.directive
     TlNukiCardComponent,
     TlOutlinedActiveImageComponent,
     TlProgressBarComponent,
+    TlRaterComponent,
     TlSearchBarComponent,
     TlSelectComponent,
     TlShapeBlockComponent,
@@ -82,6 +88,8 @@ import { TlClickOutsideDirective } from './directives/tl-click-outside.directive
     TlStatefulButtonComponent,
     TlStepperComponent,
     TlStringPickerComponent,
+    TlTabPanelComponent,
+    TlTabComponent,
     TlTextStatefulButtonComponent,
     TlThemeSwitcherComponent,
     TlTimelineCardComponent,
@@ -116,6 +124,7 @@ import { TlClickOutsideDirective } from './directives/tl-click-outside.directive
     TlIconMiniatureComponent,
     TlIconMiniatureSelectComponent,
     TlIconMiniatureTogglerComponent,
+    TlImageCardComponent,
     TlImagedItemPickerComponent,
     TlIndicatorComponent,
     TlInlineImagedItemPickerComponent,
@@ -125,6 +134,7 @@ import { TlClickOutsideDirective } from './directives/tl-click-outside.directive
     TlNukiCardComponent,
     TlOutlinedActiveImageComponent,
     TlProgressBarComponent,
+    TlRaterComponent,
     TlSearchBarComponent,
     TlSelectComponent,
     TlShapeBlockComponent,
@@ -133,6 +143,8 @@ import { TlClickOutsideDirective } from './directives/tl-click-outside.directive
     TlStatefulButtonComponent,
     TlStepperComponent,
     TlStringPickerComponent,
+    TlTabPanelComponent,
+    TlTabComponent,
     TlTextStatefulButtonComponent,
     TlThemeSwitcherComponent,
     TlTimelineCardComponent,
@@ -148,7 +160,8 @@ import { TlClickOutsideDirective } from './directives/tl-click-outside.directive
     TlDateAgoPipe,
     TlClickOutsideDirective
   ],
-  providers: []
+  providers: [],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class NgxTlCommonModule {
 }

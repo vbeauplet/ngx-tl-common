@@ -1,0 +1,106 @@
+<!-- Tabs panel header -->
+<div
+  class="tl-no-br tl-full tl-row-dir tl-hor-left tl-vert-stretch tl-no-wrap tl-flex-block tab-header"
+  [class.neumorphic]="this.tlStyle == 'tl-neumorphic'">
+  
+  <!-- Tab title block -->
+  <div
+    *ngFor="let tab of this.tabs"
+    [class]="'tl-clickable tl-row-dir tl-vert-center tl-no-wrap tl-container-flex-block tab-title-block'"
+    [class.shrinkable]="this.shrinkableTabs"
+    [class.first]="tab == this.tabs.first"
+    [class.selected]="tab.display"
+    [class.outlined]="this.tlStyle == 'tl-outlined'"
+    [class.soft-transparent]="this.tlStyle == 'tl-soft-transparent'"
+    [class.transparent]="this.tlStyle == 'tl-transparent'"
+    [class.sharp-transparent]="this.tlStyle == 'tl-sharp-transparent'"
+    [class.neumorphic]="this.tlStyle == 'tl-neumorphic'"
+    [class.glassmorphic]="this.tlStyle == 'tl-glassmorphic'"
+    (click)="this.selectTab(tab.title)">
+    
+    <!-- Tab title image, if any -->
+    <tl-active-image
+      *ngIf="tab.imageUrl != ''"
+      class="tl-flex-no-shrink"
+      style="margin-right:5px"
+      [shape]="'round'"
+      [size]="'tl-xsmall'"
+      [imageSrc]="tab.imageUrl"
+      [hasOverlay]="false">
+    </tl-active-image>
+    
+    <!-- Tab title icon, if any -->
+    <tl-square-icon
+      *ngIf="tab.icon != ''"
+      style="margin-right:5px"
+      [icon]="tab.icon"
+      [size]="'16'">
+    </tl-square-icon>
+    
+    
+    <!-- Tab title text -->
+    <div
+      class="tl-flex-shrink tl-ellipsis">
+      {{ tab.title }}
+    </div>
+    
+    
+    <!-- Icon to close tab, if implemented -->
+    <tl-square-icon
+      *ngIf="this.hasCloseTabButtons"
+      class="tab-button close-tab"
+      [icon]="'X'"
+      [size]="'16'"
+      (click)="$event.stopPropagation();this.onClickCloseTab(tab.title)">
+    </tl-square-icon>
+    
+    <!-- Patch needed for visual purposes -->
+    <div
+      *ngIf="this.tlStyle == 'tl-neumorphic'"
+      class="patch">
+    </div>
+    
+  </div>
+  
+  <!-- Additional controls block -->
+  <div
+    class="tl-flex-grow tl-row-dir tl-hor-left tl-vert-center tl-padded tl-flex-block tab-title-block tab-controls"
+    [class.outlined]="this.tlStyle == 'tl-outlined'"
+    [class.soft-transparent]="this.tlStyle == 'tl-soft-transparent'"
+    [class.transparent]="this.tlStyle == 'tl-transparent'"
+    [class.sharp-transparent]="this.tlStyle == 'tl-sharp-transparent'"
+    [class.neumorphic]="this.tlStyle == 'tl-neumorphic'"
+    [class.glassmorphic]="this.tlStyle == 'tl-glassmorphic'">
+    
+    <!-- Button to add tab -->
+    <tl-square-icon
+      *ngIf="this.hasAddTabButton"
+      class="tab-button add-tab"
+      [icon]="']'"
+      [size]="'16'"
+      (click)="$event.stopPropagation();this.onClickAddTab()">
+    </tl-square-icon>
+    
+    <div
+      *ngIf="!this.hasAddTabButton">
+      &nbsp;
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Tabs content as tl-tab components -->
+<div
+  [class]="'tl-full tl-' + this.padding + '-padded tab-content'"
+  [class.first]="this.isFirstTabSelected"
+  [class.outlined]="this.tlStyle == 'tl-outlined'"
+  [class.soft-transparent]="this.tlStyle == 'tl-soft-transparent'"
+  [class.transparent]="this.tlStyle == 'tl-transparent'"
+  [class.sharp-transparent]="this.tlStyle == 'tl-sharp-transparent'"
+  [class.neumorphic]="this.tlStyle == 'tl-neumorphic'"
+  [class.glassmorphic]="this.tlStyle == 'tl-glassmorphic'">
+  
+  <ng-content></ng-content>
+  
+</div>
