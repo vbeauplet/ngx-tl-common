@@ -1,3 +1,18 @@
+.select-front{
+  border-left: solid transparent 5px;
+  border-right: solid transparent 5px;
+}
+
+  .select-front.valid {
+    border-left: solid var(--success-content-color) 5px;
+    border-right: solid var(--success-content-color) 5px;
+  }
+  
+  .select-front.invalid{
+    border-left: solid var(--failure-content-color) 5px;
+    border-right: solid var(--failure-content-color) 5px;
+  }
+
 .proposal:hover {
   background-color: var(--sharp-transparent-bg-color);
 }

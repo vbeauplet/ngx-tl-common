@@ -21,12 +21,6 @@ export class TlIconMiniatureSelectComponent extends TlSelectComponent implements
   @Input() miniatureHeight: number = 50;
   
   /**
-   * Miniature border radius, in px
-   * 10 by default
-   */
-  @Input() borderRadius: number = 10;
-  
-  /**
    * Style of the miniature
    * Can be: tl-soft-transparent, tl-outlined, tl-neumorphic...
    * tl-neumorphic by default

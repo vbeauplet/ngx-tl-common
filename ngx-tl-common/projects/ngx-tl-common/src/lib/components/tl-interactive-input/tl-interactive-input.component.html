@@ -26,6 +26,7 @@
   placeholder="{{ this.getPlaceholder() }}" 
   (focus)="this.onFocusInput()"
   (blur)="this.onBlurInput($event)"
+  (keydown.enter)="this.onPressEnter()"
   [ngStyle]="{
       'text-align': this.inputTextAlign,
       'margin-top': (this.inline)?'-1px':'0px'

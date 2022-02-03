@@ -52,7 +52,7 @@
         
         <!-- Or the corresponding input if editable -->
         <tl-interactive-input
-          *ngIf="column.editable"
+          *ngIf="column.editable && this.getPropertyValue(column.fieldName) != null"
           [placeholder]="this.getPropertyValue(column.fieldName)"
           [altPlaceholder]="'Enter a value'"
           [inline]="true"

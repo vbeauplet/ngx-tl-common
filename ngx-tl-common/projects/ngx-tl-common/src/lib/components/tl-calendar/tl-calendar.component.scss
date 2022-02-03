@@ -1,0 +1,135 @@
+.calendar-grid {
+  width:100%;
+  padding-top:20px;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.calendar-grid-content-cell{
+  cursor:pointer;
+}
+
+  .calendar-grid-content-cell:hover{
+    background-color:var(--transparent-bg-color);
+  }
+  
+  .calendar-grid-content-cell.no-selection{
+    cursor:default;
+  }
+  
+  .calendar-grid-content-cell.no-selection:hover{
+    background-color:transparent;
+  }
+  
+  .calendar-grid-content-cell.not-in-month{
+    color:var(--soft-content-color);
+  }
+  
+  .calendar-grid-content-cell.highlighted{
+    border:solid 1px var(--main-content-color);
+  }
+  
+.cell-day-number{
+  line-height:40px;
+  width:40px;
+  text-align:center;
+  border-radius:50%;
+}
+
+  .calendar-grid-content-cell.selected .cell-day-number{
+    background-color:var(--outline-content-color);
+  }
+  
+  .calendar-grid-content-cell.first-in-range .cell-day-number{
+    width:100%;
+    background-color:var(--outline-content-color);
+    border-radius:20px 0px 0px 20px;
+  }
+  
+  .calendar-grid-content-cell.in-range .cell-day-number{
+    width:100%;
+    background-color:var(--outline-content-color);
+    border-radius:0px;
+  }
+  
+  .calendar-grid-content-cell.last-in-range .cell-day-number{
+    width:100%;
+    background-color:var(--outline-content-color);
+    border-radius:0px 20px 20px 0px;
+  }
+  
+  .calendar-grid-content-cell.today  .cell-day-number{
+    border: solid 1px var(--soft-content-color);
+  }
+
+  .cell-event{
+    margin:3px;
+    padding:3px;
+    cursor:pointer;
+    border-radius:5px;
+  }
+  
+    .cell-event:hover{
+      background-color:var(--transparent-bg-color);
+    }
+  
+    .cell-event.outlined{
+      border: solid 1px var(--main-content-color);
+    }
+  
+.sketch-highlight{
+  position:relative;
+}
+
+  .sketch-highlight:before{
+    content:"";
+    z-index:-1;
+    left:0em;
+    top:0em;
+    border-width:2px;
+    border-style:solid;
+    border-color:var(--outline-content-color);
+    position:absolute;
+    border-right-color:transparent;
+    width:100%;
+    height:1em;
+    transform:rotate(2deg);
+    opacity:0.5;
+    border-radius:0.25em;
+  }
+  
+  .sketch-highlight:after{
+    content:"";
+    z-index:-1;
+    left:0em;
+    top:0em;
+    border-width:2px;
+    border-style:solid;
+    border-color:var(--outline-content-color);
+    border-left-color:transparent;
+    border-top-color:transparent;
+    position:absolute;
+    width:100%;
+    height:1em;
+    transform:rotate(-1deg);
+    opacity:0.5;
+    border-radius:0.25em;
+  }
+  
+.ribbon-highlight{
+  position:relative;
+  margin:0.1em;
+}
+  .ribbon-highlight:before{
+    content:"";
+    z-index:-1;
+    left:-0.5em;
+    top:0.1em;
+    border-width:0.5em;
+    border-style:solid;
+    border-color:lightgreen;
+    position:absolute;
+    width:100%;
+    border-left-color:transparent;
+    border-right-color:transparent;
+  }

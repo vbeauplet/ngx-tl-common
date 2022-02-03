@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-
 import { TlMenuService } from '../../services/tl-menu.service';
 
 /**
@@ -25,6 +24,16 @@ export class TlMobileMenuComponent implements OnInit {
    * Size of the menu icons
    */
   @Input() iconSize: number = 40;
+  
+  /**
+   * Icon bouncing ratio. Defualt is 1.6
+   */
+  @Input() iconBouncingRatio: number = 1.6;
+  
+  /**
+   * Tells if menu label shall be shown
+   */
+  @Input() showLabel: boolean = true;
   
   constructor(
     public menuService: TlMenuService

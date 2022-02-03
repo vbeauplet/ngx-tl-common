@@ -136,6 +136,17 @@ export class TlInteractiveInputComponent implements OnInit {
     }
   }
   
+  /**
+   * Handles press the enter key on input
+   */
+  public onPressEnter(){
+    
+    // Programmatically blur input
+    let element: any = document.getElementById(this.inputId);
+    element.blur();
+    
+  }
+  
   public onFocusInput(){
     this.inputInFocus = true; 
   }

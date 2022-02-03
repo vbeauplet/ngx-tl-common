@@ -1,0 +1,35 @@
+<!-- Date-picker input -->
+<tl-input
+  [size]="'tl-full'"
+  [borderRadius]="this.borderRadius"
+  [tlStyle]="this.tlStyle"
+  [placeholder]="this.placeholder"
+  [lingeringPlaceholder]="this.lingeringPlaceholder"
+  [icon]="'ion-calendar-outline'"
+  [height]="50"
+  [initialValue]="this.inputValue"
+  [synchrone]="true"
+  [validationOn]="this.validationOn"
+  [validationFilters]="this.validationFilters"
+  [validationMessage]="this.validationMessage"
+  (changeValue)="this.changeInputValue.next($event)"
+  (changeValidationStatus)="this.changeValidationStatus.next($event)"
+  (focusInput)="this.showCalendar()">
+</tl-input>
+
+<!-- Date-picker calendar -->
+<div
+  *ngIf="this.displayCalendarLevel != 0"
+  [class]="'date-picker-calendar ' + this.calendarStyle + ' tl-padded tl-col-dir tl-full tl-container-flex-block'"
+  [class.hidden]="this.displayCalendarLevel == 1"
+  (clickOutside)="this.onClickOutsideCalendar()">
+  
+  <tl-calendar
+    [size]="'tl-full'"
+    [selectionMode]="'pick-one'"
+    [initalSelectedDates]="(this.selectedDate != undefined)?[this.selectedDate]:[]"
+    [buttonStyle]="this.calendarButtonStyle"
+    (selectDate)="this.onSelectDate($event)">
+  </tl-calendar>
+  
+</div>

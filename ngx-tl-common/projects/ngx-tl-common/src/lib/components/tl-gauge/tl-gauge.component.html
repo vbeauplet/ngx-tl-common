@@ -1,0 +1,81 @@
+<!-- Title -->
+<div
+  *ngIf="this.title != ''"
+  class="tl-margined">
+  {{ this.title }}
+</div>
+
+<div
+  class="tl-full tl-row-dir tl-vert-center tl-hor-left tl-flex-block">
+  
+  <!-- Min indicator -->
+  <div
+    style="margin-left:5px;margin-right:5px">
+    {{ this.min }}
+  </div>
+
+  <div
+    [class]="'bar ' + this.tlStyle + ' tl-flex-grow tl-col-dir tl-hor-left tl-br-infinite tl-container-flex-block'"
+    [ngStyle]="{
+        'height': this.height + 'px'
+      }">
+     
+    <!-- Inner (growing or shrinking) bar -->
+    <div
+      class="inner-bar tl-small-content tl-secondary-content-element tl-row-dir tl-hor-right tl-vert-center tl-br-infinite tl-flex-block"
+      [class.tl-success-bg-element]="this.current >= this.high"
+      [class.tl-failure-bg-element]="this.current < this.low"
+      [class.tl-neutral-bg-element]="this.current >= this.low && this.current < this.high"
+      [ngStyle]="{
+          'width': (this.current-this.min)/(this.max-this.min)*100  + '%',
+          'min-width': this.height  + 'px'
+        }">
+        {{ this.current }} 
+    </div>
+    
+    <!-- Low level marker, if displayed -->
+    <div
+      *ngIf="this.showLowLevel"
+      class="low limit-marker tl-col-dir tl-hor-center tl-flex-block" 
+      [ngStyle]="{
+          'height': this.height + 'px',
+          'left': (this.low-this.min)/(this.max-this.min)*100  + '%'
+        }">
+        
+        <div
+          class="limit-marker-value" 
+          [ngStyle]="{
+              'top': this.height + 5 + 'px'
+            }">
+          {{ this.low }}
+        </div>
+    </div>
+    
+    <!-- High level marker, if displayed -->
+    <div
+      *ngIf="this.showHighLevel"
+      class="high limit-marker tl-col-dir tl-hor-center tl-flex-block" 
+      [ngStyle]="{
+          'height': this.height + 'px',
+          'left': (this.high-this.min)/(this.max-this.min)*100  + '%',
+          'background-color': (this.current>= high)?'rgba(255,255,255,0.5)':'var(--success-content-color)'
+        }">
+        
+        <div
+          class="limit-marker-value" 
+          [ngStyle]="{
+              'top': this.height + 5 + 'px'
+            }">
+          {{ this.high }}
+        </div>
+    </div>
+        
+  </div>
+  
+  <!-- Max indicator -->
+  <div
+    style="margin-left:5px;margin-right:5px">
+    {{ this.max }}
+  </div>
+
+</div>

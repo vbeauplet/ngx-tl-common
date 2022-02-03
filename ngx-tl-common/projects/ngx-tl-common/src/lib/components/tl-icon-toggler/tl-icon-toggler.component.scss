@@ -1,0 +1,13 @@
+.bouncing-icon-container{
+  position:relative;
+  cursor:pointer;
+}
+
+.bouncing-icon{
+  position:absolute;
+  transition: all ease-out 300ms;
+}
+
+  .bouncing-icon.transparent{
+    opacity: 0; 
+  }

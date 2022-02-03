@@ -59,6 +59,11 @@ export class TlMenuService {
       
       // Get initial route
       this.refreshFromRoute(router.url);
+      
+      // Fix issue with Angular native app router with a timeout, if needed
+      setTimeout(() => {
+        this.refreshFromRoute(router.url);
+      },50);
   }
   
   /**

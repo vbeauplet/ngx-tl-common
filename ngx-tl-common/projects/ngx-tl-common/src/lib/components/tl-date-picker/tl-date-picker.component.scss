@@ -1,0 +1,16 @@
+:host{
+  position: relative;
+}
+
+.date-picker-calendar{
+  position:absolute;
+  top:60px;
+  z-index: 10;
+  transition: top ease-out 200ms,
+    opacity ease-out 200ms;
+}
+
+  .date-picker-calendar.hidden{
+    top:20px;
+    opacity:0;
+  }

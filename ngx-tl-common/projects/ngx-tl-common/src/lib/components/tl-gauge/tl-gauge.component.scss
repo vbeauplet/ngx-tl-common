@@ -1,0 +1,37 @@
+.bar{
+  position: relative;
+  overflow:visible;
+}
+
+  .inner-bar{
+    height:100%;
+    box-sizing:border-box;
+    transition: width 0.3s ease-out;
+    padding-right:7px;
+    max-width:100%;
+  }
+
+.limit-marker{
+  position:absolute;
+  bottom:0px;
+  width:1px;
+  text-align:center;
+}
+
+  .limit-marker.low{
+    background-color: var(--failure-content-color);
+  }
+  
+  .limit-marker.high{
+    background-color: var(--success-content-color);
+  }
+
+  .limit-marker.low .limit-marker-value{
+    position:absolute;
+    color: var(--failure-content-color);
+  }
+  
+  .limit-marker.high .limit-marker-value{
+    position:absolute;
+    color: var(--success-content-color);
+  }

@@ -1,6 +1,8 @@
 <!-- 'Front' of the select: with placeholder or selected option -->
 <div
-  [class]="'select-front ' + this.tlStyle + ' tl-clickable tl-full tl-padded tl-row-dir tl-hor-space-between tl-vert-center tl-no-wrap tl-container-flex-block'"
+  [class]="'select-front ' + this.tlStyle + ' ' + this.borderRadius + ' tl-clickable tl-full tl-padded tl-row-dir tl-hor-space-between tl-vert-center tl-no-wrap tl-container-flex-block'"
+  [class.valid]="this.validationStatus == 1"
+  [class.invalid]="this.validationStatus == 2"
   (click)="this.onClickFront()"
   [ngStyle]="{
       'height':this.height
@@ -38,7 +40,6 @@
   </div>
   
   <tl-square-icon
-    style="margin-right:5px"
     class="flipper-icon"
     [class.flipped]="this.isWrapped"
     [size]="20"

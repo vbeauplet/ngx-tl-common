@@ -1,0 +1,100 @@
+<!-- Calendar header -->
+<div
+  class="tl-full tl-row-dir tl-hor-space-between tl-vert-center tl-flex-block">
+  
+  <tl-button
+    [tlStyle]="this.buttonStyle"
+    [icon]="'ion-arrow-down-outline'"
+    (clickButton)="this.onDecrementYear()">
+  </tl-button>
+  
+  <tl-button
+    [tlStyle]="this.buttonStyle"
+    [icon]="'ion-arrow-back-outline'"
+    (clickButton)="this.onDecrementMonth()">
+  </tl-button>
+    
+  <div
+    class="tl-subtitle tl-flex-grow"
+    style="text-align:center">
+    
+    {{ this.MONTHS_IN_YEAR[this.currentMonth] }} {{ this.currentYear }}
+    
+  </div>
+  
+  <tl-button
+    [tlStyle]="this.buttonStyle"
+    [icon]="'ion-arrow-forward-outline'"
+    (clickButton)="this.onIncrementMonth()">
+  </tl-button>
+  
+    <tl-button
+    [tlStyle]="this.buttonStyle"
+    [icon]="'ion-arrow-up-outline'"
+    (clickButton)="this.onIncrementYear()">
+  </tl-button>
+  
+</div>
+
+<!-- Calendar grid -->
+<div
+  class="calendar-grid">
+  
+  <!-- Grid header (name of the days of the week) -->
+  <ng-container>
+    <tlc-shape-block
+      *ngFor="let dayName of this.DAYS_IN_WEEK"
+      class="calendar-grid-header-cell"
+      [size]="'tl-full'"
+      [shape]="'rectangle'"
+      [contentAlign]="'center'"
+      [contentVerticalAlign]="'center'">
+      {{ dayName }}
+    </tlc-shape-block>
+  </ng-container>
+  
+  <!-- Grid of the days of the month -->
+  <ng-container>
+    
+    <tlc-shape-block
+      *ngFor="let day of this.currentDaysInMonth"
+      class="calendar-grid-content-cell"
+      [size]="'tl-full'"
+      [shape]="'square'"
+      [contentAlign]="'center'"
+      [contentVerticalAlign]="'center'"
+      [class.today]="+day == +this.today"
+      [class.not-in-month]="day.getMonth() != this.currentMonth"
+      [class.no-selection]="this.selectionMode == 'none'"
+      [class.selected]="(this.selectionMode == 'select' || this.selectionMode == 'pick-one') && this.isSelected(day)"
+      [class.highlighted]="this.selectionMode == 'highlight' && this.selectedDates.length == 1 && +this.selectedDates[0] == +day" 
+      [class.in-range]="this.selectionMode == 'range' && this.selectedDates.length == 2 && day > this.selectedDates[0] && day < this.selectedDates[1]"
+      [class.first-in-range]="this.selectionMode == 'range' && this.selectedDates.length >= 1 && +day == +this.selectedDates[0]"
+      [class.last-in-range]="this.selectionMode == 'range' && this.selectedDates.length == 2 && +day == +this.selectedDates[1]"
+      (click)="this.onClickDate(day)">
+      
+      <!-- Day number -->
+      <div
+        class="cell-day-number">
+        {{ day.getDate() }}
+      </div>
+      
+      <!-- Potential day events -->
+      <ng-container
+        *ngIf="this.selectionMode == 'highlight' || this.selectionMode == 'none'">
+        
+        <div
+          *ngFor="let event of this.getEventsFromDate(day)"
+          class="cell-event tl-small-content"
+          [class.sketch-highlight]="this.eventStyle == 'sketch'"
+          [class.outlined]="this.eventStyle == 'outlined'"
+          (click)="$event.stopPropagation();this.onClickEvent(event)">
+          {{ event.event }}
+        </div>
+      
+      </ng-container>
+      
+    </tlc-shape-block>
+  </ng-container>
+  
+</div>

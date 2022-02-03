@@ -1,5 +1,4 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter, HostBinding } from '@angular/core';
-
 import { ITlSelectProposal } from '../../interfaces/tl-select-proposal.interface';
 
 /**
@@ -30,6 +29,11 @@ export class TlSelectComponent implements OnInit {
    * 'tl-full' by default
    */
   @Input() size: string = 'tl-full';
+  
+  /**
+   * Border radius of the front select component, expressed in the TL border radius system
+   */
+  @Input() borderRadius: string = 'tl-br-infinite';
   
   /**
    * Height CSS property of the "front" of the select component, that contains the placeholder or selected option
@@ -99,6 +103,11 @@ export class TlSelectComponent implements OnInit {
   @Input() textAlign: string = 'center';
   
   /**
+   * Activate select input validation
+   */
+  @Input() validationOn: boolean = false;
+  
+  /**
    * Event that is emitted when component is being unwrapped (selection mode starts)
    */
   @Output() unwrap: EventEmitter<ITlSelectProposal> = new EventEmitter<ITlSelectProposal>();
@@ -118,6 +127,11 @@ export class TlSelectComponent implements OnInit {
    * Event which is emmited in case selkect is reseted
    */
   @Output() reset: EventEmitter<any> = new EventEmitter<any>();
+  
+   /**
+   * Event which is emitted when validation status is changed
+   */
+  @Output() changeValidationStatus: EventEmitter<number> = new EventEmitter<number>();
   
   /**
    * Currently selected proposal. Undefined by default
@@ -147,6 +161,14 @@ export class TlSelectComponent implements OnInit {
    * - In 'wrapped' mode, options panel is upper and transparent
    */
   public isWrapped: boolean = true;
+  
+  /**
+   * Validation status of the select input
+   * 0 unchecked or no set
+   * 1 ok
+   * 2 ko
+   */
+  public validationStatus: number = 0;
   
 
   constructor() { }
@@ -215,6 +237,8 @@ export class TlSelectComponent implements OnInit {
       this.selectedProposal = Object.assign({}, this.initialSelectedProposal);
       this.targetSelectedProposal = Object.assign({}, this.initialSelectedProposal);
       this.feedbackLoadingStatus = -1;
+      this.validationStatus = 1;
+      this.changeValidationStatus.next(this.validationStatus);
     }
   }
   
@@ -298,6 +322,12 @@ export class TlSelectComponent implements OnInit {
     // Emit select event
     this.selectProposal.next(proposal);
     
+    // Change validation status and raise status change event (if validation is on)
+    if(this.validationOn) {
+      this.validationStatus = 1;
+      this.changeValidationStatus.next(this.validationStatus);
+    }
+    
     // Wrap
     this.doWrap();
   }
@@ -310,6 +340,12 @@ export class TlSelectComponent implements OnInit {
     this.targetSelectedProposal = null;
     this.doWrap();
     this.reset.next();
+    
+    // Additionaly change validation status and raise status change event (if validation is on
+    if(this.validationOn) {
+      this.validationStatus = 2;
+      this.changeValidationStatus.next(this.validationStatus);
+    }
   }
   
   /**

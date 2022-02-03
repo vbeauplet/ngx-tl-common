@@ -11,14 +11,20 @@ import { TlActiveMiniatureComponent } from './components/tl-active-miniature/tl-
 import { TlAlertTimelineComponent } from './components/tl-alert-timeline/tl-alert-timeline.component';
 import { TlButtonComponent } from './components/tl-button/tl-button.component';
 import { TlButtonTogglerComponent } from './components/tl-button-toggler/tl-button-toggler.component';
+import { TlCalendarComponent } from './components/tl-calendar/tl-calendar.component';
 import { TlCardComponent } from './components/tl-card/tl-card.component';
 import { TlColorPickerComponent } from './components/tl-color-picker/tl-color-picker.component';
+import { TlDatePickerComponent } from './components/tl-date-picker/tl-date-picker.component';
+import { TlFormComponent } from './components/tl-form/tl-form.component';
+import { TlGaugeComponent } from './components/tl-gauge/tl-gauge.component';
 import { TlHamburgerComponent } from './components/tl-hamburger/tl-hamburger.component';
 import { TlIconMiniatureComponent } from './components/tl-icon-miniature/tl-icon-miniature.component';
 import { TlIconMiniatureTogglerComponent } from './components/tl-icon-miniature-toggler/tl-icon-miniature-toggler.component';
+import { TlIconTogglerComponent } from './components/tl-icon-toggler/tl-icon-toggler.component';
 import { TlImagedItemPickerComponent } from './components/tl-imaged-item-picker/tl-imaged-item-picker.component';
 import { TlIndicatorComponent } from './components/tl-indicator/tl-indicator.component';
 import { TlInlineImagedItemPickerComponent } from './components/tl-inline-imaged-item-picker/tl-inline-imaged-item-picker.component';
+import { TlInputComponent } from './components/tl-input/tl-input.component';
 import { TlInteractiveInputComponent } from './components/tl-interactive-input/tl-interactive-input.component';
 import { TlLoaderComponent } from './components/tl-loader/tl-loader.component';
 import { TlMiniatureComponent } from './components/tl-miniature/tl-miniature.component';
@@ -63,16 +69,22 @@ import { TlImageCardComponent } from './components/tl-image-card/tl-image-card.c
     TlAlertTimelineComponent,
     TlButtonComponent,
     TlButtonTogglerComponent,
+    TlCalendarComponent,
     TlCardComponent,
     TlColorPickerComponent,
+    TlDatePickerComponent,
+    TlFormComponent,
+    TlGaugeComponent,
     TlHamburgerComponent,
     TlIconMiniatureComponent,
     TlIconMiniatureSelectComponent,
     TlIconMiniatureTogglerComponent,
+    TlIconTogglerComponent,
     TlImageCardComponent,
     TlImagedItemPickerComponent,
     TlIndicatorComponent,
     TlInlineImagedItemPickerComponent,
+    TlInputComponent,
     TlInteractiveInputComponent,
     TlLoaderComponent,
     TlMiniatureComponent,
@@ -118,16 +130,22 @@ import { TlImageCardComponent } from './components/tl-image-card/tl-image-card.c
     TlAlertTimelineComponent,
     TlButtonComponent,
     TlButtonTogglerComponent,
+    TlCalendarComponent,
     TlCardComponent,
     TlColorPickerComponent,
+    TlDatePickerComponent,
+    TlFormComponent,
+    TlGaugeComponent,
     TlHamburgerComponent,
     TlIconMiniatureComponent,
     TlIconMiniatureSelectComponent,
     TlIconMiniatureTogglerComponent,
+    TlIconTogglerComponent,
     TlImageCardComponent,
     TlImagedItemPickerComponent,
     TlIndicatorComponent,
     TlInlineImagedItemPickerComponent,
+    TlInputComponent,
     TlInteractiveInputComponent,
     TlLoaderComponent,
     TlMiniatureComponent,

@@ -35,13 +35,18 @@
     class="menu-item tl-col-dir tl-hor-center tl-flex-block"
     (click)="this.menuService.selectMenuItem(menuItem)">
     
-    <tl-square-icon
+    <tl-icon-toggler
+      [initialState]="this.menuService.selectedMenuItem == menuItem"
       [icon]="menuItem.icon"
-      [color]="(this.menuService.selectedMenuItem == menuItem)?'tl-outline':'tl-menu'"
-      [size]="this.iconSize">
-    </tl-square-icon>
+      [iconOn]="(menuItem.iconOn != undefined)?menuItem.iconOn:menuItem.icon"
+      [bouncingRatio]="this.iconBouncingRatio"
+      [size]="this.iconSize"
+      [synchrone]="true"
+      [unclickable]="true">
+    </tl-icon-toggler>
     
     <div
+      *ngIf="this.showLabel"
       class="main-content-element menu-item-label"
       [class.tl-menu-content-element]="this.menuService.selectedMenuItem != menuItem"
       [class.tl-outline-content-element]="this.menuService.selectedMenuItem == menuItem">

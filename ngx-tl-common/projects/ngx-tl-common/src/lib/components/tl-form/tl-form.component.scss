@@ -1,0 +1,13 @@
+.item {
+  margin-top:0px;
+  margin-bottom:20px;
+  transition: margin-top ease-out 200ms;  
+}
+
+  .item.filled{
+    margin-top:15px;
+  }
+
+.form-button.disabled{
+  cursor:not-allowed!important;
+}
