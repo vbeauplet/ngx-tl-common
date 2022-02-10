@@ -31,6 +31,12 @@
   padding-bottom:50%;
 }
 
+.shape-block-container.three-four:after{
+  display:block;
+  content:"";
+  padding-bottom:70%;
+}
+
 .shape-block-content{
   position:absolute;
   width:100%;

@@ -22,8 +22,8 @@
     [validationOn]="this.activateItemValidation"
     [validationFilters]="(this.activateItemValidation && item.validationFilter != undefined)?[item.validationFilter]:[]"
     [validationMessage]="(this.activateItemValidation)?item.validationMessage:undefined"
-    (changeValue)="onChangeValue(item.id, $event)"
-    (changeValidationStatus)="onChangeStatus(item.id, $event)">
+    (changeValue)="this.onChangeValue(item.id, $event)"
+    (changeValidationStatus)="this.onChangeStatus(item.id, $event)">
   </tl-input>
   
   <tl-date-picker
@@ -33,6 +33,7 @@
     [size]="'tl-full'"
     [borderRadius]="this.itemsBorderRadius"
     [tlStyle]="this.itemStyle"
+    [icon]="item.icon"
     [calendarStyle]="this.popupStyle"
     [calendarButtonStyle]="this.popupButtonStyle"
     [placeholder]="item.label"
@@ -41,8 +42,8 @@
     [validationOn]="this.activateItemValidation"
     [validationFilters]="(this.activateItemValidation && item.validationFilter != undefined)?[item.validationFilter]:[]"
     [validationMessage]="(this.activateItemValidation)?item.validationMessage:undefined"
-    (selectDate)="onChangeValue(item.id, $event)"
-    (changeValidationStatus)="onChangeStatus(item.id, $event)">
+    (selectDate)="this.onChangeValue(item.id, $event)"
+    (changeValidationStatus)="this.onChangeStatus(item.id, $event)">
   </tl-date-picker>
     
   <tl-toggler
@@ -55,11 +56,11 @@
     [buttonStyle]="this.togglerButtonStyle"
     [buttonContainerRatio]="(item.ratio == undefined)?1:item.ratio"
     [initialState]="item.initialValue"
-    (toggleOn)="onChangeValue(item.id, true)"
-    (toggleOff)="onChangeValue(item.id, false)">
+    (toggleOn)="this.onChangeValue(item.id, true)"
+    (toggleOff)="this.onChangeValue(item.id, false)">
   </tl-toggler>
   
-  <tlc-select
+  <tl-select
     *ngIf="item.type == 'select'"
     class="item"
     [placeholder]="item.label"
@@ -74,8 +75,23 @@
     [initialSelectedProposal]="(item.initialValue != undefined)?{name: item.initialValue}:null"
     (selectProposal)="this.onChangeValue(item.id, $event.name)"
     (reset)="this.onChangeValue(item.id, undefined)"
-    (changeValidationStatus)="onChangeStatus(item.id, $event)">
-  </tlc-select>
+    (changeValidationStatus)="this.onChangeStatus(item.id, $event)">
+  </tl-select>
+  
+  <tl-chips-input
+    *ngIf="item.type == 'chips'"
+    class="item"
+    [size]="'tl-full'"
+    [borderRadius]="this.itemsBorderRadius"
+    [tlStyle]="this.itemStyle"
+    [chipsStyle]="this.chipsStyle"
+    [inputPlaceholder]="item.label"
+    [initialChips]="item.initialValue"
+    [inputValidationOn]="this.activateItemValidation"
+    [inputValidationFilters]="(this.activateItemValidation && item.validationFilter != undefined)?[item.validationFilter]:[]"
+    [inputValidationMessage]="(this.activateItemValidation)?item.validationMessage:undefined"
+    (change)="this.onChangeValue(item.id, $event)">
+  </tl-chips-input>
   
 </ng-container>
 

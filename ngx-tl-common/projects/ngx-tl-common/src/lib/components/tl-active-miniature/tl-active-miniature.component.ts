@@ -4,8 +4,7 @@ import { ITlNamedIcon } from '../../interfaces/tl-named-icon.interface';
 @Component({
   selector: 'tl-active-miniature',
   host: { 
-      '[class]' : 'this.size + " tl-col-dir tl-flex-block"',
-      '[class.tl-margined]' : 'this.margined'
+      '[class]' : 'this.size + " tl-col-dir tl-flex-block"'
     },
   templateUrl: './tl-active-miniature.component.html',
   styleUrls: ['./tl-active-miniature.component.scss']
@@ -42,10 +41,9 @@ export class TlActiveMiniatureComponent implements OnInit {
   @Input() height: number = 50;
   
   /**
-   * Miniature border radius, in px
-   * 10 by default
+   * Miniature border radius, in the tl-br system
    */
-  @Input() borderRadius: number = 10;
+  @Input() borderRadius: string = 'tl-br-small';
   
   /**
    * Style of the miniature
@@ -53,11 +51,6 @@ export class TlActiveMiniatureComponent implements OnInit {
    * tl-soft-transparent by default
    */
   @Input() tlStyle: string = 'tl-soft-transparent'
-  
-  /**
-   * Tells if the miniature container shall have a standard margin
-   */
-  @Input() margined: boolean = true;
 
   /**
    * Active icons to diplay in the miniature overlay, if any

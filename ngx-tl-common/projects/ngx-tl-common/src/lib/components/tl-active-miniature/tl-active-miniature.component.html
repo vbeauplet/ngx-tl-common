@@ -12,11 +12,10 @@
 </tl-miniature>
 
 <div
-  class="miniature-overlay tl-sharp-transparent tl-full tl-row-dir tl-vert-center tl-hor-center tl-container-flex-block"
+  [class]="this.borderRadius + ' tl-sharp-transparent tl-full tl-row-dir tl-vert-center tl-hor-center tl-container-flex-block miniature-overlay'"
   [class.tl-clickable]="this.activeIcons.length == 1"
   [ngStyle]="{
     'margin-top': -this.height + 'px',
-    'border-radius': this.borderRadius + 'px',
     'height': this.height + 'px'}"
   (click)="this.onClickOverlay()">
     

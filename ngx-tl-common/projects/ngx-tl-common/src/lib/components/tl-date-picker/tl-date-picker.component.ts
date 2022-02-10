@@ -44,6 +44,11 @@ export class TlDatePickerComponent implements OnInit {
   @Input() initialSelectedDate: Date = null;
   
   /**
+   * Datepicker input icon
+   */
+  @Input() icon: string = 'ion-calendar';
+  
+  /**
    * Placeholder of the input. When 'none' is the active option
    */
   @Input() placeholder: string = 'None';

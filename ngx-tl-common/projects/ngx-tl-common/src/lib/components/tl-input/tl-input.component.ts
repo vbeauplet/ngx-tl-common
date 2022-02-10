@@ -106,6 +106,11 @@ export class TlInputComponent implements OnInit {
   @Input() validationOn: boolean = false;
   
   /**
+   * If set to true, proposes another style "inline" for the validation notice design
+   */
+  @Input() validationInlineStyle: boolean = false;
+  
+  /**
    * Potential check filters for the inputed string
    * Use standard filters: 'integer', 'number', 'date', 'password', 'no-space'
    * Or custom regular expressions
@@ -117,6 +122,11 @@ export class TlInputComponent implements OnInit {
    * Undefined if no message shall be displayed
    */
   @Input() validationMessage: string = undefined;
+  
+  /**
+   * Event which is emitted when enter key is pressed
+   */
+  @Output() pressEnter: EventEmitter<string> = new EventEmitter<string>(); 
   
   /**
    * Event which is emitted when value is changed
@@ -173,9 +183,35 @@ export class TlInputComponent implements OnInit {
    * Refreshes the component from the provided initial value
    */
   public refreshFromInitialValue(){
-    document.getElementById(this.internalId).setAttribute('value', this._initialValue);
+    
+    let input: any = document.getElementById(this.internalId);
+    
+    // If initial value is undefined
+    if(this._initialValue == undefined){
+      // Chrome and firefox
+      input.setAttribute('value', undefined);
+    
+      // Others
+      input.value = null;
+      
+      // Set checking status
+      this.validationStatus = 0;
+    }
+    
+    // Other initial values
+    else {
+      // Chrome and firefox
+      input.setAttribute('value', this._initialValue);
+    
+      // Others
+      input.value = this._initialValue;
+      
+      // Launch check
+      this.check();
+    }
+    
+    // Set current value
     this.currentValue = this._initialValue;
-    this.check();
   }
   
   /**
@@ -266,6 +302,15 @@ export class TlInputComponent implements OnInit {
     
     // Check value against filters, if any
     this.check();
+  }
+  
+  /**
+   * Handles press on the enter key
+   */
+  public onPressEnterKey(){
+       
+    // Emit the press enter event event
+    this.pressEnter.next(this.currentValue);
   }
   
   /**

@@ -6,7 +6,7 @@
   position:absolute;
   z-index:10;
   opacity:0;
-  top:100%;
+  top:calc(100% + 3px);
   opacity:1;
   transition: opacity ease-in-out 300ms,
     top ease-in-out 300ms;
@@ -16,3 +16,11 @@
     top:-50px;
     opacity:0;
   }
+  
+.chip-photo{
+  margin-right:5px;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  object-fit: cover;
+}

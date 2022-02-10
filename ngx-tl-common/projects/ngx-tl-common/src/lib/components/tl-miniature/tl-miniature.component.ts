@@ -6,8 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'tl-miniature',
   host: { 
-      '[class]' : 'this.size + " " + this.tlStyle + " tl-clickable tl-hor-space-between tl-vert-center tl-row-dir tl-flex-no-shrink tl-container-flex-block"',
-      '[class.margined]' : 'this.margined'
+      '[class]' : 'this.size + " " + this.tlStyle + " " + this.borderRadius + " tl-clickable tl-hor-space-between tl-vert-center tl-row-dir tl-no-wrap tl-flex-no-shrink tl-container-flex-block"',
     },
   templateUrl: './tl-miniature.component.html',
   styleUrls: ['./tl-miniature.component.scss']
@@ -44,10 +43,9 @@ export class TlMiniatureComponent implements OnInit {
   @Input() height: number = 50;
   
   /**
-   * Miniature border radius, in px
-   * 10 by default
+   * Miniature border radius, in the tl-br system
    */
-  @Input() borderRadius: number = 10;
+  @Input() borderRadius: string = 'tl-br-small';
   
   /**
    * Style of the miniature
@@ -55,11 +53,6 @@ export class TlMiniatureComponent implements OnInit {
    * tl-soft-transparent by default
    */
   @Input() tlStyle: string = 'tl-soft-transparent'
-  
-  /**
-   * Tells if the miniature container shall have a standard margin
-   */
-  @Input() margined: boolean = true;
 
   constructor() { }
 

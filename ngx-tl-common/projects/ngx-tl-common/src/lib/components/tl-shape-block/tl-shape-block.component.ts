@@ -23,10 +23,19 @@ export class TlShapeBlockComponent implements OnInit {
    * Shape. may be 'square', 'rectangle', 'three-four', 'sixteen-nine', 'round'
    */
   @Input() shape: string = 'square';
+  
+  /**
+   * Gives horizontal alignment of the content div
+   */
+  @Input() contentAlign: string = 'left';
+  
+  /**
+   * Gives vertical alignment of the content div
+   */
+  @Input() contentVerticalAlign: string = 'up';
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

@@ -57,6 +57,8 @@ import { TlIconMiniatureSelectComponent } from './components/tl-icon-miniature-s
 import { TlClickOutsideDirective } from './directives/tl-click-outside.directive';
 import { TlRaterComponent } from './components/tl-rater/tl-rater.component';
 import { TlImageCardComponent } from './components/tl-image-card/tl-image-card.component';
+import { TlChipComponent } from './components/tl-chip/tl-chip.component';
+import { TlChipsInputComponent } from './components/tl-chips-input/tl-chips-input.component';
  
 
 @NgModule({ 
@@ -71,6 +73,8 @@ import { TlImageCardComponent } from './components/tl-image-card/tl-image-card.c
     TlButtonTogglerComponent,
     TlCalendarComponent,
     TlCardComponent,
+    TlChipComponent,
+    TlChipsInputComponent,
     TlColorPickerComponent,
     TlDatePickerComponent,
     TlFormComponent,
@@ -132,6 +136,8 @@ import { TlImageCardComponent } from './components/tl-image-card/tl-image-card.c
     TlButtonTogglerComponent,
     TlCalendarComponent,
     TlCardComponent,
+    TlChipComponent,
+    TlChipsInputComponent,
     TlColorPickerComponent,
     TlDatePickerComponent,
     TlFormComponent,

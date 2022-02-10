@@ -78,6 +78,11 @@ export class TlFormComponent implements OnInit {
   @Input() popupStyle: string = 'tl-glassmorphic';
   
   /**
+   * Style of the chips, in the ngx-tl-common style system
+   */
+  @Input() chipsStyle: string = 'tl-soft-transparent';
+  
+  /**
    * Style of the button within form popups, in the ngx-tl-common style system
    */
   @Input() popupButtonStyle: string = 'tl-glassmorphic';
@@ -129,7 +134,7 @@ export class TlFormComponent implements OnInit {
       this.formState.push({
           id: item.id,
           optional: item.optional,
-          status: (item.type == 'toggler' || item.type == 'title')?1:0,
+          status: (item.type == 'toggler' || item.type == 'title' || item.type == 'chips')?1:0,
           value: this.getInitialValue(item)
         });
     }

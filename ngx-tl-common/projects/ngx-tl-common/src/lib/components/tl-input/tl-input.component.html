@@ -2,13 +2,14 @@
   id="{{ this.internalId }}"
   type="{{ this.type }}"
   [class]="this.tlStyle + ' ' + this.borderRadius + ' form-input'"
-  [class.valid]="this.validationStatus == 1"
-  [class.invalid]="this.validationStatus == 2"
+  [class.valid]="this.validationStatus == 1 && !this.validationInlineStyle"
+  [class.invalid]="this.validationStatus == 2 && !this.validationInlineStyle"
   [placeholder]="(this.lingeringPlaceholder)?'':this.placeholder"
   [ngStyle]="{
       'height': this.height + 'px'
     }"
   (keyup)="this.onPressKey($event)"
+  (keyup.enter)="this.onPressEnterKey()"
   (focus)="this.focusInput.next()">
 
 <!-- Lingering placehoder, if any -->
@@ -25,7 +26,7 @@
 
 <!-- Icon, if any -->
 <tl-square-icon
-  *ngIf="this.icon != undefined"
+  *ngIf="this.icon != undefined && !(this.validationStatus == 2 && this.validationInlineStyle)"
   class="form-icon"
   [icon]="this.icon"
   [size]="this.height*1/2"
@@ -36,9 +37,23 @@
   (click)="this.focus()">
 </tl-square-icon>
 
+<!-- Error Icon in cas "inlin" validation design, if any -->
+<tl-square-icon
+  *ngIf="this.validationInlineStyle && this.validationStatus == 2"
+  class="form-icon"
+  [icon]="'tl-warning-outline'"
+  [color]="'tl-failure'"
+  [size]="this.height*1/2"
+  [ngStyle]="{
+      'top': 1/4*this.height + 'px',
+      'right': 1/4*this.height + 4 + 'px'
+    }"
+  title="{{ this.validationMessage }}">
+</tl-square-icon>
+
 <!-- Validation message, if any -->
 <div
-  *ngIf="this.validationMessage != undefined && this.validationStatus == 2"
+  *ngIf="this.validationMessage != undefined && this.validationStatus == 2 && !this.validationInlineStyle"
   class="form-validation-message tl-failure-content-element tl-full">
   
   {{ this.validationMessage }}

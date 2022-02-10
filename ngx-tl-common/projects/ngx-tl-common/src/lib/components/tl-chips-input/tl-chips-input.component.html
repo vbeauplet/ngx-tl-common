@@ -1,0 +1,18 @@
+<tl-chip
+  *ngFor="let chip of this.chips"
+  [button]="'tl-close'"
+  [tlStyle]="this.chipsStyle"
+  (clickButton)="this.removeChip(chip)">
+  {{ chip }}
+</tl-chip>
+    
+<tl-input #chipInput
+  style="margin-left:-8px;width:200px"
+  [tlStyle]="'tl-no-style'"
+  [placeholder]="this.inputPlaceholder"
+  [validationOn]="this.inputValidationOn"
+  [validationFilters]="this.inputValidationFilters"
+  [validationMessage]="this.inputValidationMessage"
+  [validationInlineStyle]="true"
+  (pressEnter)="this.addChip($event)">
+</tl-input>

@@ -16,9 +16,29 @@ export class TlImagedItemPickerComponent implements OnInit {
   @Input() size: string = 'tl-medium';
   
   /**
-   * Tl Style of the card
+   * Tl Style of the container card
    */
   @Input() tlStyle: string = 'tl-neumorphic';
+  
+  /**
+   * Tl Style of the search bar
+   */
+  @Input() searchBarStyle: string = 'tl-neumorphic';
+  
+  /**
+   * Placeholder of the Search bar
+   */
+  @Input() searchBarPlaceholder: string = 'Search...';
+  
+  /**
+   * Style of the inner miniature components, in the tl-style system
+   */
+  @Input() miniatureStyle: string = 'tl-soft-transparent';
+  
+  /**
+   * Miniature border radius, in the tl-br-sytem
+   */
+  @Input() miniatureBorderRadius: string = 'tl-br-infinite';
   
   /**
    * List of initial selected items
@@ -37,12 +57,8 @@ export class TlImagedItemPickerComponent implements OnInit {
   @Input() proposalsAreLoading: boolean = false;
   
   /**
-   * Tells what are the items to be picked-up
-   */
-  @Input() itemsNature: string = 'Item';
-  
-  /**
    * Max number of displayed proposals in the proposal side
+   * Gives height of the component
    */
   @Input() max: number = 5;
   
@@ -73,6 +89,28 @@ export class TlImagedItemPickerComponent implements OnInit {
    * in this case, set this flag to false and directly use the 'search' output to modify the proposals list
    */
   @Input() enableLocalSearch: boolean = true;
+  
+  /**
+   * Message to tell that there are no selected items yet
+   */
+  @Input() noSelectedItemsMessage: string = 'No item selected yet';
+  
+  /**
+   * Message to display to show number of selected items
+   * -Let undefined if no message shall be displayed
+   * -Put **number** in message to display number of selected result
+   */
+  @Input() selectedItemsMessage: string = '**number** selected items';
+  
+  /**
+   * Message to display in case search gives no result
+   */
+  @Input() noSearchResultMessage: string = 'Search to find appropriate proposals';
+  
+  /**
+   * Message to display in case all search results cannot be displayed (> max)
+   */
+  @Input() tooManyResultsMessage: string = 'More results are available, search to filter';
   
   /**
    * Event that is raised when an item is selected
@@ -114,6 +152,12 @@ export class TlImagedItemPickerComponent implements OnInit {
    * Bindable list of context-consistent proposals to be displayed
    */
   public displayedProposals: any[] = [];
+  
+  /**
+   * Tells if all consistent proposals (according to search) are displayed
+   * Updated at search action
+   */
+  public areAllConsistentProposalsDisplayed: boolean = true;
   
   /**
    * Tells if component is "flipped" which mean it shows proposals panel instead of panel with selected items
@@ -159,6 +203,7 @@ export class TlImagedItemPickerComponent implements OnInit {
     
     // Reset displayed proposals
     this.displayedProposals = [];
+    this.areAllConsistentProposalsDisplayed = true;
     
     // Browse through proposals
     for(let proposal of this.localProposals){
@@ -168,13 +213,14 @@ export class TlImagedItemPickerComponent implements OnInit {
         continue;
       }
       
-      // Add to displayed proposals
-      this.displayedProposals.push(proposal);
-      
-      // Check if max number if reach, and stop if yes
-      if(this.displayedProposals.length >= this.max){
+      // Check if max number if reach, notify and and stop if yes
+      if(this.displayedProposals.length == this.max){
+        this.areAllConsistentProposalsDisplayed = false;
         break;
       }
+      
+      // Add to displayed proposals
+      this.displayedProposals.push(proposal);
     }
   }
   

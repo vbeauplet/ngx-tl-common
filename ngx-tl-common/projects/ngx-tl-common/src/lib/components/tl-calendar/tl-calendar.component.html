@@ -4,13 +4,13 @@
   
   <tl-button
     [tlStyle]="this.buttonStyle"
-    [icon]="'ion-arrow-down-outline'"
+    [icon]="'tl-arrow-down-outline'"
     (clickButton)="this.onDecrementYear()">
   </tl-button>
   
   <tl-button
     [tlStyle]="this.buttonStyle"
-    [icon]="'ion-arrow-back-outline'"
+    [icon]="'tl-arrow-back-outline'"
     (clickButton)="this.onDecrementMonth()">
   </tl-button>
     
@@ -24,13 +24,13 @@
   
   <tl-button
     [tlStyle]="this.buttonStyle"
-    [icon]="'ion-arrow-forward-outline'"
+    [icon]="'tl-arrow-forward-outline'"
     (clickButton)="this.onIncrementMonth()">
   </tl-button>
   
     <tl-button
     [tlStyle]="this.buttonStyle"
-    [icon]="'ion-arrow-up-outline'"
+    [icon]="'tl-arrow-up-outline'"
     (clickButton)="this.onIncrementYear()">
   </tl-button>
   
@@ -42,7 +42,7 @@
   
   <!-- Grid header (name of the days of the week) -->
   <ng-container>
-    <tlc-shape-block
+    <tl-shape-block
       *ngFor="let dayName of this.DAYS_IN_WEEK"
       class="calendar-grid-header-cell"
       [size]="'tl-full'"
@@ -50,17 +50,17 @@
       [contentAlign]="'center'"
       [contentVerticalAlign]="'center'">
       {{ dayName }}
-    </tlc-shape-block>
+    </tl-shape-block>
   </ng-container>
   
   <!-- Grid of the days of the month -->
   <ng-container>
     
-    <tlc-shape-block
+    <tl-shape-block
       *ngFor="let day of this.currentDaysInMonth"
       class="calendar-grid-content-cell"
       [size]="'tl-full'"
-      [shape]="'square'"
+      [shape]="'three-four'"
       [contentAlign]="'center'"
       [contentVerticalAlign]="'center'"
       [class.today]="+day == +this.today"
@@ -94,7 +94,7 @@
       
       </ng-container>
       
-    </tlc-shape-block>
+    </tl-shape-block>
   </ng-container>
   
 </div>

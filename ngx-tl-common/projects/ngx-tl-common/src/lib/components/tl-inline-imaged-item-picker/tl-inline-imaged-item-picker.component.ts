@@ -17,6 +17,11 @@ import { TlImagedItemPickerComponent } from '../tl-imaged-item-picker/tl-imaged-
 export class TlInlineImagedItemPickerComponent extends TlImagedItemPickerComponent implements OnInit {
 
   /**
+   * Style of the chips
+   */
+  @Input() chipStyle: string = 'tl-soft-transparent';
+
+  /**
    * Alignment of the slected items
    * May be 'left', 'center', or 'space-between'
    */

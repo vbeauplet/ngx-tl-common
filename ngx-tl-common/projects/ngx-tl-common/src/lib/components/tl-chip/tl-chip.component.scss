@@ -1,0 +1,34 @@
+:host{
+  padding-left: 11px;
+  padding-top:7px;
+  padding-bottom:7px;
+  padding-right:11px;
+  
+  margin-left: 5px;
+  margin-top:3px;
+  margin-bottom:3px;
+  margin-right:5px;
+}
+
+  :host.disabled{
+    opacity:0.3;
+    pointer-events:none;
+  }
+  
+  :host.selected{
+    background-color:var(--outline-content-color);
+  }
+
+
+.chip-button{
+  cursor:pointer;
+  margin-left:8px;
+}
+
+  .chip-button:hover{
+    color:var(--outline-content-color);
+  }
+  
+  :host.selected .chip-button:hover{
+    color:var(--secondary-content-color);
+  }

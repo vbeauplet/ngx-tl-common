@@ -1,0 +1,9 @@
+<ng-content></ng-content>
+
+<tl-square-icon
+  *ngIf="this.button != null"
+  class="chip-button"
+  [icon]="this.button"
+  [size]="18"
+  (click)="$event.stopPropagation();this.clickButton.next()">
+</tl-square-icon>

@@ -1,7 +1,7 @@
 <div
-  [class]="'container ' + this.tlStyle + ' tl-full tl-big-padded tl-col-dir tl-container-flex-block'"
+  [class]="'container ' + this.tlStyle + ' tl-full tl-big-padded tl-col-dir tl-no-wrap tl-container-flex-block'"
   [ngStyle]="{
-      'height': this.max * 60 + 125 + 'px'
+      'height': this.max * 60 + 145 + 'px'
     }">
 
   <!-- Selected items side -->
@@ -9,17 +9,18 @@
     class="selected-item-side tl-full tl-col-dir tl-no-wrap tl-br-small tl-flex-no-shrink tl-flex-block"
     [class.on-background]="this.isFlipped"
     [ngStyle]="{
-        'height': this.max * 60 + 'px'
+        'height': this.max * 60 + 20 + 'px'
       }">
     
     <tl-active-miniature
       *ngFor="let selectedItem of this.selectedItems"
       style="margin-bottom:10px"
       [size]="'tl-full'"
+      [tlStyle]="this.miniatureStyle"
+      [borderRadius]="this.miniatureBorderRadius"
       [photoUrl]="selectedItem[this.miniatureImageUrlPropertyName]"
       [label]="selectedItem[this.labelPropertyName]"
-      [margined]="false"
-      [activeIcons]="[{ name:'remove',icon:'['}]"
+      [activeIcons]="[{ name:'remove',icon:'tl-close-circle'}]"
       (clickIcon)="this.onUnselectItem(selectedItem)">
       
       <ng-container
@@ -34,12 +35,12 @@
       
       <span
         *ngIf="this.selectedItems.length == 0">
-        No {{ this.itemsNature.toLowerCase() }} selected yet
+        {{ this.noSelectedItemsMessage }}
       </span>
       
       <span
         *ngIf="this.selectedItems.length != 0">
-        {{ this.selectedItems.length }} selected {{ this.itemsNature.toLowerCase() }}{{ (this.selectedItems.length > 1)?'s':'' }}
+        {{ this.selectedItemsMessage.replace('**number**', '' + this.selectedItems.length) }}
       </span>
       
     </div>
@@ -48,25 +49,25 @@
   
   <!-- Proposal side -->
   <div
-    class="proposal-item-side tl-no-br tl-full tl-col-dir tl-flex-no-shrink tl-container-flex-block"
+    class="proposal-item-side tl-no-br tl-full tl-col-dir tl-flex-no-shrink tl-no-wrap tl-container-flex-block"
     [ngStyle]="{
-        'top': (this.isFlipped)?-this.max * 60 - 10 + 'px':'0px',
-        'height': this.max * 60 + 50 + 'px'
+        'top': (this.isFlipped)?-this.max * 60 - 30 + 'px':'0px',
+        'height': this.max * 60 + 70 + 'px'
       }">
     
     <tl-square-icon
       class="flipper-icon tl-clickable tl-bottom-margined"
       [class.flipped]="this.isFlipped"
       [size]="25"
-      [icon]="']'"
+      [icon]="'tl-add-circle-outline'"
       (click)="this.isFlipped=!this.isFlipped">
     </tl-square-icon>
     
     <tl-search-bar
       style="margin-bottom:20px"
       [size]="'tl-full'"
-      [placeholder]="'Search ' + this.itemsNature"
-      [tlStyle]="this.tlStyle"
+      [placeholder]="this.searchBarPlaceholder"
+      [tlStyle]="this.searchBarStyle"
       (searchValue)="onSearch($event)"
       (click)="this.isFlipped=true">
     </tl-search-bar>
@@ -78,10 +79,11 @@
         *ngFor="let proposal of this.displayedProposals"
         style="margin-bottom:10px"
         [size]="'tl-full'"
+        [tlStyle]="this.miniatureStyle"
+        [borderRadius]="this.miniatureBorderRadius"
         [photoUrl]="proposal[this.miniatureImageUrlPropertyName]"
         [label]="proposal[this.labelPropertyName]"
-        [margined]="false"
-        [activeIcons]="[{ name:'add',icon:'Z'}]"
+        [activeIcons]="[{ name:'add',icon:'tl-add-circle'}]"
         (clickIcon)="this.onSelectItem(proposal)">
         
         <ng-container
@@ -92,9 +94,15 @@
       </tl-active-miniature>
       
       <div
+        *ngIf="!this.areAllConsistentProposalsDisplayed"
+        class="tl-soft-content-element tl-small-content">
+        {{ this.tooManyResultsMessage }}
+      </div>
+      
+      <div
         *ngIf="this.displayedProposals.length == 0"
         class="tl-soft-content-element tl-small-content">
-        Search to find appropriate proposals
+        {{ this.noSearchResultMessage }}
       </div>
       
     </ng-container>
