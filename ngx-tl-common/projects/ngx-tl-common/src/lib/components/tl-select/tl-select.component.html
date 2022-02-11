@@ -1,31 +1,44 @@
 <!-- 'Front' of the select: with placeholder or selected option -->
 <div
   [class]="'select-front ' + this.tlStyle + ' ' + this.borderRadius + ' tl-clickable tl-full tl-padded tl-row-dir tl-hor-space-between tl-vert-center tl-no-wrap tl-container-flex-block'"
-  [class.valid]="this.validationStatus == 1"
-  [class.invalid]="this.validationStatus == 2"
+  [class.valid]="this.validationStatus == 1 && !this.validationInlineStyle"
+  [class.invalid]="this.validationStatus == 2 && !this.validationInlineStyle"
+  [class.invalid-inline]="this.validationStatus == 2 && this.validationInlineStyle"
   (click)="this.onClickFront()"
   [ngStyle]="{
       'height':this.height
     }">
   
   <div
-    class="tl-ellipsis proposal-text"
+    *ngIf="this.targetSelectedProposal == null || this.lingeringPlaceholder"
+    class="tl-ellipsis tl-soft-content-element proposal-text placeholder"
+    [class.top]="this.lingeringPlaceholder && selectedProposal != undefined"
     [ngStyle]="{
         'text-align':this.textAlign
       }">
       
-     <span
-        *ngIf="this.targetSelectedProposal != null">
-        {{ this.targetSelectedProposal.name }}
-     </span>
-     
-     <span
-        *ngIf="this.targetSelectedProposal == null"
-        class="tl-soft-content-element">
-        {{ this.placeholder }}
-     </span>
+      {{ this.placeholder }}
      
   </div>
+  
+  <div
+    *ngIf="this.targetSelectedProposal != null"
+    class="tl-ellipsis proposal-text"
+    [ngStyle]="{
+        'text-align':this.textAlign
+      }">
+    
+      {{ this.targetSelectedProposal.name }}
+     
+  </div>
+  
+  <tl-square-icon
+    *ngIf="this.validationStatus == 2 && this.validationInlineStyle"
+    class="form-icon"
+    [icon]="'tl-warning-outline'"
+    [color]="'tl-failure'"
+    [size]="25">
+  </tl-square-icon>
   
   <div
     style="width:20px"
@@ -38,6 +51,8 @@
     </tl-spinner>
     
   </div>
+  
+
   
   <tl-square-icon
     class="flipper-icon"

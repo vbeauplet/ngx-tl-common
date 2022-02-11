@@ -64,11 +64,17 @@ export class TlDatePickerComponent implements OnInit {
    * which means that an initial date change changes the component state
    */
   @Input() synchrone: boolean = false;
+  
   /**
    * Activate input validation via potential check filters
    * (if no check filters everything is accepted) 
    */
   @Input() validationOn: boolean = false;
+  
+  /**
+   * If set to true, proposes another style "inline" for the input validation notice design
+   */
+  @Input() validationInlineStyle: boolean = false;
   
   /**
    * Potential check filters for the inputed string

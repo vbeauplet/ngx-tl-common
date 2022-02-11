@@ -144,7 +144,7 @@ export class TlInputComponent implements OnInit {
   @Output() focusInput: EventEmitter<any> = new EventEmitter<any>();
   
   /**
-   * Curretn form value
+   * Current form value
    */
   public currentValue: string = '';
   
@@ -185,7 +185,7 @@ export class TlInputComponent implements OnInit {
   public refreshFromInitialValue(){
     
     let input: any = document.getElementById(this.internalId);
-    
+
     // If initial value is undefined
     if(this._initialValue == undefined){
       // Chrome and firefox
@@ -193,6 +193,9 @@ export class TlInputComponent implements OnInit {
     
       // Others
       input.value = null;
+      
+      // Set current value
+      this.currentValue = this._initialValue;
       
       // Set checking status
       this.validationStatus = 0;
@@ -206,12 +209,13 @@ export class TlInputComponent implements OnInit {
       // Others
       input.value = this._initialValue;
       
+      // Set current value
+      this.currentValue = this._initialValue;
+      
       // Launch check
       this.check();
     }
     
-    // Set current value
-    this.currentValue = this._initialValue;
   }
   
   /**
@@ -228,50 +232,60 @@ export class TlInputComponent implements OnInit {
     // Initialize ok status
     let tempStatus: number = 1;
     
-    // Browse through filters and check
-    for(let filter of this.validationFilters){
-      
-      // Check predefined filters
-      if(filter == 'number'){
-        if(!NUMBER_REGEXP.test(this.currentValue)){
-          tempStatus = 2;
-          break;
-        }
-      }
-      else if(filter == 'integer'){
-        if(!INTEGER_REGEXP.test(this.currentValue)){
-          tempStatus = 2;
-          break;
-        } 
-      }
-      else if(filter == 'date'){
-        if(!DATE_REGEXP.test(this.currentValue)){
-          tempStatus = 2;
-          break;
-        }
-      }
-      else if(filter == 'password'){
-        if(!PASSWORD_REGEXP.test(this.currentValue)){
-          tempStatus = 2;
-          break;
-        }
-      }
-      else if(filter == 'nospace'){
-        if(!NOSPACE_REGEXP.test(this.currentValue)){
-          tempStatus = 2;
-          break;
-        }
-      }
-      
-      // Else use regexp
-      else {
-        let regexpFilter: RegExp = new RegExp(filter)
-        if(!regexpFilter.test(this.currentValue)){
-          tempStatus = 2;
-          break;
-        }
-      }
+    // If current value is undefined or empty, set validation status to 0
+    if(this.currentValue == undefined || this.currentValue == ''){
+      tempStatus = 0;
     }
+    
+    // Else browse through filters and check
+    else{
+      
+      for(let filter of this.validationFilters){
+      
+        // Check predefined filters
+        if(filter == 'number'){
+          if(!NUMBER_REGEXP.test(this.currentValue)){
+            tempStatus = 2;
+            break;
+          }
+        }
+        else if(filter == 'integer'){
+          if(!INTEGER_REGEXP.test(this.currentValue)){
+            tempStatus = 2;
+            break;
+          } 
+        }
+        else if(filter == 'date'){
+          if(!DATE_REGEXP.test(this.currentValue)){
+            tempStatus = 2;
+            break;
+          }
+        }
+        else if(filter == 'password'){
+          if(!PASSWORD_REGEXP.test(this.currentValue)){
+            tempStatus = 2;
+            break;
+          }
+        }
+        else if(filter == 'nospace'){
+          if(!NOSPACE_REGEXP.test(this.currentValue)){
+            tempStatus = 2;
+            break;
+          }
+        }
+        
+        // Else use regexp
+        else {
+          let regexpFilter: RegExp = new RegExp(filter)
+          if(!regexpFilter.test(this.currentValue)){
+            tempStatus = 2;
+            break;
+          }
+        }
+      }
+      
+    }
+    
     
     // Check if validation status has changed
     if(this.validationStatus != tempStatus){

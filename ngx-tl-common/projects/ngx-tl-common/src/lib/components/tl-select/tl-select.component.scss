@@ -1,4 +1,6 @@
 .select-front{
+  position:relative;
+  overflow:visible;
   border-left: solid transparent 5px;
   border-right: solid transparent 5px;
 }
@@ -11,6 +13,20 @@
   .select-front.invalid{
     border-left: solid var(--failure-content-color) 5px;
     border-right: solid var(--failure-content-color) 5px;
+  }
+
+.placeholder{
+  color:var(--soft-content-color);
+  position:relative;
+  top:0px;
+  transition: all ease-out 200ms;
+}
+
+  .placeholder.top{
+    position:absolute;
+    color:var(--main-content-color)!important;
+    top: -20px!important;
+    font-size:14px!important;
   }
 
 .proposal:hover {

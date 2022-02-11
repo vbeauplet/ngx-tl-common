@@ -99,6 +99,11 @@ export class TlFormComponent implements OnInit {
   @Input() activateItemValidation: boolean = true;
   
   /**
+   * If set to true, proposes another style "inline" for the input validation notice design
+   */
+  @Input() validationInlineStyle: boolean = false;
+  
+  /**
    * Loading status of the submit button
    */
   @Input() submitButtonLoadingStatus: number = -1;

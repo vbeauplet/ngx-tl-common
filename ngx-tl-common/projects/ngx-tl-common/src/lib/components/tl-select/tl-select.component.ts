@@ -61,9 +61,15 @@ export class TlSelectComponent implements OnInit {
   @Input() initialSelectedProposal: ITlSelectProposal = null;
   
   /**
-   * Placeholder of the select. When 'none' is the acitve option
+   * Placeholder of the select. When 'none' is the active option
    */
   @Input() placeholder: string = 'None';
+  
+    
+  /**
+   * Tells if plachoder shall linger whenever user has written an input
+   */
+  @Input() lingeringPlaceholder: boolean = false;
    
   /**
    * Tells if the select shall be synchrone, 
@@ -106,6 +112,11 @@ export class TlSelectComponent implements OnInit {
    * Activate select input validation
    */
   @Input() validationOn: boolean = false;
+  
+  /**
+   * If set to true, proposes another style "inline" for the validation notice design
+   */
+  @Input() validationInlineStyle: boolean = false;
   
   /**
    * Event that is emitted when component is being unwrapped (selection mode starts)

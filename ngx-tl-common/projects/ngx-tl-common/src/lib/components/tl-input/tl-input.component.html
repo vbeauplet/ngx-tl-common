@@ -4,6 +4,7 @@
   [class]="this.tlStyle + ' ' + this.borderRadius + ' form-input'"
   [class.valid]="this.validationStatus == 1 && !this.validationInlineStyle"
   [class.invalid]="this.validationStatus == 2 && !this.validationInlineStyle"
+  [class.invalid-inline]="this.validationStatus == 2 && this.validationInlineStyle"
   [placeholder]="(this.lingeringPlaceholder)?'':this.placeholder"
   [ngStyle]="{
       'height': this.height + 'px'
@@ -37,7 +38,7 @@
   (click)="this.focus()">
 </tl-square-icon>
 
-<!-- Error Icon in cas "inlin" validation design, if any -->
+<!-- Error Icon in cas "inline" validation design, if any -->
 <tl-square-icon
   *ngIf="this.validationInlineStyle && this.validationStatus == 2"
   class="form-icon"

@@ -19,6 +19,7 @@
     [initialValue]="item.initialValue"
     [icon]="(item.icon == undefined)?undefined:item.icon"
     [height]="50"
+    [validationInlineStyle]="this.validationInlineStyle"
     [validationOn]="this.activateItemValidation"
     [validationFilters]="(this.activateItemValidation && item.validationFilter != undefined)?[item.validationFilter]:[]"
     [validationMessage]="(this.activateItemValidation)?item.validationMessage:undefined"
@@ -39,9 +40,11 @@
     [placeholder]="item.label"
     [lingeringPlaceholder]="true"
     [initialSelectedDate]="item.initialValue"
+    [validationInlineStyle]="this.validationInlineStyle"
     [validationOn]="this.activateItemValidation"
     [validationFilters]="(this.activateItemValidation && item.validationFilter != undefined)?[item.validationFilter]:[]"
     [validationMessage]="(this.activateItemValidation)?item.validationMessage:undefined"
+    (changeInputValue)="this.onChangeValue(item.id, $event)"
     (selectDate)="this.onChangeValue(item.id, $event)"
     (changeValidationStatus)="this.onChangeStatus(item.id, $event)">
   </tl-date-picker>
@@ -63,7 +66,9 @@
   <tl-select
     *ngIf="item.type == 'select'"
     class="item"
+    [class.filled]="this.getState(item.id).value != undefined && this.getState(item.id).value != item.label"
     [placeholder]="item.label"
+    [lingeringPlaceholder]="true"
     [tlStyle]="this.itemStyle"
     [optionPanelStyle]="this.popupStyle"
     [size]="'tl-full'"
@@ -72,6 +77,7 @@
     [height]="'50px'"
     [proposals]="item.proposals"
     [validationOn]="this.activateItemValidation"
+    [validationInlineStyle]="this.validationInlineStyle"
     [initialSelectedProposal]="(item.initialValue != undefined)?{name: item.initialValue}:null"
     (selectProposal)="this.onChangeValue(item.id, $event.name)"
     (reset)="this.onChangeValue(item.id, undefined)"
