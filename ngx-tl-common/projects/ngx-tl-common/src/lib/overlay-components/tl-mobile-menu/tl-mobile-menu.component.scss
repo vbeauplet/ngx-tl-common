@@ -1,5 +1,3 @@
-@import "../../style/tl-common-styles.scss";
-
 :host{
   z-index:1000;
   
@@ -24,11 +22,6 @@
   :host.shadowed{  
     background-color:var(--menu-bg-color);
     box-shadow: 0 0px 8px 0 var(--menu-bg-color);
-    color:white!important;
-  }
-  
-  :host.glassmorphic{  
-    @extend .tl-glassmorphic;
   }
 
 .menu-item-container{
@@ -81,6 +74,15 @@
   height:22px;
 }
 
+@media all and (min-width: 801px)  {
+  
+  .menu-logo{
+    order:-1;
+    margin-bottom:20px;
+  }
+  
+}
+
 
 @media all and (max-width: 800px)  {
 
@@ -101,13 +103,13 @@
   
     :host.gradient{
       padding-top:50px;
+      padding-right:0px;
       background: linear-gradient(to bottom, transparent 0px, var(--menu-bg-color) 50px);
     }
     
     :host.shadowed{  
       background-color:var(--menu-bg-color);
       box-shadow: 0 0px 8px 0 var(--menu-bg-color);
-      color:white!important;
     }
   
   .menu-item-container{

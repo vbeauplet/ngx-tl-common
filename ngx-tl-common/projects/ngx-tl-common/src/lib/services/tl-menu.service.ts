@@ -71,19 +71,40 @@ export class TlMenuService {
    */
   public refreshFromRoute(route: string){
     for(let item of this.menuItems){
-      if(item.route === route){
+      if(this.matchMenuItem(route, item)){
         this.selectedMenuItem = item;
         break;
       }
       if(item.subItems != undefined){
         for(let subItem of item.subItems){
-          if(subItem.route === route){
+          if(this.matchMenuItem(route, subItem)){
             this.selectedMenuItem = subItem;
             break;
           }
         }
       }
     }
+  }
+  
+  /**
+   * Tells if the provided route matches a menu item, 
+   * which mean the menu item shall be selected if this is the active route
+   */
+  public matchMenuItem(route: string, item: ITlMenuItem): boolean {
+    // In case there is a route filter
+    if(item.routeFilter != undefined && item.routeFilter != null){
+      let routeFilter = item.routeFilter;
+      if(routeFilter.endsWith('**')){
+        routeFilter = routeFilter.replace('**', '');
+        return route.startsWith(routeFilter);
+      }
+    }
+    
+    // Else shall match exact route
+    if(item.route != undefined){
+      return item.route == route; 
+    }
+    return false;
   }
   
   /**

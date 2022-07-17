@@ -4,6 +4,7 @@ export interface ITlMenuItem {
   icon: string,
   iconOn?: string,
   route?: string,
+  routeFilter?: string;
   subItems?: ITlMenuItem[],
   badgeNumber?:number,
   badgeIcon?:string

@@ -9,7 +9,7 @@ import { TlInputComponent } from '../tl-input/tl-input.component';
       '[class.tl-hor-left]' : 'this.alignment == "left"'
     },
   templateUrl: './tl-chips-input.component.html',
-  styleUrls: ['./tl-chips-input.component.css']
+  styleUrls: ['./tl-chips-input.component.scss']
 })
 export class TlChipsInputComponent implements OnInit {
 

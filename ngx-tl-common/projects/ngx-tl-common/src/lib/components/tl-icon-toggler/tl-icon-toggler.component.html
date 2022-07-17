@@ -13,7 +13,7 @@
     [ngStyle]="{
         'transform': (this.iconOffBounced)?'scale(' + this.bouncingRatio + ')':'scale(1)'
       }"
-    (click)="$event.stopPropagation();this.bounce()">
+    (click)="(this.unclickable)?this.bounce():$event.stopPropagation();this.bounce()">
   </tl-square-icon>
   
   <tl-square-icon
@@ -22,7 +22,7 @@
     [size]="this.size"
     [icon]="(this.iconOn != undefined)?this.iconOn:this.icon"
     [color]="this.color"
-    (click)="$event.stopPropagation();this.bounce()">
+    (click)="(this.unclickable)?this.bounce():$event.stopPropagation();this.bounce()">
   </tl-square-icon>
 
 </div>

@@ -1,6 +1,6 @@
 <!-- Calendar header -->
 <div
-  class="tl-full tl-row-dir tl-hor-space-between tl-vert-center tl-flex-block">
+  class="tl-full tl-row-dir tl-hor-space-between tl-vert-center tl-no-wrap tl-flex-block">
   
   <tl-button
     [tlStyle]="this.buttonStyle"
@@ -63,14 +63,14 @@
       [shape]="'three-four'"
       [contentAlign]="'center'"
       [contentVerticalAlign]="'center'"
-      [class.today]="+day == +this.today"
+      [class.today]="today.getTime() == day.getTime()"
       [class.not-in-month]="day.getMonth() != this.currentMonth"
       [class.no-selection]="this.selectionMode == 'none'"
       [class.selected]="(this.selectionMode == 'select' || this.selectionMode == 'pick-one') && this.isSelected(day)"
-      [class.highlighted]="this.selectionMode == 'highlight' && this.selectedDates.length == 1 && +this.selectedDates[0] == +day" 
-      [class.in-range]="this.selectionMode == 'range' && this.selectedDates.length == 2 && day > this.selectedDates[0] && day < this.selectedDates[1]"
-      [class.first-in-range]="this.selectionMode == 'range' && this.selectedDates.length >= 1 && +day == +this.selectedDates[0]"
-      [class.last-in-range]="this.selectionMode == 'range' && this.selectedDates.length == 2 && +day == +this.selectedDates[1]"
+      [class.highlighted]="this.selectionMode == 'highlight' && this.selectedDates.length == 1 && this.selectedDates[0].getTime() == day.getTime()" 
+      [class.in-range]="this.selectionMode == 'range' && this.selectedDates.length == 2 && day.getTime() > this.selectedDates[0].getTime() && day.getTime() < this.selectedDates[1].getTime()"
+      [class.first-in-range]="this.selectionMode == 'range' && this.selectedDates.length >= 1 && day.getTime() == this.selectedDates[0].getTime()"
+      [class.last-in-range]="this.selectionMode == 'range' && this.selectedDates.length == 2 && day.getTime() == this.selectedDates[1].getTime()"
       (click)="this.onClickDate(day)">
       
       <!-- Day number -->

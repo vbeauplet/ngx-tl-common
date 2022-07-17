@@ -7,6 +7,20 @@
   --desktop-page-menu-padding-bottom:0px;
   --mobile-page-menu-padding-bottom:0px;
 }
+
+* {
+  -webkit-tap-highlight-color:transparent;
+}
+
+.tl-noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none; 
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none; 
+  user-select: none;
+}
+
 // FONT STYLES
 
 @font-face {
@@ -590,6 +604,43 @@ a {
     box-shadow:none;
   }
 
+
+.tl-shadowed-soft-transparent {
+  background-color: var(--transparent-bg-color)!important;
+  box-shadow: 0 8px 32px 0 var(--dark-shadow-color);
+}
+
+  .tl-shadowed-soft-transparent.tl-pushable:active {
+    box-shadow: none;
+  }
+
+.tl-bodylike{
+  background-color: var(--main-bg-color)!important;
+  background-image: var(--main-bg-pattern)!important;
+}
+
+.tl-shadowed-bodylike{
+  background-color: var(--main-bg-color)!important;
+  background-image: var(--main-bg-pattern)!important;
+  box-shadow: 0 8px 32px 0 var(--dark-shadow-color);
+}
+
+.tl-bodylike-outlined{
+  border: solid var(--soft-content-color) 1px;
+  background-color: var(--main-bg-color)!important;
+  background-image: var(--main-bg-pattern)!important;
+}
+
+  .tl-bodylike-outlined.tl-pushable:active{
+    background-color: var(--transparent-bg-color);
+  }
+  
+.tl-shadowed-menu {  
+  background-color:var(--menu-bg-color);
+  color:var(--menu-content-color)!important;
+  box-shadow: 0 0px 8px 0 var(--menu-bg-color);
+}
+
 .tl-no-style {
    background: none;
 }
@@ -909,7 +960,7 @@ a {
   // CLIENT-SPECIFIC CONTAINERS 
   
   .tl-mobile-only{
-    display:none;
+    display: none!important;
   }
   
 }

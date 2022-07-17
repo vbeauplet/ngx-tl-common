@@ -248,8 +248,10 @@ export class TlSelectComponent implements OnInit {
       this.selectedProposal = Object.assign({}, this.initialSelectedProposal);
       this.targetSelectedProposal = Object.assign({}, this.initialSelectedProposal);
       this.feedbackLoadingStatus = -1;
-      this.validationStatus = 1;
-      this.changeValidationStatus.next(this.validationStatus);
+      if(this.validationOn){
+        this.validationStatus = 1;
+        this.changeValidationStatus.next(this.validationStatus);
+      }
     }
   }
   

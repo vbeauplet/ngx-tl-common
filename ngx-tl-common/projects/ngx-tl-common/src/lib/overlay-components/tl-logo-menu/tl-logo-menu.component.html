@@ -1,0 +1,83 @@
+<nav
+  class="tl-full tl-row-dir tl-hor-center tl-vert-center tl-no-wrap tl-flex-block tl-desktop-only">
+  
+  <div
+    *ngIf="this.hasSideDecorators"
+    class="tl-flex-grow tl-big-margined decorator">
+  </div>
+  
+  <ng-container
+    *ngFor="let menuItem of this.menuService.menuItems; let i = index">
+  
+    <img
+        *ngIf="i == this.logoPosition"
+        class="tl-big-margined"
+        [src]="this.logoSrc"
+        [width]="this.logoSize"/>
+  
+    <div
+      class="menu-item tl-margined tl-row-dir tl-hor-center tl-vert-center tl-flex-block"
+      (click)="this.menuService.selectMenuItem(menuItem)">
+      
+      <tl-square-icon
+        class="menu-item-icon"
+        [icon]="menuItem.icon"
+        [size]="30"
+        [class.selected-menu-item-icon]="this.menuService.selectedMenuItem == menuItem">
+      </tl-square-icon>
+      
+      <div
+        class="menu-item-label tl-margined tl-subtitle"
+        [class.selected-menu-item-label]="this.menuService.selectedMenuItem == menuItem">
+        {{ menuItem.label }}
+      </div>
+      
+    </div>
+  
+  </ng-container>
+  
+  <div
+    *ngIf="this.hasSideDecorators"
+    class="tl-flex-grow tl-big-margined decorator">
+  </div>
+  
+</nav>
+
+
+<div
+  *ngIf="this.menuService.unwrappedMenuItem !== null"
+  class="tl-full tl-row-dir tl-hor-center tl-vert-center tl-no-wrap tl-flex-block tl-desktop-only">
+  
+  <div
+    *ngFor="let subMenuItem of this.menuService.unwrappedMenuItem.subItems"
+    class="menu-subitem tl-margined tl-clickable tl-row-dir tl-vert-center tl-hor-center tl-flex-block"
+    (click)="this.menuService.selectMenuItem(subMenuItem)">
+    
+    
+    <tl-square-icon
+      class="menu-item-icon"
+      [icon]="subMenuItem.icon"
+      [size]="30"
+      [class.selected-menu-item-icon]="this.menuService.selectedMenuItem == subMenuItem">
+    </tl-square-icon>
+      
+    <div
+      class="menu-item-label tl-margined tl-subtitle"
+      [class.selected-menu-item-label]="this.menuService.selectedMenuItem == subMenuItem">
+      {{ subMenuItem.label }}
+    </div>
+    
+  </div>
+  
+</div>
+
+
+<tl-mobile-menu
+  id="inner-tl-mobile-menu"
+  class="tl-mobile-only"
+  [menuStyle]="this.mobileMenuStyle"
+  [showLabel]="true"
+  [iconBouncingRatio]="1.3"
+  [onlyMobile]="true"
+  [logoSrc]="this.logoSrc">
+</tl-mobile-menu>

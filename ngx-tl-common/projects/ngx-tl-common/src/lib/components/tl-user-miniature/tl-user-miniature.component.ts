@@ -7,8 +7,7 @@ import { TlMiniatureComponent } from '../tl-miniature/tl-miniature.component';
 @Component({
   selector: 'tl-user-miniature',
   host: { 
-      '[class]' : 'this.size + " " + this.tlStyle + " tl-clickable tl-hor-space-between tl-row-dir tl-container-flex-block"',
-      '[class.tl-margined]' : 'this.margined'
+      '[class]' : 'this.size + " " + this.tlStyle + " tl-clickable tl-hor-space-between tl-row-dir tl-container-flex-block"'
     },
   templateUrl: './tl-user-miniature.component.html',
   styleUrls: [

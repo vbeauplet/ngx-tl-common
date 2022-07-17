@@ -262,6 +262,15 @@ export class TlCalendarComponent implements OnInit {
     }
     return false;
   }
+
+  /**
+   * Tells if two dates referes to the same day
+   */
+   public areSameDay(d1: Date, d2: Date) {
+    return d1.getFullYear() === d2.getFullYear() &&
+      d1.getMonth() === d2.getMonth() &&
+      d1.getDate() === d2.getDate();
+  }
   
   /**
    * Get the selected Date object corresponding to the provided date, if any. null if none 
@@ -300,15 +309,6 @@ export class TlCalendarComponent implements OnInit {
    
     // Return result
     return days;
-  }
-  
-  /**
-   * Tells if two dates referes to the same day
-   */
-  private areSameDay(d1: Date, d2: Date) {
-    return d1.getFullYear() === d2.getFullYear() &&
-      d1.getMonth() === d2.getMonth() &&
-      d1.getDate() === d2.getDate();
   }
 
 }

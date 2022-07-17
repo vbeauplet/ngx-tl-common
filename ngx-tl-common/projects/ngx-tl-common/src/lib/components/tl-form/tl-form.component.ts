@@ -76,6 +76,12 @@ export class TlFormComponent implements OnInit {
    * Style of the form popups (calendar, select list,...), in the ngx-tl-common style system
    */
   @Input() popupStyle: string = 'tl-glassmorphic';
+
+  /**
+   * Style of the form button, in the ngx-tl-common style system
+   */
+  @Input() buttonStyle: string = 'tl-neumorphic';
+  
   
   /**
    * Style of the chips, in the ngx-tl-common style system

@@ -30,36 +30,46 @@
 <nav
   class="menu-item-container">
   
-  <div
-    *ngFor="let menuItem of this.menuService.menuItems"
-    class="menu-item tl-col-dir tl-hor-center tl-flex-block"
-    (click)="this.menuService.selectMenuItem(menuItem)">
-    
-    <tl-icon-toggler
-      [initialState]="this.menuService.selectedMenuItem == menuItem"
-      [icon]="menuItem.icon"
-      [iconOn]="(menuItem.iconOn != undefined)?menuItem.iconOn:menuItem.icon"
-      [bouncingRatio]="this.iconBouncingRatio"
-      [size]="this.iconSize"
-      [synchrone]="true"
-      [unclickable]="true">
-    </tl-icon-toggler>
+  <ng-container
+    *ngFor="let menuItem of this.menuService.menuItems; let i = index">
+  
+    <img
+        *ngIf="this.logoSrc != undefined && i == this.logoPosition"
+        class="menu-logo tl-margined"
+        [src]="this.logoSrc"
+        [width]="this.iconSize + 30"/>
     
     <div
-      *ngIf="this.showLabel"
-      class="main-content-element menu-item-label"
-      [class.tl-menu-content-element]="this.menuService.selectedMenuItem != menuItem"
-      [class.tl-outline-content-element]="this.menuService.selectedMenuItem == menuItem">
-      {{ menuItem.label }}
+      class="menu-item tl-col-dir tl-hor-center tl-flex-block"
+      (click)="this.menuService.selectMenuItem(menuItem)">
+      
+      <tl-icon-toggler
+        [initialState]="this.menuService.selectedMenuItem == menuItem"
+        [icon]="menuItem.icon"
+        [iconOn]="(menuItem.iconOn != undefined)?menuItem.iconOn:menuItem.icon"
+        [bouncingRatio]="this.iconBouncingRatio"
+        [size]="this.iconSize"
+        [synchrone]="true"
+        [unclickable]="true">
+      </tl-icon-toggler>
+      
+      <div
+        *ngIf="this.showLabel"
+        class="main-content-element menu-item-label"
+        [class.tl-menu-content-element]="this.menuService.selectedMenuItem != menuItem"
+        [class.tl-outline-content-element]="this.menuService.selectedMenuItem == menuItem">
+        {{ menuItem.label }}
+      </div>
+      
+      <div
+        *ngIf="menuItem.badgeNumber != undefined && menuItem.badgeNumber != 0"
+        class="menu-item-badge tl-round tl-col-dir tl-hor-center tl-vert-center tl-soft-transparent tl-outline-content-element tl-small-content tl-container-flex-block">
+        {{ menuItem.badgeNumber }}
+      </div>
+      
     </div>
-    
-    <div
-      *ngIf="menuItem.badgeNumber != undefined && menuItem.badgeNumber != 0"
-      class="menu-item-badge tl-round tl-col-dir tl-hor-center tl-vert-center tl-soft-transparent tl-outline-content-element tl-small-content tl-container-flex-block">
-      {{ menuItem.badgeNumber }}
-    </div>
-    
-  </div>
+  
+  </ng-container>
   
   <!-- Custom content -->
   <div

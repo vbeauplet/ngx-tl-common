@@ -47,6 +47,7 @@ import { TlTogglerComponent } from './components/tl-toggler/tl-toggler.component
 import { TlTreeComponent, TlTreeNodeComponent } from './components/tl-tree/tl-tree.component';
 import { TlUserMiniatureComponent } from './components/tl-user-miniature/tl-user-miniature.component';
 import { TlAlertComponent } from './overlay-components/tl-alert/tl-alert.component';
+import { TlLogoMenuComponent } from './overlay-components/tl-logo-menu/tl-logo-menu.component';
 import { TlMobileMenuComponent } from './overlay-components/tl-mobile-menu/tl-mobile-menu.component';
 import { TlOverlayComponent } from './overlay-components/tl-overlay/tl-overlay.component';
 import { TlPopupOverlayComponent } from './overlay-components/tl-popup-overlay/tl-popup-overlay.component';
@@ -55,6 +56,7 @@ import { TlDateAgoPipe } from './pipes/tl-date-ago.pipe';
 import { TlSelectComponent } from './components/tl-select/tl-select.component';
 import { TlIconMiniatureSelectComponent } from './components/tl-icon-miniature-select/tl-icon-miniature-select.component';
 import { TlClickOutsideDirective } from './directives/tl-click-outside.directive';
+import { TlLongClickDirective } from './directives/tl-long-click.directive';
 import { TlRaterComponent } from './components/tl-rater/tl-rater.component';
 import { TlImageCardComponent } from './components/tl-image-card/tl-image-card.component';
 import { TlChipComponent } from './components/tl-chip/tl-chip.component';
@@ -114,12 +116,14 @@ import { TlChipsInputComponent } from './components/tl-chips-input/tl-chips-inpu
     TlTreeNodeComponent,
     TlUserMiniatureComponent,
     TlAlertComponent,
+    TlLogoMenuComponent,
     TlMobileMenuComponent,
     TlOverlayComponent,
     TlPopupOverlayComponent,
     TlSearchMenuComponent,
     TlDateAgoPipe,
-    TlClickOutsideDirective
+    TlClickOutsideDirective,
+    TlLongClickDirective
   ],
   imports: [
     HttpClientModule,
@@ -177,12 +181,14 @@ import { TlChipsInputComponent } from './components/tl-chips-input/tl-chips-inpu
     TlTreeNodeComponent,
     TlUserMiniatureComponent,
     TlAlertComponent,
+    TlLogoMenuComponent,
     TlMobileMenuComponent,
     TlOverlayComponent,
     TlPopupOverlayComponent,
     TlSearchMenuComponent,
     TlDateAgoPipe,
-    TlClickOutsideDirective
+    TlClickOutsideDirective,
+    TlLongClickDirective
   ],
   providers: [],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
