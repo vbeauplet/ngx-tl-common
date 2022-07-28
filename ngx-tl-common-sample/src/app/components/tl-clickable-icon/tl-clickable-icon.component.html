@@ -1,0 +1,28 @@
+<div
+  class="clickable-icon-container"
+  [ngStyle]="{
+      'width': this.size + 'px',
+      'height': this.size + 'px',
+      'margin-bottom': '5px'
+    }">
+  
+  <tl-square-icon
+    class="clickable-icon off-hover"
+    [size]="this.size"
+    [icon]="this.icon">
+  </tl-square-icon>
+  
+  <tl-square-icon
+    class="clickable-icon on-hover"
+    [size]="this.size"
+    [icon]="(this.iconOn != undefined)?this.iconOn:this.icon"
+    [color]="this.color">
+  </tl-square-icon>
+
+</div>
+
+<div
+  *ngIf="this.label != undefined"
+  [class]="'label ' + this.color + '-content-element'">
+  {{ this.label }}
+</div>

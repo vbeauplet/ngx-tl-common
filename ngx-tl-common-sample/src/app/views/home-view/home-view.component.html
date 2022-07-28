@@ -1,54 +1,50 @@
 <div
-  class="tl-big-bottom-margined tl-title">
-  ngx-tl-common
-</div>
-
-<div
-  class="tl-big-bottom-margined tl-subtitle">
+  class="tl-xbig-bottom-margined tl-title tl-near-full"
+  style="text-align:center">
   A light and highly-configurable Angular Framework
 </div>
 
-
-<tl-indicator
+<tl-clickable-icon
   class="tl-big-margined"
-  [icon]="'k'"
-  [text]="'A set of Angular Components'"
-  [textPosition]="'bottom'"
-  [iconSize]="60"
-  [color]="'tl-soft'">
-</tl-indicator>
+  [size]="60"
+  [color]="'tl-success'"
+  [icon]="'ion-file-tray-stacked-outline'"
+  [iconOn]="'ion-file-tray-stacked'"
+  [label]="'A set of Angular Components'">
+</tl-clickable-icon>
 
-<tl-indicator
+<tl-clickable-icon
   class="tl-big-margined"
-  [icon]="'F'"
-  [text]="'A dynamic Theme Module'"
-  [textPosition]="'bottom'"
-  [iconSize]="60"
-  [color]="'tl-soft'">
-</tl-indicator>
+  [size]="60"
+  [color]="'tl-success'"
+  [icon]="'ion-color-filter-outline'"
+  [iconOn]="'ion-color-filter'"
+  [label]="'A dynamic Theme Module'">
+</tl-clickable-icon>
 
-<tl-indicator
+<tl-clickable-icon
   class="tl-big-margined"
-  [icon]="'i'"
-  [text]="'A configurable Menu Module'"
-  [textPosition]="'bottom'"
-  [iconSize]="60"
-  [color]="'tl-soft'">
-</tl-indicator>
+  [size]="60"
+  [color]="'tl-success'"
+  [icon]="'ion-grid-outline'"
+  [iconOn]="'ion-grid'"
+  [label]="'A configurable Menu Module'">
+</tl-clickable-icon>
 
-<tl-indicator
+<tl-clickable-icon
   class="tl-big-margined"
-  [icon]="'='"
-  [text]="'A built-in Alert Popup System'"
-  [textPosition]="'bottom'"
-  [iconSize]="60"
-  [color]="'tl-soft'">
-</tl-indicator>
+  [size]="60"
+  [color]="'tl-success'"
+  [icon]="'ion-notifications-outline'"
+  [iconOn]="'ion-notifications'"
+  [label]="'A built-in Alert Popup System'">
+</tl-clickable-icon>
+
 
 <tl-text-stateful-button
-  style="margin:40px"
+  style="margin:60px"
   [text]="'Get Started'"
   [color]="'tl-outline'"
-  [icon]="'Q'"
+  [icon]="'ion-arrow-forward-outline'"
   (click)="this.onClickStart()">
 </tl-text-stateful-button>

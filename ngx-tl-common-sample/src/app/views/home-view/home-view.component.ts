@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'tls-home-view',
-  host: { 'class' : 'tls-page'},
+  host: { 'class' : 'tl-padded-page'},
   templateUrl: './home-view.component.html',
   styleUrls: ['./home-view.component.css']
 })

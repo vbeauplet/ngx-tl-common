@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'tls-css-view',
-  host: { 'class' : 'tls-page'},
+  host: { 'class' : 'tl-left-aligned-padded-page'},
   templateUrl: './css-view.component.html',
   styleUrls: ['./css-view.component.css']
 })

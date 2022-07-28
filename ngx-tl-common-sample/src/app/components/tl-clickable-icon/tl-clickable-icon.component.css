@@ -1,0 +1,32 @@
+:host{
+  cursor:pointer;
+}
+
+.clickable-icon-container{
+  position:relative;
+}
+
+.clickable-icon{
+  position:absolute;
+  transition: opacity ease-out 300ms;
+} 
+  
+.clickable-icon-container .on-hover{
+  opacity:0;
+}
+
+.clickable-icon-container .off-hover{
+  opacity:1;
+}
+
+:host:hover .clickable-icon-container .on-hover{
+  opacity:1;
+}
+
+:host:hover .clickable-icon-container .off-hover{
+  opacity:0;
+}
+
+:host:not(:hover) .label{
+  color: var(--main-content-color);
+}

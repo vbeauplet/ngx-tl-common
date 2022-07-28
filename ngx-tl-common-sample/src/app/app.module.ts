@@ -58,6 +58,12 @@ import { CssViewComponent } from './views/css/css-view/css-view.component';
 import { TlTabPanelViewComponent } from './views/components/tl-tab-panel-view/tl-tab-panel-view.component';
 import { TlRaterViewComponent } from './views/components/tl-rater-view/tl-rater-view.component';
 
+
+
+import { TlsSearchMenuComponent } from './components/tl-search-menu/tl-search-menu.component';
+import { PulsarLogoComponent } from './components/pulsar-logo/pulsar-logo.component';
+import { TlClickableIconComponent } from './components/tl-clickable-icon/tl-clickable-icon.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -112,7 +118,10 @@ import { TlRaterViewComponent } from './views/components/tl-rater-view/tl-rater-
     TlTimelineCardViewComponent,
     CssViewComponent,
     TlTabPanelViewComponent,
-    TlRaterViewComponent
+    TlRaterViewComponent,
+    TlsSearchMenuComponent,
+    PulsarLogoComponent,
+    TlClickableIconComponent
   ],
   imports: [
     BrowserModule,

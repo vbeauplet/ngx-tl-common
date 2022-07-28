@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TlMenuService, TlAlertService, ITlTheme, TlThemeService } from 'ngx-tl-common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,20 +8,26 @@ import { TlMenuService, TlAlertService, ITlTheme, TlThemeService } from 'ngx-tl-
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {  
-  
-  private themes: ITlTheme[] = [
-    this.themeService.lightTheme,
-    this.themeService.darkTheme,
-    this.themeService.freshTheme
-  ];
-  
+
   constructor(
+    private router: Router,
     public themeService: TlThemeService,
     public menuService: TlMenuService,
     public alertService: TlAlertService
   ){
     // Init theme service
-    this.themeService.init(this.themes, 'light');
+    this.themeService.lightTheme.mainFont='Roboto';
+    this.themeService.lightTheme.titleFont='Abril Fatface';
+    this.themeService.lightTheme.subtitleFont='Abril Fatface';
+    this.themeService.lightTheme.menuBgColor='#252866';
+    this.themeService.lightTheme.outlineContentColor='#EA2088';
+    this.themeService.lightTheme.mainBgPattern='url("../assets/img/stardust_light.png"'
+    
+    this.themeService.init([
+        this.themeService.lightTheme,
+        this.themeService.darkTheme,
+        this.themeService.freshTheme
+      ], 'light');
     
     // Init menu service
     this.menuService.init([
@@ -357,5 +364,13 @@ export class AppComponent {
           icon: 'a',
         }
       ]);
+  }
+  
+  /**
+   * Handles click on logo
+   */
+  public onClickLogo(){
+    // Go to root route
+    this.router.navigate(['/']);
   }
 }
