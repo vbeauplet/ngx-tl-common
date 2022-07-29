@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'tls-init-menu-service-view',
-  host: { 'class' : 'tls-page'},
+  host: { 'class' : 'tl-left-aligned-padded-page'},
   templateUrl: './init-menu-service-view.component.html',
   styleUrls: ['./init-menu-service-view.component.css']
 })

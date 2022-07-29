@@ -3,7 +3,7 @@ import { ComponentPreferencesService } from 'src/app/services/component-preferen
 
 @Component({
   selector: 'app-tl-theme-switcher-view',
-  host: { 'class' : 'tls-page'},
+  host: { 'class' : 'tl-left-aligned-padded-page'},
   templateUrl: './tl-theme-switcher-view.component.html',
   styleUrls: ['./tl-theme-switcher-view.component.css']
 })

@@ -3,7 +3,7 @@ import { TlAlertService } from 'ngx-tl-common';
 
 @Component({
   selector: 'tls-rater-view',
-  host: { 'class' : 'tls-page'},
+  host: { 'class' : 'tl-left-aligned-padded-page'},
   templateUrl: './tl-rater-view.component.html',
   styleUrls: ['./tl-rater-view.component.css']
 })

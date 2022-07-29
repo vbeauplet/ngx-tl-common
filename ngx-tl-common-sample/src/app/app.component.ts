@@ -128,6 +128,7 @@ export class AppComponent {
           id: 'components',
           label: 'Components',
           icon: 'a',
+          route: '/components/tl-accordion',
           subItems: [
               {
                 id: 'tl-accordion',
@@ -372,5 +373,8 @@ export class AppComponent {
   public onClickLogo(){
     // Go to root route
     this.router.navigate(['/']);
+    
+    // Wrap menu
+    this.menuService.isWrapped = true;
   }
 }

@@ -19,10 +19,11 @@
   <ng-content>
   </ng-content>
   
-  <tl-tree
+  <tls-tree
     [size]="'tl-two-third'"
     [inMenu]="true"
     [clickable]="true"
+    [clickableWrapNode]="true"
     [data]="this.menuService.menuItems"
     [searchFieldName]="'label'"
     [selectionFieldName]="'id'"
@@ -38,6 +39,6 @@
         }
       ]"
     (clickItem)="this.onClickItem($event)">
-  </tl-tree>
+  </tls-tree>
   
 </div>

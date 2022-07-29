@@ -41,10 +41,11 @@
 </tl-clickable-icon>
 
 
-<tl-text-stateful-button
+<tls-text-stateful-button
   style="margin:60px"
   [text]="'Get Started'"
   [color]="'tl-outline'"
   [icon]="'ion-arrow-forward-outline'"
+  [status]="this.getStartedButtonStatus"
   (click)="this.onClickStart()">
-</tl-text-stateful-button>
+</tls-text-stateful-button>

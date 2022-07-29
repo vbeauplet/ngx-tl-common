@@ -61,6 +61,9 @@ import { TlRaterViewComponent } from './views/components/tl-rater-view/tl-rater-
 
 
 import { TlsSearchMenuComponent } from './components/tl-search-menu/tl-search-menu.component';
+import { TlsTreeComponent } from './components/tl-tree/tl-tree.component';
+import { TlsTextStatefulButtonComponent } from './components/tl-text-stateful-button/tl-text-stateful-button.component';
+import { TlsTreeNodeComponent } from './components/tl-tree/tl-tree.component';
 import { PulsarLogoComponent } from './components/pulsar-logo/pulsar-logo.component';
 import { TlClickableIconComponent } from './components/tl-clickable-icon/tl-clickable-icon.component';
 
@@ -120,6 +123,9 @@ import { TlClickableIconComponent } from './components/tl-clickable-icon/tl-clic
     TlTabPanelViewComponent,
     TlRaterViewComponent,
     TlsSearchMenuComponent,
+    TlsTreeComponent,
+    TlsTreeNodeComponent,
+    TlsTextStatefulButtonComponent,
     PulsarLogoComponent,
     TlClickableIconComponent
   ],

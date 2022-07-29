@@ -3,7 +3,7 @@ import { TlAlertService } from 'ngx-tl-common';
 
 @Component({
   selector: 'tls-spinner-view',
-  host: { 'class' : 'tls-page'},
+  host: { 'class' : 'tl-left-aligned-padded-page'},
   templateUrl: './tl-spinner-view.component.html',
   styleUrls: ['./tl-spinner-view.component.css']
 })

@@ -10,6 +10,11 @@ import { Router } from '@angular/router';
 })
 export class HomeViewComponent implements OnInit {
 
+  /**
+   * Status of the 'get started' button
+   */
+  public getStartedButtonStatus: number = -1;
+
   constructor(
       private alertService: TlAlertService,
       private router: Router
@@ -19,6 +24,9 @@ export class HomeViewComponent implements OnInit {
   }
   
   public onClickStart(){
-    this.router.navigate(['/getting-started']);
+    this.getStartedButtonStatus = 0;
+    setTimeout(() => {
+     this.router.navigate(['/getting-started']);
+    }, 1000);
   }
 }

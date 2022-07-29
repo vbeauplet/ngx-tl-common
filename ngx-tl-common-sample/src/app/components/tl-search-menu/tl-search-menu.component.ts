@@ -53,6 +53,7 @@ export class TlsSearchMenuComponent implements OnInit {
     // Go to route
     let route = item.route
     if(route != undefined){
+      
       this.router.navigate([route]);
       
       // Wrap menu

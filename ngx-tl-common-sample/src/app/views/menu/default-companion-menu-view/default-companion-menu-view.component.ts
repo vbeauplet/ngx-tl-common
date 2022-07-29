@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'tls-default-companion-menu-view',
-  host: { 'class' : 'tls-page'},
+  host: { 'class' : 'tl-left-aligned-padded-page'},
   templateUrl: './default-companion-menu-view.component.html',
   styleUrls: ['./default-companion-menu-view.component.css']
 })
