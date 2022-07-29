@@ -1,0 +1,17 @@
+<input
+  id="{{ this.searchBarUniqueId }}"
+  class="search-bar-input tl-input"
+  [class.astext]="this.tlStyle != 'tl-neumorphic'"
+  placeholder="{{ this.placeholder }}"
+  type="search"
+  (keydown.enter)="$event.stopPropagation();this.onPressEnter($event.target.value)">
+    
+<tl-button
+  [icon]="'ion-search'"
+  [size]="50"
+  [margin]="0"
+  [shape]="this.buttonShape"
+  [tlStyle]="this.tlStyle"
+  (clickButton)="this.onClickSearchButton()">
+</tl-button>
+    
