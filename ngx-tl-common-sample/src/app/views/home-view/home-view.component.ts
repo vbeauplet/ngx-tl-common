@@ -4,11 +4,16 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'tls-home-view',
-  host: { 'class' : 'tls-page'},
+  host: { 'class' : 'tl-padded-page'},
   templateUrl: './home-view.component.html',
   styleUrls: ['./home-view.component.css']
 })
 export class HomeViewComponent implements OnInit {
+
+  /**
+   * Status of the 'get started' button
+   */
+  public getStartedButtonStatus: number = -1;
 
   constructor(
       private alertService: TlAlertService,
@@ -19,6 +24,9 @@ export class HomeViewComponent implements OnInit {
   }
   
   public onClickStart(){
-    this.router.navigate(['/getting-started']);
+    this.getStartedButtonStatus = 0;
+    setTimeout(() => {
+     this.router.navigate(['/getting-started']);
+    }, 1000);
   }
 }

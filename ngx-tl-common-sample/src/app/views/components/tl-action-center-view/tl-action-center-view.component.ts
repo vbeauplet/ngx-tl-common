@@ -4,7 +4,7 @@ import { ComponentPreferencesService } from 'src/app/services/component-preferen
 
 @Component({
   selector: 'tls-action-center-view',
-  host: { 'class' : 'tls-page'},
+  host: { 'class' : 'tl-left-aligned-padded-page'},
   templateUrl: './tl-action-center-view.component.html',
   styleUrls: ['./tl-action-center-view.component.css']
 })

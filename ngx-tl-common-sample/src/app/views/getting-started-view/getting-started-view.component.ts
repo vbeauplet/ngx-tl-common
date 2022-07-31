@@ -3,7 +3,7 @@ import { TlAlertService } from 'ngx-tl-common';
 
 @Component({
   selector: 'tls-getting-started-view',
-  host: { 'class' : 'tls-page'},
+  host: { 'class' : 'tl-left-aligned-padded-page'},
   templateUrl: './getting-started-view.component.html',
   styleUrls: ['./getting-started-view.component.css']
 })

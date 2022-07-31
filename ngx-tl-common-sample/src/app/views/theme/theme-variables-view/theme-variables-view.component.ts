@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'tls-theme-variables-view',
-  host: { 'class' : 'tls-page'},
+  host: { 'class' : 'tl-left-aligned-padded-page'},
   templateUrl: './theme-variables-view.component.html',
   styleUrls: ['./theme-variables-view.component.css']
 })

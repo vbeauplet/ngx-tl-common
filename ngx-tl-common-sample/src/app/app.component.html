@@ -2,13 +2,27 @@
   [tlStyle]="'tl-glassmorphic'">
 </tl-alert>
 
-<tl-search-menu
-  [title]="'Ngx-tl-common'">
-</tl-search-menu>
+<tls-search-menu>
+  <tl-pulsar-logo
+    class="tl-clickable"
+    (click)="this.onClickLogo()">
+  </tl-pulsar-logo>
+  <div
+    class="tl-big-bottom-margined">
+    v0.8.0 &nbsp; 
+    <a
+      href="https://www.npmjs.com/package/ngx-tl-common" 
+      style="color:var(--menu-content-color)!important">
+      npm
+    </a> &nbsp; 
+    <a 
+      href="https://github.com/vbeauplet/ngx-tl-common" 
+      style="color:var(--menu-content-color)!important">
+      github
+    </a>
+  </div>
+</tls-search-menu>
 
-<div
-  class="tls-view-container">
 
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>
   
-</div>

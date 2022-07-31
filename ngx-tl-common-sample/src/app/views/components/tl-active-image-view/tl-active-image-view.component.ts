@@ -4,7 +4,7 @@ import { ComponentPreferencesService } from 'src/app/services/component-preferen
 
 @Component({
   selector: 'tls-active-image-view',
-  host: { 'class' : 'tls-page'},
+  host: { 'class' : 'tl-left-aligned-padded-page'},
   templateUrl: './tl-active-image-view.component.html',
   styleUrls: ['./tl-active-image-view.component.css']
 })

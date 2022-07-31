@@ -4,7 +4,7 @@ import { ComponentPreferencesService } from 'src/app/services/component-preferen
 
 @Component({
   selector: 'app-tl-popup-overlay-view',
-  host: { 'class' : 'tls-page'},
+  host: { 'class' : 'tl-left-aligned-padded-page'},
   templateUrl: './tl-popup-overlay-view.component.html',
   styleUrls: ['./tl-popup-overlay-view.component.css']
 })

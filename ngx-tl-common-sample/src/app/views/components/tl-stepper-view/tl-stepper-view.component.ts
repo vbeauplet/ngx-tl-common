@@ -4,7 +4,7 @@ import { TlAlertService } from 'ngx-tl-common';
 
 @Component({
   selector: 'tls-stepper-view',
-  host: { 'class' : 'tls-page'},
+  host: { 'class' : 'tl-left-aligned-padded-page'},
   templateUrl: './tl-stepper-view.component.html',
   styleUrls: ['./tl-stepper-view.component.css']
 })

@@ -4,7 +4,7 @@ import { ComponentPreferencesService } from 'src/app/services/component-preferen
 
 @Component({
   selector: 'tls-text-stateful-button-view',
-  host: { 'class' : 'tls-page'},
+  host: { 'class' : 'tl-left-aligned-padded-page'},
   templateUrl: './tl-text-stateful-button-view.component.html',
   styleUrls: ['./tl-text-stateful-button-view.component.css']
 })

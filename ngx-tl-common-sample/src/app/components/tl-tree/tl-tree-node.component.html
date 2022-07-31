@@ -1,0 +1,112 @@
+<!-- A tree node is an tree item displayed as a row that may be unfolded to see children item on other rows -->
+<div 
+  class="tree-node">
+
+  <!-- The node tree row -->
+  <!-- Hide if parent is folded or if item is filtered -->
+  <div 
+    class="tree-node-row"
+    [class.hidden]="this.parendFolded || this.isFiltered"
+    [class.highlighted]="this.isHighlighted"
+    [class.selected]="this.isSelected"
+    [class.detailed]="this.isDetailsRowUnfolded"
+    [class.tl-clickable]="this.clickable"
+    [ngStyle]="{
+        'grid-template-columns': this.gridTemplateColumns
+      }"
+    (click)="this.onClickRow()">
+    
+    <!-- Cells, that provides more infos about the item -->
+    <div
+      *ngFor="let column of this.columns; let i = index"
+      class="tree-node-row-cell tl-full tl-hor-left tl-vert-center tl-no-wrap tl-flex-block"
+      [class.folding-cell]="i == 0 && this.hasChildren()"
+      [ngStyle]="{
+          'padding-left': (i == 0)?(this.level*25+5) + 'px':'5px'
+        }"
+      (click)="(i == 0 && this.hasChildren() && !this.clickableWrapNode) && $event.stopPropagation();(i == 0 && this.hasChildren()) && this.isUnfolded = !this.isUnfolded;">
+      
+        <!-- Fold/Unfold indicator and button, in case this is the first column and it has unfiltered children -->        
+        <tl-square-icon
+          *ngIf="i == 0 && this.hasChildren()"
+          class="tree-node-folding-icon"
+          style="margin-right:5px"
+          title="Click to wrap/unwrap, Double-click to wrap/unwrap recursively"
+          [icon]="'tl-chevron-forward'"
+          [class.unfolded]="this.isUnfolded"
+          [size]="16">
+        </tl-square-icon> 
+        
+        <!-- Placeholder if first column and no children -->
+        <div
+          *ngIf="i == 0 && !this.hasChildren()"
+          style="width:16px;height:16px;margin-right:5px;">
+        </div> 
+      
+        <!-- Anyway, display property value -->
+        <div
+          *ngIf="!column.editable"
+          class="tree-node-row-cell-value">
+          {{ this.getPropertyValue(column.fieldName) }}
+        </div>
+        
+        <!-- Or the corresponding input if editable -->
+        <tl-interactive-input
+          *ngIf="column.editable && this.getPropertyValue(column.fieldName) != null"
+          [placeholder]="this.getPropertyValue(column.fieldName)"
+          [altPlaceholder]="'Enter a value'"
+          [inline]="true"
+          (changeValue)="this.onChangeTreeValue($event, column.fieldName)">
+        </tl-interactive-input>
+    </div>
+    
+    <!-- Button to show details about the item in a dedicated subrow that can be unwrapped at the bottom of the row-->
+    <div
+      *ngIf="this.detailsRowFieldName != ''"
+      class="tree-node-row-cell tree-buttons">
+      
+      <tl-square-icon
+        class="tree-node-folding-icon"
+        title="Show details"
+        [icon]="'b'"
+        [size]="20"
+        (click)="this.isDetailsRowUnfolded = !this.isDetailsRowUnfolded">
+      </tl-square-icon> 
+      
+    </div>
+  </div>
+  
+  <!-- Details dedicated subrow that can be unwrapped at the bottom of the row -->
+  <div
+    *ngIf="this.isDetailsRowUnfolded"
+    class="tree-node-detail-row">
+    {{ this.getPropertyValue(this.detailsRowFieldName) }}
+  </div>
+
+
+  <!-- Children nodes -->
+  <div 
+    class="tree-node-children"
+    [class.hidden]="this.parendFolded || this.isFiltered">
+    <tls-tree-node
+      *ngFor="let child of this.getChildren()"
+      [parendFolded]="!this.isUnfolded"
+      [item]="child"
+      [nestedItemsFieldName]="this.nestedItemsFieldName"
+      [nestedDataFieldName]="this.nestedDataFieldName"
+      [idFieldName]="this.idFieldName"
+      [searchFieldName]="this.searchFieldName"
+      [selectionFieldName]="this.selectionFieldName"
+      [selectionValue]="this.selectionValue"
+      [detailsRowFieldName]="this.detailsRowFieldName"
+      [gridTemplateColumns]="this.gridTemplateColumns"
+      [clickable]="this.clickable"
+      [clickableWrapNode]="this.clickableWrapNode"
+      [columns] ="this.columns"
+      [level]="this.level + 1"
+      (changeTreeValue)="this.onChangeChildTreeValue($event)"
+      (clickItem)="this.clickItem.next($event)"
+      style="width:100%">
+    </tls-tree-node>
+  </div>
+</div>

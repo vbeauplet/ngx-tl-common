@@ -4,7 +4,7 @@ import { ComponentPreferencesService } from 'src/app/services/component-preferen
 
 @Component({
   selector: 'tls-button-toggler-view',
-  host: { 'class' : 'tls-page'},
+  host: { 'class' : 'tl-left-aligned-padded-page'},
   templateUrl: './tl-button-toggler-view.component.html',
   styleUrls: ['./tl-button-toggler-view.component.css']
 })

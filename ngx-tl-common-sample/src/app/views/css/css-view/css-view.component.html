@@ -1,433 +1,429 @@
-<div 
-  class="tl-near-full-responsive tl-col-dir tl-hor-left tl-no-wrap tl-flex-block">
-  
-  Ngx-tl-common provides common CSS classes that can be used to:
-  <ul>
-    <li>Customize any HTML elements of your app keeping the ngx-tl-common consistency</li>
-    <li>Layout pages and containers of you application easily (create panels, tite, subtitles, deal with margin and padding)<li>
-    <li>...</li>
-  </ul>
-  
-  <div
-    class="tl-big-bottom-margined tl-subtitle">
-    Pages
-  </div>
 
-  <div
-    class="tl-big-bottom-margined">
-    These classes are to use for root views of the application. Padding is automatically adapted to the chosen menu component.
-    The following classes can be used
-    
-    <table
-      class="tl-near-full-responsive tl-big-margined">
-      <thead>
-        <tr>
-            <th>Class Name</th>
-            <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>.tl-page</td>
-          <td>Basic flex-page, with horizontally centered child blocks</td>
-        </tr>
-        <tr>
-          <td>.tl-padded-page</td>
-          <td>Flex-page, with horizontally centered child blocks. Padded, so that there is always a space around view wrt the full display</td>
-        </tr>
-        <tr>
-          <td>.tl-left-aligned-page</td>
-          <td>Flex-page, with left-aligned child blocks</td>
-        </tr>
-        <tr>
-        <tr>
-          <td>.tl-left-aligned-padded-page</td>
-          <td>Flex-page, with left-aligned child blocks. Padded, so that there is always a space around view wrt the full display</td>
-        </tr>
-        <tr>
-      </tbody>
-    </table>
-    
-    Class of the page shall be declared in the root view component declaration. For example for the particular page you are reading:
-    
-    <pre>
-      <code
-        [highlight]="this.pageDeclarationTsCode"
-        [languages]="['typescript']">
-     </code>
-    </pre>
-    
-  </div>
-  
-  
-  <div
-    class="tl-big-bottom-margined tl-subtitle">
-    Panels
-  </div>
+Ngx-tl-common provides common CSS classes that can be used to:
+<ul>
+  <li>Customize any HTML elements of your app keeping the ngx-tl-common consistency</li>
+  <li>Layout pages and containers of you application easily (create panels, tite, subtitles, deal with margin and padding)<li>
+  <li>...</li>
+</ul>
 
-  <div
-    class="tl-big-bottom-margined">
-    Ngx-tl-common has a flex-box-oriented panel system, relying on its own implementation of basic flex items.<br/><br/>
-    Two kind of flex-block can be declared:
-    
-    <table
-      class="tl-near-full-responsive tl-big-margined">
-      <thead>
-        <tr>
-            <th>Class Name</th>
-            <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>.tl-flex-block</td>
-          <td>Abstract content-containers (flex panel) to contain application elements. Flex-blocks cannot be styled and is used for layouting purpose only</td>
-        </tr>
-        <tr>
-          <td>.tl-container-flex-block</td>
-          <td>Concrete content-container (flex panel), which can be styled (background, transparency, shodwing, ...) with the tl-style system. It has a visual impact and participate to the application look</td>
-        </tr>
-      </tbody>
-    </table>
-    
-    
-    Panels (and contained child blocks) shall be sized using the tl-size system:
-    
-    <table
-      class="tl-near-full-responsive tl-big-margined">
-      <thead>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-            <td>.tl-full</td>
-            <td>Takes the full size of the container</td>
-        </tr>
-        <tr>
-            <td>.tl-near-full</td>
-            <td>Takes nearly the full size of the container (80%)</td>
-        </tr>
-        <tr>
-            <td>.tl-near-full-responsive</td>
-            <td>Like before, takes nearly the full size of the container (80%). Additionnaly gets even bigger with a mobile client (90% of the container) so that no sapce around is lost</td>
-        </tr>
-        <tr>
-            <td>.tl-half</td>
-            <td>Takes exactly half the width of the container</td>
-        </tr>
-        <tr>
-            <td>.tl-half-responsive</td>
-            <td>Like before, takes exactly half the width of the container. However, gets nearly full-size of the container when used with a mobile client (90%) so that content can be easily read</td>
-        </tr>
-        <tr>
-            <td>.tl-near-half</td>
-            <td>Takes nearly half the width of the container (45%)</td>
-        </tr>
-        <tr>
-            <td>.tl-near-half-responsive</td>
-            <td>Like before, takes nearly half the width of the container. However, gets nearly full-size of the container when used with a mobile client (90%) so that content can be easily read</td>
-        </tr>
-        <tr>
-            <td>.tl-third</td>
-            <td>Takes nearly third the width of the container (30%)</td>
-        </tr>
-        <tr>
-            <td>.tl-third-responsive</td>
-            <td>Like before, takes nearly third the width of the container. However, gets nearly full-size of the container when used with a mobile client (90%) so that content can be easily read</td>
-        </tr>
-        <tr>
-            <td>.tl-quarter</td>
-            <td>Takes nearly quarter the width of the container (20%)</td>
-        </tr>
-        <tr>
-            <td>.tl-quarter-responsive</td>
-            <td>Like before, takes nearly quarter the width of the container. However, gets nearly full-size of the container when used with a mobile client (90%) so that content can be easily read</td>
-        </tr>
-        <tr>
-            <td>.tl-xbig</td>
-            <td>Super big container (700px) when used on big screens. However responsive: on mobile, takes nearly full-container-size (90%) so that content can be easily read</td>
-        </tr>
-        <tr>
-            <td>.tl-big</td>
-            <td>Big container (500px) when used on big screens. However responsive: on mobile, takes nearly full-container-size (90%) so that content can be easily read</td>
-        </tr>
-        <tr>
-            <td>.tl-medium</td>
-            <td>Medium container (300px) when used on big screens. However responsive: on mobile, takes nearly full-container-size (85%) so that content can be easily read</td>
-        </tr>
-        <tr>
-            <td>.tl-small</td>
-            <td>Small container (200px) when used on big screens. However responsive: on mobile, takes nearly full-container-size (85%) so that content can be easily read</td>
-        </tr>
-        <tr>
-            <td>.tl-xxsmall</td>
-            <td>Very very small container (10px) for any screen size. not reponsive !</td>
-        </tr>
-      </tbody>
-    </table>
-    
-    Direction of the flex-panel child elements are handled with those classes:
-    
-    <table
-      class="tl-near-full-responsive tl-big-margined">
-      <thead>
-        <tr>
-            <th>Class Name</th>
-            <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>.tl-row-dir</td>
-          <td>Child blocks of the flex panel are horizontally postionned</td>
-        </tr>
-        <tr>
-          <td>.tl-col-dir</td>
-          <td>Child blocks of the flex panel are vertically postionned</td>
-        </tr>
-      </tbody>
-    </table>
-    
-    Vertical or horizontalalignment of child blocks within a flex panel <b>do not depend</b> on flex direction. It is handled with those classes:
-    
-    <table
-      class="tl-near-full-responsive tl-big-margined">
-      <thead>
-        <tr>
-            <th>Class Name</th>
-            <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>.tl-hor-left</td>
-          <td>Child blocks of the flex panel are left aligned on the horizontal direction</td>
-        </tr>
-        <tr>
-          <td>.tl-hor-center</td>
-          <td>Child blocks of the flex panel are centered on the horizontal direction</td>
-        </tr>
-        <tr>
-          <td>.tl-hor-space-between</td>
-          <td>Child blocks of the flex panel are justified on the horizontal direction (space-between flex css property)</td>
-        </tr>
-        <tr>
-          <td>.tl-vert-center</td>
-          <td>Child blocks of the flex panel are vertically centered</td>
-        </tr>
-        <tr>
-          <td>.tl-vert-up</td>
-          <td>Child blocks of the flex panel are vertically placed from the top of the container</td>
-        </tr>
-      </tbody>
-    </table>
-    
-    Concrete container flex panels can be styled using the tl-style-system classes:
-    
-    <table
-      class="tl-near-full-responsive tl-big-margined">
-      <thead>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-            <td>.tl-neumorphic</td>
-            <td>Neumophic style, element will appear with a depth/relief effect, as if it was to come out of the screen</td>
-        </tr>
-        <tr>
-            <td>.tl-neumorphic-sharp</td>
-            <td>Same, but the 3d effect is sharper. To use preferentially for small elements</td>
-        </tr>
-        <tr>
-            <td>.tl-neumorphic-outlined</td>
-            <td>Same, but outlined with a thin border of soft-content-color</td>
-        </tr>
-        <tr>
-            <td>.tl-neumorphic-inset</td>
-            <td>Same, but with the opposite 3d effect: element will apear as it is digged into the screen</td>
-        </tr>
-        <tr>
-            <td>.tl-neumorphic-inset-sharp</td>
-            <td>Same, but the 3d effect is sharper. To use preferentially for small elements</td>
-        </tr>
-        <tr>
-            <td>.tl-neumorphic-dome</td>
-            <td>Same, but with a "dome" effect on the element, which will appear as "convex" (rounded verticaly)</td>
-        </tr>
-        <tr>
-            <td>.tl-dome</td>
-            <td>Element appear as "convex" (rounded verticaly)</td>
-        </tr>
-        <tr>
-            <td>.tl-glassmorphic</td>
-            <td>Glassmorphic effect: element is transparent but element underneath appear additionnaly blurred</td>
-        </tr>
-        <tr>
-            <td>.tl-glassmorphic-outlined</td>
-            <td>Same, but outlined with a thin border of soft-content-color</td>
-        </tr>
-        <tr>
-            <td>.tl-soft-transparent</td>
-            <td>Element is softly-transparent, elements underneath are well-visible</td>
-        </tr>
-        <tr>
-            <td>.tl-sharp-transparent</td>
-            <td>Same, but less transparent. elements underneath are not as well-visible</td>
-        </tr>
-        <tr>
-            <td>.tl-outlined</td>
-            <td>Block is outlined with a thin border</td>
-        </tr>
-        <tr>
-            <td>.tl-shadowed</td>
-            <td>Element is showed</td>
-        </tr>
-        <tr>
-            <td>.tl-no-style</td>
-            <td>No style is applied on container</td>
-        </tr>
-        <tr>
-            <td>.tl-primary-style</td>
-            <td>Corresponds to one of the previously described style, choice being defined by corresponding theme variable</td>
-        </tr>
-        <tr>
-            <td>.tl-secondary-style</td>
-            <td>Corresponds to one of the previously described style, choice being defined by corresponding theme variable</td>
-        </tr>
-      </tbody>
-    </table>
-    
-    Addtional advanced option classes can be used to create a panel:
-    
-    <table
-      class="tl-near-full-responsive tl-big-margined">
-      <thead>
-        <tr>
-            <th>Class Name</th>
-            <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>.tl-no-wrap</td>
-          <td>Child elements or not wrapped when the main direction is "full"</td>
-        </tr>
-      </tbody>
-    </table>
-    
-    Child items of flex panels can be cusomized with the following classes
-    
-    <table
-      class="tl-near-full-responsive tl-big-margined">
-      <thead>
-        <tr>
-            <th>Class Name</th>
-            <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>.tl-flex-shrink</td>
-          <td>Selected child blocks can be shrinked to meet the main direction dimensions</td>
-        </tr>
-        <tr>
-          <td>.tl-flex-no-shrink</td>
-          <td>Opposite: shrinking the child element is not permitted</td>
-        </tr>
-        <tr>
-          <td>.tl-flex-grow</td>
-          <td>Selected child blocks grows to fill the main axis dimension</td>
-        </tr>
-        <tr>
-          <td>.tl-flex-full</td>
-          <td>Selected child block can shrink or grow to follow the main direction dimensions</td>
-        </tr>
-      </tbody>
-    </table>
-    
-    Of course both flex-panels and child blocks can be styled with generic layouting classes (margin-related, padding-related, ... see into dedicated paragraph of this page)<br/><br/>
-    
-    Examples of flex panel declarations:
-    
-    <pre>
-      <code
-        [highlight]="this.flexPanelsHtmlCode"
-        [languages]="['html']">
-     </code>
-    </pre>
-    
-  </div>
-  
-  <div
-    class="tl-big-bottom-margined tl-subtitle">
-    Titles and text sizes
-  </div>
+<div
+  class="tl-big-bottom-margined tl-subtitle">
+  Pages
+</div>
 
-  <div
-    class="tl-big-bottom-margined">
-    
-    Titles and subtitles can be declared with these classes:
-    
-    <table
-      class="tl-near-full-responsive tl-big-margined">
-      <thead>
-        <tr>
-            <th>Class Name</th>
-            <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>.tl-title</td>
-          <td><div class="tl-title">Big title</div></td>
-        </tr>
-        <tr>
-          <td>.tl-subtitle</td>
-          <td><div class="tl-subtitle">Subtitle</div></td>
-        </tr>
-        <tr>
-          <td>.tl-subsubtitle/td>
-          <td><div class="tl-subsubtitle">Small subtitle</div></td>
-        </tr>
-      </tbody>
-    </table>
-    
-    For standard text, size can be modified using these classes
-    
-    <table
-      class="tl-near-full-responsive tl-big-margined">
-      <thead>
-        <tr>
-            <th>Class Name</th>
-            <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>.tl-xbig-content</td>
-          <td><div class="tl-xbig-content">Test text</div></td>
-        </tr>
-        <tr>
-          <td>.tl-big-content</td>
-          <td><div class="tl-big-content">Test text</div></td>
-        </tr>
-        <tr>
-          <td>.tl-regular-content</td>
-          <td><div class="tl-regular-content">Test text</div></td>
-        </tr>
-        <tr>
-          <td>.tl-small-content</td>
-          <td><div class="tl-small-content">Test text</div></td>
-        </tr>
-      </tbody>
-    </table>
-    
-  </div>
+<div
+  class="tl-big-bottom-margined">
+  These classes are to use for root views of the application. Padding is automatically adapted to the chosen menu component.
+  The following classes can be used
+  
+  <table
+    class="tl-near-full-responsive tl-big-margined">
+    <thead>
+      <tr>
+          <th>Class Name</th>
+          <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.tl-page</td>
+        <td>Basic flex-page, with horizontally centered child blocks</td>
+      </tr>
+      <tr>
+        <td>.tl-padded-page</td>
+        <td>Flex-page, with horizontally centered child blocks. Padded, so that there is always a space around view wrt the full display</td>
+      </tr>
+      <tr>
+        <td>.tl-left-aligned-page</td>
+        <td>Flex-page, with left-aligned child blocks</td>
+      </tr>
+      <tr>
+      <tr>
+        <td>.tl-left-aligned-padded-page</td>
+        <td>Flex-page, with left-aligned child blocks. Padded, so that there is always a space around view wrt the full display</td>
+      </tr>
+      <tr>
+    </tbody>
+  </table>
+  
+  Class of the page shall be declared in the root view component declaration. For example for the particular page you are reading:
+  
+  <pre>
+    <code
+      [highlight]="this.pageDeclarationTsCode"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+  
+</div>
+
+
+<div
+  class="tl-big-bottom-margined tl-subtitle">
+  Panels
+</div>
+
+<div
+  class="tl-big-bottom-margined">
+  Ngx-tl-common has a flex-box-oriented panel system, relying on its own implementation of basic flex items.<br/><br/>
+  Two kind of flex-block can be declared:
+  
+  <table
+    class="tl-near-full-responsive tl-big-margined">
+    <thead>
+      <tr>
+          <th>Class Name</th>
+          <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.tl-flex-block</td>
+        <td>Abstract content-containers (flex panel) to contain application elements. Flex-blocks cannot be styled and is used for layouting purpose only</td>
+      </tr>
+      <tr>
+        <td>.tl-container-flex-block</td>
+        <td>Concrete content-container (flex panel), which can be styled (background, transparency, shodwing, ...) with the tl-style system. It has a visual impact and participate to the application look</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  Panels (and contained child blocks) shall be sized using the tl-size system:
+  
+  <table
+    class="tl-near-full-responsive tl-big-margined">
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td>.tl-full</td>
+          <td>Takes the full size of the container</td>
+      </tr>
+      <tr>
+          <td>.tl-near-full</td>
+          <td>Takes nearly the full size of the container (80%)</td>
+      </tr>
+      <tr>
+          <td>.tl-near-full-responsive</td>
+          <td>Like before, takes nearly the full size of the container (80%). Additionnaly gets even bigger with a mobile client (90% of the container) so that no sapce around is lost</td>
+      </tr>
+      <tr>
+          <td>.tl-half</td>
+          <td>Takes exactly half the width of the container</td>
+      </tr>
+      <tr>
+          <td>.tl-half-responsive</td>
+          <td>Like before, takes exactly half the width of the container. However, gets nearly full-size of the container when used with a mobile client (90%) so that content can be easily read</td>
+      </tr>
+      <tr>
+          <td>.tl-near-half</td>
+          <td>Takes nearly half the width of the container (45%)</td>
+      </tr>
+      <tr>
+          <td>.tl-near-half-responsive</td>
+          <td>Like before, takes nearly half the width of the container. However, gets nearly full-size of the container when used with a mobile client (90%) so that content can be easily read</td>
+      </tr>
+      <tr>
+          <td>.tl-third</td>
+          <td>Takes nearly third the width of the container (30%)</td>
+      </tr>
+      <tr>
+          <td>.tl-third-responsive</td>
+          <td>Like before, takes nearly third the width of the container. However, gets nearly full-size of the container when used with a mobile client (90%) so that content can be easily read</td>
+      </tr>
+      <tr>
+          <td>.tl-quarter</td>
+          <td>Takes nearly quarter the width of the container (20%)</td>
+      </tr>
+      <tr>
+          <td>.tl-quarter-responsive</td>
+          <td>Like before, takes nearly quarter the width of the container. However, gets nearly full-size of the container when used with a mobile client (90%) so that content can be easily read</td>
+      </tr>
+      <tr>
+          <td>.tl-xbig</td>
+          <td>Super big container (700px) when used on big screens. However responsive: on mobile, takes nearly full-container-size (90%) so that content can be easily read</td>
+      </tr>
+      <tr>
+          <td>.tl-big</td>
+          <td>Big container (500px) when used on big screens. However responsive: on mobile, takes nearly full-container-size (90%) so that content can be easily read</td>
+      </tr>
+      <tr>
+          <td>.tl-medium</td>
+          <td>Medium container (300px) when used on big screens. However responsive: on mobile, takes nearly full-container-size (85%) so that content can be easily read</td>
+      </tr>
+      <tr>
+          <td>.tl-small</td>
+          <td>Small container (200px) when used on big screens. However responsive: on mobile, takes nearly full-container-size (85%) so that content can be easily read</td>
+      </tr>
+      <tr>
+          <td>.tl-xxsmall</td>
+          <td>Very very small container (10px) for any screen size. not reponsive !</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  Direction of the flex-panel child elements are handled with those classes:
+  
+  <table
+    class="tl-near-full-responsive tl-big-margined">
+    <thead>
+      <tr>
+          <th>Class Name</th>
+          <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.tl-row-dir</td>
+        <td>Child blocks of the flex panel are horizontally postionned</td>
+      </tr>
+      <tr>
+        <td>.tl-col-dir</td>
+        <td>Child blocks of the flex panel are vertically postionned</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  Vertical or horizontalalignment of child blocks within a flex panel <b>do not depend</b> on flex direction. It is handled with those classes:
+  
+  <table
+    class="tl-near-full-responsive tl-big-margined">
+    <thead>
+      <tr>
+          <th>Class Name</th>
+          <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.tl-hor-left</td>
+        <td>Child blocks of the flex panel are left aligned on the horizontal direction</td>
+      </tr>
+      <tr>
+        <td>.tl-hor-center</td>
+        <td>Child blocks of the flex panel are centered on the horizontal direction</td>
+      </tr>
+      <tr>
+        <td>.tl-hor-space-between</td>
+        <td>Child blocks of the flex panel are justified on the horizontal direction (space-between flex css property)</td>
+      </tr>
+      <tr>
+        <td>.tl-vert-center</td>
+        <td>Child blocks of the flex panel are vertically centered</td>
+      </tr>
+      <tr>
+        <td>.tl-vert-up</td>
+        <td>Child blocks of the flex panel are vertically placed from the top of the container</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  Concrete container flex panels can be styled using the tl-style-system classes:
+  
+  <table
+    class="tl-near-full-responsive tl-big-margined">
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td>.tl-neumorphic</td>
+          <td>Neumophic style, element will appear with a depth/relief effect, as if it was to come out of the screen</td>
+      </tr>
+      <tr>
+          <td>.tl-neumorphic-sharp</td>
+          <td>Same, but the 3d effect is sharper. To use preferentially for small elements</td>
+      </tr>
+      <tr>
+          <td>.tl-neumorphic-outlined</td>
+          <td>Same, but outlined with a thin border of soft-content-color</td>
+      </tr>
+      <tr>
+          <td>.tl-neumorphic-inset</td>
+          <td>Same, but with the opposite 3d effect: element will apear as it is digged into the screen</td>
+      </tr>
+      <tr>
+          <td>.tl-neumorphic-inset-sharp</td>
+          <td>Same, but the 3d effect is sharper. To use preferentially for small elements</td>
+      </tr>
+      <tr>
+          <td>.tl-neumorphic-dome</td>
+          <td>Same, but with a "dome" effect on the element, which will appear as "convex" (rounded verticaly)</td>
+      </tr>
+      <tr>
+          <td>.tl-dome</td>
+          <td>Element appear as "convex" (rounded verticaly)</td>
+      </tr>
+      <tr>
+          <td>.tl-glassmorphic</td>
+          <td>Glassmorphic effect: element is transparent but element underneath appear additionnaly blurred</td>
+      </tr>
+      <tr>
+          <td>.tl-glassmorphic-outlined</td>
+          <td>Same, but outlined with a thin border of soft-content-color</td>
+      </tr>
+      <tr>
+          <td>.tl-soft-transparent</td>
+          <td>Element is softly-transparent, elements underneath are well-visible</td>
+      </tr>
+      <tr>
+          <td>.tl-sharp-transparent</td>
+          <td>Same, but less transparent. elements underneath are not as well-visible</td>
+      </tr>
+      <tr>
+          <td>.tl-outlined</td>
+          <td>Block is outlined with a thin border</td>
+      </tr>
+      <tr>
+          <td>.tl-shadowed</td>
+          <td>Element is showed</td>
+      </tr>
+      <tr>
+          <td>.tl-no-style</td>
+          <td>No style is applied on container</td>
+      </tr>
+      <tr>
+          <td>.tl-primary-style</td>
+          <td>Corresponds to one of the previously described style, choice being defined by corresponding theme variable</td>
+      </tr>
+      <tr>
+          <td>.tl-secondary-style</td>
+          <td>Corresponds to one of the previously described style, choice being defined by corresponding theme variable</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  Addtional advanced option classes can be used to create a panel:
+  
+  <table
+    class="tl-near-full-responsive tl-big-margined">
+    <thead>
+      <tr>
+          <th>Class Name</th>
+          <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.tl-no-wrap</td>
+        <td>Child elements or not wrapped when the main direction is "full"</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  Child items of flex panels can be cusomized with the following classes
+  
+  <table
+    class="tl-near-full-responsive tl-big-margined">
+    <thead>
+      <tr>
+          <th>Class Name</th>
+          <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.tl-flex-shrink</td>
+        <td>Selected child blocks can be shrinked to meet the main direction dimensions</td>
+      </tr>
+      <tr>
+        <td>.tl-flex-no-shrink</td>
+        <td>Opposite: shrinking the child element is not permitted</td>
+      </tr>
+      <tr>
+        <td>.tl-flex-grow</td>
+        <td>Selected child blocks grows to fill the main axis dimension</td>
+      </tr>
+      <tr>
+        <td>.tl-flex-full</td>
+        <td>Selected child block can shrink or grow to follow the main direction dimensions</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  Of course both flex-panels and child blocks can be styled with generic layouting classes (margin-related, padding-related, ... see into dedicated paragraph of this page)<br/><br/>
+  
+  Examples of flex panel declarations:
+  
+  <pre>
+    <code
+      [highlight]="this.flexPanelsHtmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+  
+</div>
+
+<div
+  class="tl-big-bottom-margined tl-subtitle">
+  Titles and text sizes
+</div>
+
+<div
+  class="tl-big-bottom-margined">
+  
+  Titles and subtitles can be declared with these classes:
+  
+  <table
+    class="tl-near-full-responsive tl-big-margined">
+    <thead>
+      <tr>
+          <th>Class Name</th>
+          <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.tl-title</td>
+        <td><div class="tl-title">Big title</div></td>
+      </tr>
+      <tr>
+        <td>.tl-subtitle</td>
+        <td><div class="tl-subtitle">Subtitle</div></td>
+      </tr>
+      <tr>
+        <td>.tl-subsubtitle/td>
+        <td><div class="tl-subsubtitle">Small subtitle</div></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  For standard text, size can be modified using these classes
+  
+  <table
+    class="tl-near-full-responsive tl-big-margined">
+    <thead>
+      <tr>
+          <th>Class Name</th>
+          <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.tl-xbig-content</td>
+        <td><div class="tl-xbig-content">Test text</div></td>
+      </tr>
+      <tr>
+        <td>.tl-big-content</td>
+        <td><div class="tl-big-content">Test text</div></td>
+      </tr>
+      <tr>
+        <td>.tl-regular-content</td>
+        <td><div class="tl-regular-content">Test text</div></td>
+      </tr>
+      <tr>
+        <td>.tl-small-content</td>
+        <td><div class="tl-small-content">Test text</div></td>
+      </tr>
+    </tbody>
+  </table>
   
 </div>
