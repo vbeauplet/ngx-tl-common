@@ -189,6 +189,12 @@ export class AppComponent {
                 icon: 'a'
               },
               {
+                id: 'tl-icon-toggler',
+                label: 'tl-icon-toggler',
+                route: '/components/tl-icon-toggler',
+                icon: 'a'
+              },
+              {
                 id: 'tl-image-card',
                 label: 'tl-image-card',
                 route: '/components/tl-image-card',

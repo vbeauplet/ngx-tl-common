@@ -49,6 +49,8 @@ import { TlTimelineCardViewComponent } from './views/components/tl-timeline-card
 import { CssViewComponent } from './views/css/css-view/css-view.component';
 import { TlTabPanelViewComponent } from './views/components/tl-tab-panel-view/tl-tab-panel-view.component';
 import { TlRaterViewComponent } from './views/components/tl-rater-view/tl-rater-view.component';
+import { TlIconTogglerComponent } from 'ngx-tl-common/lib/components/tl-icon-toggler/tl-icon-toggler.component';
+import { TlIconTogglerViewComponent } from './views/components/tl-icon-toggler-view/tl-icon-toggler-view.component';
 
 
 const routes: Routes = [
@@ -74,6 +76,7 @@ const routes: Routes = [
   { path: 'components/tl-icon-miniature-select', component: TlIconMiniatureSelectViewComponent },
   { path: 'components/tl-icon-miniature', component: TlIconMiniatureViewComponent },
   { path: 'components/tl-icon-miniature-toggler', component: TlIconMiniatureTogglerViewComponent },
+  { path: 'components/tl-icon-toggler', component: TlIconTogglerViewComponent },
   { path: 'components/tl-image-card', component: TlImageCardViewComponent },
   { path: 'components/tl-imaged-item-picker', component: TlImagePickerViewComponent },
   { path: 'components/tl-indicator', component: TlIndicatorViewComponent },

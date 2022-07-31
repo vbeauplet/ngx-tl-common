@@ -1,9 +1,12 @@
 .select-front{
   position:relative;
   overflow:visible;
-  border-left: solid transparent 5px;
-  border-right: solid transparent 5px;
 }
+
+  .select-front:not(.tl-outlined):not(.tl-no-bg-outlined){
+    border-left: solid transparent 5px;cd dis
+    border-right: solid transparent 5px;
+  }
 
   .select-front.valid {
     border-left: solid var(--success-content-color) 5px;

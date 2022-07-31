@@ -57,6 +57,7 @@ import { TlTimelineCardViewComponent } from './views/components/tl-timeline-card
 import { CssViewComponent } from './views/css/css-view/css-view.component';
 import { TlTabPanelViewComponent } from './views/components/tl-tab-panel-view/tl-tab-panel-view.component';
 import { TlRaterViewComponent } from './views/components/tl-rater-view/tl-rater-view.component';
+import { TlIconTogglerViewComponent } from './views/components/tl-icon-toggler-view/tl-icon-toggler-view.component';
 
 @NgModule({
   declarations: [
@@ -112,7 +113,8 @@ import { TlRaterViewComponent } from './views/components/tl-rater-view/tl-rater-
     TlTimelineCardViewComponent,
     CssViewComponent,
     TlTabPanelViewComponent,
-    TlRaterViewComponent
+    TlRaterViewComponent,
+    TlIconTogglerViewComponent
   ],
   imports: [
     BrowserModule,
