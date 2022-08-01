@@ -49,6 +49,13 @@ import { TlTimelineCardViewComponent } from './views/components/tl-timeline-card
 import { CssViewComponent } from './views/css/css-view/css-view.component';
 import { TlTabPanelViewComponent } from './views/components/tl-tab-panel-view/tl-tab-panel-view.component';
 import { TlRaterViewComponent } from './views/components/tl-rater-view/tl-rater-view.component';
+import { TlCalendarViewComponent } from './views/components/tl-calendar-view/tl-calendar-view.component';
+import { TlDatePickerViewComponent } from './views/components/tl-date-picker-view/tl-date-picker-view.component';
+import { TlInputViewComponent } from './views/components/tl-input-view/tl-input-view.component';
+import { TlChipViewComponent } from './views/components/tl-chip-view/tl-chip-view.component';
+import { TlChipsInputViewComponent } from './views/components/tl-chips-input-view/tl-chips-input-view.component';
+import { TlFormViewComponent } from './views/components/tl-form-view/tl-form-view.component';
+import { TlClickableIconViewComponent } from './views/components/tl-clickable-icon-view/tl-clickable-icon-view.component';
 
 
 const routes: Routes = [
@@ -70,7 +77,13 @@ const routes: Routes = [
   { path: 'components/tl-active-miniature', component: TlActiveMiniatureViewComponent },
   { path: 'components/tl-button', component: TlButtonViewComponent },
   { path: 'components/tl-button-toggler', component: TlButtonTogglerViewComponent },
+  { path: 'components/tl-calendar', component: TlCalendarViewComponent },
   { path: 'components/tl-card', component: TlCardViewComponent },
+  { path: 'components/tl-chip', component: TlChipViewComponent },
+  { path: 'components/tl-chips-input', component: TlChipsInputViewComponent },
+  { path: 'components/tl-clickable-icon', component: TlClickableIconViewComponent },
+  { path: 'components/tl-date-picker', component: TlDatePickerViewComponent },
+  { path: 'components/tl-form', component: TlFormViewComponent },
   { path: 'components/tl-icon-miniature-select', component: TlIconMiniatureSelectViewComponent },
   { path: 'components/tl-icon-miniature', component: TlIconMiniatureViewComponent },
   { path: 'components/tl-icon-miniature-toggler', component: TlIconMiniatureTogglerViewComponent },
@@ -78,6 +91,7 @@ const routes: Routes = [
   { path: 'components/tl-imaged-item-picker', component: TlImagePickerViewComponent },
   { path: 'components/tl-indicator', component: TlIndicatorViewComponent },
   { path: 'components/tl-inline-imaged-item-picker', component: TlInlineImagePickerViewComponent },
+  { path: 'components/tl-input', component: TlInputViewComponent },
   { path: 'components/tl-interactive-input', component: TlInteractiveInputViewComponent },
   { path: 'components/tl-loader', component: TlLoaderViewComponent },
   { path: 'components/tl-miniature', component: TlMiniatureViewComponent },
