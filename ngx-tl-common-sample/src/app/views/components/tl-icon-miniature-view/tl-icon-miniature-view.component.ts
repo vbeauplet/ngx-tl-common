@@ -43,7 +43,7 @@ export class TlIconMiniatureViewComponent implements OnInit {
   public refreshHtmlCode(){
     this.htmlCode = `
   <tl-icon-miniature
-    [icon]="'G'"
+    [icon]="'ion-cart-outline'"
     [tlStyle]="'` + this.componentPreferenceService.style.tlStyle + `'"
     [size]="'` + this.componentPreferenceService.style.size + `'"
     [bgColor]="'tl-success'"

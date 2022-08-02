@@ -1,0 +1,35 @@
+.alert-container{
+  position:fixed;
+  z-index: 10000;
+  
+  width:90%;
+}
+
+.alert{
+  margin-top:20px;
+  padding-top:25px;
+  padding-bottom:25px;
+  
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+  .alert.warning{
+    border: solid var(--neutral-content-color) 1px;
+  }
+  
+  .alert.error{
+    border: solid var(--failure-content-color) 1px;
+  }
+
+  .alert.transitory{
+    opacity: 0;
+  }
+  
+.alert-close-icon{
+  cursor:pointer;
+  position:relative;
+  margin-top:-10px;
+  top:10px;
+  left:45%;
+}

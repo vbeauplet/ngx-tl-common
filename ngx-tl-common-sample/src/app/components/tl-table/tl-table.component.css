@@ -1,0 +1,14 @@
+.table-row{
+  overflow:hidden;
+  
+  display:grid;
+  
+  opacity:1;
+  height:30px;
+  width:100%;  
+}
+
+.table-cell{
+  padding:5px;
+  overflow:hidden;
+}

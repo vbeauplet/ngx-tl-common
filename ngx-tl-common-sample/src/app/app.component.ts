@@ -161,9 +161,39 @@ export class AppComponent {
                 icon: 'a'
               },
               {
+                id: 'tl-button-toggler',
+                label: 'tl-button-toggler',
+                route: '/components/tl-button-toggler',
+                icon: 'a'
+              },
+              {
+                id: 'tl-calendar',
+                label: 'tl-calendar',
+                route: '/components/tl-calendar',
+                icon: 'a'
+              },
+              {
                 id: 'tl-card',
                 label: 'tl-card',
                 route: '/components/tl-card',
+                icon: 'a'
+              },
+              {
+                id: 'tl-chip',
+                label: 'tl-chip',
+                route: '/components/tl-chip',
+                icon: 'a'
+              },
+              {
+                id: 'tl-chips-input',
+                label: 'tl-chips-input',
+                route: '/components/tl-chips-input',
+                icon: 'a'
+              },
+              {
+                id: 'tl-clickable-icon',
+                label: 'tl-clickable-icon',
+                route: '/components/tl-clickable-icon',
                 icon: 'a'
               },
               {
@@ -173,15 +203,21 @@ export class AppComponent {
                 icon: 'a'
               },
               {
-                id: 'tl-icon-miniature-select',
-                label: 'tl-icon-miniature-select',
-                route: '/components/tl-icon-miniature-select',
+                id: 'tl-date-picker',
+                label: 'tl-date-picker',
+                route: '/components/tl-date-picker',
                 icon: 'a'
               },
               {
-                id: 'tl-button-toggler',
-                label: 'tl-button-toggler',
-                route: '/components/tl-button-toggler',
+                id: 'tl-form',
+                label: 'tl-form',
+                route: '/components/tl-form',
+                icon: 'a'
+              },
+              {
+                id: 'tl-icon-miniature-select',
+                label: 'tl-icon-miniature-select',
+                route: '/components/tl-icon-miniature-select',
                 icon: 'a'
               },
               {
@@ -224,6 +260,12 @@ export class AppComponent {
                 id: 'tl-inline-imaged-item-picker-select',
                 label: 'tl-inline-imaged-item-picker',
                 route: '/components/tl-inline-imaged-item-picker',
+                icon: 'a'
+              },
+              {
+                id: 'tl-input',
+                label: 'tl-input',
+                route: '/components/tl-input',
                 icon: 'a'
               },
               {
@@ -356,9 +398,65 @@ export class AppComponent {
         },
         {
           id: 'css',
-          label: 'CSS Layout and Classes',
+          label: 'CSS Utility Classes',
           icon: 'a',
           route: '/css',
+          subItems: [
+              {
+                id: 'css-page',
+                label: 'Page',
+                route: '/css/pages',
+                icon: 'a'
+              },
+              {
+                id: 'css-box',
+                label: 'Flex Box',
+                route: '/css/boxes',
+                icon: 'a'
+              },
+              {
+                id: 'css-box-sizing',
+                label: 'Box Sizing',
+                route: '/css/box-sizing',
+                icon: 'a'
+              },
+              {
+                id: 'css-box-styling',
+                label: 'Box Styling',
+                route: '/css/box-styling',
+                icon: 'a'
+              },
+              {
+                id: 'css-box-spacing',
+                label: 'Box Spacing',
+                route: '/css/box-spacing',
+                icon: 'a'
+              },
+              {
+                id: 'css-title',
+                label: 'Title',
+                route: '/css/title',
+                icon: 'a'
+              },
+              {
+                id: 'css-text',
+                label: 'Text',
+                route: '/css/text',
+                icon: 'a'
+              },
+              {
+                id: 'css-color',
+                label: 'Color',
+                route: '/css/color',
+                icon: 'a'
+              },
+              {
+                id: 'css-screen-size',
+                label: 'Screen Size',
+                route: '/css/sreen-size',
+                icon: 'a'
+              }
+            ]
         },
         {
           id: 'contribute',

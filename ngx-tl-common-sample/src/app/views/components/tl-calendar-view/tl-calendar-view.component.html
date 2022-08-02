@@ -1,0 +1,153 @@
+<div
+  class="tl-big-margined tl-title">
+  Example - Pick Date Range
+</div>
+
+<tls-component-sample
+  [hasTlStyle]="false"
+  [hasSubTlStyle]="true">
+
+  <tl-calendar
+    [buttonStyle]="this.componentPreferenceService.style.subTlStyle"
+    [size]="this.componentPreferenceService.style.size"
+    [selectionMode]="'range'"
+    (selectRange)="this.onSelectRange($event)">
+  </tl-calendar>
+  
+</tls-component-sample>
+  
+
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode"
+      [languages]="['html']">
+   </code>
+  </pre>
+  
+  <pre>
+    <code
+      [highlight]="this.tsCode"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Example - Date Highlight
+</div>
+
+<tls-component-sample
+  [hasTlStyle]="false"
+  [hasSubTlStyle]="true">
+
+  <tl-calendar
+    [buttonStyle]="this.componentPreferenceService.style.subTlStyle"
+    [size]="this.componentPreferenceService.style.size"
+    [selectionMode]="'highlight'"
+    [eventStyle]="'sketch'"
+    [events]="this.events"
+    (selectDate)="this.onSelectDate($event)"
+    (clickEvent)="this.onClickEvent($event)">
+  </tl-calendar>
+  
+</tls-component-sample>
+  
+
+<div 
+  class="tl-near-full-responsive">
+
+  <pre>
+    <code
+      [highlight]="this.htmlCode2"
+      [languages]="['html']">
+   </code>
+  </pre>
+  
+  <pre>
+    <code
+      [highlight]="this.tsCode2"
+      [languages]="['typescript']">
+   </code>
+  </pre>
+
+</div>
+
+<div
+  class="tl-big-margined tl-title">
+  Inputs
+</div>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+            <td>hasOverlay</td>
+            <td>boolean</td>
+            <td>Tells if overlay with active icons shall be displayed when use hovers the active image</td>
+            <td>true</td>
+    </tr>
+    <tr>
+            <td>size</td>
+            <td>string</td>
+            <td>Size of the active image</td>
+            <td>'tl-small'</td>
+    </tr>
+    <tr>
+            <td>shape</td>
+            <td>string</td>
+            <td>Shape of the active image. may be 'square' (default), 'round', 'rectangle'</td>
+            <td>'square'</td>
+    </tr>
+    <tr>
+            <td>message</td>
+            <td>string</td>
+            <td>Controls the active image message, if any. Empty string if none</td>
+            <td>''</td>
+    </tr>
+    <tr>
+            <td>activeIcons</td>
+            <td>ITlNamedIcon[]</td>
+            <td>Active icons to diplay in active image overlay  <br/>Note: 'Expand Image' icon (show original image) is displayed by default</td>
+            <td>[]</td>
+    </tr>
+  </tbody>
+</table>
+
+<div
+  class="tl-big-margined tl-title">
+  Events
+</div>
+
+<table
+  class="tl-near-full-responsive">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Payload Type</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+            <td>clickIcon</td>
+            <td>string</td>
+            <td>Event to raise when clicking on an active icon  <br/>Payload is te name of the named icon</td>
+    </tr>
+  </tbody>
+</table>
+
+
+

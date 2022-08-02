@@ -11,7 +11,8 @@ export class TlAlertViewComponent implements OnInit {
 
   public alertHtmlCode: string = `
 <tl-alert
-  [tlStyle]="'tl-glassmorphic'">
+  [tlStyle]="'tl-glassmorphic'"
+  [buttonStyle]="'tl-sharp-transparent'">
 </tl-alert>
   `;
   
@@ -51,19 +52,19 @@ export class TlAlertViewComponent implements OnInit {
       [
         {
           name:'option1',
-          icon: 'f',
+          icon: 'ion-bicycle-outline',
           color: 'tl-main',
           label: 'Option 1'
         },
         {
           name:'option2',
-          icon: 'g',
+          icon: 'ion-car-outline',
           color: 'tl-main',
           label: 'Option 2'
         },
         {
           name:'option3',
-          icon: 'k',
+          icon: 'ion-bus-outline',
           color: 'tl-main',
           label: 'Option 3'
         },
@@ -115,19 +116,19 @@ export class TlAlertViewComponent implements OnInit {
       [
         {
           name:'option1',
-          icon: 'f',
+          icon: 'ion-bicycle-outline',
           color: 'tl-main',
           label: 'Option 1'
         },
         {
           name:'option2',
-          icon: 'g',
+          icon: 'ion-car-outline',
           color: 'tl-main',
           label: 'Option 2'
         },
         {
           name:'option3',
-          icon: 'k',
+          icon: 'ion-bus-outline',
           color: 'tl-main',
           label: 'Option 3'
         },

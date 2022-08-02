@@ -13,6 +13,8 @@ import { TlActionCenterViewComponent } from './views/components/tl-action-center
 import { TlActiveImageViewComponent } from './views/components/tl-active-image-view/tl-active-image-view.component';
 import { TlButtonViewComponent } from './views/components/tl-button-view/tl-button-view.component';
 import { TlButtonTogglerViewComponent } from './views/components/tl-button-toggler-view/tl-button-toggler-view.component';
+import { TlCalendarViewComponent } from './views/components/tl-calendar-view/tl-calendar-view.component';
+import { TlDatePickerViewComponent } from './views/components/tl-date-picker-view/tl-date-picker-view.component';
 import { TlProgressBarViewComponent } from './views/components/tl-progress-bar-view/tl-progress-bar-view.component';
 import { TlIconMiniatureViewComponent } from './views/components/tl-icon-miniature-view/tl-icon-miniature-view.component';
 import { TlIconMiniatureTogglerViewComponent } from './views/components/tl-icon-miniature-toggler-view/tl-icon-miniature-toggler-view.component';
@@ -33,6 +35,7 @@ import { OwnStaticThemeViewComponent } from './views/theme/own-static-theme-view
 import { DynamicThemeViewComponent } from './views/theme/dynamic-theme-view/dynamic-theme-view.component';
 import { InitMenuServiceViewComponent } from './views/menu/init-menu-service-view/init-menu-service-view.component';
 import { TlInlineImagePickerViewComponent } from './views/components/tl-inline-image-picker-view/tl-inline-image-picker-view.component';
+import { TlInputViewComponent } from './views/components/tl-input-view/tl-input-view.component';
 import { TlImagePickerViewComponent } from './views/components/tl-image-picker-view/tl-image-picker-view.component';
 import { TlSelectViewComponent } from './views/components/tl-select-view/tl-select-view.component';
 import { TlIconMiniatureSelectViewComponent } from './views/components/tl-icon-miniature-select-view/tl-icon-miniature-select-view.component';
@@ -58,6 +61,13 @@ import { TlTabPanelViewComponent } from './views/components/tl-tab-panel-view/tl
 import { TlRaterViewComponent } from './views/components/tl-rater-view/tl-rater-view.component';
 import { TlIconTogglerViewComponent } from './views/components/tl-icon-toggler-view/tl-icon-toggler-view.component';
 
+import { TlsSearchBarComponent } from './components/tl-search-bar/tl-search-bar.component';
+import { TlChipViewComponent } from './views/components/tl-chip-view/tl-chip-view.component';
+import { TlChipsInputViewComponent } from './views/components/tl-chips-input-view/tl-chips-input-view.component';
+import { TlFormViewComponent } from './views/components/tl-form-view/tl-form-view.component';
+import { TlsAlertComponent } from './components/tl-alert/tl-alert.component';
+import { TlClickableIconViewComponent } from './views/components/tl-clickable-icon-view/tl-clickable-icon-view.component';
+import { TlTableComponent } from './components/tl-table/tl-table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +79,8 @@ import { TlIconTogglerViewComponent } from './views/components/tl-icon-toggler-v
     TlActiveImageViewComponent,
     TlButtonViewComponent,
     TlButtonTogglerViewComponent,
+    TlCalendarViewComponent,
+    TlDatePickerViewComponent,
     TlProgressBarViewComponent,
     TlIconMiniatureViewComponent,
     TlIconMiniatureTogglerViewComponent,
@@ -113,6 +125,15 @@ import { TlIconTogglerViewComponent } from './views/components/tl-icon-toggler-v
     TlTabPanelViewComponent,
     TlRaterViewComponent,
     TlIconTogglerViewComponent
+    TlsSearchBarComponent,
+
+    TlInputViewComponent,
+    TlChipViewComponent,
+    TlChipsInputViewComponent,
+    TlFormViewComponent,
+    TlsAlertComponent,
+    TlClickableIconViewComponent,
+    TlTableComponent
   ],
   imports: [
     BrowserModule,
