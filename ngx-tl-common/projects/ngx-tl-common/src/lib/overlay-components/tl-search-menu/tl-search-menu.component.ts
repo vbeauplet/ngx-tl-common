@@ -28,7 +28,7 @@ export class TlSearchMenuComponent implements OnInit {
   ngOnInit(): void {
     
     // Set configuration variables related to the choice of a search menu
-    document.documentElement.style.setProperty('--desktop-page-menu-padding-top', '40px');
+    document.documentElement.style.setProperty('--desktop-page-menu-padding-top', '60px');
     document.documentElement.style.setProperty('--mobile-page-menu-padding-top', '60px');
     document.documentElement.style.setProperty('--desktop-page-menu-padding-left', '30%');
     document.documentElement.style.setProperty('--mobile-page-menu-padding-left', '0px');

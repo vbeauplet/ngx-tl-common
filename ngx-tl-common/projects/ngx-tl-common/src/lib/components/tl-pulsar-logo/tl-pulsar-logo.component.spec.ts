@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TlSearchMenuComponent } from './tl-search-menu.component';
+import { PulsarLogoComponent } from './tl-pulsar-logo.component';
 
-describe('TlSearchMenuComponent', () => {
-  let component: TlSearchMenuComponent;
-  let fixture: ComponentFixture<TlSearchMenuComponent>;
+describe('PulsarLogoComponent', () => {
+  let component: PulsarLogoComponent;
+  let fixture: ComponentFixture<PulsarLogoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TlSearchMenuComponent ]
+      declarations: [ PulsarLogoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TlSearchMenuComponent);
+    fixture = TestBed.createComponent(PulsarLogoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -24,7 +24,7 @@
       [ngStyle]="{
           'padding-left': (i == 0)?(this.level*25+5) + 'px':'5px'
         }"
-      (click)="(i == 0 && this.hasChildren()) && $event.stopPropagation();(i == 0 && this.hasChildren()) && this.isUnfolded = !this.isUnfolded;">
+        (click)="(i == 0 && this.hasChildren() && !this.clickableWrapNode) && $event.stopPropagation();(i == 0 && this.hasChildren()) && this.isUnfolded = !this.isUnfolded;">
       
         <!-- Fold/Unfold indicator and button, in case this is the first column and it has unfiltered children -->        
         <tl-square-icon
@@ -101,6 +101,7 @@
       [detailsRowFieldName]="this.detailsRowFieldName"
       [gridTemplateColumns]="this.gridTemplateColumns"
       [clickable]="this.clickable"
+      [clickableWrapNode]="this.clickableWrapNode"
       [columns] ="this.columns"
       [level]="this.level + 1"
       (changeTreeValue)="this.onChangeChildTreeValue($event)"

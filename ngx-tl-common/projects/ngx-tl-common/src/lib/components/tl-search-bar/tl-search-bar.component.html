@@ -7,10 +7,10 @@
   (keydown.enter)="$event.stopPropagation();this.onPressEnter($event.target.value)">
     
 <tl-button
-  [icon]="'ô'"
+  [icon]="'tl-search'"
   [size]="50"
   [margin]="0"
-  [shape]="'square'"
+  [shape]="this.buttonShape"
   [tlStyle]="this.tlStyle"
   (clickButton)="this.onClickSearchButton()">
 </tl-button>

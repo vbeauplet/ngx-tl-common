@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'tl-text-stateful-button',
   host: { 
-      '[class]' : 'this.size + " " + this.tlStyle + " " + this.color + "-bg-element tl-clickable tl-top-margined tl-bottom-margined tl-padded tl-vert-center tl-hor-center tl-container-flex-block"',
+    '[class]' : 'this.size + " " + this.tlStyle + " " + this.color + "-bg-element tl-pushable tl-top-margined tl-bottom-margined tl-padded tl-vert-center tl-hor-center tl-container-flex-block"',
       '[class.disabled]' : 'this.disabled'
     },
   templateUrl: './tl-text-stateful-button.component.html',

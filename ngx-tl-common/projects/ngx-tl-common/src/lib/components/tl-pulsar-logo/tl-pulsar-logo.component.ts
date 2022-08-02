@@ -5,10 +5,10 @@ import { Component, OnInit, Input } from '@angular/core';
   host: { 
       'class' : 'tl-row-dir tl-hor-center tl-vert-center tl-no-wrap tl-flex-block',
     },
-  templateUrl: './pulsar-logo.component.html',
-  styleUrls: ['./pulsar-logo.component.css']
+  templateUrl: './tl-pulsar-logo.component.html',
+  styleUrls: ['./tl-pulsar-logo.component.scss']
 })
-export class PulsarLogoComponent implements OnInit {
+export class TlPulsarLogoComponent implements OnInit {
 
   /**
    * Pulsar logo size, in px

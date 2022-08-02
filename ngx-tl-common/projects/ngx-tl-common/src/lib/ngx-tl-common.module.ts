@@ -12,6 +12,9 @@ import { TlAlertTimelineComponent } from './components/tl-alert-timeline/tl-aler
 import { TlButtonComponent } from './components/tl-button/tl-button.component';
 import { TlButtonTogglerComponent } from './components/tl-button-toggler/tl-button-toggler.component';
 import { TlCalendarComponent } from './components/tl-calendar/tl-calendar.component';
+import { TlChipComponent } from './components/tl-chip/tl-chip.component';
+import { TlChipsInputComponent } from './components/tl-chips-input/tl-chips-input.component';
+import { TlClickableIconComponent } from './components/tl-clickable-icon/tl-clickable-icon.component';
 import { TlCardComponent } from './components/tl-card/tl-card.component';
 import { TlColorPickerComponent } from './components/tl-color-picker/tl-color-picker.component';
 import { TlDatePickerComponent } from './components/tl-date-picker/tl-date-picker.component';
@@ -31,6 +34,7 @@ import { TlMiniatureComponent } from './components/tl-miniature/tl-miniature.com
 import { TlNukiCardComponent } from './components/tl-nuki-card/tl-nuki-card.component';
 import { TlOutlinedActiveImageComponent } from './components/tl-outlined-active-image/tl-outlined-active-image.component';
 import { TlProgressBarComponent } from './components/tl-progress-bar/tl-progress-bar.component';
+import { TlPulsarLogoComponent } from './components/tl-pulsar-logo/tl-pulsar-logo.component';
 import { TlSearchBarComponent } from './components/tl-search-bar/tl-search-bar.component';
 import { TlShapeBlockComponent } from './components/tl-shape-block/tl-shape-block.component';
 import { TlSpinnerComponent } from './components/tl-spinner/tl-spinner.component';
@@ -59,8 +63,6 @@ import { TlClickOutsideDirective } from './directives/tl-click-outside.directive
 import { TlLongClickDirective } from './directives/tl-long-click.directive';
 import { TlRaterComponent } from './components/tl-rater/tl-rater.component';
 import { TlImageCardComponent } from './components/tl-image-card/tl-image-card.component';
-import { TlChipComponent } from './components/tl-chip/tl-chip.component';
-import { TlChipsInputComponent } from './components/tl-chips-input/tl-chips-input.component';
  
 
 @NgModule({ 
@@ -77,6 +79,7 @@ import { TlChipsInputComponent } from './components/tl-chips-input/tl-chips-inpu
     TlCardComponent,
     TlChipComponent,
     TlChipsInputComponent,
+    TlClickableIconComponent,
     TlColorPickerComponent,
     TlDatePickerComponent,
     TlFormComponent,
@@ -97,6 +100,7 @@ import { TlChipsInputComponent } from './components/tl-chips-input/tl-chips-inpu
     TlNukiCardComponent,
     TlOutlinedActiveImageComponent,
     TlProgressBarComponent,
+    TlPulsarLogoComponent,
     TlRaterComponent,
     TlSearchBarComponent,
     TlSelectComponent,
@@ -142,6 +146,7 @@ import { TlChipsInputComponent } from './components/tl-chips-input/tl-chips-inpu
     TlCardComponent,
     TlChipComponent,
     TlChipsInputComponent,
+    TlClickableIconComponent,
     TlColorPickerComponent,
     TlDatePickerComponent,
     TlFormComponent,
@@ -162,6 +167,7 @@ import { TlChipsInputComponent } from './components/tl-chips-input/tl-chips-inpu
     TlNukiCardComponent,
     TlOutlinedActiveImageComponent,
     TlProgressBarComponent,
+    TlPulsarLogoComponent,
     TlRaterComponent,
     TlSearchBarComponent,
     TlSelectComponent,

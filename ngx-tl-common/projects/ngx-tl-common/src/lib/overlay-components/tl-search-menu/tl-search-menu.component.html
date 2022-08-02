@@ -16,10 +16,14 @@
     {{ this.title }}
   </div>
   
-  <tl-tree
+  <ng-content>
+  </ng-content>
+
+    <tl-tree
     [size]="'tl-two-third'"
     [inMenu]="true"
     [clickable]="true"
+    [clickableWrapNode]="true"
     [data]="this.menuService.menuItems"
     [searchFieldName]="'label'"
     [selectionFieldName]="'id'"

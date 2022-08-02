@@ -50,7 +50,6 @@ import { UseAlertServiceViewComponent } from './views/alert/use-alert-service-vi
 import { TlAlertViewComponent } from './views/alert/tl-alert-view/tl-alert-view.component';
 import { TlPopupOverlayViewComponent } from './views/components/tl-popup-overlay-view/tl-popup-overlay-view.component';
 import { TlTreeViewComponent } from './views/components/tl-tree-view/tl-tree-view.component';
-import { TlImageCardComponent } from './components/tl-image-card/tl-image-card.component';
 import { TlImageCardViewComponent } from './views/components/tl-image-card-view/tl-image-card-view.component';
 import { BuildOwnMenuViewComponent } from './views/menu/build-own-menu-view/build-own-menu-view.component';
 import { TlTimelineCardViewComponent } from './views/components/tl-timeline-card-view/tl-timeline-card-view.component';
@@ -58,15 +57,6 @@ import { CssViewComponent } from './views/css/css-view/css-view.component';
 import { TlTabPanelViewComponent } from './views/components/tl-tab-panel-view/tl-tab-panel-view.component';
 import { TlRaterViewComponent } from './views/components/tl-rater-view/tl-rater-view.component';
 import { TlIconTogglerViewComponent } from './views/components/tl-icon-toggler-view/tl-icon-toggler-view.component';
-
-
-
-import { TlsSearchMenuComponent } from './components/tl-search-menu/tl-search-menu.component';
-import { TlsTreeComponent } from './components/tl-tree/tl-tree.component';
-import { TlsTextStatefulButtonComponent } from './components/tl-text-stateful-button/tl-text-stateful-button.component';
-import { TlsTreeNodeComponent } from './components/tl-tree/tl-tree.component';
-import { PulsarLogoComponent } from './components/pulsar-logo/pulsar-logo.component';
-import { TlClickableIconComponent } from './components/tl-clickable-icon/tl-clickable-icon.component';
 
 @NgModule({
   declarations: [
@@ -116,20 +106,13 @@ import { TlClickableIconComponent } from './components/tl-clickable-icon/tl-clic
     TlAlertViewComponent,
     TlPopupOverlayViewComponent,
     TlTreeViewComponent,
-    TlImageCardComponent,
     TlImageCardViewComponent,
     BuildOwnMenuViewComponent,
     TlTimelineCardViewComponent,
     CssViewComponent,
     TlTabPanelViewComponent,
     TlRaterViewComponent,
-    TlIconTogglerViewComponent,
-    TlsSearchMenuComponent,
-    TlsTreeComponent,
-    TlsTreeNodeComponent,
-    TlsTextStatefulButtonComponent,
-    PulsarLogoComponent,
-    TlClickableIconComponent
+    TlIconTogglerViewComponent
   ],
   imports: [
     BrowserModule,

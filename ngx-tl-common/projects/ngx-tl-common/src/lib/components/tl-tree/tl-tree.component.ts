@@ -117,6 +117,13 @@ export class TlTreeNodeComponent implements OnInit {
   @Input() clickable: boolean = false;
   
   /**
+   * Tells if wrap nodes (that have children and can be wrapped/unwrapped) can be clicked
+   * If set clickableWrapNode, the clickItem event is emitted everytime a wrap item is clicked
+   * False by defualt
+   */
+  @Input() clickableWrapNode: boolean = false;
+  
+  /**
    * Event emitted when changing a tree value (of an editable field)
    * Carried payload is an ITreeValue
    */
@@ -477,6 +484,13 @@ export class TlTreeComponent implements OnInit, OnChanges {
    * If clickable, the clickItem event is emitted everytime an item is clicked
    */
   @Input() clickable: boolean = false;
+  
+  /**
+   * Tells if wrap nodes (that have children and can be wrapped/unwrapped) can be clicked
+   * If set clickableWrapNode, the clickItem event is emitted everytime a wrap item is clicked
+   * False by defualt
+   */
+  @Input() clickableWrapNode: boolean = false;
   
   /**
    * Event emitted when changing a tree value (of an editable field)

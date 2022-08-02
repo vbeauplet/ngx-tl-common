@@ -6,7 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'tl-search-bar',
   host: { 
-    '[class]' : 'this.size + " tl-row-dir tl-hor-space-between tl-flex-block"'
+    '[class]' : 'this.size + " tl-row-dir tl-hor-space-between tl-no-wrap tl-flex-block"'
     },
   templateUrl: './tl-search-bar.component.html',
   styleUrls: ['./tl-search-bar.component.scss']
@@ -24,6 +24,11 @@ export class TlSearchBarComponent implements OnInit {
    * May be tl-neumorphic (default), tl-soft-transparent or tl-sharp-transparent. No other style is handled yet
    */
   @Input() tlStyle: string = 'tl-neumorphic'
+  
+  /**
+   * Button shape. May be 'square' or 'round'
+   */
+  @Input() buttonShape: string = 'square';
   
   /**
    * Search bar input placeholder
