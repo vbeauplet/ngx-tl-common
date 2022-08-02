@@ -392,9 +392,65 @@ export class AppComponent {
         },
         {
           id: 'css',
-          label: 'CSS Layout and Classes',
+          label: 'CSS Utility Classes',
           icon: 'a',
           route: '/css',
+          subItems: [
+              {
+                id: 'css-page',
+                label: 'Page',
+                route: '/css/pages',
+                icon: 'a'
+              },
+              {
+                id: 'css-box',
+                label: 'Flex Box',
+                route: '/css/boxes',
+                icon: 'a'
+              },
+              {
+                id: 'css-box-sizing',
+                label: 'Box Sizing',
+                route: '/css/box-sizing',
+                icon: 'a'
+              },
+              {
+                id: 'css-box-styling',
+                label: 'Box Styling',
+                route: '/css/box-styling',
+                icon: 'a'
+              },
+              {
+                id: 'css-box-spacing',
+                label: 'Box Spacing',
+                route: '/css/box-spacing',
+                icon: 'a'
+              },
+              {
+                id: 'css-title',
+                label: 'Title',
+                route: '/css/title',
+                icon: 'a'
+              },
+              {
+                id: 'css-text',
+                label: 'Text',
+                route: '/css/text',
+                icon: 'a'
+              },
+              {
+                id: 'css-color',
+                label: 'Color',
+                route: '/css/color',
+                icon: 'a'
+              },
+              {
+                id: 'css-screen-size',
+                label: 'Screen Size',
+                route: '/css/sreen-size',
+                icon: 'a'
+              }
+            ]
         },
         {
           id: 'contribute',

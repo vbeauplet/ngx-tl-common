@@ -1,3 +1,45 @@
+<tl-table
+  [size]="'tl-xbig'"
+  [data]="[
+      {
+        name: 'Valentin',
+        age: 22,
+        fact: 'cool'
+      },
+      {
+        name: 'Thuy',
+        age: 21,
+        fact: 'funny'
+      },
+      {
+        name: 'Merlin',
+        age: 2,
+        fact: 'baby'
+      }
+    ]"
+  [columns]="[
+      {
+        fieldName: 'name',
+        size: 2,
+        title: 'Name',
+        editable: false
+      },
+      {
+        fieldName: 'age',
+        size: 1,
+        title: 'Age',
+        editable: false
+      },
+      {
+        fieldName: 'fact',
+        size: 1,
+        title: 'Fact',
+        editable: false
+      }
+    ]">
+</tl-table>
+
+
 <div
   class="tl-xbig-bottom-margined tl-title tl-near-full"
   style="text-align:center">

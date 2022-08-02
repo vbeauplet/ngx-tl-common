@@ -75,6 +75,7 @@ import { TlChipsInputViewComponent } from './views/components/tl-chips-input-vie
 import { TlFormViewComponent } from './views/components/tl-form-view/tl-form-view.component';
 import { TlsAlertComponent } from './components/tl-alert/tl-alert.component';
 import { TlClickableIconViewComponent } from './views/components/tl-clickable-icon-view/tl-clickable-icon-view.component';
+import { TlTableComponent } from './components/tl-table/tl-table.component';
 
 @NgModule({
   declarations: [
@@ -145,7 +146,8 @@ import { TlClickableIconViewComponent } from './views/components/tl-clickable-ic
     TlChipsInputViewComponent,
     TlFormViewComponent,
     TlsAlertComponent,
-    TlClickableIconViewComponent
+    TlClickableIconViewComponent,
+    TlTableComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,31 @@
+<!-- Header row-->
+<div
+  class="table-row"
+  [ngStyle]="{
+      'grid-template-columns': this.gridTemplateColumns
+    }">
+  <div
+    *ngFor="let column of this.columns; let i = index">
+    <div 
+      class="table-cell tl-subsubtitle tl-clickable"
+      (click)="this.sort(column.fieldName)">
+      <b>{{ column.title }}</b>
+    </div>
+  </div>
+</div>
+
+<!-- Item tree rows -->
+<div
+  *ngFor="let item of this.data"
+  class="table-row"
+  [ngStyle]="{
+      'grid-template-columns': this.gridTemplateColumns
+    }">
+  <div
+    *ngFor="let column of this.columns">
+    <div 
+      class="table-cell">
+      {{ item[column.fieldName] }}
+    </div>
+  </div>
+</div>
