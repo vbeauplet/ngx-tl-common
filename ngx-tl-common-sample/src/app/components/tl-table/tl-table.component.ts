@@ -1,6 +1,20 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IColSpec } from 'ngx-tl-common/lib/components/tl-tree/tl-tree.component';
 import { Sorter } from './sorter';
+
+/**
+ * Column specification for the tree component.
+ * Provided column spec shall follow this interface
+ */
+export interface IColSpec {
+  fieldName: string;
+  title: string;
+  size: number // In fr;
+  editable: boolean;
+  editionType?: string; // May be toggler, select, input-text, date-picker
+  editionPlaceholder?: string[]; // String proposals in case of a select or input edition type
+  editionProposals?: any[]; // String proposals in case of a select edition type
+  editionIcon?: string;
+}
 
 @Component({
   selector: 'tl-table',
@@ -35,6 +49,16 @@ export class TlTableComponent implements OnInit {
    */
   @Input() columns: IColSpec[] = [];
 
+  /**
+   * Initial value content of the input
+   */
+  public _selectionMode: boolean = false;
+  @Input() set selectionMode(value: boolean) {
+     this._selectionMode = value;
+     if(this._selectionMode != undefined){
+       this.gridTemplateColumns = this.concatenateColumnSizes();
+     }
+  }
 
     /**
    * CSS grid property concatenated column sizes
@@ -51,8 +75,14 @@ export class TlTableComponent implements OnInit {
   /**
    * Concatenate the column size to compute the value of the grid-template-columns css property of a row
    */
-  public concatenateColumnSizes() {
+  public concatenateColumnSizes(): string {
+    
     let sizes: string = '';
+    
+    // If selection mode is one, add selection bullets
+    if(this._selectionMode){
+      sizes = '30px ';
+    }
     
     // Columns
     for (const colSpec of this.columns){
@@ -62,6 +92,9 @@ export class TlTableComponent implements OnInit {
     return sizes;
   }
   
+  /**
+   * Sorts data from a given property
+   */
   public sort(property: string){
     let sorter: Sorter = new Sorter();
     this.data.sort(sorter.startSort(property, 'asc'));

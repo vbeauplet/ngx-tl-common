@@ -29,4 +29,14 @@ export class HomeViewComponent implements OnInit {
      this.router.navigate(['/getting-started']);
     }, 1000);
   }
+  
+  
+  public selectionMode:boolean = false;
+   /**
+   * Handles click on the button
+   */
+  public onClickButton(){
+    this.selectionMode = ! this.selectionMode;
+  }
+    
 }

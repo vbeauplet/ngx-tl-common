@@ -4,6 +4,11 @@
   [ngStyle]="{
       'grid-template-columns': this.gridTemplateColumns
     }">
+    
+  <div
+    *ngIf="this._selectionMode">
+  </div>
+  
   <div
     *ngFor="let column of this.columns; let i = index">
     <div 
@@ -21,11 +26,78 @@
   [ngStyle]="{
       'grid-template-columns': this.gridTemplateColumns
     }">
+  
+  <!-- Selection checkmark -->
+  <tl-icon-toggler
+    *ngIf="this._selectionMode"
+    style="margin-top:4px;"
+    [size]="20"
+    [icon]="'ion-ellipse-outline'"
+    [iconOn]="'ion-checkmark-circle'"
+    [color]="'tl-success'">
+  </tl-icon-toggler>
+  
   <div
     *ngFor="let column of this.columns">
-    <div 
+    
+    <!-- If column is not editable, juste display value -->
+    <div
+      *ngIf="!column.editable"
       class="table-cell">
       {{ item[column.fieldName] }}
     </div>
+    
+    <!-- If column is editable -->
+    <ng-container
+      *ngIf="column.editable">
+      
+      <tl-toggler
+        *ngIf="column.editionType == 'toggler'"
+        [containerStyle]="'tl-soft-transparent'"
+        [buttonStyle]="'tl-sharp-transparent'"
+        [height]="25"
+        [margin]="0"
+        [size]="'tl-full'"
+        [onBgColor]="'tl-outline'"
+        [initialState]="item[column.fieldName]">
+      </tl-toggler>
+      
+      <tl-select
+        *ngIf="column.editionType == 'select'"
+        [placeholder]="column.editionPlaceholder"
+        [tlStyle]="'tl-soft-transparent'"
+        [size]="'tl-near-full'"
+        [textAlign]="'left'"
+        [optionPanelStyle]="'tl-outlined'"
+        [height]="'30px'"
+        [proposals]="column.editionProposals"
+        [initialSelectedProposal]="(item[column.fieldName] != undefined)?{name: item[column.fieldName]}:null">
+      </tl-select>
+      
+      <tl-input
+        *ngIf="column.editionType == 'input-text'"
+        style="display:block"
+        [size]="'tl-near-full'"
+        [tlStyle]="'tl-soft-transparent'"
+        [placeholder]="column.editionPlaceholder"
+        [initialValue]="item[column.fieldName]"
+        [icon]="(column.editionIcon == undefined)?undefined:column.editionIcon"
+        [height]="30">
+      </tl-input>
+      
+      <tl-date-picker
+        *ngIf="column.editionType == 'date-picker'"
+        style="display:block"
+        [size]="'tl-near-full'"
+        [tlStyle]="'tl-soft-transparent'"
+        [icon]="(column.editionIcon == undefined)?undefined:column.editionIcon"
+        [calendarStyle]="'tl-oulined'"
+        [calendarButtonStyle]="'tl-sharp-neumorphic'"
+        [placeholder]="column.editionPlaceholder"
+        [initialSelectedDate]="item[column.fieldName]"
+        [height]="30">
+      </tl-date-picker>
+          
+    </ng-container>
   </div>
 </div>

@@ -1,20 +1,40 @@
+<tl-button
+  [tlStyle]="'tl-neumorphic'"
+  [shape]="'round'"
+  [icon]="'ion-cog-outline'"
+  [label]="'Change Selection Mode'"
+  [labelPosition]="'Right'"
+  (clickButton)="this.onClickButton()">
+</tl-button>
+
 <tl-table
-  [size]="'tl-xbig'"
+  class="tl-big-margined"
+  [size]="'tl-near-full-responsive'"
+  [selectionMode]="this.selectionMode"
   [data]="[
       {
-        name: 'Valentin',
+        name: 'Valentin lorem abum imhet tocar tocu nivoc es la que el primo de la montaya tu te toque la cabeza',
         age: 22,
-        fact: 'cool'
+        fact: 'cool',
+        child: false,
+        sentence: 'Lorem Ipsum',
+        date: '24/08/2021'
       },
       {
         name: 'Thuy',
         age: 21,
-        fact: 'funny'
+        fact: 'funny',
+        child: false,
+        sentence: 'Ahmet',
+        date: ''
       },
       {
         name: 'Merlin',
         age: 2,
-        fact: 'baby'
+        fact: 'baby',
+        child: true,
+        sentence: '',
+        date: '24/08/2022'
       }
     ]"
   [columns]="[
@@ -32,9 +52,28 @@
       },
       {
         fieldName: 'fact',
-        size: 1,
+        size: 2,
         title: 'Fact',
-        editable: false
+        editable: true,
+        editionType: 'select',
+        editionPlaceholder: 'Pick one',
+        editionProposals: [{name: 'baby'}, {name: 'cool'}, {name: 'funny'}]
+      },
+      {
+        fieldName: 'child',
+        size: 1,
+        title: 'Is child',
+        editable: true,
+        editionType: 'toggler'
+      },
+      {
+        fieldName: 'sentence',
+        size: 2,
+        title: 'Sentence',
+        editable: true,
+        editionType: 'input-text',
+        editionPlaceholder: 'Sentence',
+        editionIcon: 'ion-call-outline'
       }
     ]">
 </tl-table>
