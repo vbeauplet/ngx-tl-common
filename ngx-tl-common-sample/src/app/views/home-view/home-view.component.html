@@ -8,9 +8,10 @@
 </tl-button>
 
 <tl-table
-  class="tl-big-margined"
+  class="tl-xbig-margined"
   [size]="'tl-near-full-responsive'"
   [selectionMode]="this.selectionMode"
+  [maxPerPage]="5"
   [data]="[
       {
         name: 'Valentin lorem abum imhet tocar tocu nivoc es la que el primo de la montaya tu te toque la cabeza',
@@ -35,6 +36,70 @@
         child: true,
         sentence: '',
         date: '24/08/2022'
+      },
+      {
+        name: 'Zahi',
+        age: 21,
+        fact: 'funny',
+        child: false,
+        sentence: 'Ahmet',
+        date: ''
+      },
+      {
+        name: 'Quentin',
+        age: 2,
+        fact: 'baby',
+        child: true,
+        sentence: '',
+        date: '24/08/2022'
+      },
+      {
+        name: 'Claire',
+        age: 26,
+        fact: 'baby',
+        child: true,
+        sentence: '',
+        date: '24/08/2022'
+      },
+      {
+        name: 'Tony',
+        age: 35,
+        fact: 'funny',
+        child: false,
+        sentence: 'Ahmet',
+        date: ''
+      },
+      {
+        name: 'Felix',
+        age: 4,
+        fact: 'baby',
+        child: true,
+        sentence: '',
+        date: '24/08/2022'
+      },
+      {
+        name: 'Morgane',
+        age: 35,
+        fact: 'baby',
+        child: true,
+        sentence: '',
+        date: '24/08/2022'
+      },
+      {
+        name: 'Alix',
+        age: 4,
+        fact: 'funny',
+        child: false,
+        sentence: 'Ahmet',
+        date: ''
+      },
+      {
+        name: 'Jolan',
+        age: 5,
+        fact: 'baby',
+        child: true,
+        sentence: '',
+        date: '24/08/2022'
       }
     ]"
   [columns]="[
@@ -48,7 +113,9 @@
         fieldName: 'age',
         size: 1,
         title: 'Age',
-        editable: false
+        editable: false,
+        contentHorizontalAlign: 'center',
+        contentVerticalAlign: 'center'
       },
       {
         fieldName: 'fact',
@@ -57,14 +124,18 @@
         editable: true,
         editionType: 'select',
         editionPlaceholder: 'Pick one',
-        editionProposals: [{name: 'baby'}, {name: 'cool'}, {name: 'funny'}]
+        editionProposals: [{name: 'baby'}, {name: 'cool'}, {name: 'funny'}],
+        contentHorizontalAlign: 'center',
+        contentVerticalAlign: 'center'
       },
       {
         fieldName: 'child',
         size: 1,
         title: 'Is child',
         editable: true,
-        editionType: 'toggler'
+        editionType: 'toggler',
+        contentHorizontalAlign: 'center',
+        contentVerticalAlign: 'center'
       },
       {
         fieldName: 'sentence',
@@ -73,7 +144,9 @@
         editable: true,
         editionType: 'input-text',
         editionPlaceholder: 'Sentence',
-        editionIcon: 'ion-call-outline'
+        editionIcon: 'ion-call-outline',
+        contentHorizontalAlign: 'center',
+        contentVerticalAlign: 'center'
       }
     ]">
 </tl-table>

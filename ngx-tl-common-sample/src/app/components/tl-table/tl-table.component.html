@@ -1,6 +1,6 @@
 <!-- Header row-->
 <div
-  class="table-row"
+  class="table-row header-row"
   [ngStyle]="{
       'grid-template-columns': this.gridTemplateColumns
     }">
@@ -8,21 +8,43 @@
   <div
     *ngIf="this._selectionMode">
   </div>
-  
-  <div
+   
+  <ng-container
     *ngFor="let column of this.columns; let i = index">
-    <div 
-      class="table-cell tl-subsubtitle tl-clickable"
-      (click)="this.sort(column.fieldName)">
-      <b>{{ column.title }}</b>
+    <div
+      *ngIf="!column.hide"
+      class="tl-row-dir tl-vert-center tl-flex-block">
+      
+      <div
+        class="tl-subsubtitle">
+        <b>{{ column.title }}</b>
+      </div>
+      
+      <tl-clickable-icon
+        [size]="20"
+        [icon]="'ion-arrow-up-outline'"
+        [iconOn]="'ion-arrow-up'"
+        [color]="'tl-outline'"
+        (click)="this.sort(column.fieldName, 'asc')">
+      </tl-clickable-icon>
+      
+      <tl-clickable-icon
+        [size]="20"
+        [icon]="'ion-arrow-down-outline'"
+        [iconOn]="'ion-arrow-down'"
+        [color]="'tl-outline'"
+        (click)="this.sort(column.fieldName, 'desc')">
+      </tl-clickable-icon>
+      
     </div>
-  </div>
+  </ng-container>
 </div>
 
 <!-- Item tree rows -->
 <div
-  *ngFor="let item of this.data"
+  *ngFor="let item of this.displayedData;let i=index"
   class="table-row"
+  [class.table-row-pair]="i%2 != 0"
   [ngStyle]="{
       'grid-template-columns': this.gridTemplateColumns
     }">
@@ -30,74 +52,197 @@
   <!-- Selection checkmark -->
   <tl-icon-toggler
     *ngIf="this._selectionMode"
-    style="margin-top:4px;"
     [size]="20"
     [icon]="'ion-ellipse-outline'"
     [iconOn]="'ion-checkmark-circle'"
     [color]="'tl-success'">
   </tl-icon-toggler>
   
-  <div
+  <ng-container
     *ngFor="let column of this.columns">
-    
-    <!-- If column is not editable, juste display value -->
+  
     <div
-      *ngIf="!column.editable"
-      class="table-cell">
-      {{ item[column.fieldName] }}
+      *ngIf="!column.hide"
+      class="tl-col-dir tl-flex-block"
+      [class.tl-hor-left]="column.contentHorizontalAlign == undefined || column.contentHorizontalAlign == 'left'"
+      [class.tl-hor-center]="column.contentHorizontalAlign == 'center'"
+      [class.tl-hor-right]="column.contentHorizontalAlign == 'right'"
+      [class.tl-vert-center]="column.contentVerticalAlign == 'center'"
+      [ngStyle]="{
+          'text-align': (column.contentTextAlign != undefined)?column.contentTextAlign:'initial'
+        }">
+      
+      
+      <!-- If column is not editable, juste display value -->
+      <div
+        *ngIf="!column.editable">
+        {{ item[column.fieldName] }}
+      </div>
+      
+      <!-- If column is editable -->
+      <ng-container
+        *ngIf="column.editable">
+        
+        <tl-toggler
+          *ngIf="column.editionType == 'toggler'"
+          [containerStyle]="'tl-soft-transparent'"
+          [buttonStyle]="'tl-sharp-transparent'"
+          [height]="25"
+          [margin]="0"
+          [size]="'tl-full'"
+          [onBgColor]="'tl-outline'"
+          [initialState]="item[column.fieldName]">
+        </tl-toggler>
+        
+        <tl-select
+          *ngIf="column.editionType == 'select'"
+          [placeholder]="column.editionPlaceholder"
+          [tlStyle]="'tl-soft-transparent'"
+          [size]="'tl-near-full'"
+          [textAlign]="'left'"
+          [optionPanelStyle]="'tl-shadowed'"
+          [height]="'30px'"
+          [proposals]="column.editionProposals"
+          [initialSelectedProposal]="(item[column.fieldName] != undefined)?{name: item[column.fieldName]}:null">
+        </tl-select>
+        
+        <tl-input
+          *ngIf="column.editionType == 'input-text'"
+          style="display:block"
+          [size]="'tl-near-full'"
+          [tlStyle]="'tl-soft-transparent'"
+          [placeholder]="column.editionPlaceholder"
+          [initialValue]="item[column.fieldName]"
+          [icon]="(column.editionIcon == undefined)?undefined:column.editionIcon"
+          [height]="30">
+        </tl-input>
+        
+        <tl-date-picker
+          *ngIf="column.editionType == 'date-picker'"
+          style="display:block"
+          [size]="'tl-near-full'"
+          [tlStyle]="'tl-soft-transparent'"
+          [icon]="(column.editionIcon == undefined)?undefined:column.editionIcon"
+          [calendarStyle]="'tl-oulined'"
+          [calendarButtonStyle]="'tl-sharp-neumorphic'"
+          [placeholder]="column.editionPlaceholder"
+          [initialSelectedDate]="item[column.fieldName]"
+          [height]="30">
+        </tl-date-picker>
+            
+      </ng-container>
+    </div>
+  </ng-container>
+</div>
+
+
+<!-- Table footer -->
+<div
+  class="footer-row tl-full tl-row-dir tl-hor-right tl-vert-center tl-flex-block">
+  
+  <tl-clickable-icon
+    class="action-item"
+    [size]="25"
+    [icon]="'ion-ellipsis-vertical-circle-outline'"
+    [iconOn]="'ion-ellipsis-vertical-circle'"
+    [color]="'tl-outline'"
+    [label]="'Enable/Disable Selection Mode'"
+    [labelSize]="'tl-small'"
+    [labelPosition]="'right'"
+    (click)="this.toggleSelectionMode(!this._selectionMode)">
+  </tl-clickable-icon>
+  
+  <tl-clickable-icon
+    class="action-item"
+    [size]="25"
+    [icon]="'ion-eye-off-outline'"
+    [iconOn]="'ion-eye-off'"
+    [color]="'tl-outline'"
+    [label]="'Show/Hide columns'"
+    [labelSize]="'tl-small'"
+    [labelPosition]="'right'"
+    (click)="this.displayColumnConfigurationPopup = true">
+  </tl-clickable-icon>
+  
+  <div
+    *ngIf="this.maxPerPage != undefined"
+    class="action-item tl-row-dir tl-vert-center tl-flex-block">
+    
+    <tl-clickable-icon
+      [class.tl-transparent]="this.currentPage == 1"
+      [size]="20"
+      [icon]="'ion-chevron-back-outline'"
+      [iconOn]="'ion-chevron-back'"
+      [color]="'tl-outline'"
+      (click)="this.paginate(this.currentPage - 1)">
+    </tl-clickable-icon>
+    
+    <div
+      class="tl-small-content">
+      Page {{ currentPage }}/{{ numberOfPages}}
     </div>
     
-    <!-- If column is editable -->
-    <ng-container
-      *ngIf="column.editable">
-      
-      <tl-toggler
-        *ngIf="column.editionType == 'toggler'"
-        [containerStyle]="'tl-soft-transparent'"
-        [buttonStyle]="'tl-sharp-transparent'"
-        [height]="25"
-        [margin]="0"
-        [size]="'tl-full'"
-        [onBgColor]="'tl-outline'"
-        [initialState]="item[column.fieldName]">
-      </tl-toggler>
-      
-      <tl-select
-        *ngIf="column.editionType == 'select'"
-        [placeholder]="column.editionPlaceholder"
-        [tlStyle]="'tl-soft-transparent'"
-        [size]="'tl-near-full'"
-        [textAlign]="'left'"
-        [optionPanelStyle]="'tl-outlined'"
-        [height]="'30px'"
-        [proposals]="column.editionProposals"
-        [initialSelectedProposal]="(item[column.fieldName] != undefined)?{name: item[column.fieldName]}:null">
-      </tl-select>
-      
-      <tl-input
-        *ngIf="column.editionType == 'input-text'"
-        style="display:block"
-        [size]="'tl-near-full'"
-        [tlStyle]="'tl-soft-transparent'"
-        [placeholder]="column.editionPlaceholder"
-        [initialValue]="item[column.fieldName]"
-        [icon]="(column.editionIcon == undefined)?undefined:column.editionIcon"
-        [height]="30">
-      </tl-input>
-      
-      <tl-date-picker
-        *ngIf="column.editionType == 'date-picker'"
-        style="display:block"
-        [size]="'tl-near-full'"
-        [tlStyle]="'tl-soft-transparent'"
-        [icon]="(column.editionIcon == undefined)?undefined:column.editionIcon"
-        [calendarStyle]="'tl-oulined'"
-        [calendarButtonStyle]="'tl-sharp-neumorphic'"
-        [placeholder]="column.editionPlaceholder"
-        [initialSelectedDate]="item[column.fieldName]"
-        [height]="30">
-      </tl-date-picker>
-          
-    </ng-container>
+    <tl-clickable-icon
+      [class.tl-transparent]="this.currentPage == this.numberOfPages"
+      [size]="20"
+      [icon]="'ion-chevron-forward-outline'"
+      [iconOn]="'ion-chevron-forward'"
+      [color]="'tl-outline'"
+      (click)="this.paginate(this.currentPage + 1)">
+    </tl-clickable-icon>
+    
   </div>
+  
 </div>
+
+
+
+<!-- Popup to set column state -->
+<tl-popup-overlay
+  [display]="this.displayColumnConfigurationPopup"
+  [tlStyle]="'tl-sharp-transparent'"
+  (close)="this.displayColumnConfigurationPopup = false">
+  
+  <tl-card
+    [tlStyle]="'tl-bodylike'"
+    [size]="'tl-two-third-responsive'"
+    [padding]="20">
+    
+    <div
+      class="tl-half-responsive tl-col-dir tl-hor-center tl-flex-block">
+      
+      <div
+        class="tl-subtitle tl-big-margined">
+        Show/Hide columns
+      </div>
+    
+      <div
+        class="tl-col-dir tl-hor-left tl-flex-block">
+    
+        <div
+          *ngFor="let column of this.columns"
+          class="tl-margined tl-row-dir tl-vert-center tl-flex-block">
+          
+          <tl-icon-toggler
+            [size]="30"
+            [icon]="'ion-eye-off-outline'"
+            [iconOn]="'ion-eye'"
+            [color]="'tl-success'"
+            [initialState]="!column.hide"
+            (toggle)="this.toggleColumnDisplay(column, $event)">
+          </tl-icon-toggler>
+          
+          <div
+            class="tl-margined">
+            {{ column.title }}
+          </div>
+          
+        </div>
+      
+      </div>
+      
+    </div>
+    
+  </tl-card>
+
+</tl-popup-overlay>

@@ -8,12 +8,16 @@ import { Sorter } from './sorter';
 export interface IColSpec {
   fieldName: string;
   title: string;
-  size: number // In fr;
+  size: number; // In fr;
+  contentHorizontalAlign?: string; // May be right, left or center. Left by default
+  contentVerticalAlign?: string; // May be top or center. Top buy default
+  contentTextAlign?: string; // CSS text align property for cell content. left by default
   editable: boolean;
   editionType?: string; // May be toggler, select, input-text, date-picker
   editionPlaceholder?: string[]; // String proposals in case of a select or input edition type
   editionProposals?: any[]; // String proposals in case of a select edition type
   editionIcon?: string;
+  hide?: boolean;
 }
 
 @Component({
@@ -27,9 +31,19 @@ export interface IColSpec {
 export class TlTableComponent implements OnInit {
 
   /**
-   * Table data: list of high level items which table is to be displayed
+   * Provided table data
    */
   @Input() data: any[] = [];
+  
+  /**
+   * Binded date Might be filter/sorted/... by user without affecting initial source data
+   */
+  @Input() bindedData: any[] = []
+  
+  /**
+   * Actually displayed data considering current page (pagination applied to bindedData)
+   */
+  @Input() displayedData: any[] = [];
   
   /**
    * Size of the table
@@ -54,20 +68,53 @@ export class TlTableComponent implements OnInit {
    */
   public _selectionMode: boolean = false;
   @Input() set selectionMode(value: boolean) {
-     this._selectionMode = value;
-     if(this._selectionMode != undefined){
-       this.gridTemplateColumns = this.concatenateColumnSizes();
-     }
+     this.toggleSelectionMode(value);
   }
+  
+  /**
+   * Max number of items per pages
+   * Let undefined if no pages
+   */
+  @Input() maxPerPage: number = undefined;
+  
+  /**
+   * Current page
+   */
+  public currentPage: number = 1;
+  
+  /**
+   * Number of pages, computed at pagination time
+   * Stay undefined if no pages
+   */
+  public numberOfPages: number = undefined;
 
     /**
    * CSS grid property concatenated column sizes
    */
   public gridTemplateColumns: string = '';
 
+  /**
+   * Flag to tell if column configuration popup shall be displayed
+   */
+  public displayColumnConfigurationPopup: boolean = false;
+
   constructor() {}
 
   ngOnInit() {
+    
+    // Initialize binded data
+    this.bindedData = [... this.data];
+    
+    // Paginate, if needed
+    this.paginate(1);
+    
+    // Set column 'hide' porperty if not done yet
+    for(let column of this.columns){
+      if(column.hide == undefined){
+        column.hide = false;
+      }
+    }
+    
     // Compute gridTemplateColumns at init time
     this.gridTemplateColumns = this.concatenateColumnSizes();
   }
@@ -85,19 +132,67 @@ export class TlTableComponent implements OnInit {
     }
     
     // Columns
-    for (const colSpec of this.columns){
-      sizes += ' ' + colSpec.size + 'fr';
+    for (const column of this.columns){
+      if(!column.hide){
+        sizes += ' ' + column.size + 'fr';
+      }
     }
     
     return sizes;
   }
   
   /**
+   * Set the displayedData from bindedData to fit selected page
+   */
+  public paginate(page: number){
+    
+    // If pagination is not enabled, displayed all binded data
+    if(this.maxPerPage == undefined){
+      this.displayedData = this.bindedData;
+    }
+    
+    
+    
+    // If pagination is enabled 
+    else{
+      
+      // Set current page
+      this.currentPage = page;
+      
+      // Compute number of pages and set 
+      this.numberOfPages = Math.ceil(this.bindedData.length /this.maxPerPage)
+      
+      // Display only items that fit page number
+      this.displayedData = [...this.bindedData.slice((page-1)*this.maxPerPage, page*this.maxPerPage)];
+    }
+    
+  }
+  
+  /**
    * Sorts data from a given property
    */
-  public sort(property: string){
+  public sort(property: string, direction: string){
     let sorter: Sorter = new Sorter();
-    this.data.sort(sorter.startSort(property, 'asc'));
+    this.bindedData.sort(sorter.startSort(property, direction));
+    this.paginate(this.currentPage);
+  }
+  
+  /**
+   * Toggles selection mode
+   */
+  public toggleSelectionMode(value: boolean){
+    this._selectionMode = value;
+    if(this._selectionMode != undefined){
+      this.gridTemplateColumns = this.concatenateColumnSizes();
+    }
+  }
+  
+  /**
+   * Toggles column display on of off
+   */
+  public toggleColumnDisplay(column: IColSpec, value: boolean){
+    column.hide = !value;
+    this.gridTemplateColumns = this.concatenateColumnSizes();
   }
 
 }

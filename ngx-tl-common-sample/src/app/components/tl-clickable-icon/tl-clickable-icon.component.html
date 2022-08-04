@@ -3,7 +3,7 @@
   [ngStyle]="{
       'width': this.size + 'px',
       'height': this.size + 'px',
-      'margin-bottom': '5px'
+      'margin-bottom': (this.label != undefined && this.labelPosition == 'bottom')?'5px':'0px'
     }">
   
   <tl-square-icon
@@ -23,6 +23,6 @@
 
 <div
   *ngIf="this.label != undefined"
-  [class]="'label ' + this.color + '-content-element'">
+  [class]="'label ' + this.color + '-content-element ' + this.labelSize + '-content'">
   {{ this.label }}
 </div>
