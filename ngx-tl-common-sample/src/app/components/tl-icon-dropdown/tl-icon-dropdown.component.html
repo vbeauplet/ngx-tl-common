@@ -1,0 +1,26 @@
+<!-- Icon from which dropdown is enabled-->
+<tl-clickable-icon
+  [size]="this.iconSize"
+  [icon]="this.icon"
+  [iconOn]="this.iconOn"
+  [color]="'tl-outline'"
+  (click)="(this.isActive)?this.closeDropdown:this.openDropdown()">
+</tl-clickable-icon>
+
+
+<!-- Selection block with options -->
+<div
+  *ngIf="this.isActive"
+  [class]="'dropdown-panel tl-col-dir ' + this.dropdownPanelStyle + ' tl-container-flex-block'"
+  [class.wrapped]="this.isWrapped"
+  [class.bottom-right]="this.dropdownPanelPosition == 'bottom-right'"
+  [class.bottom-left]="this.dropdownPanelPosition == 'bottom-left'"
+  [class.top-right]="this.dropdownPanelPosition == 'top-right'"
+  [class.top-left]="this.dropdownPanelPosition == 'top-left'"
+  (clickOutside)="this.closeDropdown()">
+  
+  <ng-content></ng-content>
+  
+</div>
+  
+  

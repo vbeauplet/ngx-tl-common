@@ -1,0 +1,38 @@
+:host{
+  position:relative;
+  overflow:visible;
+}
+
+.dropdown-panel{
+  position:absolute;
+  z-index:10;
+  box-sizing:border-box;
+  opacity:1;
+  transition: opacity ease-in-out 200ms,
+    top ease-in-out 200ms;
+}
+
+  .dropdown-panel.bottom-right{
+    top:calc(100% + 5px);
+    left:0px;
+  }
+  
+  .dropdown-panel.bottom-left{
+    top:calc(100% + 5px);
+    right:0px;
+  }
+  
+  .dropdown-panel.top-right{
+    bottom:calc(100% + 5px);
+    left:0px;
+  }
+  
+  .dropdown-panel.top-left{
+    bottom:calc(100% + 5px);
+    right:0px;
+  }
+  
+  .dropdown-panel.wrapped{
+    top:30%;
+    opacity:0;
+  }

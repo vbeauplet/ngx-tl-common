@@ -7,6 +7,14 @@
     
   <div
     *ngIf="this._selectionMode">
+    <tl-icon-dropdown
+      [dropdownPanelPosition]="'bottom-right'">
+      <div
+        [class]="'tl-small'">
+        I am tototooto<br/>
+        It is a good toto
+      </div>
+    </tl-icon-dropdown>
   </div>
    
   <ng-container
@@ -85,7 +93,7 @@
         
         <tl-toggler
           *ngIf="column.editionType == 'toggler'"
-          [containerStyle]="'tl-soft-transparent'"
+          [containerStyle]="this.formInputStyle"
           [buttonStyle]="'tl-sharp-transparent'"
           [height]="25"
           [margin]="0"

@@ -78,6 +78,27 @@ export class TlTableComponent implements OnInit {
   @Input() maxPerPage: number = undefined;
   
   /**
+   * Style of the form input containers (input, toggler, select, ...) in the tl-style system
+   */
+  @Input() formInputStyle: string = 'tl-soft-transparent';
+  
+  /**
+   * Style of the dropdowns used in the frame of this component
+   */
+  @Input() dropdownStyle: string = 'tl-shadowed';
+  
+  /**
+   * Style of the dropdowns used in the frame of this component
+   */
+  @Input() togglerButtonStyle: string = 'tl-sharp-transparent';
+  
+  /**
+   * Style of the dropdowns used in the frame of this component
+   */
+  @Input() popupCardStyle: string = 'tl-bodylike';
+  
+  
+  /**
    * Current page
    */
   public currentPage: number = 1;

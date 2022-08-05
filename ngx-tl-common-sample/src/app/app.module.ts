@@ -76,6 +76,7 @@ import { TlFormViewComponent } from './views/components/tl-form-view/tl-form-vie
 import { TlsAlertComponent } from './components/tl-alert/tl-alert.component';
 import { TlClickableIconViewComponent } from './views/components/tl-clickable-icon-view/tl-clickable-icon-view.component';
 import { TlTableComponent } from './components/tl-table/tl-table.component';
+import { TlIconDropdownComponent } from './components/tl-icon-dropdown/tl-icon-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -147,7 +148,8 @@ import { TlTableComponent } from './components/tl-table/tl-table.component';
     TlFormViewComponent,
     TlsAlertComponent,
     TlClickableIconViewComponent,
-    TlTableComponent
+    TlTableComponent,
+    TlIconDropdownComponent
   ],
   imports: [
     BrowserModule,
