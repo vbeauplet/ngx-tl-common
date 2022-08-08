@@ -53,7 +53,6 @@ export class TlIconDropdownComponent implements OnInit {
    * sequentially to handle transition
    */
   public closeDropdown(){
-    console.log('close dropdown');
     this.isWrapped = true;
     setTimeout(() => {
         this.isActive = false;
@@ -65,7 +64,6 @@ export class TlIconDropdownComponent implements OnInit {
    * sequentially to handle transition
    */
   public openDropdown(){
-    console.log('open dropdown');
     setTimeout(() => {
         this.isActive = true;
         setTimeout(() => {

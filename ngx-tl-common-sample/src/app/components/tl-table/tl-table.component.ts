@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Sorter } from './sorter';
+import { ITlNamedIcon } from 'ngx-tl-common';
 
 /**
  * Column specification for the tree component.
@@ -9,6 +10,7 @@ export interface IColSpec {
   fieldName: string;
   title: string;
   size: number; // In fr;
+  sortable?: boolean; // Tell if sortable. undefined means false
   contentHorizontalAlign?: string; // May be right, left or center. Left by default
   contentVerticalAlign?: string; // May be top or center. Top buy default
   contentTextAlign?: string; // CSS text align property for cell content. left by default
@@ -18,6 +20,24 @@ export interface IColSpec {
   editionProposals?: any[]; // String proposals in case of a select edition type
   editionIcon?: string;
   hide?: boolean;
+}
+
+/**
+ * Specification of a Selection action
+ */
+export interface ITlSelectionAction {
+  actionId: string,
+  selectedItems: any[]
+}
+
+
+/**
+ * Specification of a Table value
+ */
+export interface ITableValue{
+  item: any,
+  fieldName: string,
+  value: any
 }
 
 @Component({
@@ -93,9 +113,44 @@ export class TlTableComponent implements OnInit {
   @Input() togglerButtonStyle: string = 'tl-sharp-transparent';
   
   /**
+   * Button container ratio of the togglers
+   */
+  @Input() togglerButtonContainerRatio: number = 1;
+  
+  /**
    * Style of the dropdowns used in the frame of this component
    */
   @Input() popupCardStyle: string = 'tl-bodylike';
+  
+  /**
+   * Tells if rows can be clicked to be selected
+   */
+  @Input() clickRowToSelect: boolean = false;
+  
+  /**
+   * Actions avalaible at item selection stage
+   */
+  @Input() selectionActions: ITlNamedIcon[] = [];
+  
+  /**
+   * Loading status of the table in case a table processing shall be displayed to user via the table spinner
+   */
+  @Input() loadingStatus: number = -1;
+  
+  /**
+   * Events which is emitted when a table value is updated via a table input
+   */
+  @Output() changeValue: EventEmitter<ITableValue> = new EventEmitter<ITableValue>();
+  
+  /**
+   * Event hich is emitted when selection changes
+   */
+  @Output() select: EventEmitter<any[]> = new EventEmitter<any[]>();
+  
+  /**
+   * Event which is triggered in case of an action over selected items
+   */
+  @Output() actOnSelectedItems: EventEmitter<ITlSelectionAction> = new EventEmitter<ITlSelectionAction>();
   
   
   /**
@@ -118,6 +173,16 @@ export class TlTableComponent implements OnInit {
    * Flag to tell if column configuration popup shall be displayed
    */
   public displayColumnConfigurationPopup: boolean = false;
+  
+  /**
+   * Map of selection status for all items
+   */
+  public selectionMap: Map<any, boolean>  = new Map<any, boolean>();
+  
+  /**
+   * Current state of the 'clickRowToSelect' state
+   */
+  public currentClickRowToSelect: boolean = false;
 
   constructor() {}
 
@@ -138,6 +203,13 @@ export class TlTableComponent implements OnInit {
     
     // Compute gridTemplateColumns at init time
     this.gridTemplateColumns = this.concatenateColumnSizes();
+    
+    // Initialize currentClickRowToSelect state
+    this.currentClickRowToSelect = this.clickRowToSelect;
+    
+    // Initialize selection map
+    this.resetSelectionMap();
+    
   }
   
   /**
@@ -202,10 +274,31 @@ export class TlTableComponent implements OnInit {
    * Toggles selection mode
    */
   public toggleSelectionMode(value: boolean){
+    
+    // If same selection mode, do nothing
+    if(this._selectionMode == value){
+      return;
+    }
+    
+    // Else set the new selection mode
     this._selectionMode = value;
     if(this._selectionMode != undefined){
       this.gridTemplateColumns = this.concatenateColumnSizes();
     }
+    
+    // Handle the "clickableRowToSelect"
+    if(value){
+      this.currentClickRowToSelect = true;
+    }
+    else{
+      this.currentClickRowToSelect = this.clickRowToSelect;
+    }
+    
+    // Reset selection map if not in selection mode anymore
+    if(!value){
+      this.resetSelectionMap();
+    }
+    
   }
   
   /**
@@ -216,4 +309,71 @@ export class TlTableComponent implements OnInit {
     this.gridTemplateColumns = this.concatenateColumnSizes();
   }
 
+  /**
+   * Toggles the selection status of an item
+   */
+  public toggleSelectionStatus(item: any){
+    this.selectionMap.set(item, !this.selectionMap.get(item));
+    
+    // Emit select event
+    this.select.next(this.getSelectedItems());
+  }
+  
+  /**
+   * Resets selection map
+   */
+  public resetSelectionMap(){
+    for(let item of this.data){
+      this.selectionMap.set(item, false);
+    }
+  }
+  
+  public getSelectedItems(): any[]{
+    let selectedItems: any[] = [];
+    for(let entry of this.selectionMap.entries()){
+      if(entry[1]){
+        selectedItems.push(entry[0]);
+      }
+    }
+    return selectedItems;
+  }
+  
+  /**
+   * Handles click on a row
+   */
+  public onClickRow(item: any){
+    // Do nothing if not in selection mode and 'clickToSelect' flag set to false
+    if(!this._selectionMode && !this.clickRowToSelect){
+      return;
+    }
+    
+    // Toggle selection status of the item
+    this.toggleSelectionStatus(item);
+    
+    // Deal with selection mode
+    this.toggleSelectionMode(Array.from(this.selectionMap.values()).includes(true));
+  }
+  
+  /**
+   * Handles click on a selection action
+   */
+  public onClickSelectionActionProposal(selectionActionProposal: ITlNamedIcon){
+    
+    // Create corespondind selection action
+    
+    
+    // Emit corresponding event
+    this.actOnSelectedItems.next({
+        actionId: selectionActionProposal.name,
+        selectedItems: this.getSelectedItems()
+      });
+  }
+  
+  public onChangeValue(item: any, column: IColSpec, value: any){
+    this.changeValue.next({
+        item: item,
+        fieldName: column.fieldName,
+        value: value
+      });
+  } 
 }

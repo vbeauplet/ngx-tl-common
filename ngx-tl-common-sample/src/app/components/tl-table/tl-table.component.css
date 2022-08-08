@@ -11,9 +11,17 @@
   box-sizing:border-box;
 }
 
-.table-row-pair{
-  background-color:var(--transparent-bg-color);
-}
+  .table-row.clickable{
+    cursor:pointer;
+  }
+  
+    .table-row.clickable:hover{
+      background-color:var(--transparent-bg-color);
+    }
+
+  .table-row-pair{
+    background-color:var(--transparent-bg-color);
+  }
 
 .header-row{
   background-color:var(--sharp-transparent-bg-color);
@@ -21,7 +29,10 @@
   
   min-height:46px;
   margin-bottom:5px;
-  padding:10px;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:6px;
+  padding-right:6px;
   
   border-radius: 8px 8px 0px 0px;
 }
@@ -36,4 +47,8 @@
 
 .action-item{
   margin-left:10px;
+}
+
+.proposal:hover {
+  background-color: var(--sharp-transparent-bg-color);
 }

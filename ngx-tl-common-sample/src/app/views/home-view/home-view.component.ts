@@ -38,5 +38,8 @@ export class HomeViewComponent implements OnInit {
   public onClickButton(){
     this.selectionMode = ! this.selectionMode;
   }
-    
+  
+  public act(payload:any){
+    console.log(payload);
+  }
 }

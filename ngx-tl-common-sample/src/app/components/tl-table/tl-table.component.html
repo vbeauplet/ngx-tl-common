@@ -4,17 +4,51 @@
   [ngStyle]="{
       'grid-template-columns': this.gridTemplateColumns
     }">
-    
+  
+  
   <div
-    *ngIf="this._selectionMode">
+    *ngIf="this._selectionMode"
+    class="tl-col-dir tl-vert-center tl-hor-left tl-flex-block">
+    
     <tl-icon-dropdown
+      *ngIf="this.selectionActions.length != 0"
+      style="width:20px"
+      [icon]="'ion-ellipsis-vertical'"
+      [iconOn]="'ion-ellipsis-vertical'"
+      [iconSize]="20"
+      [dropdownPanelStyle]="this.dropdownStyle"
       [dropdownPanelPosition]="'bottom-right'">
+      
       <div
-        [class]="'tl-small'">
-        I am tototooto<br/>
-        It is a good toto
+        style="width:350px"
+        class="tl-col-dir tl-flex-block">
+        
+        <!-- Proposals -->
+        <div
+          *ngFor="let proposal of this.selectionActions"
+          class="proposal tl-no-br tl-clickable tl-full tl-padded tl-no-wrap tl-row-dir tl-hor-center tl-vert-center tl-flex-block"
+          (click)="this.onClickSelectionActionProposal(proposal)">
+          
+          <!-- Icon, if any -->
+          <tl-square-icon
+            *ngIf="proposal.icon != undefined"
+            [size]="20"
+            [icon]="proposal.icon"
+            style="margin-right:10px">
+          </tl-square-icon>
+          
+          <!-- Label -->
+          <div
+            class="proposal-text">
+            {{ proposal.name }}
+          </div>
+          
+        </div>
+        
       </div>
+      
     </tl-icon-dropdown>
+    
   </div>
    
   <ng-container
@@ -23,26 +57,35 @@
       *ngIf="!column.hide"
       class="tl-row-dir tl-vert-center tl-flex-block">
       
-      <div
-        class="tl-subsubtitle">
+      <div>
         <b>{{ column.title }}</b>
       </div>
       
-      <tl-clickable-icon
-        [size]="20"
-        [icon]="'ion-arrow-up-outline'"
-        [iconOn]="'ion-arrow-up'"
-        [color]="'tl-outline'"
-        (click)="this.sort(column.fieldName, 'asc')">
-      </tl-clickable-icon>
-      
-      <tl-clickable-icon
-        [size]="20"
-        [icon]="'ion-arrow-down-outline'"
-        [iconOn]="'ion-arrow-down'"
-        [color]="'tl-outline'"
-        (click)="this.sort(column.fieldName, 'desc')">
-      </tl-clickable-icon>
+      <div
+        style="margin-left:10px;"
+        class="tl-col-dir tl-flex-block">
+        
+        <tl-clickable-icon
+          *ngIf="column.sortable != undefined && column.sortable"
+          style="margin-bottom:-3px;"
+          [size]="16"
+          [icon]="'ion-chevron-up-outline'"
+          [iconOn]="'ion-chevron-up'"
+          [color]="'tl-outline'"
+          (click)="this.sort(column.fieldName, 'asc')">
+        </tl-clickable-icon>
+        
+        <tl-clickable-icon
+          *ngIf="column.sortable != undefined && column.sortable"
+          style="margin-top:-3px;"
+          [size]="16"
+          [icon]="'ion-chevron-down-outline'"
+          [iconOn]="'ion-chevron-down'"
+          [color]="'tl-outline'"
+          (click)="this.sort(column.fieldName, 'desc')">
+        </tl-clickable-icon>
+        
+      </div>
       
     </div>
   </ng-container>
@@ -52,10 +95,12 @@
 <div
   *ngFor="let item of this.displayedData;let i=index"
   class="table-row"
+  [class.clickable]="this.clickRowToSelect"
   [class.table-row-pair]="i%2 != 0"
   [ngStyle]="{
       'grid-template-columns': this.gridTemplateColumns
-    }">
+    }"
+  (click)="this.onClickRow(item)">
   
   <!-- Selection checkmark -->
   <tl-icon-toggler
@@ -63,7 +108,10 @@
     [size]="20"
     [icon]="'ion-ellipse-outline'"
     [iconOn]="'ion-checkmark-circle'"
-    [color]="'tl-success'">
+    [color]="'tl-success'"
+    [unclickable]="true"
+    [initialState]="this.selectionMap.get(item)"
+    [synchrone]="true">
   </tl-icon-toggler>
   
   <ng-container
@@ -94,35 +142,40 @@
         <tl-toggler
           *ngIf="column.editionType == 'toggler'"
           [containerStyle]="this.formInputStyle"
-          [buttonStyle]="'tl-sharp-transparent'"
+          [buttonStyle]="this.togglerButtonStyle"
+          [buttonContainerRatio]="this.togglerButtonContainerRatio"
           [height]="25"
           [margin]="0"
           [size]="'tl-full'"
           [onBgColor]="'tl-outline'"
-          [initialState]="item[column.fieldName]">
+          [initialState]="item[column.fieldName]"
+          (toggleOn)="this.onChangeValue(item, column, true)"
+          (toggleOff)="this.onChangeValue(item, column, true)">
         </tl-toggler>
         
         <tl-select
           *ngIf="column.editionType == 'select'"
           [placeholder]="column.editionPlaceholder"
-          [tlStyle]="'tl-soft-transparent'"
+          [tlStyle]="this.formInputStyle"
+          [optionPanelStyle]="this.dropdownStyle"
           [size]="'tl-near-full'"
           [textAlign]="'left'"
-          [optionPanelStyle]="'tl-shadowed'"
           [height]="'30px'"
           [proposals]="column.editionProposals"
-          [initialSelectedProposal]="(item[column.fieldName] != undefined)?{name: item[column.fieldName]}:null">
+          [initialSelectedProposal]="(item[column.fieldName] != undefined)?{name: item[column.fieldName]}:null"
+          (selectProposal)="this.onChangeValue(item, column, $event)">
         </tl-select>
         
         <tl-input
           *ngIf="column.editionType == 'input-text'"
           style="display:block"
           [size]="'tl-near-full'"
-          [tlStyle]="'tl-soft-transparent'"
+          [tlStyle]="this.formInputStyle"
           [placeholder]="column.editionPlaceholder"
           [initialValue]="item[column.fieldName]"
           [icon]="(column.editionIcon == undefined)?undefined:column.editionIcon"
-          [height]="30">
+          [height]="30"
+          (changeValue)="this.onChangeValue(item, column, $event)">
         </tl-input>
         
         <tl-date-picker
@@ -148,8 +201,15 @@
 <div
   class="footer-row tl-full tl-row-dir tl-hor-right tl-vert-center tl-flex-block">
   
+  <tl-spinner
+    style="margin-right:15px;"
+    [size]="18"
+    [loadingStatus]="this.loadingStatus">
+  </tl-spinner>
+  
   <tl-clickable-icon
     class="action-item"
+    style="margin-right:10px;"
     [size]="25"
     [icon]="'ion-ellipsis-vertical-circle-outline'"
     [iconOn]="'ion-ellipsis-vertical-circle'"
@@ -163,12 +223,9 @@
   <tl-clickable-icon
     class="action-item"
     [size]="25"
-    [icon]="'ion-eye-off-outline'"
-    [iconOn]="'ion-eye-off'"
+    [icon]="'ion-settings-outline'"
+    [iconOn]="'ion-settings'"
     [color]="'tl-outline'"
-    [label]="'Show/Hide columns'"
-    [labelSize]="'tl-small'"
-    [labelPosition]="'right'"
     (click)="this.displayColumnConfigurationPopup = true">
   </tl-clickable-icon>
   
@@ -212,7 +269,7 @@
   (close)="this.displayColumnConfigurationPopup = false">
   
   <tl-card
-    [tlStyle]="'tl-bodylike'"
+    [tlStyle]="this.popupCardStyle"
     [size]="'tl-two-third-responsive'"
     [padding]="20">
     

@@ -8,6 +8,8 @@
 
 .clickable-icon{
   position:absolute;
+  left:0px;
+  top:0px;
   transition: opacity ease-out 300ms;
 } 
   

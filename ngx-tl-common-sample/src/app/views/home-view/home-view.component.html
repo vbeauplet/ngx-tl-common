@@ -20,8 +20,13 @@
 <tl-table
   class="tl-xbig-margined"
   [size]="'tl-near-full-responsive'"
+  [formInputStyle]="'tl-soft-transparent'"
+  [togglerButtonStyle]="'tl-sharp-transparent'"
+  [dropdownStyle]="'tl-shadowed'"
+  [togglerButtonContainerRatio]="0.75"
   [selectionMode]="this.selectionMode"
   [maxPerPage]="5"
+  [clickRowToSelect]="true"
   [data]="[
       {
         name: 'Valentin lorem abum imhet tocar tocu nivoc es la que el primo de la montaya tu te toque la cabeza',
@@ -117,7 +122,8 @@
         fieldName: 'name',
         size: 2,
         title: 'Name',
-        editable: false
+        editable: false,
+        sortable: true
       },
       {
         fieldName: 'age',
@@ -125,7 +131,8 @@
         title: 'Age',
         editable: false,
         contentHorizontalAlign: 'center',
-        contentVerticalAlign: 'center'
+        contentVerticalAlign: 'center',
+        sortable: true
       },
       {
         fieldName: 'fact',
@@ -158,7 +165,18 @@
         contentHorizontalAlign: 'center',
         contentVerticalAlign: 'center'
       }
-    ]">
+    ]"
+  [selectionActions]="[
+      {
+        name: 'Edit member',
+        icon: 'ion-create-outline'
+      },
+      {
+        name: 'Delete member',
+        icon: 'ion-trash-outline'
+      }
+    ]"
+  (changeValue)="this.act($event)">
 </tl-table>
 
 
